@@ -5,6 +5,7 @@ L.Util.ajax('config.json').then(function(config){
     }
     map.addHash();
     var popupTemplate = Mustache.compile("<ul>{{#popup}}<li>{{title}}: {{value}}</li>{{/popup}}</ul>");
+
     var mq = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
 	    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 	    subdomains: '1234'
@@ -30,12 +31,14 @@ L.Util.ajax('config.json').then(function(config){
        Object.keys(config.attributes).forEach(function(key){
         if(Array.isArray(config.attributes[key].values)){
             config.attributes[key].values.forEach(function(value){
+              console.log("adding value " + value);
                 layers.addOverlay(L.geoJson(data,{onEachFeature:features,filter:function(feature){
                     return typeof feature.properties !== 'undefined' && feature.properties[key]===value;
                 }}).addTo(map),(config.attributes[key].title||key)+':'+value);
             })
         }else{
             layers.addOverlay(L.geoJson(data,{onEachFeature:features,filter:function(feature){
+                console.log("adding value -- " + feature.properties.LOCATION);
                 return typeof feature.properties !== 'undefined' && feature.properties[key];
             }}).addTo(map),config.attributes[key].title||key);
            }

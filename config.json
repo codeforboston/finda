@@ -2,14 +2,9 @@
     "center":[42.3725, -71.1266],
     "zoom":13,
     "attributes":{
-        "EditDate":{
-            "title":"last edited"
-        },
-        "LOCATION":{
-            "values":[
-                "650 Concord Ave",
-                "Lopez Ave at Charles St"
-            ]
-        }
+        "organization_name": { "values": true },
+        "address": { "values": true },
+        "web_url": { "values": true},
+        "phone_numbers": { "values": true}
     }
 }
