@@ -1,10 +1,13 @@
+
+
+
 L.Util.ajax('config.json').then(function(config){
-    var map = L.map('map');
+  var map = L.map('map');
     if (!location.hash) {
         map.setView(config.center, config.zoom);
     }
     map.addHash();
-    var popupTemplate = Mustache.compile("<ul>{{#popup}}<li>{{title}}: {{value}}</li>{{/popup}}</ul>");
+    var popupTemplate = Mustache.compile("<div>{{#popup}}<div id={{title}}>{{value}}</div id={{title}}>{{/popup}}</div>");
 
     var mq = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
 	    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -38,7 +41,7 @@ L.Util.ajax('config.json').then(function(config){
             })
         }else{
             layers.addOverlay(L.geoJson(data,{onEachFeature:features,filter:function(feature){
-                console.log("adding value -- " + feature.properties.LOCATION);
+                console.log("adding value -- " + feature.properties.address);
                 return typeof feature.properties !== 'undefined' && feature.properties[key];
             }}).addTo(map),config.attributes[key].title||key);
            }
