@@ -1,10 +1,19 @@
 {
     "center":[42.3725, -71.1266],
     "zoom":13,
-    "attributes":{
-        "organization_name": { "values": true },
-        "address": { "values": true },
-        "web_url": { "values": true},
-        "phone_numbers": { "values": true}
+    "properties":{
+        "organization_name": {},
+        "address": {},
+        "phone_numbers": {},
+        "web_url": { "title": "website", "url": true },
+
+        "contact_names": { "title": "Contacts" },
+        "contact_emails": { "title": "Email" },
+
+        "services_offered": { "title": "Services" },
+        "service_classes": { "title": "Type of Organization" },
+        "target_populations": { "title": "Populations Served" },
+
+        "additional_notes": {}
     }
 }
