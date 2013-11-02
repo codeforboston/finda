@@ -1,23 +1,25 @@
+'use strict';
 
-
-var popupTemplate = Mustache.compile("<div>hello</div>");
+//var popupTemplate = Mustache.compile("<div>hello</div>");
 
 //setup values for the popup
 var createPopup = function(configs, features) {
     console.log("creating popup");
     var values = [];
-    for(var key in config){
+    for(var key in configs){
         if(features[key]){
             values.push({
                 title: key,
-                value: feature[key]
+                value: features[key]
             })
         }
     }
-    return popupTemplate({popup:value});
+    console.log(values);
+    console.log(popupTemplate({popup:values}));
+    return popupTemplate({popup:values});
 }
 
-//var popupTemplate = Mustache.compile("<div>{{#popup}}<div id={{title}}>{{value}}</div id={{title}}>{{/popup}}</div>");
+var popupTemplate = Mustache.compile("<div>{{#popup}}<div id={{title}}>{{value}}</div id={{title}}>{{/popup}}</div>");
 
 console.log('loading config');
 L.Util.ajax('config.json').then(function(config){
@@ -38,10 +40,10 @@ L.Util.ajax('config.json').then(function(config){
     
         var features = function(feature, layer) {
             console.log("running feature function");
-            console.log(feature);
-            console.log(layer);
+            console.log(feature.properties.address);
+            //console.log(layer);
             if (config.properties && feature.properties) {
-                //layer.bindPopup(createPopup(config.properties, feature.properties));
+                layer.bindPopup(createPopup(config.properties, feature.properties));
             }
         };
         console.log(data);
