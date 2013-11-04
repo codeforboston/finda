@@ -1,7 +1,5 @@
 'use strict';
 
-//var popupTemplate = Mustache.compile("<div>hello</div>");
-
 //setup values for the popup
 var createPopup = function(configs, features) {
     console.log("creating popup");
@@ -44,7 +42,8 @@ var formatElement = function(element, configs) {
 
 var simpleTemplate = function(t, configs){
     console.log("simple template", t);
-    var template = Mustache.compile("{{text}}");
+    t = t.replace(/\n/g, '<br />');
+    var template = Mustache.compile("{{{text}}}");
     return template({"text":t});
 };
 var titleTemplate = function(title, text, configs){
