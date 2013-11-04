@@ -4,16 +4,16 @@
     "properties":{
         "organization_name": {},
         "address": {},
-        "phone_numbers": {},
         "web_url": { "title": "website", "url": true },
 
-        "contact_names": { "title": "Contacts" },
-        "contact_emails": { "title": "Email" },
+        "contact_names": { "title": "Contact Information" },
+        "contact_emails": {},
+        "phone_numbers": {},
 
         "services_offered": { "title": "Services" },
         "service_classes": { "title": "Type of Organization" },
         "target_populations": { "title": "Populations Served" },
 
-        "additional_notes": {}
+        "additional_notes": { "title": "Information"}
     }
 }

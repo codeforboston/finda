@@ -28,31 +28,34 @@ var formatElement = function(element, configs) {
     if (configs['url']) {
         console.log("url");
         var title = configs['title'] || "[link]";
-        return urlTemplate(title, element);
+        return urlTemplate(title, element, configs);
     }
     if (configs['title']) {
         console.log("title");
-        return titleTemplate(configs['title'], element);
+        return titleTemplate(configs['title'], element, configs);
     }
     if (Array.isArray(element)){
         console.log("array");
-        return listTemplate(element);
+        return listTemplate(element, configs);
     }
     console.log("simple");
-    return simpleTemplate(element);
+    return simpleTemplate(element, configs);
 };
 
-var simpleTemplate = function(t){
+var simpleTemplate = function(t, configs){
     console.log("simple template", t);
     var template = Mustache.compile("{{text}}");
     return template({"text":t});
 };
-var titleTemplate = function(title, text){
+var titleTemplate = function(title, text, configs){
     console.log("title template", title, text);
     var template = Mustache.compile("<div> <h4>{{title}}</h4> <div>{{{text}}}</div> </div>");
-    return template({"title":title, "text":simpleTemplate(text)});
+    return template({"title":title, "text":formatElement(text, {})});
 };
-var listTemplate = function(elements){
+var listTemplate = function(elements, configs){
+    if (elements.length == 1) {
+        return formatElement(elements[0], configs);
+    }
     console.log(elements);
     var vals = [];
     for (var i = 0; i < elements.length; i++){
@@ -64,7 +67,7 @@ var listTemplate = function(elements){
     var template = Mustache.compile("<ul> {{#list}} <li>{{{element}}}</li> {{/list}} <ul>");
     return template({"list":vals});
 };
-var urlTemplate = function(title, url){
+var urlTemplate = function(title, url, configs){
     console.log("url template", title, url);
     var template = Mustache.compile("<a href={{url}}>{{title}}</a>");
     return template({"title":title, "url":url});
