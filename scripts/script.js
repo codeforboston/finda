@@ -81,8 +81,8 @@ L.Util.ajax('config.json').then(function(config){
     }
     map.addHash();
 
-    var mq = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
-	    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    var mq = L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
+	    attribution: 'Tiles Courtesy of <a href="http://www.mapc.org/">Metropolitan Area Planning Council</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 	    subdomains: '1234'
     }).addTo(map);
 
