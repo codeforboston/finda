@@ -1,15 +1,19 @@
 {
     "center":[42.3725, -71.1266],
     "zoom":13,
-    "attributes":{
-        "EditDate":{
-            "title":"last edited"
-        },
-        "LOCATION":{
-            "values":[
-                "650 Concord Ave",
-                "Lopez Ave at Charles St"
-            ]
-        }
+    "properties":{
+        "organization_name": {},
+        "address": {},
+        "web_url": { "title": "website", "url": true },
+
+        "contact_names": { "title": "Contact Information" },
+        "contact_emails": {},
+        "phone_numbers": {},
+
+        "services_offered": { "title": "Services" },
+        "service_classes": { "title": "Type of Organization" },
+        "target_populations": { "title": "Populations Served" },
+
+        "additional_notes": { "title": "Information"}
     }
 }

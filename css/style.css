@@ -1,0 +1,8 @@
+
+/* custom css for leaflet popups */
+/* each item in your geojson properties object and config.json 
+   will be added in a div with id="key" and the text as the "value" field */
+
+#phone_numbers {font-style:italic}
+#address {font-style:italic}
+#organization_name {font-weight:bold}
