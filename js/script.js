@@ -26,15 +26,27 @@ L.Util.ajax('config.json').then(function(config){
     console.log('loading geojson');
     L.Util.ajax('data.geojson').then(function(data){
         //var layers = L.control.layers().addTo(map);
+
+        var onClick = function(e){
+            console.log("click");
+            zoomToElement(e);
+            fillInfobox(e);
+        };
+
+        var zoomToElement = function(e){
+            console.log(e);
+            map.panTo(e.latlng);
+        };
+
+        var fillInfobox = function(e){
+        };
     
         var bindPopup = function(feature, layer) {
             console.log("running feature function");
             console.log(feature.properties.address);
-            //layer.on({
-            //    mouseover: highlightFeature,
-            //    mouseout: resetHighlight,
-            //    click: zoomToFeature
-            //});
+            layer.on({
+                click: onClick
+            });
 
             //console.log(layer);
             if (config.properties && feature.properties) {
@@ -45,4 +57,10 @@ L.Util.ajax('config.json').then(function(config){
 
         L.geoJson(data, {onEachFeature: bindPopup}).addTo(map);
     });
+
+    map.addControl();
+
+    //use locate() to geolocate
 });
+
+
