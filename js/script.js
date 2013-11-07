@@ -27,21 +27,38 @@ L.Util.ajax('config.json').then(function(config){
     L.Util.ajax('data.geojson').then(function(data){
         //var layers = L.control.layers().addTo(map);
 
+        var info = L.control();
+
+        info.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            //this.update();
+            return this._div;
+        };
+
+        // method that we will use to update the control based on feature properties passed
+        info.update = function (featureProps) {
+            this._div.innerHTML = createPopup(config.properties, featureProps);
+        };
+
+        info.addTo(map);
+
+
+        //Click functions
         var onClick = function(e){
             console.log("click");
             zoomToElement(e);
             fillInfobox(e);
         };
-
         var zoomToElement = function(e){
             console.log(e);
             map.panTo(e.latlng);
         };
-
         var fillInfobox = function(e){
+            var layer = e.target;
+            info.update(layer.feature.properties)
         };
     
-        var bindPopup = function(feature, layer) {
+        var setupLayer = function(feature, layer) {
             console.log("running feature function");
             console.log(feature.properties.address);
             layer.on({
@@ -49,18 +66,18 @@ L.Util.ajax('config.json').then(function(config){
             });
 
             //console.log(layer);
-            if (config.properties && feature.properties) {
-                layer.bindPopup(createPopup(config.properties, feature.properties));
-            }
+            //if (config.properties && feature.properties) {
+            //    layer.bindPopup(createPopup(config.properties, feature.properties));
+            //}
         };
         console.log(data);
 
-        L.geoJson(data, {onEachFeature: bindPopup}).addTo(map);
+        L.geoJson(data, {onEachFeature: setupLayer}).addTo(map);
     });
-
-    map.addControl();
 
     //use locate() to geolocate
 });
+
+
 
 
