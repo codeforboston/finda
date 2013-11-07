@@ -1,6 +1,13 @@
 {
-    "center":[42.3725, -71.1266],
-    "zoom":13,
+    "map": {
+        "center":[42.3725, -71.1266],
+        "zoom":13,
+        "maxZoom":16,
+        "maxBounds":[
+            [41.0, -74.0],
+            [43.0, -69.5]
+        ]
+    },
     "properties":{
         "organization_name": {},
         "address": {},

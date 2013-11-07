@@ -3,17 +3,20 @@
 console.log('loading config');
 L.Util.ajax('config.json').then(function(config){
     var map = L.map('map');
-    if (!location.hash) {
-        map.setView(config.center, config.zoom);
+
+    if (config.map){
+        if (!location.hash) {
+            map.setView(config.map.center, config.map.zoom);
+        }
+        if (config.map.maxZoom){
+            map.options.maxZoom = config.map.maxZoom;
+        }
+        if (config.map.maxBounds){
+            //var bounds = L.LatLngBounds(config.map.maxBounds[0], config.map.maxBounds[1]);
+            map.setMaxBounds(config.map.maxBounds);
+        }
     }
     map.addHash();
-    if ("maxZoom" in config){
-        map.options.maxZoom = config.maxZoom;
-    }
-    if ("maxBounds" in config){
-        var bounds = L.LatLngBounds(config.maxBounds[0], config.maxBounds[1]);
-        map.options.maxBounds = bounds;
-    }
 
     var mq = L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {        
 	    attribution: 'Tiles Courtesy of <a href="http://mapc.org">MAPC</a> &mdash; Map data &copy; <a href="http://www.mass.gov/mgis/">MassGIS</a>',
