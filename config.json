@@ -18,7 +18,7 @@
         "phone_numbers": {},
 
         "services_offered": { "title": "Services" },
-        "service_classes": { "title": "Type of Organization" },
+        "youth_category": { "title": "Type of Organization" },
         "target_populations": { "title": "Populations Served" },
 
         "additional_notes": { "title": "Information"}
