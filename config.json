@@ -1,6 +1,13 @@
 {
-    "center":[42.3725, -71.1266],
-    "zoom":13,
+    "map": {
+        "center":[42.3725, -71.1266],
+        "zoom":13,
+        "maxZoom":16,
+        "maxBounds":[
+            [41.0, -74.0],
+            [43.0, -69.5]
+        ]
+    },
     "properties":{
         "organization_name": {},
         "address": {},
@@ -11,7 +18,7 @@
         "phone_numbers": {},
 
         "services_offered": { "title": "Services" },
-        "service_classes": { "title": "Type of Organization" },
+        "youth_category": { "title": "Type of Organization" },
         "target_populations": { "title": "Populations Served" },
 
         "additional_notes": { "title": "Information"}
