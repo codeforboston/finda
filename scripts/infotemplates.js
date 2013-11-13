@@ -19,6 +19,7 @@ var createPopup = function(configs, features) {
     return popupTemplate({popup:values});
 };
 
+
 var formatElement = function(element, configs) {
     //console.log("format element", element);
     if (configs['url']) {
@@ -38,17 +39,22 @@ var formatElement = function(element, configs) {
     return simpleTemplate(element, configs);
 };
 
+
 var simpleTemplate = function(t, configs){
     //console.log("simple template", t);
     t = t.replace(/\n/g, '<br />');
     var template = Handlebars.compile("{{{text}}}");
     return template({"text":t});
 };
+
+
 var titleTemplate = function(title, text, configs){
     //console.log("title template", title, text);
     var template = Handlebars.compile("<div> <h4>{{title}}</h4> <div>{{{text}}}</div> </div>");
     return template({"title":title, "text":formatElement(text, {})});
 };
+
+
 var listTemplate = function(elements, configs){
     if (elements.length == 1) {
         return formatElement(elements[0], configs);
@@ -64,6 +70,8 @@ var listTemplate = function(elements, configs){
     var template = Handlebars.compile("<ul> {{#list}} <li>{{{element}}}</li> {{/list}} <ul>");
     return template({"list":vals});
 };
+
+
 var urlTemplate = function(title, url, configs){
     //console.log("url template", title, url);
     var template = Handlebars.compile("<a href={{url}}>{{title}}</a>");

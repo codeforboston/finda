@@ -3,9 +3,9 @@
 /* each item in your geojson properties object and config.json 
    will be added in a div with id="key" and the text as the "value" field */
 
-#phone_numbers {font-style:italic}
-#address {font-style:italic}
-#organization_name {font-weight:bold}
+#phone_numbers     { font-style: italic; }
+#address           { font-style: italic; }
+#organization_name { font-weight:bold; }
 
 .info {
     padding: 6px 8px;
@@ -16,7 +16,8 @@
     border-radius: 5px;
     width: 300px;
 }
+
 .info h4 {
-    margin: 0 0 5px;
+    margin: 10px 0 5px 0;
     color: #777;
 }

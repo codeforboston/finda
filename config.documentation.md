@@ -1,24 +1,24 @@
-###Files:
+### Files:
 
-####data.geojson
+#### data.geojson
 
 * Match the geojson spec
 
 * A FeatureCollection with only Point geometries
 
-####config.geojson
+#### config.geojson
 
-* map: elements that control the basic map, mostly correspond to leaflet map options.
+* map: 
 
-  * center: center of the initial map location
+    * center: The center of the map when it first appears.
 
-  * zoom: zoom level
+    * zoom: The zoom level of the map when it first appears. In the northeast U.S., a zoom level of 8 is a region, 12 is a city, 15 is street detail.
 
-  * maxZoom: the maximum amount a user can zoom in
+    * maxZoom: How close the user can zoom in.
 
-  * maxBounds: bounds of a rectangle the user cannot zoom out of
+    * maxBounds: The limits of where the user can scroll on the map. The two coordinates are the northwest and southeast corners of the bounding box.
 
-* properties: how the properties element in each geojson feature should be displayed
+* properties: How the properties in each GeoJSON feature are displayed.
 
   * each key is the name of a property, their order is the order they will be displayed on the popup. if the field is empty (null, empty string, empty list) it will not be displayed.
 

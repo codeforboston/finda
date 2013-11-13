@@ -9,6 +9,7 @@ L.Util.ajax('config.json').then(function(config){
 
     console.log('loading geojson');
     L.Util.ajax('data.geojson').then(function(data){
+
         var info = makeInfoBox(config, map);
 
         var onClick = function(e){
@@ -32,9 +33,7 @@ var makeInfoBox = function(config, map){
     var info = L.control();
 
     info.onAdd = function (map) {
-        this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-        //this.update();
-        return this._div;
+        return this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
     };
 
     info.update = function (featureProps) {
@@ -43,7 +42,7 @@ var makeInfoBox = function(config, map){
 
     info.addTo(map);
 
-    return info
+    return info;
 }
 
 var makeBaseMap = function(config){
