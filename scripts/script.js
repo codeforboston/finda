@@ -1,7 +1,13 @@
 'use strict';
 
-//var unselectedIcon = L.Icon.Default;
-//var selectedIcon = L.Icon.Default;
+// define icon styles
+var grayIcon = L.icon({
+    iconUrl: "leaflet/images/marker-icon-gray.png"   
+});
+
+var defaultIcon = L.icon({
+    iconUrl: "leaflet/images/marker-icon.png"   
+});
 
 console.log('loading config');
 L.Util.ajax('config.json').then(function(config){
@@ -12,11 +18,19 @@ L.Util.ajax('config.json').then(function(config){
 
         var info = makeInfoBox(config, map);
 
+        var previouslyClicked;
+
         var onClick = function(e){
             map.panTo(e.latlng); //zoom to the clicked element
             info.update(e.target.feature.properties); //update infobox
-            //e.target.setIcon(selectedIcon);
-            console.log(e);
+            this.setIcon(grayIcon); // set the clicked marker to be gray
+
+            // reset the previously clicked marker
+            if(previouslyClicked){
+                previouslyClicked.setIcon(defaultIcon); 
+            }
+             
+            previouslyClicked = this;            
         };
     
         var setupFeature = function(feature, layer) {
