@@ -1,5 +1,8 @@
 'use strict';
 
+//var unselectedIcon = L.Icon.Default;
+//var selectedIcon = L.Icon.Default;
+
 console.log('loading config');
 L.Util.ajax('config.json').then(function(config){
     var map = makeBaseMap(config);
@@ -7,32 +10,40 @@ L.Util.ajax('config.json').then(function(config){
     console.log('loading geojson');
     L.Util.ajax('data.geojson').then(function(data){
 
-        //Add an infobox
-        var info = L.control();
-        info.onAdd = function (map) {
-            return this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-        };
-        info.update = function (featureProps) {
-            this._div.innerHTML = createPopup(config.properties, featureProps);
-        };
-        info.addTo(map);
+        var info = makeInfoBox(config, map);
 
         var onClick = function(e){
             map.panTo(e.latlng); //zoom to the clicked element
             info.update(e.target.feature.properties); //update infobox
+            //e.target.setIcon(selectedIcon);
+            console.log(e);
         };
     
         var setupFeature = function(feature, layer) {
-            console.log(feature.properties.address);
-            layer.on({
-                click: onClick
-            });
+            //console.log(feature.properties.address);
+            layer.on({ click: onClick });
         };
 
         L.geoJson(data, {onEachFeature: setupFeature}).addTo(map);
     });
-
 });
+
+
+var makeInfoBox = function(config, map){
+    var info = L.control();
+
+    info.onAdd = function (map) {
+        return this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    };
+
+    info.update = function (featureProps) {
+        this._div.innerHTML = createPopup(config.properties, featureProps);
+    };
+
+    info.addTo(map);
+
+    return info;
+}
 
 var makeBaseMap = function(config){
     var map = L.map('map');
@@ -48,7 +59,7 @@ var makeBaseMap = function(config){
             map.setMaxBounds(config.map.maxBounds);
         }
     }
-    map.addHash();
+    //map.addHash();
 
     var mq = L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {        
         attribution: 'Tiles Courtesy of <a href="http://mapc.org">MAPC</a> &mdash; Map data &copy; <a href="http://www.mass.gov/mgis/">MassGIS</a>',
