@@ -11,12 +11,13 @@ var defaultIcon = L.icon({
 
 console.log('loading config');
 L.Util.ajax('config.json').then(function(config){
-    var map = makeBaseMap(config);
+    var map = makeBaseMap(config.map);
 
     console.log('loading geojson');
     L.Util.ajax('data.geojson').then(function(data){
 
-        var info = makeInfoBox(config, map);
+        var info = makeInfoBox(config.properties, map);
+        var search = makeSearch(config.search, map);
 
         var previouslyClicked;
 
@@ -34,7 +35,7 @@ L.Util.ajax('config.json').then(function(config){
         };
     
         var setupFeature = function(feature, layer) {
-            //console.log(feature.properties.address);
+            console.log(feature.properties.address);
             layer.on({ click: onClick });
         };
 
@@ -46,31 +47,30 @@ L.Util.ajax('config.json').then(function(config){
 var makeInfoBox = function(config, map){
     var info = L.control();
 
-    info.onAdd = function (map) {
+    info.onAdd = function () {
         return this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
     };
 
     info.update = function (featureProps) {
-        this._div.innerHTML = createPopup(config.properties, featureProps);
+        this._div.innerHTML = createPopup(config, featureProps);
     };
 
     info.addTo(map);
-
-    return info;
+    return info
 }
 
 var makeBaseMap = function(config){
-    var map = L.map('map');
+    var map = L.map('map', {zoomControl: false});
 
-    if (config.map){
+    if (config){
         if (!location.hash) {
-            map.setView(config.map.center, config.map.zoom);
+            map.setView(config.center, config.zoom);
         }
-        if (config.map.maxZoom){
-            map.options.maxZoom = config.map.maxZoom;
+        if (config.maxZoom){
+            map.options.maxZoom = config.maxZoom;
         }
-        if (config.map.maxBounds){
-            map.setMaxBounds(config.map.maxBounds);
+        if (config.maxBounds){
+            map.setMaxBounds(config.maxBounds);
         }
     }
     //map.addHash();
@@ -82,6 +82,28 @@ var makeBaseMap = function(config){
 
     return map;
 }
+
+var makeSearch = function(config, map){
+    var search = L.control({position:'topleft'});
+    var searchDiv = L.DomUtil.create('div', 'search');
+    //searchElements = []
+
+    for (var key in config){
+        if (key == 'geosearch'){
+            var geoDiv = L.DomUtil.create('div', 'geosearch', searchDiv);
+            geoDiv.innerHTML = "<form id=\"searchForm\" action=\"/search\" method=\"GET\"> <input id=\"searchInput\" type=\"text\" name=\"term\" placeholder=\"Address/City/Zip\"> <input id=\"searchSubmit\" type=\"submit\" value=\"Locate\"> </form>"
+        }
+        //other search options
+    }
+
+    search.onAdd = function (){
+        return search._div = searchDiv;
+    }
+
+    search.addTo(map);
+    return search;
+}
+
 
 
 
