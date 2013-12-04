@@ -25,5 +25,11 @@
     },
     "search": {
         "geosearch": true
+    },
+    "facets": {
+        "services_offered": {
+            "title": "Services",
+            "type": "list"
+        }
     }
 }
