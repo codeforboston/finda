@@ -1,7 +1,13 @@
-
+@import url("../leaflet/leaflet.css");
+@import url("leaflet-search.css");
 /* custom css for leaflet popups */
-/* each item in your geojson properties object and config.json 
+/* each item in your geojson properties object and config.json
    will be added in a div with id="key" and the text as the "value" field */
+
+
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0;}
+#map { height: 100% }
 
 #phone_numbers     { font-style: italic; }
 #address           { font-style: italic; }
