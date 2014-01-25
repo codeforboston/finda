@@ -22,5 +22,14 @@
         "target_populations": { "title": "Populations Served" },
 
         "additional_notes": { "title": "Information"}
+    },
+    "search": {
+        "geosearch": true
+    },
+    "facets": {
+        "services_offered": {
+            "title": "Services",
+            "type": "list"
+        }
     }
 }

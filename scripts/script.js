@@ -11,12 +11,13 @@ var defaultIcon = L.icon({
 
 console.log('loading config');
 L.Util.ajax('config.json').then(function(config){
-    var map = makeBaseMap(config);
+    var map = makeBaseMap(config.map);
 
     console.log('loading geojson');
     L.Util.ajax('data.geojson').then(function(data){
 
-        var info = makeInfoBox(config, map);
+        var info = makeInfoBox(config.properties, map);
+        var search = makeGeoSearch(map);
 
         var previouslyClicked;
 
@@ -29,48 +30,84 @@ L.Util.ajax('config.json').then(function(config){
             if(previouslyClicked){
                 previouslyClicked.setIcon(defaultIcon); 
             }
-             
-            previouslyClicked = this;            
+
+            previouslyClicked = this;
         };
-    
+
         var setupFeature = function(feature, layer) {
-            //console.log(feature.properties.address);
+            console.log(feature.properties.address);
             layer.on({ click: onClick });
         };
 
-        L.geoJson(data, {onEachFeature: setupFeature}).addTo(map);
+        var geoLayer = L.geoJson(data, {onEachFeature: setupFeature}).addTo(map);
+        //var facet = makeFacetBox(config.facets, map, geoLayer)
+
     });
+
+    map.locate({setView: true, maxZoom: 14}); //geolocate on load
 });
 
+/*
+var makeFacetBox = function(config, map, data) {
+    facetCounts = {};
+
+    data.options.onEachFeature(function(feature, layer){
+        
+    });
+
+    var facet = L.control();
+    facet.setPosition("bottomleft");
+
+    facet.onAdd = function () {
+        return this._div = L.DomUtil.create('div', 'facet'); // create a div with a class "info"
+    };
+
+    facet.addTo(map);
+
+    return facet;
+}
+*/
+
+
+var makeGeoSearch = function(map){
+    var geosearch = new L.Control.GeoSearch({
+        provider: new L.GeoSearch.Provider.Google(),
+        position: 'topleft',
+        showMarker: false
+    })
+
+    geosearch.addTo(map);
+
+    return geosearch;
+}
 
 var makeInfoBox = function(config, map){
     var info = L.control();
 
-    info.onAdd = function (map) {
+    info.onAdd = function () {
         return this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
     };
 
     info.update = function (featureProps) {
-        this._div.innerHTML = createPopup(config.properties, featureProps);
+        this._div.innerHTML = createPopup(config, featureProps);
     };
 
     info.addTo(map);
-
-    return info;
+    return info
 }
 
 var makeBaseMap = function(config){
-    var map = L.map('map');
+    var map = L.map('map', {zoomControl: false});
 
-    if (config.map){
+    if (config){
         if (!location.hash) {
-            map.setView(config.map.center, config.map.zoom);
+            map.setView(config.center, config.zoom);
         }
-        if (config.map.maxZoom){
-            map.options.maxZoom = config.map.maxZoom;
+        if (config.maxZoom){
+            map.options.maxZoom = config.maxZoom;
         }
-        if (config.map.maxBounds){
-            map.setMaxBounds(config.map.maxBounds);
+        if (config.maxBounds){
+            map.setMaxBounds(config.maxBounds);
         }
     }
     //map.addHash();
@@ -82,7 +119,3 @@ var makeBaseMap = function(config){
 
     return map;
 }
-
-
-
-

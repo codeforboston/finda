@@ -17,6 +17,16 @@
     width: 300px;
 }
 
+.leaflet-control {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    width: 300px;
+}
+
 .info h4 {
     margin: 10px 0 5px 0;
     color: #777;
