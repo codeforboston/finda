@@ -84,3 +84,13 @@ If you do not have a hosting service, find and subscribe to one. [FatCow](http:/
 
 Once you have a service, upload all of the files to the root folder (sometimes referred to as just '/'), or upload the entire folder (you can delete the `examples` folder first) to the host and configure your domain name to point to that folder.
 
+## Development
+
+### Testing
+Finda comes with a small set of unittests that you can run with Karma.
+
+### Installing Karma
+    npm install -g karma
+
+### Running the tests
+    karma server # starts a server which automatically runs the tests

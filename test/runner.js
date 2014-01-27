@@ -1,7 +1,17 @@
 'use strict';
+var tests = [];
+for (var file in window.__karma__.files) {
+  if (window.__karma__.files.hasOwnProperty(file)) {
+    if (/_spec\.js$/.test(file)) {
+      tests.push(file);
+    }
+  }
+}
+
 require.config({
-  baseUrl: "scripts/",
+  baseUrl: "/base/scripts/",
   paths: {
+    "test": "../test",
     "jquery": "dependencies/jquery-1.10.2",
     "leaflet": "../leaflet/leaflet",
     "handlebars": "dependencies/handlebars",
@@ -25,13 +35,8 @@ require.config({
       deps: ['leaflet.control.geosearch'],
       exports: 'L'
     }
-  }
-});
+  },
 
-define(['jquery', 'main'], function($, main) {
-  $.getJSON("config.json", function(config) {
-    $.getJSON("data.geojson", function(data) {
-      main(config, data);
-    });
-  });
+  deps: tests,
+  callback: window.__karma__.start
 });
