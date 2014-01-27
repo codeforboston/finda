@@ -1,0 +1,20 @@
+{
+  "name": "finda",
+  "version": "0.0.0",
+  "description": "Generic 'find-a' app for geographic datasets",
+  "directories": {
+    "test": "test"
+  },
+ "devDependencies": {
+   "karma": "~0.10"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "https://github.com/codeforboston/filter-template.git",
+  "license": "BSD"
+}
