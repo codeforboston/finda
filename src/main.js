@@ -12,7 +12,7 @@ define(
       // define icon styles
       var path = L.Icon.Default.imagePath;
       if (!path) {
-        path = L.Icon.Default.imagePath = '/leaflet/images';
+        path = L.Icon.Default.imagePath = 'lib/leaflet/images';
       }
       grayIcon = L.icon({
         iconUrl: path + "/marker-icon-gray.png"

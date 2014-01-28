@@ -9,15 +9,15 @@ for (var file in window.__karma__.files) {
 }
 
 require.config({
-  baseUrl: "/base/scripts/",
+  baseUrl: "/base/src/",
   paths: {
     "test": "../test",
-    "jquery": "dependencies/jquery-1.10.2",
-    "leaflet": "../leaflet/leaflet",
-    "handlebars": "dependencies/handlebars",
-    "leaflet-search": "../leaflet/leaflet-search",
-    "leaflet.control.geosearch": "../leaflet/l.control.geosearch",
-    "leaflet.geosearch.provider.google": "../leaflet/l.geosearch.provider.google"
+    "jquery": "../lib/jquery-1.10.2",
+    "leaflet": "../lib/leaflet/leaflet",
+    "handlebars": "../lib/handlebars",
+    "leaflet-search": "../lib/leaflet/leaflet-search",
+    "leaflet.control.geosearch": "../lib/leaflet/l.control.geosearch",
+    "leaflet.geosearch.provider.google": "../lib/leaflet/l.geosearch.provider.google"
   },
   shim: {
     'handlebars': {

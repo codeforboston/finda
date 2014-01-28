@@ -14,18 +14,18 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: 'scripts/**/*.js', included: false},
-      {pattern: 'leaflet/*.js', included: false},
+      {pattern: 'src/**/*.js', included: false},
+      {pattern: 'lib/**/*.js', included: false},
       {pattern: 'test/*_spec.js', included: false},
       {pattern: 'test/mock.js', included: false},
-      {pattern: "leaflet/images/*", included: false},
+      {pattern: "lib/leaflet/images/*", included: false},
       'test/runner.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-      'scripts/script.js'
+      'src/script.js'
     ],
 
 

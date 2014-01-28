@@ -3,7 +3,7 @@ define(['main', 'leaflet', 'jquery', 'test/mock'], function(main, L, $, mock) {
   describe('Main', function() {
     var div, map;
     beforeEach(function() {
-      L.Icon.Default.imagePath = '/base/leaflet/images';
+      L.Icon.Default.imagePath = '/base/lib/leaflet/images';
       div = $("<div />").attr("id", "map").appendTo("body");
       map = main(mock.config, mock.data);
     });
