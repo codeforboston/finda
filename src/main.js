@@ -1,3 +1,4 @@
+'use strict';
 define(
   ['leaflet',
    'infotemplates',
@@ -15,11 +16,11 @@ define(
         path = L.Icon.Default.imagePath = 'lib/leaflet/images';
       }
       grayIcon = L.icon({
-        iconUrl: path + "/marker-icon-gray.png"
+        iconUrl: path + '/marker-icon-gray.png'
       });
 
       defaultIcon = L.icon({
-        iconUrl: path + "/marker-icon.png"
+        iconUrl: path + '/marker-icon.png'
       });
     };
 
@@ -75,9 +76,7 @@ define(
     var makeBaseMap = function(config){
       var map = L.map('map', {zoomControl: false});
 
-      if (!location.hash) {
-        map.setView(config.center, config.zoom);
-      }
+      map.setView(config.center, config.zoom);
       if (config.maxZoom){
         map.options.maxZoom = config.maxZoom;
       }
