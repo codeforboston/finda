@@ -17,7 +17,8 @@ require.config({
     "handlebars": "../lib/handlebars",
     "leaflet-search": "../lib/leaflet/leaflet-search",
     "leaflet.control.geosearch": "../lib/leaflet/l.control.geosearch",
-    "leaflet.geosearch.provider.google": "../lib/leaflet/l.geosearch.provider.google"
+    "leaflet.geosearch.provider.google": "../lib/leaflet/l.geosearch.provider.google",
+    "underscore": "../lib/lodash.underscore.min"
   },
   shim: {
     'handlebars': {
@@ -34,6 +35,9 @@ require.config({
     'leaflet.geosearch.provider.google': {
       deps: ['leaflet.control.geosearch'],
       exports: 'L'
+    },
+    'underscore': {
+      exports: '_'
     }
   },
 
