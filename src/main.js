@@ -3,9 +3,8 @@ define(
   ['leaflet',
    'infotemplates',
    'jquery',
-   'leaflet-search',
-   'leaflet.geosearch.provider.google'],
-  function(L, createPopup) {
+   'require'],
+  function(L, createPopup, $, require) {
 
     var grayIcon, defaultIcon;
 
@@ -46,15 +45,18 @@ define(
      */
 
     var makeGeoSearch = function(map){
-      var geosearch = new L.Control.GeoSearch({
-        provider: new L.GeoSearch.Provider.Google(),
-        position: 'topleft',
-        showMarker: false
-      });
-
-      geosearch.addTo(map);
-
-      return geosearch;
+      require(
+        ['leaflet-search',
+         'leaflet.geosearch.provider.google'],
+        function() {
+          var geosearch = new L.Control.GeoSearch({
+            provider: new L.GeoSearch.Provider.Google(),
+            position: 'topleft',
+            showMarker: false
+          });
+          
+          geosearch.addTo(map);
+        });
     };
 
     var makeInfoBox = function(config, map){
@@ -96,7 +98,10 @@ define(
       defineIconStyles();
       var map = makeBaseMap(config.map);
       var info = makeInfoBox(config.properties, map);
-      makeGeoSearch(map);
+      // only load geosearch if it's requested, since it doesn't work in IE8
+      if (config.search && config.search.geosearch) {
+        makeGeoSearch(map);
+      }
 
       // Leaflet doesn't keep track of these, but they're useful for testing
       map.layers = [];
