@@ -64,11 +64,13 @@ define(
 
       info.onAdd = function () {
         this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+        this.$div = $(this._div);
         return this._div;
       };
 
       info.update = function (featureProps) {
-        this._div.innerHTML = createPopup(config, featureProps);
+        var popup = createPopup(config, featureProps);
+        this.$div.empty().html(popup);
       };
 
       info.addTo(map);
