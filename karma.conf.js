@@ -9,16 +9,27 @@ module.exports = function(config) {
 
 
     // frameworks to use
-    frameworks: ['jasmine', 'requirejs'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
     files: [
+      'lib/es5-shim.min.js',
+      'lib/es5-sham.min.js',
+      'lib/jquery-1.10.2.js',
+
+      'test/lib/jasmine-jquery.js',
+      'test/lib/jasmine-flight.js',
+
+      // hack to load RequireJS after the shim libs
+      'lib/require.js',
+      'node_modules/karma-requirejs/lib/adapter.js',
+
       {pattern: 'src/**/*.js', included: false},
       {pattern: 'lib/**/*.js', included: false},
-      {pattern: 'test/*_spec.js', included: false},
+      {pattern: 'test/spec/*_spec.js', included: false},
       {pattern: 'test/mock.js', included: false},
-      {pattern: "lib/leaflet/images/*", included: false},
+      {pattern: 'lib/leaflet/images/*', included: false},
       'test/runner.js'
     ],
 
