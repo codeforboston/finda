@@ -2,7 +2,7 @@
 define(
   ['flight',
    'infotemplates'],
-  function(flight, createPopup) {
+  function(flight, templates) {
     var info = function() {
 
       this.configureInfo = function(ev, config) {
@@ -10,8 +10,8 @@ define(
       };
 
       this.update = function(ev, feature) {
-        var popup = createPopup(this.infoConfig,
-                                feature.properties);
+        var popup = templates.popup(this.infoConfig,
+                                    feature.properties);
         this.$node.empty().html(popup)
           .show();
       };
