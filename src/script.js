@@ -27,8 +27,7 @@ define(
   function(Loader, Map, Search, Info) {
     // attach components to the DOM
     Map.attachTo('#map');
-    Search.attachTo('#search', {mapSelector: '#map',
-                                searchSelector: '.address'});
+    Search.attachTo('#search', {mapSelector: '#map'});
     Info.attachTo('#info');
     Loader.attachTo(document);
   });

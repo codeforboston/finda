@@ -5,6 +5,12 @@ define(
    'flight'],
   function(L, $, flight) {
     var map = function () {
+      this.defaultAttrs({
+        tileUrl: 'http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
+        tileSubdomains: '1234',
+        tileAttribution: 'Tiles Courtesy of <a href="http://mapc.org">MAPC</a> &mdash; Map data &copy; <a href="http://www.mass.gov/mgis/">MassGIS</a>'
+      });
+
       this.defineIconStyles = function() {
         // define icon styles
         var path = L.Icon.Default.imagePath;
@@ -69,9 +75,9 @@ define(
 
         this.layers = [];
 
-        L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
-          attribution: 'Tiles Courtesy of <a href="http://mapc.org">MAPC</a> &mdash; Map data &copy; <a href="http://www.mass.gov/mgis/">MassGIS</a>',
-          subdomains: '1234'
+        L.tileLayer(this.attr.tileUrl, {
+          attribution: this.attr.tileAttribution,
+          subdomains: this.attr.tileSubdomains
         }).addTo(this.map);
 
         this.on(document, 'config', this.configureMap);

@@ -4,6 +4,9 @@ define(
   ['flight'],
   function(flight) {
     var search = function() {
+      this.defaultAttrs({
+        searchSelector: 'input'
+      });
       this.configureSearch = function(ev, config) {
         if (config.search && config.search.geosearch) {
           this.geocoder = new google.maps.Geocoder();
