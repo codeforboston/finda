@@ -1,9 +1,8 @@
 /*global google*/
 'use strict';
 define(
-  ['flight',
-   'underscore'],
-  function(flight, _) {
+  ['flight'],
+  function(flight) {
     var search = function() {
       this.configureSearch = function(ev, config) {
         if (config.search && config.search.geosearch) {
