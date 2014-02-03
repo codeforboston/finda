@@ -1,4 +1,4 @@
-# Finda
+# Finda [![Build Status](https://travis-ci.org/codeforboston/filter-template.png)](https://travis-ci.org/codeforboston/filter-template)
 
 _You have data with locations. Share it with the world._
 
