@@ -52,13 +52,13 @@ define(
 
       this.emitClick = function(e) {
         this.trigger(document, 'selectFeature', e.target.feature);
-        var previouslyClicked = e.target.previouslyClicked;
-        if (previouslyClicked) {
-          e.target.setIcon(this.defaultIcon);
-        } else {
-          e.target.setIcon(this.grayIcon);
+        
+        if (this.previouslyClicked) {
+          this.previouslyClicked.setIcon(this.defaultIcon);
         }
-        e.target.previouslyClicked = !previouslyClicked;
+
+        e.target.setIcon(this.grayIcon);
+        this.previouslyClicked = e.target;
       };
 
       this.selectFeature = function(ev, feature) {

@@ -54,11 +54,19 @@ define(['leaflet', 'test/mock'], function(L, mock) {
         expect(icon.attr('src')).toMatch(/marker-icon-gray\.png$/);
       });
 
+      it('turns the previously clicked icon back to the default', function() {
+        this.component.layers[1].fireEvent('click', {
+          latlng: this.component.layers[1]._latlng
+        });
+        var icon = this.component.$node.find('.leaflet-marker-icon:first');
+        expect(icon.attr('src')).toMatch(/marker-icon\.png$/);
+      });
+
       it('sends a selectFeature event', function() {
         expect('selectFeature').toHaveBeenTriggeredOnAndWith(
           document,
           this.component.layers[0].feature);
-      });
+      });      
     });
   });
 });
