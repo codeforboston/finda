@@ -1,18 +1,33 @@
 /*global google*/
 'use strict';
 define(
-  ['flight'],
-  function(flight) {
+  ['flight',
+   'jquery'],
+  function(flight, $) {
     var search = function() {
       this.defaultAttrs({
         searchSelector: 'input'
       });
       this.configureSearch = function(ev, config) {
         if (config.search && config.search.geosearch) {
-          this.geocoder = new google.maps.Geocoder();
+          window.googleMapsApiLoaded = this.googleMapsApiLoaded.bind(this);
           this.maxBounds = config.map.maxBounds;
-          this.$node.show();
+          this.addGoogleScript();
         }
+      };
+
+      this.addGoogleScript = function() {
+        // separate function so we can mock it for testing
+        this.script = $('<script />')
+          .attr('type', 'text/javascript')
+            .attr('src', 'http://maps.google.com/maps/api/js?sensor=false&callback=googleMapsApiLoaded');
+        this.script.appendTo('head');
+      };
+
+      this.googleMapsApiLoaded = function() {
+        this.script.remove();
+        this.geocoder = new google.maps.Geocoder();
+        this.$node.show();
       };
 
       this.search = function(ev) {

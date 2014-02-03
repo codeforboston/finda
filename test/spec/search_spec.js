@@ -6,6 +6,7 @@ define(['jquery'], function($) {
                      {searchSelector: 'input',
                       mapSelector: 'div'});
       spyOnEvent('div', 'panTo');
+      spyOn(this.component, 'addGoogleScript');
 
       window.google = {maps: jasmine.createSpyObj(
         'maps', ['Geocoder', 'LatLng', 'LatLngBounds'])};
@@ -15,13 +16,34 @@ define(['jquery'], function($) {
     });
 
     afterEach(function() {
-      window.google = null;
+      window.google = undefined;
     });
 
-    it('configuration sets up local values', function() {
-      $(document).trigger('config', this.config);
-      expect(window.google.maps.Geocoder).toHaveBeenCalledWith();
-      expect(this.component.maxBounds).toEqual(this.config.map.maxBounds);
+    describe('configuration sets up local values and adds a script', function() {
+      beforeEach(function() {
+        $(document).trigger('config', this.config);
+      });
+      it('sets up local values', function() {
+        expect(this.component.maxBounds).toEqual(this.config.map.maxBounds);
+      });
+      it('adds a google maps script', function() {
+        expect(this.component.addGoogleScript).toHaveBeenCalledWith();
+        expect(window.googleMapsApiLoaded).toEqual(jasmine.any(Function));
+      });
+    });
+
+    describe('googleMapsApiLoaded', function() {
+      beforeEach(function() {
+        this.component.script = jasmine.createSpyObj('DOM', ['remove']);
+        this.component.googleMapsApiLoaded();
+      });
+      it('removes the script', function() {
+        expect(this.component.script.remove).toHaveBeenCalledWith();
+      });
+      it('creates the geocoder object', function() {
+        expect(this.component.geocoder).toBeDefined();
+        expect(window.google.maps.Geocoder).toHaveBeenCalledWith();
+      });
     });
 
     describe('form submission', function() {
