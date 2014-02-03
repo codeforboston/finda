@@ -67,7 +67,7 @@ define(
       };
 
       this.panTo = function(ev, latlng) {
-        this.map.setView(latlng, this.map.options.maxZoom);
+        this.map.panTo(latlng);
       };
 
       this.after('initialize', function() {

@@ -25,14 +25,14 @@ define(['leaflet', 'test/mock'], function(L, mock) {
 
     describe('panning', function() {
       beforeEach(function() {
-        spyOn(this.component.map, 'setView');
+        spyOn(this.component.map, 'panTo');
       });
       it('panTo goes to the lat/lng with maximum zoom', function() {
         var latlng = {lat: 1, lng: 2};
         this.component.trigger('config', mock.config);
         this.component.trigger('panTo', latlng);
-        expect(this.component.map.setView).toHaveBeenCalledWith(
-          latlng, mock.config.map.maxZoom);
+        expect(this.component.map.panTo).toHaveBeenCalledWith(
+          latlng);
       });
     });
 
