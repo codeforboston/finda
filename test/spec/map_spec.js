@@ -66,7 +66,7 @@ define(['leaflet', 'test/mock'], function(L, mock) {
         expect('selectFeature').toHaveBeenTriggeredOnAndWith(
           document,
           this.component.layers[0].feature);
-      });      
+      });
     });
   });
 });
