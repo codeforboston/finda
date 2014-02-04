@@ -3,11 +3,11 @@ define(
   ['handlebars', 'underscore'],
   function(Handlebars, _) {
     var templates = {
-      url: Handlebars.compile('<a href={{url}}>{{title}}</a>'),
-      title: Handlebars.compile('<div><h4>{{title}}</h4><div>{{{text}}}</div></div>'),
-      list: Handlebars.compile('<ul> {{#list}} <li>{{{this}}}</li> {{/list}} <ul>'),
-      simple: Handlebars.compile('{{{text}}}'),
-      popup: Handlebars.compile('<div>{{#popup}}<div id="{{div_id}}">{{{value}}}</div>{{/popup}}</div>')
+      url: Handlebars.compile('<a href="{{url}}">{{title}}</a>'),
+      title: Handlebars.compile('<div><h4>{{title}}</h4><div>{{{rendered}}}</div></div>'),
+      list: Handlebars.compile('<ul> {{#list}} <li>{{{this}}}</li> {{/list}} </ul>'),
+      simple: Handlebars.compile('{{text}}'),
+      popup: Handlebars.compile('<div>{{#popup}}<div id="{{div_id}}">{{{rendered}}}</div>{{/popup}}</div>')
     },
         formatters = {
           url: function(value, property) {
@@ -18,7 +18,7 @@ define(
 
           title: function(value, property) {
             return templates.title({title: property.title,
-                                    text: format(value)});
+                                    rendered: format(value)});
           },
 
           list: function(value, property) {
@@ -33,8 +33,8 @@ define(
           },
 
           simple: function(value) {
-            value = value.replace(/\n/g, '<br />');
-            return templates.simple({text: value});
+            return templates.simple({text: value}).replace(
+                /\n/g, '<br>');
           }
         },
 
@@ -53,20 +53,22 @@ define(
           // apply the discovered formatter to the data
           return formatters[formatter](value, property);
         };
-
-    return function(properties, feature) {
-      var popup = [],
-          rendered;
-      _.each(properties, function(property, key) {
-        var value = feature[key];
-        rendered = format(value, property);
-        if (rendered) {
-          popup.push({
-            div_id: key,
-            value: rendered
-          });
-        }
-      });
-      return templates.popup({popup: popup});
+    
+    return {
+      popup: function(properties, feature) {
+        var popup = [],
+            rendered;
+        _.each(properties, function(property, key) {
+          var value = feature[key];
+          rendered = format(value, property);
+          if (rendered) {
+            popup.push({
+              div_id: key,
+              rendered: rendered
+            });
+          }
+        });
+        return templates.popup({popup: popup});
+      }
     };
   });

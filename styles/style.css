@@ -1,5 +1,4 @@
 @import url("../lib/leaflet/leaflet.css");
-@import url("../lib/leaflet/leaflet-search.css");
 /* custom css for leaflet popups */
 /* each item in your geojson properties object and config.json
    will be added in a div with id="key" and the text as the "value" field */
@@ -7,13 +6,17 @@
 
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 0;}
-#map { height: 100% }
+#map {
+  height: 100%;
+  z-index: 1;
+}
 
 #phone_numbers     { font-style: italic; }
 #address           { font-style: italic; }
 #organization_name { font-weight:bold; }
 
-.info {
+.control {
+    z-index: 2;
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
     background: white;
@@ -21,19 +24,31 @@ body { height: 100%; margin: 0; padding: 0;}
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
     width: 300px;
+    display: none;
 }
 
-.leaflet-control {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    width: 300px;
+#search {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
-.info h4 {
+#search input {
+  width: 295px;
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    max-height: 90%;
+    overflow-y: scroll;
+}
+
+#info > div {
+}
+
+#info h4 {
     margin: 10px 0 5px 0;
     color: #777;
 }
