@@ -20,7 +20,7 @@ define(
         // separate function so we can mock it for testing
         this.script = $('<script />')
           .attr('type', 'text/javascript')
-            .attr('src', 'http://maps.google.com/maps/api/js?sensor=false&callback=googleMapsApiLoaded');
+            .attr('src', '//maps.google.com/maps/api/js?sensor=false&callback=googleMapsApiLoaded');
         this.script.appendTo('head');
       };
 
