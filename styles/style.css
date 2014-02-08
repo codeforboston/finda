@@ -1,11 +1,26 @@
 @import url("../lib/leaflet/leaflet.css");
+@import url("../lib/bootstrap.min.css");
 /* custom css for leaflet popups */
 /* each item in your geojson properties object and config.json
    will be added in a div with id="key" and the text as the "value" field */
 
 
 html { height: 100% }
-body { height: 100%; margin: 0; padding: 0;}
+body { height: 100%; margin: 0; padding: 50px 0 0;}
+body > div.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-default {
+  background: #f7f7f7;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
 #map {
   height: 100%;
   z-index: 1;
@@ -19,22 +34,20 @@ body { height: 100%; margin: 0; padding: 0;}
     z-index: 2;
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
+    background: #f7f7f7;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
     width: 300px;
     display: none;
 }
 
-#search {
-  position: absolute;
-  top: 10px;
-  left: 10px;
+#search .form-group {
+  width: 95%;
+  text-align: center;
 }
 
-#search input {
-  width: 295px;
+#search .address {
+  width: 30%;
 }
 
 #info {
@@ -42,10 +55,7 @@ body { height: 100%; margin: 0; padding: 0;}
     top: 10px;
     right: 10px;
     max-height: 90%;
-    overflow-y: scroll;
-}
-
-#info > div {
+    overflow-y: auto;
 }
 
 #info h4 {
