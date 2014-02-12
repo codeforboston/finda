@@ -30,6 +30,11 @@ define(['jquery'], function($) {
         expect(this.component.addGoogleScript).toHaveBeenCalledWith();
         expect(window.googleMapsApiLoaded).toEqual(jasmine.any(Function));
       });
+      it('hides the widget if it is not requested', function() {
+        this.config.search.geosearch = false;
+        $(document).trigger('config', this.config);
+        expect(this.$node).not.toBeVisible();
+      });
     });
 
     describe('googleMapsApiLoaded', function() {
