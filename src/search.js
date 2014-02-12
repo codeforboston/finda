@@ -13,6 +13,8 @@ define(
           window.googleMapsApiLoaded = this.googleMapsApiLoaded.bind(this);
           this.maxBounds = config.map.maxBounds;
           this.addGoogleScript();
+        } else {
+          this.$node.hide();
         }
       };
 
@@ -54,7 +56,7 @@ define(
                         lng: location.lng()});
         }
       };
-      
+
       this.after('initialize', function() {
         this.on('submit', this.search);
         this.on(document, 'config', this.configureSearch);
