@@ -1,6 +1,6 @@
 'use strict';
 define(['leaflet', 'test/mock'], function(L, mock) {
-  describeComponent('map', function() {
+  describeComponent('ui/map', function() {
     beforeEach(function() {
       L.Icon.Default.imagePath = '/base/lib/leaflet/images';
       setupComponent();

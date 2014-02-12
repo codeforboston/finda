@@ -22,7 +22,7 @@ require.config({
 });
 
 define(
-  ['loader', 'map', 'search', 'info'],
+  ['data/loader', 'ui/map', 'ui/search', 'ui/info'],
   function(Loader, Map, Search, Info) {
     'use strict';
     // attach components to the DOM

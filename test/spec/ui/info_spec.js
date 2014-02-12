@@ -1,6 +1,6 @@
 'use strict';
 define(['infotemplates'], function(templates) {
-  describeComponent('info', function() {
+  describeComponent('ui/info', function() {
     beforeEach(function() {
       setupComponent();
     });

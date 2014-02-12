@@ -1,6 +1,6 @@
 'use strict';
 define(['test/mock'], function(mock) {
-  describeComponent('facet', function() {
+  describeComponent('data/facet', function() {
     beforeEach(function() {
       setupComponent();
     });
