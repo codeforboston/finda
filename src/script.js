@@ -4,7 +4,7 @@ require.config({
     'jquery': '../lib/jquery-1.10.2',
     'leaflet': '../lib/leaflet/leaflet',
     'handlebars': '../lib/handlebars',
-    'underscore': '../lib/lodash.underscore.min',
+    'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min'
   },
   shim: {
