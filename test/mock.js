@@ -23,6 +23,12 @@ define({
       "target_populations": { "title": "Populations Served" },
 
       "additional_notes": { "title": "Information"}
+    },
+    facets: {
+      services_offered: {
+        title: "Services",
+        type: "list"
+      }
     }
   },
 
