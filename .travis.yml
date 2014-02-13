@@ -1,3 +1,8 @@
 language: node_js
 node_js:
   - 0.8
+# explicitly enable building gh-pages branch
+branches:
+  only:
+    - gh-pages
+    - /^.*$/
