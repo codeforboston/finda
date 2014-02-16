@@ -6,9 +6,9 @@ define(
   function(L, $, flight) {
     var map = function () {
       this.defaultAttrs({
-        tileUrl: 'http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
-        tileSubdomains: '1234',
-        tileAttribution: 'Tiles Courtesy of <a href="http://mapc.org">MAPC</a> &mdash; Map data &copy; <a href="http://www.mass.gov/mgis/">MassGIS</a>'
+        tileUrl: 'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        tileSubdomains: ,
+        tileAttribution: 'Map data &copy; <a href="http://openstreetmap.org">Open Street Map</a> contributors'
       });
 
       this.defineIconStyles = function() {
