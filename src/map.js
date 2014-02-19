@@ -6,7 +6,7 @@ define(
   function(L, $, flight) {
     var map = function () {
       this.defaultAttrs({
-        tileUrl: '{s}tile.openstreetmap.org/{z}/{x}/{y}.png',
+        tileUrl: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         tileSubdomains: 'abc',
         tileAttribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
