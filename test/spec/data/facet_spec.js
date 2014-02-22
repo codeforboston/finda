@@ -3,6 +3,7 @@ define(['test/mock'], function(mock) {
   describeComponent('data/facet', function() {
     beforeEach(function() {
       setupComponent();
+      spyOnEvent(document, 'dataFacets');
     });
 
     describe('on config', function() {
@@ -19,14 +20,12 @@ define(['test/mock'], function(mock) {
         this.component.trigger('config', mock.config);
         this.component.trigger('data', mock.data);
       });
-      it('records the data', function() {
-        expect(this.component.attr.data).toEqual(mock.data);
-      });
-      it('records the values for each facet', function() {
-        expect(this.component.attr.facets).toEqual({
-          services_offered: ['support group', 'social group',
-                             'public education']
-        });
+      it('emits a "dataFacets" event with the values for each facet', function() {
+        expect('dataFacets').toHaveBeenTriggeredOnAndWith(
+          document,
+          {services_offered: ['public education', 'social group',
+                              'support group']
+          });
       });
     });
   });

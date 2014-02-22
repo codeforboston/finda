@@ -1,15 +1,24 @@
 'use strict';
 define(
-  ['flight', 'lodash'],
-  function(flight, _) {
+  ['flight', 'lodash', 'jquery'],
+  function(flight, _, $) {
     var facet = function() {
       this.configure = function(ev, config) {
         this.attr.config = config.facets;
+        if (this.attr.data) {
+          this.calculateFacets();
+        }
       };
 
       this.loadData = function(ev, data) {
         this.attr.data = data;
-        this.attr.facets = _.mapValues(
+        if (this.attr.config) {
+          this.calculateFacets();
+        }
+      };
+
+      this.calculateFacets = function() {
+        var facetValues = _.mapValues(
           this.attr.config,
           function(facetConfig, facet) {
             return _.chain(this.attr.data.features)
@@ -18,8 +27,10 @@ define(
               })
               .flatten(true)
               .uniq()
+              .sortBy(function(facet) { return facet.toLowerCase(); })
               .value();
           }, this);
+        $(document).trigger('dataFacets', facetValues);
       };
 
       this.after('initialize', function() {
