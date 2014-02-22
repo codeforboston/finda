@@ -41,6 +41,11 @@ body > div.container {
     display: none;
 }
 
+.control h4 {
+    margin: 10px 0 5px 0;
+    color: #777;
+}
+
 #search .form-group {
   width: 95%;
   text-align: center;
@@ -58,7 +63,11 @@ body > div.container {
     overflow-y: auto;
 }
 
-#info h4 {
-    margin: 10px 0 5px 0;
-    color: #777;
+
+#facets {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  max-height: 90%;
+  overflow-y: auto;
 }

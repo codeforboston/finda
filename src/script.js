@@ -22,12 +22,14 @@ require.config({
 });
 
 define(
-  ['data/loader', 'ui/map', 'ui/search', 'ui/info'],
-  function(Loader, Map, Search, Info) {
+  ['data/loader', 'data/facet', 'ui/map', 'ui/search', 'ui/info', 'ui/facet'],
+  function(Loader, DataFacet, Map, Search, Info, Facet) {
     'use strict';
     // attach components to the DOM
     Map.attachTo('#map');
     Search.attachTo('#search', {mapSelector: '#map'});
     Info.attachTo('#info');
+    Facet.attachTo('#facets');
+    DataFacet.attachTo(document);
     Loader.attachTo(document);
   });
