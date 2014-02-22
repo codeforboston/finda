@@ -35,6 +35,10 @@ define(
           expect(address.html()).toEqual(
             feature.address.replace(/\n/g, '<br>'));
         });
+        it('empty attributes are not rendered', function() {
+          var additional_notes = $rendered.find('#additional_notes');
+          expect(additional_notes.length).toEqual(0);
+        });
       });
     });
   });
