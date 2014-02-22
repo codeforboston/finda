@@ -2,16 +2,6 @@
 
 _You have data with locations. Share it with the world._
 
-
-Finda is not ready for use yet. This documentation describes the state to which we aspire, and towards which we are developing.
-
-Developers:
-
-1. This app reads in data.geojson (provided by the end user) and config.json (customized by the end user).
-2. It's all client-side Javascript with a single page for the entire app, so non-developers can deploy quickly.
-3. Keep everything human-readable.
-
-
 ### Why use Finda?
 
 1. You have data with addresses / locations.
@@ -21,8 +11,51 @@ Developers:
 
 ## I want to use this app for my data set.
 
-Great! Let's get started.
+Great! Let's get started. (Already know Git? Head over to the Development section below.)
 
+### Get your own copy of finda
+![Fork via Github](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/fork.png)
+
+### Add your data
+
+Open the data.geojson.template file.
+![Open the template file](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/open_template.png)
+
+Copy the contents of data.geojson.template.
+![Copy the template file](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/copy_template.png)
+
+Open the data.geojson file.
+![Open the data file](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/open_data_file.png)
+
+Paste.
+![Replace the data with your own](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/replace_data.png)
+
+Replace the brackets [] with your data.
+![Replace the data with your own 2](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/paste_data.png)
+
+Commit your changes!
+![Save your changes](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/commit.png)
+
+### Serve it
+
+Your Finda application is working on your local computer, but it's not online yet.
+
+If you already have a hosting service, you can use their upload manager or an FTP client to upload the files to your hosting service.
+
+If you do not have a hosting service, find and subscribe to one. [FatCow](http://www.fatcow.com/) is pretty okay. [Please][1] [don't][2] [use][3] [GoDaddy][4].
+
+[1]: http://breakupwithgodaddy.com/
+[2]: http://www.youtube.com/watch?v=_TbjSswtuNA#t=85
+[3]: http://msmagazine.com/blog/2013/02/04/top-five-sexist-super-bowl-ads-2013/
+[4]: http://www.missrepresentation.org/media/notbuyingit-godaddy-disappoints-again/
+
+Once you have a service, upload all of the files to the root folder (sometimes referred to as just '/'), or upload the entire folder (you can delete the `examples` folder first) to the host and configure your domain name to point to that folder.
+
+## Development
+
+1. This app reads in data.geojson (provided by the end user) and config.json (customized by the end user).
+2. It's all client-side Javascript with a single page for the entire app, so non-developers can deploy quickly.
+3. Keep everything human-readable.
 
 ### Set up your computer
 
@@ -67,24 +100,6 @@ __TODO: Finish this section.__
 You can edit the display of your application using `style.css` in the `styles` directory.
 
 __TODO: Finish this section.__
-
-
-### Host it.
-
-Your Finda application is working on your local computer, but it's not online yet.
-
-If you already have a hosting service, you can use their upload manager or an FTP client to upload the files to your hosting service.
-
-If you do not have a hosting service, find and subscribe to one. [FatCow](http://www.fatcow.com/) is pretty okay. [Please][1] [don't][2] [use][3] [GoDaddy][4].
-
-[1]: http://breakupwithgodaddy.com/
-[2]: http://www.youtube.com/watch?v=_TbjSswtuNA#t=85
-[3]: http://msmagazine.com/blog/2013/02/04/top-five-sexist-super-bowl-ads-2013/
-[4]: http://www.missrepresentation.org/media/notbuyingit-godaddy-disappoints-again/
-
-Once you have a service, upload all of the files to the root folder (sometimes referred to as just '/'), or upload the entire folder (you can delete the `examples` folder first) to the host and configure your domain name to point to that folder.
-
-## Development
 
 ### Testing
 Finda comes with a small set of unittests that you can run with Karma.
