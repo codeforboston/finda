@@ -14,27 +14,33 @@ _You have data with locations. Share it with the world._
 Great! Let's get started. (Already know Git? Head over to the Development section below.)
 
 ### Get your own copy of finda
-![Fork via Github](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/fork.png)
+![Fork via Github](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/fork.png)
 
 ### Add your data
 
 Open the data.geojson.template file.
-![Open the template file](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/open_template.png)
+
+![Open the template file](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/open_template.png)
 
 Copy the contents of data.geojson.template.
-![Copy the template file](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/copy_template.png)
+
+![Copy the template file](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/copy_template.png)
 
 Open the data.geojson file.
-![Open the data file](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/open_data_file.png)
+
+![Open the data file](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/open_data_file.png)
 
 Paste.
-![Replace the data with your own](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/replace_data.png)
+
+![Replace the data with your own](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/replace_data.png)
 
 Replace the brackets [] with your data.
-![Replace the data with your own 2](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/paste_data.png)
+
+![Replace the data with your own 2](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/paste_data.png)
 
 Commit your changes!
-![Save your changes](https://github.com/alexisylchan/finda/blob/gh-pages/readme_img/commit.png)
+
+![Save your changes](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/commit.png)
 
 ### Serve it
 
