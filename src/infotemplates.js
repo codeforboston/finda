@@ -53,19 +53,21 @@ define(
           // apply the discovered formatter to the data
           return formatters[formatter](value, property);
         };
-    
+
     return {
       popup: function(properties, feature) {
         var popup = [],
             rendered;
         _.each(properties, function(property, key) {
           var value = feature[key];
-          rendered = format(value, property);
-          if (rendered) {
-            popup.push({
-              div_id: key,
-              rendered: rendered
-            });
+          if (value != undefined && (value.length == undefined || value.length != 0)) {
+            rendered = format(value, property);
+            if (rendered) {
+              popup.push({
+                div_id: key,
+                rendered: rendered
+              });
+            }
           }
         });
         return templates.popup({popup: popup});
