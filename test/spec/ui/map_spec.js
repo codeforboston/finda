@@ -32,7 +32,13 @@ define(['leaflet', 'test/mock'], function(L, mock) {
 
       it('data sets up the features', function() {
         this.component.trigger('data', mock.data);
-        expect(this.component.layers.length).toEqual(3);
+        expect(this.component.attr.features.length).toEqual(3);
+      });
+
+      it('data a second time resets the data', function() {
+        this.component.trigger('data', {type: 'FeatureCollection',
+                                        features: []});
+        expect(this.component.attr.features.length).toEqual(0);
       });
     });
 
@@ -56,8 +62,8 @@ define(['leaflet', 'test/mock'], function(L, mock) {
         this.component.trigger('data', mock.data);
 
         // fake the click event
-        this.component.layers[0].fireEvent('click', {
-          latlng: this.component.layers[0]._latlng
+        this.component.attr.features[0].fireEvent('click', {
+          latlng: this.component.attr.features[0]._latlng
         });
       });
 
@@ -68,8 +74,8 @@ define(['leaflet', 'test/mock'], function(L, mock) {
       });
 
       it('turns the previously clicked icon back to the default', function() {
-        this.component.layers[1].fireEvent('click', {
-          latlng: this.component.layers[1]._latlng
+        this.component.attr.features[1].fireEvent('click', {
+          latlng: this.component.attr.features[1]._latlng
         });
         var icon = this.component.$node.find('.leaflet-marker-icon:first');
         expect(icon.attr('src')).toMatch(/marker-icon\.png$/);
@@ -78,7 +84,7 @@ define(['leaflet', 'test/mock'], function(L, mock) {
       it('sends a selectFeature event', function() {
         expect('selectFeature').toHaveBeenTriggeredOnAndWith(
           document,
-          this.component.layers[0].feature);
+          this.component.attr.features[0].feature);
       });
     });
   });
