@@ -1,5 +1,5 @@
 define({
-  config: {
+  "config": {
     "map": {
       "center":[42.3725, -71.1266],
       "zoom":13,
@@ -24,7 +24,7 @@ define({
 
       "additional_notes": { "title": "Information"}
     },
-    facets: {
+    "facets": {
       services_offered: {
         title: "Services",
         type: "list"
@@ -32,7 +32,7 @@ define({
     }
   },
 
-  data: {
+  "data": {
     "type": "FeatureCollection",
     "features": [
       {
