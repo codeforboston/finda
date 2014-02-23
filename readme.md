@@ -14,33 +14,33 @@ _You have data with locations. Share it with the world._
 Great! Let's get started. (Already know Git? Head over to the Development section below.)
 
 ### Get your own copy of finda
-![Fork via Github](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/fork.png)
+![Fork via Github](readme_img/fork.png)
 
 ### Add your data
 
 Open the data.geojson.template file.
 
-![Open the template file](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/open_template.png)
+![Open the template file](readme_img/open_template.png)
 
 Copy the contents of data.geojson.template.
 
-![Copy the template file](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/copy_template.png)
+![Copy the template file](readme_img/copy_template.png)
 
 Open the data.geojson file.
 
-![Open the data file](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/open_data_file.png)
+![Open the data file](readme_img/open_data_file.png)
 
 Paste.
 
-![Replace the data with your own](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/replace_data.png)
+![Replace the data with your own](readme_img/replace_data.png)
 
 Replace the brackets [] with your data.
 
-![Replace the data with your own 2](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/paste_data.png)
+![Replace the data with your own 2](readme_img/paste_data.png)
 
 Commit your changes!
 
-![Save your changes](https://raw.github.com/alexisylchan/finda/gh-pages/readme_img/commit.png)
+![Save your changes](readme_img/commit.png)
 
 ### Serve it
 
@@ -95,8 +95,6 @@ If your data is not in GeoJSON format, you might try converting it using [Ogre](
 ### Configure the application.
 
 To configure the Finda app to display your data, fill in the configuration file.
-
-There are example applications in the `examples` folder to demonstrate how you might configure your application. Play around with it, and open the 'index.html' file in each example in your browser to see how it looks.
 
 __TODO: Finish this section.__
 
