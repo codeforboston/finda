@@ -42,7 +42,7 @@ Commit your changes!
 
 ![Save your changes](readme_img/commit.png)
 
-### Serve it
+### Host it
 
 Your Finda application is working on your local computer, but it's not online yet.
 
@@ -55,7 +55,7 @@ If you do not have a hosting service, find and subscribe to one. [FatCow](http:/
 [3]: http://msmagazine.com/blog/2013/02/04/top-five-sexist-super-bowl-ads-2013/
 [4]: http://www.missrepresentation.org/media/notbuyingit-godaddy-disappoints-again/
 
-Once you have a service, upload all of the files to the root folder (sometimes referred to as just '/'), or upload the entire folder (you can delete the `examples` folder first) to the host and configure your domain name to point to that folder.
+Once you have a service, upload all of the files to the root folder (sometimes referred to as just '/'), or upload the entire folder to the host and configure your domain name to point to that folder.
 
 ## Development
 
