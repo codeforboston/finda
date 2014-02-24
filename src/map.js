@@ -9,7 +9,7 @@ define(
         tileUrl: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         tileSubdomains: 'abc',
         tileAttribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + ' <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
-					
+
       });
 
       this.defineIconStyles = function() {
@@ -37,7 +37,7 @@ define(
           this.map.setMaxBounds(mapConfig.maxBounds);
         }
         // geolocate once the configuration is set
-        this.map.locate({setView: true, maxZoom: 14});
+        this.map.locate({setView: true, maxZoom: mapConfig.zoom});
       };
 
       this.loadData = function(ev, data) {
@@ -53,7 +53,7 @@ define(
 
       this.emitClick = function(e) {
         this.trigger(document, 'selectFeature', e.target.feature);
-        
+
         if (this.previouslyClicked) {
           this.previouslyClicked.setIcon(this.defaultIcon);
         }

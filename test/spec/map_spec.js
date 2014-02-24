@@ -13,8 +13,21 @@ define(['leaflet', 'test/mock'], function(L, mock) {
     });
     describe('loading data', function () {
       it('config sets up the map object', function() {
+        this.component.map = jasmine.createSpyObj('Map',
+                                                  ['setView',
+                                                   'setMaxBounds',
+                                                   'locate']);
+        this.component.map.options = {};
         this.component.trigger('config', mock.config);
         expect(this.component.map.options.maxZoom, mock.config.map.maxZoom);
+        expect(this.component.map.setView).toHaveBeenCalledWith(
+          mock.config.map.center, mock.config.map.zoom);
+        expect(this.component.map.setMaxBounds).toHaveBeenCalledWith(
+          mock.config.map.maxBounds);
+        expect(this.component.map.locate).toHaveBeenCalledWith({
+          setView: true,
+          maxZoom: mock.config.map.zoom
+        });
       });
 
       it('data sets up the features', function() {

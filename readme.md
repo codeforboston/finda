@@ -1,4 +1,4 @@
-# Finda [![Build Status](https://travis-ci.org/codeforboston/filter-template.png)](https://travis-ci.org/codeforboston/filter-template)
+# Finda [![Build Status](https://travis-ci.org/codeforboston/finda.png)](https://travis-ci.org/codeforboston/finda)
 
 _You have data with locations. Share it with the world._
 
@@ -80,7 +80,7 @@ Once you have a service, upload all of the files to the root folder (sometimes r
 
 1. Navigate to the folder you'd like to copy the code to by using the cd command.
 
-2. Clone the repository (i.e. copy the code) from where it's hosted online. Do this by entering `git clone git@github.com:codeforboston/filter-template.git`
+2. Clone the repository (i.e. copy the code) from where it's hosted online. Do this by entering `git clone git@github.com:codeforboston/finda.git`
 
 3. Open the folder you just downloaded using your favorite text editor. (We use [Sublime Text](http://www.sublimetext.com/).)
 
