@@ -5,6 +5,7 @@ require.config({
     'jquery': '../lib/jquery-1.10.2',
     'leaflet': '../lib/leaflet/leaflet',
     'handlebars': '../lib/handlebars',
+    'mapbox': '../lib/mapbox',
     'underscore': '../lib/lodash.underscore.min',
     'flight': '../lib/flight.min'
   },
