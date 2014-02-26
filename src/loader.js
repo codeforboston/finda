@@ -20,4 +20,4 @@ define(
 
     return flight.component(loader);
   });
-         
+

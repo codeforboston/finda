@@ -72,7 +72,8 @@ define(
       };
 
       this.after('initialize', function() {
-        this.map = L.map(this.node, {zoomControl: false});
+        //this.map = L.map(this.node, {zoomControl: false});
+        this.map = L.mapbox.map('map', 'examples.map-4l7djmvo');
 
         this.layers = [];
 
