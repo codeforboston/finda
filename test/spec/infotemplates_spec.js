@@ -14,6 +14,11 @@ define(
           expect(link.attr('href')).toEqual(feature.web_url);
           expect(link.text()).toEqual(config.web_url.title);
         });
+        it('images are rendered as images', function() {
+          var image = $rendered.find('#image img');
+          expect(image.attr('src')).toEqual(
+            feature.image);
+        });
         it('titles are rendered as h4s', function () {
           var title = $rendered.find('#contact_names h4');
           expect(title.length).toEqual(1);

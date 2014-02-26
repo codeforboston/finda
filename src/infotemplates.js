@@ -4,6 +4,7 @@ define(
   function(Handlebars, _) {
     var templates = {
       url: Handlebars.compile('<a href="{{url}}">{{title}}</a>'),
+      image: Handlebars.compile('<img src="{{url}}"/>'),
       title: Handlebars.compile('<div><h4>{{title}}</h4><div>{{{rendered}}}</div></div>'),
       list: Handlebars.compile('<ul> {{#list}} <li>{{{this}}}</li> {{/list}} </ul>'),
       simple: Handlebars.compile('{{text}}'),
@@ -14,6 +15,10 @@ define(
             var title = property.title || '[link]';
             return templates.url({title: title,
                                   url: value});
+          },
+
+          image: function(value) {
+            return templates.image({url: value});
           },
 
           title: function(value, property) {
@@ -43,6 +48,8 @@ define(
           var formatter;
           if (property.url) {
             formatter = 'url';
+          } else if (property.image) {
+            formatter = 'image';
           } else if (property.title) {
             formatter = 'title';
           } else if (_.isArray(value)) {
@@ -53,19 +60,21 @@ define(
           // apply the discovered formatter to the data
           return formatters[formatter](value, property);
         };
-    
+
     return {
       popup: function(properties, feature) {
         var popup = [],
             rendered;
         _.each(properties, function(property, key) {
           var value = feature[key];
-          rendered = format(value, property);
-          if (rendered) {
-            popup.push({
-              div_id: key,
-              rendered: rendered
-            });
+          if (value != undefined && (value.length == undefined || value.length != 0)) {
+            rendered = format(value, property);
+            if (rendered) {
+              popup.push({
+                div_id: key,
+                rendered: rendered
+              });
+            }
           }
         });
         return templates.popup({popup: popup});
