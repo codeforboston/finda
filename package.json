@@ -13,8 +13,8 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/codeforboston/finda.git"
   },
-  "author": "https://github.com/codeforboston/finda.git",
-  "license": "BSD"
+  "license": "MIT",
+  "private":true
 }
