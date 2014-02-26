@@ -1,4 +1,3 @@
-'use strict';
 require.config({
   baseUrl: 'src/',
   paths: {
@@ -25,6 +24,7 @@ require.config({
 define(
   ['loader', 'map', 'search', 'info'],
   function(Loader, Map, Search, Info) {
+    'use strict';
     // attach components to the DOM
     Map.attachTo('#map');
     Search.attachTo('#search', {mapSelector: '#map'});

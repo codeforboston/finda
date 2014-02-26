@@ -1,9 +1,9 @@
 /*global google*/
-'use strict';
 define(
   ['flight',
    'jquery'],
   function(flight, $) {
+    'use strict';
     var search = function() {
       this.defaultAttrs({
         searchSelector: 'input'

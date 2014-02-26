@@ -1,7 +1,7 @@
-'use strict';
 define(
   ['handlebars', 'underscore'],
   function(Handlebars, _) {
+    'use strict';
     var templates = {
       url: Handlebars.compile('<a href="{{url}}">{{title}}</a>'),
       image: Handlebars.compile('<img src="{{url}}"/>'),
@@ -67,7 +67,7 @@ define(
             rendered;
         _.each(properties, function(property, key) {
           var value = feature[key];
-          if (value != undefined && (value.length == undefined || value.length != 0)) {
+          if (value !== undefined && (value.length === undefined || value.length !== 0)) {
             rendered = format(value, property);
             if (rendered) {
               popup.push({
