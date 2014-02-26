@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "karma": "~0.10",
-    "jshint": "^2.4.4"
+    "jshint": "~2.4.4"
   },
   "scripts": {
     "test": "jshint src && s./node_modules/.bin/karma start --single-run --browsers PhantomJS"
