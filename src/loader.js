@@ -10,7 +10,7 @@ define(
         $.getJSON('config.json', function(config) {
           this.trigger('config', config);
         }.bind(this));
-        $.getJSON('data.geojson', function(data) {
+        $.getJSON(geojson_source, function(data) {
           this.trigger('data', data);
         }.bind(this));
       });
