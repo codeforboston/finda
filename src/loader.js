@@ -2,7 +2,6 @@
 define(
   ['leaflet',
    'jquery',
-   'mapbox',
    'flight'],
   function(L, $, flight) {
     var loader = function() {

@@ -19,6 +19,10 @@ require.config({
     'flight': {
       deps: ['../lib/es5-shim.min', '../lib/es5-sham.min'],
       exports: 'flight'
+    },
+    'mapbox': {
+      deps: ['leaflet'],
+      exports: 'mapbox'
     }
   }
 });
