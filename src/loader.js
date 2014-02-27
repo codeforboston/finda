@@ -1,9 +1,9 @@
-'use strict';
 define(
   ['leaflet',
    'jquery',
    'flight'],
   function(L, $, flight) {
+    'use strict';
     var loader = function() {
       this.after('initialize', function() {
         // load the data

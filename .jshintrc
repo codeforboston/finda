@@ -1,0 +1,25 @@
+{
+  "bitwise": true,
+  "browser": true,
+  "curly": true,
+  "debug": false,
+  "eqeqeq": true,
+  "es3": true,
+  "forin": true,
+  "immed": true,
+  "iterator": false,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "noempty": true,
+  "nonew": true,
+  "smarttabs": false,
+  "strict": true,
+  "trailing": true,
+  "undef": true,
+  "unused": true,
+  "globals": {
+    "define": false,
+    "require": false
+  }
+}
