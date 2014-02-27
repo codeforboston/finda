@@ -1,7 +1,7 @@
-'use strict';
 define(
   ['flight', 'lodash', 'jquery'],
   function(flight, _, $) {
+    'use strict';
     var facet = function() {
       this.configure = function(ev, config) {
         this.attr.config = config.facets;
@@ -29,8 +29,18 @@ define(
                 return feature.properties[facet];
               })
               .flatten(true)
-              .uniq()
-              .sortBy(function(facet) { return facet.toLowerCase(); })
+              .reduce(function(counts, facet) {
+                if (!counts[facet]) {
+                  counts[facet] = 1;
+                } else {
+                  counts[facet] = counts[facet] + 1;
+                }
+                return counts;
+              }, {})
+              .map(function(count, facet) {
+                return {facet: facet, count: count};
+              })
+              .sortBy(function(facet) { return facet.facet.toLowerCase(); })
               .value();
           }, this);
         $(document).trigger('dataFacets', facetValues);
@@ -63,7 +73,7 @@ define(
             }, this);
           geojson = _.defaults({features: features}, this.attr.data);
         }
-        $(document).trigger('data', geojson);
+        $(document).trigger('dataFiltered', geojson);
       };
 
       this.after('initialize', function() {

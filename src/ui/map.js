@@ -89,6 +89,7 @@ define(
 
         this.on(document, 'config', this.configureMap);
         this.on(document, 'data', this.loadData);
+        this.on(document, 'dataFiltered', this.loadData);
 
         this.on(document, 'selectFeature', this.selectFeature);
         this.on('panTo', this.panTo);

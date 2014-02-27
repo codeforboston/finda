@@ -1,10 +1,10 @@
-'use strict';
 define(
   ['flight', 'handlebars', 'lodash', 'jquery'],
   function(flight, Handlebars, _, $) {
+    'use strict';
     // compile all the templates
     var templates = {
-      input: Handlebars.compile('<div class="checkbox"><label><input type="checkbox" name="{{ this }}">{{ this }}</label></div>'),
+      input: Handlebars.compile('<div class="checkbox"><label><input type="checkbox" name="{{ facet }}">{{ facet }} ({{ count}})</label></div>'),
       form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
       facet: Handlebars.compile('<h4>{{title}}</h4>{{{form}}}')
     };

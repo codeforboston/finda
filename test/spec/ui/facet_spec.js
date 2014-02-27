@@ -1,6 +1,11 @@
-'use strict';
 define(['test/mock'], function(mock) {
+  'use strict';
   describeComponent('ui/facet', function() {
+    var mockFacets = {
+      'services_offered': [{facet: 'first', count: 1},
+                           {facet: 'second', count: 2},
+                           {facet: 'third', count: 3}]};
+
     beforeEach(function() {
       setupComponent();
       spyOnEvent(document, 'uiFilterFacet');
@@ -15,10 +20,7 @@ define(['test/mock'], function(mock) {
     describe('on dataFacets', function() {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
-        this.component.trigger('dataFacets', {
-          'services_offered': ['first',
-                               'second',
-                               'third']});
+        this.component.trigger('dataFacets', mockFacets);
       });
       it('renders the name of the facet in an h4', function() {
         expect(this.$node.find('h4').text()).toEqual('Services');
@@ -27,15 +29,17 @@ define(['test/mock'], function(mock) {
         expect(this.$node.find('input').length).toEqual(3);
         expect(this.$node.find('input:first').attr('name')).toEqual('first');
       });
+      it('renders the label with the count', function() {
+        var text = this.$node.find("label:first").text();
+        expect(text).toContain('first');
+        expect(text).toContain(1);
+      });
     });
 
     describe('on click', function() {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
-        this.component.trigger('dataFacets', {
-          'services_offered': ['first',
-                               'second',
-                               'third']});
+        this.component.trigger('dataFacets', mockFacets);
       });
       it('sends a "uiFilterFacet" event with the selected facets', function () {
         this.component.$node.find('input:eq(1)').click();

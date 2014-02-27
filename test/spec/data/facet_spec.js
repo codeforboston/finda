@@ -4,6 +4,7 @@ define(['test/mock'], function(mock) {
     beforeEach(function() {
       setupComponent();
       spyOnEvent(document, 'dataFacets');
+      spyOnEvent(document, 'dataFiltered');
       spyOnEvent(document, 'data');
     });
 
@@ -24,8 +25,10 @@ define(['test/mock'], function(mock) {
       it('emits a "dataFacets" event with the values for each facet', function() {
         expect('dataFacets').toHaveBeenTriggeredOnAndWith(
           document,
-          {services_offered: ['public education', 'social group',
-                              'support group']
+          {services_offered: [
+            {facet: 'public education', count: 1},
+            {facet: 'social group', count: 2},
+            {facet: 'support group', count: 3}]
           });
       });
     });
@@ -35,25 +38,25 @@ define(['test/mock'], function(mock) {
         this.component.trigger('config', mock.config);
         this.component.trigger('data', mock.data);
       });
-      it('emits a "data" event with the filtered data (single value)', function() {
+      it('emits a "dataFiltered" event with the filtered data (single value)', function() {
         this.component.trigger('uiFilterFacet', {
           facet: 'community',
           selected: ['Northampton']
         });
 
-        expect('data').toHaveBeenTriggeredOnAndWith(
+        expect('dataFiltered').toHaveBeenTriggeredOnAndWith(
           document,
           {type: 'FeatureCollection',
            features: [mock.data.features[0]]
           });
       });
-      it('emits a "data" event with the filtered data (list value)', function() {
+      it('emits a "dataFiltered" event with the filtered data (list value)', function() {
         this.component.trigger('uiFilterFacet', {
           facet: 'services_offered',
           selected: ['social group']
         });
 
-        expect('data').toHaveBeenTriggeredOnAndWith(
+        expect('dataFiltered').toHaveBeenTriggeredOnAndWith(
           document,
           {type: 'FeatureCollection',
            features: [mock.data.features[0],
