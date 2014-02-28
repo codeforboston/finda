@@ -27,6 +27,10 @@
         "geosearch": true
     },
     "facets": {
+        "youth_category": {
+            "title": "Category",
+            "type": "single"
+        },
         "services_offered": {
             "title": "Services",
             "type": "list"

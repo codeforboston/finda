@@ -4,7 +4,7 @@ define(
     'use strict';
     // compile all the templates
     var templates = {
-      input: Handlebars.compile('<div class="checkbox"><label><input type="checkbox" name="{{ facet }}">{{ facet }} ({{ count}})</label></div>'),
+      input: Handlebars.compile('<div class="checkbox"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{ value }} ({{ count}})</label></div>'),
       form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
       facet: Handlebars.compile('<h4>{{title}}</h4>{{{form}}}')
     };
@@ -25,8 +25,10 @@ define(
                   // render the form for each value of the facet
                   form: templates.form({
                     key: key,
-                    inputs: _.map(
-                      values, templates.input)
+                    inputs: _.chain(values)
+                      .filter(function(o) { return o.count; })
+                      .map(templates.input)
+                      .value()
                   })
                 });
               }, this))

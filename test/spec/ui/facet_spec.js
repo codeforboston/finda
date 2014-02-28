@@ -2,9 +2,9 @@ define(['test/mock'], function(mock) {
   'use strict';
   describeComponent('ui/facet', function() {
     var mockFacets = {
-      'services_offered': [{facet: 'first', count: 1},
-                           {facet: 'second', count: 2},
-                           {facet: 'third', count: 3}]};
+      'services_offered': [{value: 'first', count: 1},
+                           {value: 'second', count: 2, selected: true},
+                           {value: 'third', count: 0}]};
 
     beforeEach(function() {
       setupComponent();
@@ -26,7 +26,7 @@ define(['test/mock'], function(mock) {
         expect(this.$node.find('h4').text()).toEqual('Services');
       });
       it('renders each facet value as a checkbox', function() {
-        expect(this.$node.find('input').length).toEqual(3);
+        expect(this.$node.find('input').length).toEqual(2);
         expect(this.$node.find('input:first').attr('name')).toEqual('first');
       });
       it('renders the label with the count', function() {
@@ -34,29 +34,29 @@ define(['test/mock'], function(mock) {
         expect(text).toContain('first');
         expect(text).toContain(1);
       });
+      it('renders a checked checkbox if selected is true', function() {
+        expect(this.$node.find("input[name=second]").val()).toEqual('on');
+      });
+      it('does not render labels with a 0 count', function() {
+        expect(this.$node.find("input[name=third]").length).toEqual(0);
+      });
     });
 
     describe('on click', function() {
+      // NB: "second" is already selected, per the mockFacets above
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('dataFacets', mockFacets);
       });
       it('sends a "uiFilterFacet" event with the selected facets', function () {
-        this.component.$node.find('input:eq(1)').click();
+        this.component.$node.find('input:first').click();
         expect('uiFilterFacet').toHaveBeenTriggeredOnAndWith(
           document,
           {facet: 'services_offered',
-           selected: ['second']
-          });
-        this.component.$node.find('input:eq(2)').click();
-        expect('uiFilterFacet').toHaveBeenTriggeredOnAndWith(
-          document,
-          {facet: 'services_offered',
-           selected: ['second', 'third']
+           selected: ['first', 'second']
           });
       });
       it('sends a "uiFilterFacet" event with no facets', function () {
-        this.component.$node.find('input:eq(1)').click();
         this.component.$node.find('input:eq(1)').click();
         expect('uiFilterFacet').toHaveBeenTriggeredOnAndWith(
           document,
