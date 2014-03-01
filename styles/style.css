@@ -71,3 +71,7 @@ body > div.container {
   max-height: 90%;
   overflow-y: auto;
 }
+
+#facets .checkbox.selected label {
+  font-weight: bold;
+}
