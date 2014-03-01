@@ -21,59 +21,102 @@ define(
         }
       };
 
-      // returns an object with each facet, and the count of the facet values
-      this.countFacets = function(data) {
+      this.filterFeatures = function(geojson, selected) {
+        // given a GeoJSON struture and a set of selected facets, return a
+        // GeoJSON structured filtered to the features which match the
+        // selected facets
+        if (selected) {
+          var features = _.filter(
+            this.attr.data.features,
+            function(feature) {
+              return _.all(
+                selected,
+                _.bind(function(selected, key) {
+                  var property = feature.properties[key];
+                  if (!_.isArray(property)) {
+                    property = [property];
+                  }
+                  // calculate the intersection of our selected values and
+                  // the values on the given feature
+                  var intersection = _.intersection(selected, property);
+                  if (this.attr.config[key].type === 'list') {
+                    // must match all of the values
+                    return intersection.length === selected.length;
+                  } else {
+                    // must match any value
+                    return intersection.length > 0;
+                  }
+                }, this));
+            }, this);
+          geojson = _.defaults({features: features}, this.attr.data);
+        }
+        return geojson;
+      };
+
+      // returns an object with each facet, and a list of facet values
+      this.identifyFacets = function() {
         return _.mapValues(
           this.attr.config,
           _.bind(function(facetConfig, facet) {
             // adds up the count of the values on the given facet
-            return _.chain(data.features)
+            return _.chain(this.attr.data.features)
               .map(function(feature) {
+                // values of the facet on the given feature
                 return feature.properties[facet];
               })
               .flatten(true)
-              .reduce(function(counts, value) {
-                if (!counts[value]) {
-                  counts[value] = 1;
-                } else {
-                  counts[value] = counts[value] + 1;
-                }
-                return counts;
-              }, {})
+              .uniq()
+              .sortBy(function(value) { return value.toLowerCase(); })
               .value();
           }, this));
       };
 
       this.initializeFacets = function() {
-        this.attr.facets = this.countFacets(this.attr.data);
+        this.attr.facets = this.identifyFacets();
         this.filterFacets(this.attr.data);
       };
 
       this.filterFacets = function(data) {
         var selectedFacets = this.attr.selected,
             facets = this.attr.facets,
-            facetCounts = this.countFacets(data),
+            filterFeatures = _.bind(this.filterFeatures, this),
+            featureCount = data.features.length,
             filteredCounts = _.mapValues(
               this.attr.config,
-              _.bind(function(facetConfig, facet) {
-                var counts = facetCounts[facet],
-                    selected = selectedFacets[facet];
+              function(facetConfig, facet) {
+                var selectedValues = selectedFacets[facet];
                 return _.chain(facets[facet])
-                  .map(function(initialCount, value) {
-                    var count;
-                    if (facetConfig.type === 'list') {
-                      count = counts[value] || 0;
+                  .map(function(value) {
+                    var selected = _.contains(selectedValues, value),
+                        count;
+                    if (selected) {
+                      // if the value is already selected, then the count is
+                      // just the current count
+                      count = featureCount;
                     } else {
-                      count = initialCount;
+                      // otherwise, generate a new selection which includes
+                      // the value
+                      var selectedWithValue = _.cloneDeep(selectedFacets);
+                      selectedWithValue[facet] = _.union(
+                        selectedWithValue[facet],
+                        [value]);
+                      // and and filter the features with the new selection
+                      count = filterFeatures(data, selectedWithValue).features.length;
+                      // for non-list facets, adding a selection can increase
+                      // the number of features returned, but we actually
+                      // just want to show the number of additional features
+                      // that will be displayed
+                      if (facetConfig.type !== 'list' && count >= featureCount) {
+                        count = count - featureCount;
+                      }
                     }
                     return {value: value,
                             count: count,
-                            selected: _.contains(selected, value)
+                            selected: selected
                            };
                   })
-                  .sortBy(function(o) { return o.value.toLowerCase(); })
                   .value();
-              }, this));
+              });
         $(document).trigger('dataFacets', filteredCounts);
       };
 
@@ -85,30 +128,7 @@ define(
         } else {
           this.attr.selected[facet] = selectedValues;
         }
-        var geojson = this.attr.data;
-        if (this.attr.selected) {
-          var features = _.filter(
-            this.attr.data.features,
-            function(feature) {
-              return _.all(
-                this.attr.selected,
-                _.bind(function(selected, key) {
-                  var property = feature.properties[key];
-                  if (!_.isArray(property)) {
-                    property = [property];
-                  }
-                  var intersection = _.intersection(selected, property);
-                  if (this.attr.config[key].type === 'list') {
-                    // must match all of the values
-                    return intersection.length >= selected.length;
-                  } else {
-                    // must match any value
-                    return intersection.length > 0;
-                  }
-                }, this));
-            }, this);
-          geojson = _.defaults({features: features}, this.attr.data);
-        }
+        var geojson = this.filterFeatures(this.attr.data, this.attr.selected);
         $(document).trigger('dataFiltered', geojson);
         this.filterFacets(geojson);
       };

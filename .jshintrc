@@ -20,6 +20,15 @@
   "unused": true,
   "globals": {
     "define": false,
-    "require": false
+    "require": false,
+    // jasmine
+    "describeComponent": false,
+    "setupComponent": false,
+    "spyOn": false,
+    "spyOnEvent": false,
+    "describe": false,
+    "beforeEach": false,
+    "it": false,
+    "expect": false
   }
 }

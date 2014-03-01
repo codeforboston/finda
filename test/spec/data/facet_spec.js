@@ -1,5 +1,5 @@
-'use strict';
-define(['test/mock'], function(mock) {
+define(['test/mock', 'lodash'], function(mock, _) {
+  'use strict';
   describeComponent('data/facet', function() {
     beforeEach(function() {
       setupComponent();
@@ -11,7 +11,7 @@ define(['test/mock'], function(mock) {
     describe('on config', function() {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
-        });
+      });
       it('records the facets to display', function() {
         expect(this.component.attr.config).toEqual(mock.config.facets);
       });
@@ -87,6 +87,62 @@ define(['test/mock'], function(mock) {
               {value: 'public education', count: 0, selected: false},
               {value: 'social group', count: 2, selected: true},
               {value: 'support group', count: 2, selected: false}]
+            });
+        });
+      });
+      describe("multiple facets", function() {
+        beforeEach(function() {
+          var config = _.clone(mock.config);
+          config.facets.community = {title: "Community"};
+          this.component.trigger('config', config);
+          this.component.trigger('uiFilterFacet', {
+            facet: 'services_offered',
+            selected: ['social group']
+          });
+        });
+        it('emits a "dataFiltered" event with the filtered data', function() {
+          expect('dataFiltered').toHaveBeenTriggeredOnAndWith(
+            document,
+            {type: 'FeatureCollection',
+             features: [mock.data.features[0],
+                        mock.data.features[1]]
+            });
+          this.component.trigger('uiFilterFacet', {
+            facet: 'community',
+            selected: ['Northampton']
+          });
+          expect('dataFiltered').toHaveBeenTriggeredOnAndWith(
+            document,
+            {type: 'FeatureCollection',
+             features: [mock.data.features[0]]
+            });
+        });
+        it('emits a "dataFacets" event with the filtered values for each facet', function() {
+          expect('dataFacets').toHaveBeenTriggeredOnAndWith(
+            document,
+            {community: [
+              {value: 'Greenfield', count: 1, selected: false},
+              {value: 'Northampton', count: 1, selected: false},
+              {value: 'Shellbourne Falls', count: 0, selected: false}],
+             services_offered: [
+               {value: 'public education', count: 0, selected: false},
+               {value: 'social group', count: 2, selected: true},
+               {value: 'support group', count: 2, selected: false}]
+            });
+          this.component.trigger('uiFilterFacet', {
+            facet: 'community',
+            selected: ['Northampton']
+          });
+          expect('dataFacets').toHaveBeenTriggeredOnAndWith(
+            document,
+            {community: [
+              {value: 'Greenfield', count: 1, selected: false},
+              {value: 'Northampton', count: 1, selected: true},
+              {value: 'Shellbourne Falls', count: 0, selected: false}],
+             services_offered: [
+               {value: 'public education', count: 0, selected: false},
+               {value: 'social group', count: 1, selected: true},
+               {value: 'support group', count: 1, selected: false}]
             });
         });
       });
