@@ -1,0 +1,3 @@
+[submodule "finda.wiki"]
+	path = finda.wiki
+	url = git@github.com:alexisylchan/finda.wiki.git
