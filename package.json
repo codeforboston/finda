@@ -5,16 +5,17 @@
   "directories": {
     "test": "test"
   },
- "devDependencies": {
-   "karma": "~0.10"
+  "devDependencies": {
+    "karma": "~0.10",
+    "jshint": "~2.4.4"
   },
   "scripts": {
-    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+    "test": "jshint src && karma start --single-run --browsers PhantomJS"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/codeforboston/finda.git"
   },
-  "author": "https://github.com/codeforboston/finda.git",
-  "license": "BSD"
+  "license": "MIT",
+  "private":true
 }

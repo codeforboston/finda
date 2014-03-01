@@ -31,5 +31,6 @@
             "title": "Services",
             "type": "list"
         }
-    }
+    },
+    "geojson_source": "data.geojson"
 }

@@ -1,9 +1,9 @@
-'use strict';
 define(
   ['leaflet',
    'jquery',
    'flight'],
   function(L, $, flight) {
+    'use strict';
     var map = function () {
       this.defaultAttrs({
         tileUrl: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',

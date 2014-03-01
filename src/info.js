@@ -1,8 +1,8 @@
-'use strict';
 define(
   ['flight',
    'infotemplates'],
   function(flight, templates) {
+    'use strict';
     var info = function() {
 
       this.configureInfo = function(ev, config) {

@@ -91,6 +91,8 @@ Finda requires that your data is in GeoJSON format, since it's an open, web-frie
 
 If your data is not in GeoJSON format, you might try converting it using [Ogre](http://ogre.adc4gis.com/). We haven't used it ourselves, but it seems worth a try. We'll recommend an option we've tested in the future.
 
+To consume a remote URL instead of the local `data.geojson`, open up `config.json` and modify the `geojson_source` variable. By default, this variable loads the local `data.geojson`.
+
 
 ### Configure the application.
 
