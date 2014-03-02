@@ -145,6 +145,23 @@ define(['test/mock', 'lodash'], function(mock, _) {
                {value: 'support group', count: 1, selected: false}]
             });
         });
+        it('does not filter away matching simple facets', function() {
+          this.component.trigger('uiFilterFacet', {
+            facet: 'services_offered',
+            selected: ['public education']
+          });
+          expect('dataFacets').toHaveBeenTriggeredOnAndWith(
+            document,
+            {community: [
+              {value: 'Greenfield', count: 0, selected: false},
+              {value: 'Northampton', count: 0, selected: false},
+              {value: 'Shellbourne Falls', count: 1, selected: false}],
+             services_offered: [
+               {value: 'public education', count: 1, selected: true},
+               {value: 'social group', count: 0, selected: false},
+               {value: 'support group', count: 1, selected: false}]
+            });
+        });
       });
       it('emits a "data" event with all data given an empty filter', function() {
         this.component.trigger('uiFilterFacet', {

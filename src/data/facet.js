@@ -84,7 +84,7 @@ define(
             filteredCounts = _.mapValues(
               this.attr.config,
               function(facetConfig, facet) {
-                var selectedValues = selectedFacets[facet];
+                var selectedValues = selectedFacets[facet] || [];
                 return _.chain(facets[facet])
                   .map(function(value) {
                     var selected = _.contains(selectedValues, value),
@@ -106,7 +106,9 @@ define(
                       // the number of features returned, but we actually
                       // just want to show the number of additional features
                       // that will be displayed
-                      if (facetConfig.type !== 'list' && count >= featureCount) {
+                      if (facetConfig.type !== 'list' &&
+                          selectedValues.length &&
+                          count >= featureCount) {
                         count = count - featureCount;
                       }
                     }
