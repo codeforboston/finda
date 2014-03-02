@@ -5,7 +5,8 @@ require.config({
     'leaflet': '../lib/leaflet/leaflet',
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
-    'flight': '../lib/flight.min'
+    'flight': '../lib/flight.min',
+    'bootstrap': '../lib/bootstrap.min'
   },
   shim: {
     'handlebars': {
@@ -17,12 +18,17 @@ require.config({
     'flight': {
       deps: ['../lib/es5-shim.min', '../lib/es5-sham.min'],
       exports: 'flight'
+    },
+    'bootstrap': {
+      deps: ['jquery'],
+      exports: '$'
     }
   }
 });
 
 define(
-  ['data/loader', 'data/facet', 'ui/map', 'ui/search', 'ui/info', 'ui/facet'],
+  ['data/loader', 'data/facet', 'ui/map', 'ui/search', 'ui/info',
+   'ui/facet', 'bootstrap'],
   function(Loader, DataFacet, Map, Search, Info, Facet) {
     'use strict';
     // attach components to the DOM
