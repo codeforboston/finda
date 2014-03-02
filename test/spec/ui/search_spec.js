@@ -1,6 +1,6 @@
 'use strict';
 define(['jquery'], function($) {
-  describeComponent('search', function() {
+  describeComponent('ui/search', function() {
     beforeEach(function() {
       setupComponent('<div><form><input class=address></form></div>',
                      {searchSelector: 'input',

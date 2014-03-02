@@ -4,7 +4,7 @@ require.config({
     'jquery': '../lib/jquery-1.10.2',
     'leaflet': '../lib/leaflet/leaflet',
     'handlebars': '../lib/handlebars',
-    'underscore': '../lib/lodash.underscore.min',
+    'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min'
   },
   shim: {
@@ -22,12 +22,14 @@ require.config({
 });
 
 define(
-  ['loader', 'map', 'search', 'info'],
-  function(Loader, Map, Search, Info) {
+  ['data/loader', 'data/facet', 'ui/map', 'ui/search', 'ui/info', 'ui/facet'],
+  function(Loader, DataFacet, Map, Search, Info, Facet) {
     'use strict';
     // attach components to the DOM
     Map.attachTo('#map');
     Search.attachTo('#search', {mapSelector: '#map'});
     Info.attachTo('#info');
+    Facet.attachTo('#facets');
+    DataFacet.attachTo(document);
     Loader.attachTo(document);
   });

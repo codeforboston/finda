@@ -27,7 +27,7 @@ module.exports = function(config) {
 
       {pattern: 'src/**/*.js', included: false},
       {pattern: 'lib/**/*.js', included: false},
-      {pattern: 'test/spec/*_spec.js', included: false},
+      {pattern: 'test/spec/**/*_spec.js', included: false},
       {pattern: 'test/mock.js', included: false},
       {pattern: 'lib/leaflet/images/*', included: false},
       'test/runner.js'

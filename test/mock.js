@@ -1,5 +1,5 @@
 define({
-  config: {
+  "config": {
     "map": {
       "center":[42.3725, -71.1266],
       "zoom":13,
@@ -23,10 +23,16 @@ define({
       "target_populations": { "title": "Populations Served" },
 
       "additional_notes": { "title": "Information"}
+    },
+    "facets": {
+      services_offered: {
+        title: "Services",
+        type: "list"
+      }
     }
   },
 
-  data: {
+  "data": {
     "type": "FeatureCollection",
     "features": [
       {

@@ -1,5 +1,5 @@
 define(
-  ['handlebars', 'underscore'],
+  ['handlebars', 'lodash'],
   function(Handlebars, _) {
     'use strict';
     var templates = {

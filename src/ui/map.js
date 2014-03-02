@@ -44,11 +44,17 @@ define(
         this.defineIconStyles();
 
         var setupFeature = function(feature, layer) {
-          this.layers.push(layer);
+          this.attr.features.push(layer);
           layer.on({click: this.emitClick.bind(this)});
         }.bind(this);
 
-        L.geoJson(data, {onEachFeature: setupFeature}).addTo(this.map);
+        if (this.attr.layer) {
+          this.attr.features = [];
+          this.map.removeLayer(this.attr.layer);
+        }
+
+        this.attr.layer = L.geoJson(data, {onEachFeature: setupFeature});
+        this.attr.layer.addTo(this.map);
       };
 
       this.emitClick = function(e) {
@@ -74,7 +80,7 @@ define(
       this.after('initialize', function() {
         this.map = L.map(this.node, {zoomControl: false});
 
-        this.layers = [];
+        this.attr.features = [];
 
         L.tileLayer(this.attr.tileUrl, {
           attribution: this.attr.tileAttribution,
@@ -83,6 +89,7 @@ define(
 
         this.on(document, 'config', this.configureMap);
         this.on(document, 'data', this.loadData);
+        this.on(document, 'dataFiltered', this.loadData);
 
         this.on(document, 'selectFeature', this.selectFeature);
         this.on('panTo', this.panTo);
