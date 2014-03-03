@@ -2,6 +2,10 @@ define(
   ['flight', 'jquery', 'lodash'],
   function(flight, $, _) {
     'use strict';
+    var stripHtml = function(html) {
+      return $("<div/>").html(html).text();
+    };
+
     var project = function() {
       this.configureProject = function(ev, config) {
         _.mapValues(
@@ -10,6 +14,9 @@ define(
             // find everything with data-project="key", and replace the HTML
             // with what's in the configuration
             $("*[data-project=" + key + "]").html(value);
+            // set meta fields to the text value
+            $("meta[name=" + key + "]").attr(
+              'content', stripHtml(value));
           });
       };
 
