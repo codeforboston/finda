@@ -6,24 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Generic 'find-a' app for geographic datasets">
     <meta name="author" content="Code for Boston">
+
+
+    <!-- CDNs for Bootstrap stylesheets-->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" type="text/css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    
+
+    <!-- Custom CSS 
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    -->
     <!--[if IE]>
         <link rel="stylesheet" href="lib/leaflet/leaflet.ie.css" />
     <![endif]-->
+
+
   </head>
 
   <body>
+
+  <!-- External links for the Jquery and JS needed for Bootstrap -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  
+
+
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Finda</a>
-        <form id="search" class="navbar-form" role="search">
-          <div class="form-group">
+         <!--Brand and Toggle get grouped for better mobile display-->
+        <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#finda-navbar-collapse">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="/">Finda</a>
+        </div> 
+
+        <!--Collect the nav links and content for toggling-->
+        <div class="collapse navbar-collapse" id="finda-navbar-collapse">  
+          <form id="search" class="navbar-form navbar-left" role="search">
+            <div class="form-group">
             <input type="text" class="address form-control" placeholder="Enter an address...">
+            
+            </div>
             <button type="submit" class="btn btn-default">Locate</button>
-          </div>
-        </form>
-      </div>
+
+          </form>
+        </div><!-- /.navbar-collapse -->  
+      </div><!-- /.container-fluid -->
     </nav>
+    
+
     <div class="container">
       <div id="map"></div>
       <div id="facets" class="control"></div>
