@@ -1,5 +1,10 @@
 define({
   "config": {
+    "project": {
+      "name": "Finda",
+      "description": "<p>Finda is a generic \"find-a\" app for geographic datasets.</p>",
+      "contact": "<b>Please send feedback, ideas, and bug reports!</b>"
+    },
     "map": {
       "center":[42.3725, -71.1266],
       "zoom":13,
