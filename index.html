@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Finda</title>
+    <title data-project="name">Finda</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Generic 'find-a' app for geographic datasets">
     <meta name="author" content="Code for Boston">
@@ -12,8 +12,11 @@
   <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Finda</a>
-        <form id="search" class="navbar-form" role="search">
+        <a class="navbar-brand" data-project="name" href="/">Finda</a>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" data-toggle="modal" data-target="#about">About</a></li>
+        </ul>
+        <form id="search" class="navbar-form navbar-left" role="search">
           <div class="form-group">
             <input type="text" class="address form-control" placeholder="Enter an address...">
             <button type="submit" class="btn btn-default">Locate</button>
@@ -28,5 +31,28 @@
     </div>
 
     <script type="text/javascript" data-main="src/script.js" src="lib/require.js"></script>
+
+    <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="aboutLabel">About <span data-project="name">Finda</span></h4>
+          </div>
+          <div class="modal-body">
+            <div data-project="description">Finda is a generic "find-a" app for geographic datasets.</div>
+            <h5 data-project="contact">Please send feedback, ideas, and bug reports to our <a href="https://github.com/codeforboston/finda/issues" target="_blank">Github</a> page.</h5>
+            <hr>
+            <h4>About Code for Boston</h4>
+            <p>Code for Boston is a volunteer group of civic-minded developers, designers, urban planners, citizen activists, data geeks and more. Part of the <a href="http://brigade.codeforamerica.org">Code for America Brigade</a> program, we work with Boston-area city governments and local communities to build open-source civic apps, open public data sources, and generally help to leverage technology for use in the public sphere.</p>
+            <p>Feel free to stop by one of our <a href="http://www.meetup.com/Code-for-Boston" target="_blank">Weekly Hack Nights</a>, <a href="http://www.github.com/codeforboston" target="_blank">check us out on Github</a>, or simply <a href="mailto:boston-admin@codeforamerica.org"> drop us a line!</a></p>
+          </div>
+          <div class="modal-footer">
+            <script type='text/javascript'>(function(){document.write("<img src='http://bostonbuilt.org/icon.php?q=built_in_boston_color_fancy.png&u=" + window.location.host + "' />");})();</script>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -46,13 +46,13 @@ body > div.container {
     color: #777;
 }
 
-#search .form-group {
-  width: 95%;
+#search {
   text-align: center;
+  float: none !important;
 }
 
-#search .address {
-  width: 30%;
+#search .form-group {
+  display: inline;
 }
 
 #info {
@@ -74,4 +74,9 @@ body > div.container {
 
 #facets .checkbox.selected label {
   font-weight: bold;
+}
+
+#about .modal-footer img {
+  height: 2.5em;
+  float: left;
 }
