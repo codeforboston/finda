@@ -6,10 +6,11 @@ define(
     'use strict';
     var map = function () {
       this.defaultAttrs({
-        tileUrl: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        tileSubdomains: 'abc',
-        tileAttribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + ' <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
-
+        tileUrl: 'http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png',
+	tileAttribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
+	tileSubdomains: '0123',
+	tileMinZoom: 2,
+	tileMaxZoom: 18
       });
 
       this.defineIconStyles = function() {
@@ -84,7 +85,9 @@ define(
 
         L.tileLayer(this.attr.tileUrl, {
           attribution: this.attr.tileAttribution,
-          subdomains: this.attr.tileSubdomains
+          subdomains: this.attr.tileSubdomains,
+          minZoom: this.attr.tileMinZoom,
+          maxZoom: this.attr.tileMaxZoom
         }).addTo(this.map);
 
         this.on(document, 'config', this.configureMap);
