@@ -6,7 +6,7 @@ require.config({
     'leaflet': '../lib/leaflet/leaflet',
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
-    'flight': '../lib/flight.min',
+    'flight': '../lib/flight.min'
   },
   shim: {
     'handlebars': {
