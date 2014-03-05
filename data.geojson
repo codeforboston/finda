@@ -2089,7 +2089,7 @@
         ], 
         "contact_names": [], 
         "contact_emails": [], 
-        "youth_category": "CUT - NOT A MASSACHUSETST RESOURCE ", 
+        "youth_category": "CUT - NOT A MASSACHUSETTS RESOURCE ", 
         "service_class_level_1": "Support Services", 
         "service_class_level_2": "", 
         "service_classes": [
@@ -3150,7 +3150,7 @@
         "organization_name": "Tapestry Health", 
         "community": "Great Barrington", 
         "services_offered": [
-          "heatlhcare", 
+          "healthcare", 
           "STI testing", 
           "HIV/AIDS"
         ], 
@@ -3187,7 +3187,7 @@
         "organization_name": "Tapestry Health", 
         "community": "North Adams", 
         "services_offered": [
-          "heatlhcare", 
+          "healthcare", 
           "STI testing", 
           "HIV/AIDS"
         ], 
@@ -3224,7 +3224,7 @@
         "organization_name": "Tapestry Health", 
         "community": "Pittsfield", 
         "services_offered": [
-          "heatlhcare", 
+          "healthcare", 
           "STI testing", 
           "HIV/AIDS"
         ], 
@@ -6463,7 +6463,7 @@
         "organization_name": "Holyoke Health Center", 
         "community": "Holyoke", 
         "services_offered": [
-          "heatlhcare", 
+          "healthcare", 
           "HIV/AIDS", 
           "primary care"
         ], 
