@@ -6,24 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Generic 'find-a' app for geographic datasets">
     <meta name="author" content="Code for Boston">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
   </head>
 
   <body>
+
+ 
+  
+
+
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
-        <a class="navbar-brand" data-project="name" href="/">Finda</a>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" data-toggle="modal" data-target="#about">About</a></li>
-        </ul>
-        <form id="search" class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="address form-control" placeholder="Enter an address...">
-            <button type="submit" class="btn btn-default">Locate</button>
-          </div>
-        </form>
-      </div>
+         <!--Brand and Toggle get grouped for better mobile display-->
+        <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#finda-navbar-collapse">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="/">Finda</a>
+        </div> 
+
+        <!--Collected the nav links and content for toggling-->
+        <div class="collapse navbar-collapse" id="finda-navbar-collapse">  
+          <form id="search" class="navbar-form" role="search">
+            <div class="form-group">
+              <input type="text" class="address form-control" placeholder="Enter an address...">
+              <button type="submit" class="btn btn-default">Locate</button>
+            </div>
+            
+          </form>
+        </div><!-- /.navbar-collapse -->  
+      </div><!-- /.container-fluid -->
     </nav>
+    
     <div class="container">
       <div id="map"></div>
       <div id="facets" class="control"></div>
@@ -31,6 +52,8 @@
     </div>
 
     <script type="text/javascript" data-main="src/script.js" src="lib/require.js"></script>
+
+
 
     <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -54,5 +77,6 @@
         </div>
       </div>
     </div>
+
   </body>
 </html>
