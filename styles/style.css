@@ -56,6 +56,10 @@ body > div.container {
   display: inline;
 }
 
+#search input {
+  width: 30%;
+}
+
 #info {
     position: absolute;
     top: 10px;

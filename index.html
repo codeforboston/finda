@@ -15,10 +15,6 @@
 
   <body>
 
- 
-  
-
-
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
          <!--Brand and Toggle get grouped for better mobile display-->
@@ -29,22 +25,21 @@
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="/">Finda</a>
-        </div> 
+         <a class="navbar-brand" data-project="name" href="/">Finda</a>
+        </div>
 
         <!--Collected the nav links and content for toggling-->
-        <div class="collapse navbar-collapse" id="finda-navbar-collapse">  
+        <div class="collapse navbar-collapse" id="finda-navbar-collapse">
           <form id="search" class="navbar-form" role="search">
             <div class="form-group">
-              <input type="text" class="address form-control" placeholder="Enter an address...">
-              <button type="submit" class="btn btn-default">Locate</button>
+            <input type="text" class="address form-control" placeholder="Enter an address..." title="Data © OpenStreetMap contributors, ODbL 1.0. http://www.openstreetmap.org/copyright">
+            <button type="submit" class="btn btn-default" title="Data © OpenStreetMap contributors, ODbL 1.0. http://www.openstreetmap.org/copyright">Locate</button>
             </div>
-            
           </form>
-        </div><!-- /.navbar-collapse -->  
+        </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    
+
     <div class="container">
       <div id="map"></div>
       <div id="facets" class="control"></div>
