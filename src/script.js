@@ -7,7 +7,6 @@ require.config({
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
-    'bootstrap': '../lib/bootstrap.min'
   },
   shim: {
     'handlebars': {
