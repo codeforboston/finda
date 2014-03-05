@@ -44,17 +44,20 @@ body > div.container {
     color: #777;
 }
 
-#search {
-  text-align: center;
-  float: none !important;
-}
+/* only center the search in the big view */
+@media (min-width: 768px) {
+  #search {
+    text-align: center;
+    float: none !important;
+  }
 
-#search .form-group {
-  display: inline;
-}
+  #search .form-group {
+    display: inline;
+  }
 
-#search input {
-  width: 30%;
+  #search input {
+    width: 30%;
+  }
 }
 
 #info {
