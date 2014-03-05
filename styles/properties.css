@@ -1,0 +1,5 @@
+/* Styles for each individual property, as defined in config.json */
+
+#phone_numbers     { font-style: italic; }
+#address           { font-style: italic; }
+#organization_name { font-weight: bold; }
