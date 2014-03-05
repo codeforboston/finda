@@ -36,6 +36,7 @@ define(
                   if (!_.isArray(property)) {
                     property = [property];
                   }
+                  // lowercase facets for deduping purposes
                   property = property.map(function (value) {
                     return value.toLowerCase();
                   });
@@ -62,7 +63,7 @@ define(
           this.attr.config,
           _.bind(function(facetConfig, facet) {
             // adds up the count of the values on the given facet
-            var result = _.chain(this.attr.data.features)
+            return _.chain(this.attr.data.features)
               .map(function(feature) {
                 // values of the facet on the given feature
                 return feature.properties[facet];
@@ -72,8 +73,6 @@ define(
               .uniq()
               .sortBy(function(value) { return value; })
               .value();
-
-            return result;
           }, this));
       };
 
