@@ -4,6 +4,7 @@
 /* each item in your geojson properties object and config.json
    will be added in a div with id="key" and the text as the "value" field */
 
+@import url("properties.css");
 
 html { height: 100% }
 body { height: 100%; margin: 0; padding: 50px 0 0;}
@@ -25,10 +26,6 @@ body > div.container {
   height: 100%;
   z-index: 1;
 }
-
-#phone_numbers     { font-style: italic; }
-#address           { font-style: italic; }
-#organization_name { font-weight:bold; }
 
 .control {
     z-index: 2;
