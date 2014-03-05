@@ -6,17 +6,9 @@ define(['jquery'], function($) {
                      {searchSelector: 'input',
                       mapSelector: 'div'});
       spyOnEvent('div', 'panTo');
-      spyOn(this.component, 'addGoogleScript');
-
-      window.google = {maps: jasmine.createSpyObj(
-        'maps', ['Geocoder', 'LatLng', 'LatLngBounds'])};
-      window.google.maps.Geocoder.andReturn({});
+      spyOn($, 'getJSON');
       this.config = {search: {geosearch: true},
                      map: {maxBounds: 'maxBounds'}};
-    });
-
-    afterEach(function() {
-      window.google = undefined;
     });
 
     describe('configuration sets up local values and adds a script', function() {
@@ -26,10 +18,6 @@ define(['jquery'], function($) {
       it('sets up local values', function() {
         expect(this.component.maxBounds).toEqual(this.config.map.maxBounds);
       });
-      it('adds a google maps script', function() {
-        expect(this.component.addGoogleScript).toHaveBeenCalledWith();
-        expect(window.googleMapsApiLoaded).toEqual(jasmine.any(Function));
-      });
       it('hides the widget if it is not requested', function() {
         this.config.search.geosearch = false;
         $(document).trigger('config', this.config);
@@ -37,56 +25,65 @@ define(['jquery'], function($) {
       });
     });
 
-    describe('googleMapsApiLoaded', function() {
-      beforeEach(function() {
-        this.component.script = jasmine.createSpyObj('DOM', ['remove']);
-        this.component.googleMapsApiLoaded();
-      });
-      it('removes the script', function() {
-        expect(this.component.script.remove).toHaveBeenCalledWith();
-      });
-      it('creates the geocoder object', function() {
-        expect(this.component.geocoder).toBeDefined();
-        expect(window.google.maps.Geocoder).toHaveBeenCalledWith();
-      });
-    });
-
     describe('form submission', function() {
       beforeEach(function() {
-        this.component.maxBounds = [1, 2];
-        this.component.geocoder = jasmine.createSpyObj(
-          'Geocoder', ['geocode']);
+        this.component.maxBounds = [[1, 2], [3, 4]];
       });
       it('does nothing if the input is empty', function() {
         this.$node.find('input').submit();
         expect('panTo').not.toHaveBeenTriggered();
-        expect(this.component.geocoder.geocode).not.toHaveBeenCalled();
+        expect($.getJSON).not.toHaveBeenCalled();
       });
       it('calls the geocoder with the address', function() {
         this.$node.find('input').val('address').submit();
-        expect(this.component.geocoder.geocode).toHaveBeenCalled();
-        var args = this.component.geocoder.geocode.mostRecentCall.args;
-        expect(args[0].address).toEqual('address');
-        expect(args[0].bounds).toBeDefined();
-        expect(args[1]).toEqual(jasmine.any(Function));
+        expect($.getJSON).toHaveBeenCalled();
+        var args = $.getJSON.mostRecentCall.args;
+        expect(args[0]).toEqual(this.component.attr.searchUrl);
+        expect(args[1]).toEqual({
+          format: "json",
+          addressdetails: 1,
+          q: "address",
+          viewbox: "1,2,3,4"
+        });
+        expect(args[2]).toEqual(jasmine.any(Function));
       });
     });
 
     describe('searchResults', function() {
+      var mockResult = {
+        "place_id":"98244943",
+        "licence":"Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http:\/\/www.openstreetmap.org\/copyright",
+        "osm_type":"relation",
+        "osm_id":"2315704",
+        "boundingbox": "box",
+        "lat":"42.3604823",
+        "lon":"-71.0595678",
+        "display_name":"display name",
+        "class":"place",
+        "type":"city",
+        "importance":1.0299782170989,
+        "icon":"http:\/\/nominatim.openstreetmap.org\/images\/mapicons\/poi_place_city.p.20.png",
+        "address":{
+          "city":"Boston",
+          "county":"Suffolk County",
+          "state":"Massachusetts",
+          "country":"United States of America",
+          "country_code":"us"}};
       it('does nothing if there are no results', function() {
         this.component.searchResults([]);
         expect('panTo').not.toHaveBeenTriggered();
       });
       it('pans to the first lat/long if present', function() {
-        var location = jasmine.createSpyObj('Location', ['lat', 'lng']);
-        location.lat.andReturn('lat');
-        location.lng.andReturn('lng');
-        this.component.searchResults([
-          {geometry: {location: location}}
-        ]);
+        this.component.searchResults([mockResult]);
         expect('panTo').toHaveBeenTriggeredOnAndWith(
           this.component.attr.mapSelector,
-          {lat: 'lat', lng: 'lng'});
+          {lat: mockResult.lat, lng: mockResult.lon});
+      });
+      it('sets the placeholder display to the city', function() {
+        this.component.searchResults([mockResult]);
+        var input = this.component.select('searchSelector');
+        expect(input.attr('placeholder')).toEqual('Boston, Massachusetts');
+        expect(input.val()).toEqual('');
       });
     });
   });
