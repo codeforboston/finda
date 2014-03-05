@@ -26,6 +26,7 @@
     "setupComponent": false,
     "spyOn": false,
     "spyOnEvent": false,
+    "setFixtures": false,
     "describe": false,
     "beforeEach": false,
     "it": false,
