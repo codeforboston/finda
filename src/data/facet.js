@@ -22,7 +22,7 @@ define(
       };
 
       this.filterFeatures = function(geojson, selected) {
-        // given a GeoJSON struture and a set of selected facets, return a
+        // given a GeoJSON structure and a set of selected facets, return a
         // GeoJSON structured filtered to the features which match the
         // selected facets
         if (selected) {
@@ -36,6 +36,10 @@ define(
                   if (!_.isArray(property)) {
                     property = [property];
                   }
+                  // lowercase facets for deduping purposes
+                  property = property.map(function (value) {
+                    return value.toLowerCase();
+                  });
                   // calculate the intersection of our selected values and
                   // the values on the given feature
                   var intersection = _.intersection(selected, property);
@@ -65,8 +69,9 @@ define(
                 return feature.properties[facet];
               })
               .flatten(true)
+              .map(function (value) { return value.toLowerCase(); })
               .uniq()
-              .sortBy(function(value) { return value.toLowerCase(); })
+              .sortBy(function(value) { return value; })
               .value();
           }, this));
       };
