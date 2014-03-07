@@ -1,5 +1,6 @@
-'use strict';
-define(['leaflet', 'test/mock'], function(L, mock) {
+define(
+  ['leaflet', 'test/mock', 'jquery', 'lodash'], function(L, mock, $, _) {
+  'use strict';
   describeComponent('ui/map', function() {
     beforeEach(function() {
       L.Icon.Default.imagePath = '/base/lib/leaflet/images';
@@ -32,13 +33,13 @@ define(['leaflet', 'test/mock'], function(L, mock) {
 
       it('data sets up the features', function() {
         this.component.trigger('data', mock.data);
-        expect(this.component.attr.features.length).toEqual(3);
+        expect(_.size(this.component.attr.features)).toEqual(3);
       });
 
       it('data a second time resets the data', function() {
         this.component.trigger('data', {type: 'FeatureCollection',
                                         features: []});
-        expect(this.component.attr.features.length).toEqual(0);
+        expect(_.size(this.component.attr.features)).toEqual(0);
       });
     });
 
@@ -56,35 +57,42 @@ define(['leaflet', 'test/mock'], function(L, mock) {
     });
 
     describe('clicking an icon', function() {
+      var layer;
       beforeEach(function() {
         spyOnEvent(document, 'selectFeature');
         this.component.trigger('config', mock.config);
         this.component.trigger('data', mock.data);
 
         // fake the click event
-        this.component.attr.features[0].fireEvent('click', {
-          latlng: this.component.attr.features[0]._latlng
+        layer = this.component.attr.features[
+          mock.data.features[0].geometry.coordinates];
+        layer.fireEvent('click', {
+          latlng: layer._latlng
         });
-      });
-
-      it('turns the icon gray', function() {
-        var icon = this.component.$node.find('.leaflet-marker-icon:first');
-
-        expect(icon.attr('src')).toMatch(/marker-icon-gray\.png$/);
-      });
-
-      it('turns the previously clicked icon back to the default', function() {
-        this.component.attr.features[1].fireEvent('click', {
-          latlng: this.component.attr.features[1]._latlng
-        });
-        var icon = this.component.$node.find('.leaflet-marker-icon:first');
-        expect(icon.attr('src')).toMatch(/marker-icon\.png$/);
       });
 
       it('sends a selectFeature event', function() {
         expect('selectFeature').toHaveBeenTriggeredOnAndWith(
-          document,
-          this.component.attr.features[0].feature);
+          document, layer.feature);
+      });
+    });
+
+    describe('selectFeature', function() {
+      beforeEach(function() {
+        this.component.trigger('config', mock.config);
+        this.component.trigger('data', mock.data);
+        this.component.trigger(document,
+                               'selectFeature', mock.data.features[0]);
+      });
+      it('turns the icon gray', function() {
+        var icon = this.component.$node.find('.leaflet-marker-icon:first');
+        expect(icon.attr('src')).toMatch(/marker-icon-gray\.png$/);
+      });
+
+      it('turns the previously clicked icon back to the default', function() {
+        this.component.trigger(document, 'selectFeature', null);
+        var icon = this.component.$node.find('.leaflet-marker-icon:first');
+        expect(icon.attr('src')).toMatch(/marker-icon\.png$/);
       });
     });
   });
