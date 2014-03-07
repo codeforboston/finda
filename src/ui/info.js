@@ -15,6 +15,9 @@ define(
       };
 
       this.update = function(ev, feature) {
+        if (!feature) {
+          return;
+        }
         var popup = templates.popup(this.infoConfig,
                                     feature.properties);
         var content = this.$node.find("div." + this.attr.contentClass);
@@ -28,6 +31,7 @@ define(
 
       this.hide = function() {
         this.$node.hide();
+        $(document).trigger('selectFeature', null);
       };
 
       this.after('initialize', function() {
