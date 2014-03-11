@@ -6,8 +6,12 @@
     "test": "test"
   },
   "devDependencies": {
-    "karma": "~0.10",
-    "jshint": "~2.4.4"
+    "karma": "~0.12.0",
+    "jshint": "~2.4.4",
+    "karma-requirejs": "~0.2.1",
+    "karma-jasmine": "~0.1.5",
+    "karma-cli": "0.0.3",
+    "karma-phantomjs-launcher": "~0.1.2"
   },
   "scripts": {
     "test": "jshint src && karma start --single-run --browsers PhantomJS"
@@ -17,5 +21,5 @@
     "url": "https://github.com/codeforboston/finda.git"
   },
   "license": "MIT",
-  "private":true
+  "private": true
 }
