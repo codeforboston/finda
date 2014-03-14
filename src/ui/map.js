@@ -39,6 +39,9 @@ define(
         }
         // geolocate once the configuration is set
         this.map.locate({setView: true, maxZoom: mapConfig.zoom});
+
+        // set feature attribute to be used as preview text to config
+        this.featurePreviewAttr = config.properties.preview_attribute;
       };
 
       this.loadData = function(ev, data) {
@@ -46,7 +49,13 @@ define(
 
         var setupFeature = function(feature, layer) {
           this.attr.features[feature.geometry.coordinates] = layer;
-          layer.on({click: this.emitClick.bind(this)});
+          // bind popup to feature with specified preview attribute
+          layer.bindPopup(feature.properties[this.featurePreviewAttr]);
+          layer.on({
+            click: this.emitClick.bind(this),
+            mouseover: this.emitHover.bind(this),
+            mouseout: this.clearHover.bind(this)
+          });
         }.bind(this);
 
         if (this.attr.layer) {
@@ -62,6 +71,14 @@ define(
         this.trigger(document, 'selectFeature', e.target.feature);
       };
 
+      this.emitHover = function(e) {
+        this.trigger(document, 'hoverFeature', e.target.feature);
+      };
+
+      this.clearHover = function(e) {
+        this.trigger(document, 'clearHoverFeature', e.target.feature);
+      };
+
       this.selectFeature = function(ev, feature) {
         if (this.previouslyClicked) {
           this.previouslyClicked.setIcon(this.defaultIcon);
@@ -75,6 +92,20 @@ define(
                                  lat: feature.geometry.coordinates[1]});
         } else {
           this.previouslyClicked = null;
+        }
+      };
+
+      this.hoverFeature = function(ev, feature) {
+        if (feature) {
+          var layer = this.attr.features[feature.geometry.coordinates];
+          layer.openPopup();
+        }
+      };
+
+      this.clearHoverFeature = function(ev, feature) {
+        if (feature) {
+          var layer = this.attr.features[feature.geometry.coordinates];
+          layer.closePopup();
         }
       };
 
@@ -99,6 +130,8 @@ define(
         this.on(document, 'dataFiltered', this.loadData);
 
         this.on(document, 'selectFeature', this.selectFeature);
+        this.on(document, 'hoverFeature', this.hoverFeature);
+        this.on(document, 'clearHoverFeature', this.clearHoverFeature);
         this.on('panTo', this.panTo);
       });
     };

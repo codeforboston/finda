@@ -14,6 +14,7 @@
         ]
     },
     "properties":{
+        "preview_attribute": "organization_name",
         "organization_name": {},
         "address": {},
         "web_url": { "title": "website", "url": true },
