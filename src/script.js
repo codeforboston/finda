@@ -28,8 +28,9 @@ require.config({
 
 define(
   ['data/loader', 'data/facet', 'ui/map', 'ui/search', 'ui/info',
-   'ui/facet', 'ui/project', 'bootstrap'],
-  function(Loader, DataFacet, Map, Search, Info, Facet, Project) {
+   'ui/facet', 'ui/project', 'data/analytics', 'bootstrap'],
+  function(Loader, DataFacet, Map, Search, Info, Facet, Project,
+           Analytics) {
     'use strict';
     // attach components to the DOM
     Map.attachTo('#map');
@@ -38,5 +39,6 @@ define(
     Facet.attachTo('#facets');
     DataFacet.attachTo(document);
     Project.attachTo(document);
+    Analytics.attachTo(document);
     Loader.attachTo(document);
   });

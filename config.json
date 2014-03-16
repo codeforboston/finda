@@ -41,5 +41,12 @@
             "type": "list"
         }
     },
-    "geojson_source": "data.geojson"
+  "analytics": {
+    "enabled": true,
+    "private": false,
+    "google_tracker": null,
+    "hostname": "auto",
+    "detail_enabled": true
+  },
+  "geojson_source": "data.geojson"
 }
