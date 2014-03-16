@@ -1,11 +1,12 @@
-'use strict';
 define(['jquery'], function($) {
+  'use strict';
   describeComponent('ui/search', function() {
     beforeEach(function() {
       setupComponent('<div><form><input class=address></form></div>',
                      {searchSelector: 'input',
                       mapSelector: 'div'});
       spyOnEvent('div', 'panTo');
+      spyOnEvent(document, 'uiSearch');
       spyOn($, 'getJSON');
       this.config = {search: {geosearch: true},
                      map: {maxBounds: 'maxBounds'}};
@@ -46,6 +47,11 @@ define(['jquery'], function($) {
           viewbox: "1,2,3,4"
         });
         expect(args[2]).toEqual(jasmine.any(Function));
+      });
+      it('emits a uiSearch event with the search query', function() {
+        this.$node.find('input').val('address').submit();
+        expect('uiSearch').toHaveBeenTriggeredOnAndWith(document,
+                                                        {query: 'address'});
       });
     });
 

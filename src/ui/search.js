@@ -29,6 +29,7 @@ define(
         if (!address) {
           return;
         }
+        this.trigger(document, 'uiSearch', {query: address});
         if (this.maxBounds) {
           parameters.viewbox = [
             this.maxBounds[0][0], this.maxBounds[0][1],
