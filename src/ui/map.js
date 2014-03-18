@@ -50,7 +50,11 @@ define(
         var setupFeature = function(feature, layer) {
           this.attr.features[feature.geometry.coordinates] = layer;
           // bind popup to feature with specified preview attribute
-          layer.bindPopup(feature.properties[this.featurePreviewAttr]);
+          layer.bindPopup(
+            feature.properties[this.featurePreviewAttr],
+            {
+              offset: L.point(0, -40)
+            });
           layer.on({
             click: this.emitClick.bind(this),
             mouseover: this.emitHover.bind(this),
