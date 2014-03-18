@@ -41,7 +41,7 @@ define(
         this.map.locate({setView: true, maxZoom: mapConfig.zoom});
 
         // set feature attribute to be used as preview text to config
-        this.featurePreviewAttr = config.properties.preview_attribute;
+        this.featurePreviewAttr = config.map.preview_attribute;
       };
 
       this.loadData = function(ev, data) {
