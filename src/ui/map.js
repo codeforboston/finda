@@ -53,6 +53,7 @@ define(
           layer.bindPopup(
             feature.properties[this.featurePreviewAttr],
             {
+              closeButton: false,
               offset: L.point(0, -40)
             });
           layer.on({
@@ -80,7 +81,7 @@ define(
       };
 
       this.clearHover = function(e) {
-        this.trigger(document, 'clearHoverFeature', e.target.feature);
+        // this.trigger(document, 'clearHoverFeature', e.target.feature);
       };
 
       this.selectFeature = function(ev, feature) {
