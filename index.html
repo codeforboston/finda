@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Generic 'find-a' app for geographic datasets">
     <meta name="author" content="Code for Boston">
-
-
-
+    <!-- build:css styles/style.min.css -->
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <!-- /build -->
+    <link rel="stylesheet" type="text/css" href="styles/properties.css">
 
   </head>
 
@@ -51,10 +51,6 @@
       </div>
     </div>
 
-    <script type="text/javascript" data-main="src/script.js" src="lib/require.js"></script>
-
-
-
     <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -78,5 +74,8 @@
       </div>
     </div>
 
+    <!-- build:js src/finda.min.js -->
+    <script type="text/javascript" data-main="src/script.js" src="lib/require.js"></script>
+    <!-- /build -->
   </body>
 </html>

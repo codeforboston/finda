@@ -1,4 +1,6 @@
-/* Styles for each individual property, as defined in config.json */
+/* Styles for each individual property, as defined in config.json
+   each item in your geojson properties object and config.json
+   will be added in a div with id="key" and the text as the "value" field */
 
 #phone_numbers     { font-style: italic; }
 #address           { font-style: italic; }
