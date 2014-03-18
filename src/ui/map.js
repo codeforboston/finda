@@ -81,7 +81,7 @@ define(
       };
 
       this.clearHover = function(e) {
-        // this.trigger(document, 'clearHoverFeature', e.target.feature);
+        this.trigger(document, 'clearHoverFeature', e.target.feature);
       };
 
       this.selectFeature = function(ev, feature) {
