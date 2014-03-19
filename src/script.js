@@ -1,44 +1,41 @@
 require.config({
-  baseUrl: 'src/',
-  paths: {
-    'jquery': '../lib/jquery-1.10.2',
-    'bootstrap': '../lib/bootstrap.min',
-    'leaflet': '../lib/leaflet/leaflet',
-    'handlebars': '../lib/handlebars',
-    'lodash': '../lib/lodash.min',
-    'flight': '../lib/flight.min'
-  },
-  shim: {
-    'handlebars': {
-      exports: 'Handlebars'
+    baseUrl: 'src/',
+    paths: {
+      'jquery': '../lib/jquery-1.10.2',
+      'bootstrap': '../lib/bootstrap.min',
+      'leaflet': '../lib/leaflet/leaflet',
+      'handlebars': '../lib/handlebars',
+      'lodash': '../lib/lodash.min',
+      'flight': '../lib/flight.min'
     },
-    'underscore': {
-      exports: '_'
-    },
-    'flight': {
-      deps: ['../lib/es5-shim.min', '../lib/es5-sham.min'],
-      exports: 'flight'
-    },
-    'bootstrap': {
-      deps: ['jquery'],
-      exports: '$'
+    shim: {
+      'handlebars': {
+        exports: 'Handlebars'
+      },
+      'underscore': {
+        exports: '_'
+      },
+      'flight': {
+        deps: ['../lib/es5-shim.min', '../lib/es5-sham.min'],
+        exports: 'flight'
+      },
+      'bootstrap': {
+        deps: ['jquery'],
+        exports: '$'
+      }
     }
-  }
 });
 
-define(
-  ['data/loader', 'data/facet', 'ui/map', 'ui/search', 'ui/info',
-   'ui/facet', 'ui/project', 'data/analytics', 'bootstrap'],
-  function(Loader, DataFacet, Map, Search, Info, Facet, Project,
-           Analytics) {
+define(function(require) {
     'use strict';
+    require('bootstrap');
     // attach components to the DOM
-    Map.attachTo('#map');
-    Search.attachTo('#search', {mapSelector: '#map'});
-    Info.attachTo('#info');
-    Facet.attachTo('#facets');
-    DataFacet.attachTo(document);
-    Project.attachTo(document);
-    Analytics.attachTo(document);
-    Loader.attachTo(document);
+    require('ui/map').attachTo('#map');
+    require('ui/search').attachTo('#search', {mapSelector: '#map'});
+    require('ui/info').attachTo('#info');
+    require('ui/facet').attachTo('#facets');
+    require('data/facet').attachTo(document);
+    require('ui/project').attachTo(document);
+    require('data/analytics').attachTo(document);
+    require('data/loader').attachTo(document);
   });

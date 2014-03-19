@@ -1,10 +1,9 @@
-define(
-  ['flight',
-   'jquery',
-   'lodash'],
-  function(flight, $, _) {
+define(function(require, exports, module) {
     'use strict';
-    var search = function() {
+    var flight = require('flight');
+    var $ = require('jquery');
+    var _ = require('lodash');
+    module.exports = flight.component(function search() {
       this.defaultAttrs({
         searchSelector: 'input',
         searchUrl: '//nominatim.openstreetmap.org/search'
@@ -60,7 +59,5 @@ define(
         this.on('submit', this.search);
         this.on(document, 'config', this.configureSearch);
       });
-    };
-
-    return flight.component(search);
+    });
   });

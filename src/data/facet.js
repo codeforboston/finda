@@ -1,8 +1,9 @@
-define(
-  ['flight', 'lodash', 'jquery'],
-  function(flight, _, $) {
-    'use strict';
-    var facet = function() {
+define(function(require, exports, module) {
+  'use strict';
+  var flight = require('flight');
+  var $ = require('jquery');
+  var _ = require('lodash');
+    module.exports = flight.component(function facet() {
       this.configure = function(ev, config) {
         this.attr.config = config.facets;
         this.attr.selected = {};
@@ -140,7 +141,5 @@ define(
         this.on(document, 'data', this.loadData);
         this.on(document, 'uiFilterFacet', this.filterData);
       });
-    };
-
-    return flight.component(facet);
+    });
   });

@@ -1,10 +1,9 @@
-define(
-  ['flight',
-   'jquery',
-   'infotemplates'],
-  function(flight, $, templates) {
+define(function(require, exports, module) {
     'use strict';
-    var info = function() {
+    var flight = require('flight');
+    var $ = require('jquery');
+    var templates = require('infotemplates');
+    module.exports = flight.component(function info() {
       this.defaultAttrs({
         "contentClass": "content",
         "closeSelector": ".close"
@@ -39,7 +38,5 @@ define(
         this.on(document, 'selectFeature', this.update);
         this.on(this.select('closeSelector'), 'click', this.hide);
       });
-    };
-
-    return flight.component(info);
+    });
   });

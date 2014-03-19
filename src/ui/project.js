@@ -1,12 +1,14 @@
-define(
-  ['flight', 'jquery', 'lodash'],
-  function(flight, $, _) {
+define(function(require, exports, module) {
     'use strict';
+    var flight = require('flight');
+    var $ = require('jquery');
+    var _ = require('lodash');
+
     var stripHtml = function(html) {
       return $("<div/>").html(html).text();
     };
 
-    var project = function() {
+    module.exports = flight.component(function project() {
       this.configureProject = function(ev, config) {
         _.mapValues(
           config.project,
@@ -23,7 +25,5 @@ define(
       this.after('initialize', function() {
         this.on(document, 'config', this.configureProject);
       });
-    };
-
-    return flight.component(project);
+    });
   });
