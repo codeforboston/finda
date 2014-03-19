@@ -1,8 +1,8 @@
-define(
-  ['handlebars', 'lodash'],
-  function(Handlebars, _) {
+define(function(require, exports) {
     'use strict';
-    var templates = {
+    var Handlebars = require('handlebars'),
+     _ = require('lodash'),
+     templates = {
       url: Handlebars.compile('<a href="{{url}}">{{title}}</a>'),
       image: Handlebars.compile('<img src="{{url}}"/>'),
       title: Handlebars.compile('<div><h4>{{title}}</h4><div>{{{rendered}}}</div></div>'),
@@ -41,9 +41,9 @@ define(
             return templates.simple({text: value}).replace(
                 /\n/g, '<br>');
           }
-        },
+        };
 
-        format = function(value, property) {
+        function format(value, property) {
           property = property || {};
           var formatter;
           if (property.url) {
@@ -59,10 +59,9 @@ define(
           }
           // apply the discovered formatter to the data
           return formatters[formatter](value, property);
-        };
+        }
 
-    return {
-      popup: function(properties, feature) {
+      exports.popup = function(properties, feature) {
         var popup = [],
             rendered;
         _.each(properties, function(property, key) {
@@ -78,6 +77,5 @@ define(
           }
         });
         return templates.popup({popup: popup});
-      }
-    };
+      };
   });

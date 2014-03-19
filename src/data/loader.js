@@ -1,23 +1,20 @@
-define(
-  ['leaflet',
-   'jquery',
-   'flight'],
-  function(L, $, flight) {
-    'use strict';
-    var loader = function() {
-      this.after('initialize', function() {
-        // load the data
-        $.getJSON('config.json', function(config) {
-          this.trigger('config', config);
+define(function(require, exports, module) {
+  'use strict';
+  var flight = require('flight');
+  var $ = require('jquery');
+  module.exports = flight.component(function loader() {
+    this.after('initialize', function() {
+      // load the data
+      $.getJSON('config.json', function(config) {
+        this.trigger('config', config);
 
-          // load the geojson
-          $.getJSON(config.geojson_source, function(data) {
-            this.trigger('data', data);
-          }.bind(this));
+        // load the geojson
+        $.getJSON(config.geojson_source, function(data) {
+          this.trigger('data', data);
         }.bind(this));
-      });
-    };
-
-    return flight.component(loader);
+      }.bind(this));
+    });
   });
-         
+
+});
+       

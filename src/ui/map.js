@@ -1,10 +1,8 @@
-define(
-  ['leaflet',
-   'jquery',
-   'flight'],
-  function(L, $, flight) {
+define(function(require, exports, module) {
     'use strict';
-    var map = function () {
+    var flight = require('flight');
+    var L = require('leaflet');
+    module.exports = flight.component(function map() {
       this.defaultAttrs({
         tileUrl: 'http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png',
 	tileAttribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
@@ -101,7 +99,5 @@ define(
         this.on(document, 'selectFeature', this.selectFeature);
         this.on('panTo', this.panTo);
       });
-    };
-
-    return flight.component(map);
+    });
   });

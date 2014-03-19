@@ -1,14 +1,14 @@
-define(function(require) {
+define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
-  var _ = require('lodash');
   var $ = require('jquery');
+  var _ = require('lodash');
   $("<script/>")
     .attr('type', 'text/javascript')
     .attr('src', '//www.google-analytics.com/analytics.js')
     .appendTo('head');
 
-  var analytics = function() {
+  module.exports = flight.component(function analytics() {
     this.defaultAttrs({
       codeForBostonTracker: "UA-37610225-5",
       enabled: true,
@@ -99,7 +99,5 @@ define(function(require) {
       this.on(document, 'uiFilterFacet', this.trackFacet);
       this.on(document, 'uiSearch', this.trackSearch);
     });
-  };
-
-  return flight.component(analytics);
+  });
 });

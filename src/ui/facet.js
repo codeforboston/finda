@@ -1,15 +1,17 @@
-define(
-  ['flight', 'handlebars', 'lodash', 'jquery'],
-  function(flight, Handlebars, _, $) {
+define(function(require, exports, module) {
     'use strict';
     // compile all the templates
+    var flight = require('flight');
+    var Handlebars = require('handlebars');
+    var _ = require('lodash');
+    var $ = require('jquery');
     var templates = {
       input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{ value }} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
       form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
       facet: Handlebars.compile('<h4>{{title}}</h4>{{{form}}}')
     };
 
-    var facet = function() {
+    module.exports = flight.component(function () {
       this.configureFacets = function(ev, config) {
         this.facetConfig = config.facets;
       };
@@ -52,7 +54,5 @@ define(
         this.on(document, 'config', this.configureFacets);
         this.on(document, 'dataFacets', this.displayFacets);
       });
-    };
-
-    return flight.component(facet);
+    });
   });
