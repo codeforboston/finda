@@ -127,6 +127,7 @@ body > div.container {
   left: 0;
   width: 300px;
   border-right: 1px solid #AFAFAF;
+  margin-bottom:30px;
   overflow-y: auto;
 }
 
