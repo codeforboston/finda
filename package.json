@@ -24,10 +24,10 @@
     "test": "jshint src && karma start --single-run --browsers PhantomJS",
     "build": "npm run clean && npm run copy && npm run cssmin && npm run requirejs && npm run processhtml && npm run index",
     "clean": "rimraf dist",
-    "copy": "./copyfiles.js",
+    "copy": "./script/copyfiles.js",
     "cssmin": "cleancss --s1 -o dist/styles/style.css styles/style.css",
-    "requirejs": "r.js -o build.js",
-    "index": "replace 'data-main=\"(src/script.js)\" src=\"lib/require.js\"' 'src=\"$1\"' dist/index.html"
+    "requirejs": "r.js -o script/build.js",
+    "index": "replace -s 'data-main=\"(src/script.js)\" src=\"lib/require.js\"' 'src=\"$1\"' dist/index.html"
   },
   "repository": {
     "type": "git",
