@@ -49,13 +49,12 @@ define(
 
         var setupFeature = function(feature, layer) {
           this.attr.features[feature.geometry.coordinates] = layer;
+
           // bind popup to feature with specified preview attribute
-          layer.bindPopup(
-            feature.properties[this.featurePreviewAttr],
-            {
-              closeButton: false,
-              offset: L.point(0, -40)
-            });
+          this.bindPopupToFeature(
+            layer,
+            feature.properties[this.featurePreviewAttr]);
+
           layer.on({
             click: this.emitClick.bind(this),
             mouseover: this.emitHover.bind(this),
@@ -93,11 +92,24 @@ define(
           layer.setIcon(this.grayIcon);
           this.previouslyClicked = layer;
 
+          // re-bind popup to feature with specified preview attribute
+          this.bindPopupToFeature(
+            layer,
+            feature.properties[this.featurePreviewAttr]);
+
           this.trigger('panTo', {lng: feature.geometry.coordinates[0],
                                  lat: feature.geometry.coordinates[1]});
         } else {
           this.previouslyClicked = null;
         }
+      };
+
+      this.bindPopupToFeature = function(layer, feature){
+        layer.bindPopup(feature,
+          {
+            closeButton: false,
+            offset: L.point(0, -40)
+          });
       };
 
       this.hoverFeature = function(ev, feature) {
