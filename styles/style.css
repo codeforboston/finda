@@ -1,12 +1,6 @@
 @import url("../lib/bootstrap.min.css");
 @import url("../lib/leaflet/leaflet.css");
 
-/* custom css for leaflet popups */
-/* each item in your geojson properties object and config.json
-   will be added in a div with id="key" and the text as the "value" field */
-
-@import url("properties.css");
-
 html { height: 100%;}
 body { height: 100%; margin: 0; font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; }
 body > div.container {

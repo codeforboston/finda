@@ -11,10 +11,24 @@
     "karma-requirejs": "~0.2.1",
     "karma-jasmine": "~0.1.5",
     "karma-cli": "0.0.3",
-    "karma-phantomjs-launcher": "~0.1.2"
+    "karma-phantomjs-launcher": "~0.1.2",
+    "almond": "^0.2.9",
+    "clean-css": "^2.1.6",
+    "requirejs": "^2.1.11",
+    "rimraf": "^2.2.6",
+    "replace": "^0.2.9",
+    "glob": "^3.2.9",
+    "mkdirp": "^0.3.5",
+    "copyfiles": "0.0.1"
   },
   "scripts": {
-    "test": "jshint src && karma start --single-run --browsers PhantomJS"
+    "test": "jshint src && karma start --single-run --browsers PhantomJS",
+    "build": "npm run clean && npm run copy && npm run cssmin && npm run requirejs && npm run processhtml && npm run index",
+    "clean": "rimraf dist",
+    "copy": "copyfiles index.html data.geojson config.json *.md styles/properties.css img/* lib/leaflet/images/marker-* dist",
+    "cssmin": "cleancss --s1 -o dist/styles/style.css styles/style.css",
+    "requirejs": "r.js -o script/build.js",
+    "index": "replace -s 'data-main=\"(src/script.js)\" src=\"lib/require.js\"' 'src=\"$1\"' dist/index.html"
   },
   "repository": {
     "type": "git",
