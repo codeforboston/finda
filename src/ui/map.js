@@ -18,11 +18,13 @@ define(function(require, exports, module) {
           path = L.Icon.Default.imagePath = 'lib/leaflet/images';
         }
         this.grayIcon = L.icon({
-          iconUrl: path + '/marker-icon-gray.png'
+          iconUrl: path + '/marker-icon-gray.png',
+          shadowUrl: path + '/marker-shadow.png'
         });
 
         this.defaultIcon = L.icon({
-          iconUrl: path + '/marker-icon.png'
+          iconUrl: path + '/marker-icon.png',
+          shadowUrl: path + '/marker-shadow.png'
         });
       };
 
