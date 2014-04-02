@@ -17,6 +17,7 @@ define(function(require, exports, module) {
         if (!feature) {
           return;
         }
+        this.attr.currentFeature = feature;
         var popup = templates.popup(this.infoConfig,
                                     feature.properties);
         var content = this.$node.find("div." + this.attr.contentClass);
@@ -30,7 +31,8 @@ define(function(require, exports, module) {
 
       this.hide = function() {
         this.$node.hide();
-        $(document).trigger('selectFeature', null);
+        this.trigger(document, 'deselectFeature', this.attr.currentFeature);
+        this.attr.currentFeature = null;
       };
 
       this.after('initialize', function() {

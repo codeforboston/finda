@@ -95,5 +95,21 @@ define(
         expect(icon.attr('src')).toMatch(/marker-icon\.png$/);
       });
     });
+
+    describe('deselectFeature', function() {
+      beforeEach(function() {
+        this.component.trigger('config', mock.config);
+        this.component.trigger('data', mock.data);
+        this.component.trigger(document,
+                               'selectFeature', mock.data.features[0]);
+      });
+      it('turns the icon back to default', function() {
+        this.component.trigger(document, 'deselectFeature', mock.data.features[0]);
+        var icon = this.component.$node.find('.leaflet-marker-icon:first');
+        expect(icon.attr('src')).toMatch(/marker-icon\.png$/);
+      });
+
+    });
+
   });
 });

@@ -102,6 +102,18 @@ define(function(require, exports, module) {
         }
       };
 
+      this.deselectFeature = function(ev, feature) {
+        if (this.previouslyClicked) {
+          this.previouslyClicked.setIcon(this.defaultIcon);
+        }
+        var layer = this.attr.features[feature.geometry.coordinates];
+        // re-bind popup to feature with specified preview attribute
+        this.bindPopupToFeature(
+          layer,
+          feature.properties[this.featurePreviewAttr]);
+        this.previouslyClicked = null;
+      };
+
       this.bindPopupToFeature = function(layer, feature){
         layer.bindPopup(feature,
           {
@@ -145,6 +157,7 @@ define(function(require, exports, module) {
         this.on(document, 'dataFiltered', this.loadData);
 
         this.on(document, 'selectFeature', this.selectFeature);
+        this.on(document, 'deselectFeature', this.deselectFeature);
         this.on(document, 'hoverFeature', this.hoverFeature);
         this.on(document, 'clearHoverFeature', this.clearHoverFeature);
         this.on('panTo', this.panTo);
