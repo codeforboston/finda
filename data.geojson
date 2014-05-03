@@ -22,13 +22,15 @@
         "phone_numbers": [
           "413-774-7028"
         ], 
-        "contact_names": [
+        "contact_names": [], 
+        "contact_emails": [
           "GenQ@communityaction.us"
         ], 
-        "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -60,13 +62,15 @@
         "phone_numbers": [
           "413-774-7028"
         ], 
-        "contact_names": [
+        "contact_names": [], 
+        "contact_emails": [
           "GenQ@communityaction.us"
         ], 
-        "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -96,13 +100,15 @@
         "phone_numbers": [
           "(413)-625-6636"
         ], 
-        "contact_names": [
+        "contact_names": [], 
+        "contact_emails": [
           "jcmalinski48@gmail.com"
         ], 
-        "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -134,22 +140,26 @@
         "phone_numbers": [
           "413-774-7028"
         ], 
-        "contact_names": [
+        "contact_names": [], 
+        "contact_emails": [
           "TREE@communityaction.us"
         ], 
-        "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Center-based Basic Living and Personal Care Supports", 
           "Training and Skills Development"
         ], 
         "target_populations": [
-          "LGBTQ Youth 12-21"
+          "LGBTQ Youth"
         ], 
         "age_range": "", 
-        "additional_notes": []
+        "additional_notes": [
+          "[12,21]"
+        ]
       }
     }, 
     {
@@ -173,22 +183,26 @@
         "phone_numbers": [
           "413-774-7028"
         ], 
-        "contact_names": [
+        "contact_names": [], 
+        "contact_emails": [
           "TREE@communityaction.us"
         ], 
-        "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Center-based Basic Living and Personal Care Supports", 
           "Training and Skills Development"
         ], 
         "target_populations": [
-          "LGBTQ Youth 12-21"
+          "LGBTQ Youth"
         ], 
         "age_range": "", 
-        "additional_notes": []
+        "additional_notes": [
+          "[12, 21]"
+        ]
       }
     }, 
     {
@@ -211,7 +225,7 @@
           "Referrals", 
           "Housing Services"
         ], 
-        "web_url": "http://www.tapestryhealth.org", 
+        "web_url": "http://www.tapestryhealth.org/", 
         "phone_numbers": [
           "(413) 773-8888"
         ], 
@@ -219,7 +233,10 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Professional Support Services; Behavioral Health Services", 
+        "service_class_level_2": [
+          "Professional Support Services", 
+          "Behavioral Health Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -261,13 +278,17 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "LGBTQ Youth"
         ], 
         "target_populations": [], 
         "age_range": "", 
-        "additional_notes": []
+        "additional_notes": [
+          "[13, 22]"
+        ]
       }
     }, 
     {
@@ -299,7 +320,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "LGBTQ Youth"
         ], 
@@ -339,7 +362,9 @@
         ], 
         "youth_category": "Training and Technical Assistance", 
         "service_class_level_1": "Training and Educational Activities", 
-        "service_class_level_2": "Cultural Competency Training", 
+        "service_class_level_2": [
+          "Cultural Competency Training"
+        ], 
         "service_classes": [
           "LGBTQ Youth"
         ], 
@@ -382,7 +407,9 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach", 
           "LGBTQ Youth"
@@ -426,7 +453,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment", 
           "LGBTQ Youth"
@@ -469,7 +498,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "LGBTQ Youth"
         ], 
@@ -483,8 +514,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.0059875, 
-          41.6241366
+          -71.0043812, 
+          41.6286276
         ]
       }, 
       "properties": {
@@ -510,7 +541,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "LGBTQ Youth"
         ], 
@@ -549,7 +582,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -592,7 +627,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -635,7 +672,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -678,7 +717,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -712,7 +753,7 @@
         ], 
         "web_url": "http://johma.org/", 
         "phone_numbers": [
-          "978-500-7478"
+          "../AppData/Local/Microsoft/Documents%20and%20Settings/hhussey/Local%20Settings/Temporary%20Internet%20Files/OLK6C/tel/978-500-7478"
         ], 
         "contact_names": [
           "Phil Hayes"
@@ -722,7 +763,10 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Case Management; Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Case Management", 
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Child/adolescent Community Based Social Skills and Recreation"
         ], 
@@ -766,7 +810,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -806,7 +852,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -845,7 +893,10 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment; Reproductive Health", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment", 
+          "Reproductive Health"
+        ], 
         "service_classes": [], 
         "target_populations": [
           "LGBTQ Youth"
@@ -882,7 +933,50 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment; Reproductive Health", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment", 
+          "Reproductive Health"
+        ], 
+        "service_classes": [], 
+        "target_populations": [
+          "LGBTQ Youth"
+        ], 
+        "age_range": "", 
+        "additional_notes": []
+      }
+    }, 
+    {
+      "type": "Feature", 
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -71.1639537, 
+          42.7087748
+        ]
+      }, 
+      "properties": {
+        "address": "101 Amesbury Street\nSuites 106 &107\nEssex, MA 01840", 
+        "organization_name": "Health Quarters", 
+        "community": "Lawrence", 
+        "services_offered": [
+          "Healthcare", 
+          "STI Testing", 
+          "Training and Technical Assistance"
+        ], 
+        "web_url": "http://www.healthq.org/", 
+        "phone_numbers": [
+          "978-681-5258"
+        ], 
+        "contact_names": [], 
+        "contact_emails": [
+          "info@healthq.org"
+        ], 
+        "youth_category": "Health and Mental Health", 
+        "service_class_level_1": "Health Services", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment", 
+          "Reproductive Health"
+        ], 
         "service_classes": [], 
         "target_populations": [
           "LGBTQ Youth"
@@ -919,7 +1013,10 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment; Reproductive Health", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment", 
+          "Reproductive Health"
+        ], 
         "service_classes": [], 
         "target_populations": [
           "LGBTQ Youth"
@@ -956,7 +1053,10 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment; Sexual Health", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment", 
+          "Sexual Health"
+        ], 
         "service_classes": [], 
         "target_populations": [
           "LGBTQ Youth"
@@ -995,7 +1095,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1041,7 +1143,11 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Support Services; Health Services", 
-        "service_class_level_2": "Case Management; Clinical and Medical Counseling, Therapy, and Treatment; Sexual Health", 
+        "service_class_level_2": [
+          "Case Management", 
+          "Clinical and Medical Counseling, Therapy, and Treatment", 
+          "Sexual Health"
+        ], 
         "service_classes": [
           "Case Management"
         ], 
@@ -1050,6 +1156,48 @@
         ], 
         "age_range": "Individuals Living With Hepatitis C", 
         "additional_notes": []
+      }
+    }, 
+    {
+      "type": "Feature", 
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -71.1185855, 
+          42.3726496
+        ]
+      }, 
+      "properties": {
+        "address": "1350 Massachusetts Ave\nMiddlesex, MA 02138", 
+        "organization_name": "BAGELS at Harvard University", 
+        "community": "Cambridge", 
+        "services_offered": [
+          "Social Group", 
+          "Public Education"
+        ], 
+        "web_url": " http://www.hcs.harvard.edu/~bagels/", 
+        "phone_numbers": [
+          ""
+        ], 
+        "contact_names": [], 
+        "contact_emails": [
+          "bagels@hcs.harvard.edu"
+        ], 
+        "youth_category": "Higher Education Org", 
+        "service_class_level_1": "Support Services", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
+        "service_classes": [
+          "Clubhouse"
+        ], 
+        "target_populations": [
+          "LGBTQ Youth"
+        ], 
+        "age_range": "", 
+        "additional_notes": [
+          "college student"
+        ]
       }
     }, 
     {
@@ -1074,11 +1222,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "youngblissboston@gmail.com"
+          "mailto:youngblissboston@gmail.com"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -1096,8 +1246,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.0927737, 
-          42.3922057
+          -71.09278069999999, 
+          42.3922093
         ]
       }, 
       "properties": {
@@ -1116,7 +1266,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1152,7 +1304,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1168,8 +1322,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.1232721, 
-          42.3915953
+          -71.12326759999999, 
+          42.3916007
         ]
       }, 
       "properties": {
@@ -1188,7 +1342,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1224,7 +1380,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1260,7 +1418,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1296,7 +1456,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1312,8 +1474,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.08532699999999, 
-          42.373089
+          -71.08552310000002, 
+          42.373084
         ]
       }, 
       "properties": {
@@ -1332,7 +1494,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1368,7 +1532,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1404,7 +1570,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1440,7 +1608,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1476,7 +1646,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1492,8 +1664,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.10955000000001, 
-          42.389964
+          -71.1037557, 
+          42.3763423
         ]
       }, 
       "properties": {
@@ -1512,7 +1684,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1528,8 +1702,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.09712, 
-          42.3870612
+          -71.0978713, 
+          42.3865509
         ]
       }, 
       "properties": {
@@ -1548,7 +1722,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1584,7 +1760,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1620,7 +1798,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1657,7 +1837,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1697,7 +1879,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1738,7 +1922,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1769,13 +1955,15 @@
         ], 
         "web_url": "http://dsfamilypractice.com/transgender.php", 
         "phone_numbers": [
-          "(617) 666-9577"
+          "http://dsfamilypractice.com/transgender.php,%20617)%20666-9577"
         ], 
         "contact_names": [], 
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1811,11 +1999,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "drnicoleissa@yahoo.com"
+          "mailto:drnicoleissa@yahoo.com"
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -1861,7 +2051,9 @@
         ], 
         "youth_category": "Legal Services", 
         "service_class_level_1": "Professional Services", 
-        "service_class_level_2": "Legal Services", 
+        "service_class_level_2": [
+          "Legal Services"
+        ], 
         "service_classes": [
           "Case Management"
         ], 
@@ -1900,7 +2092,9 @@
         ], 
         "youth_category": "Government Entity", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Capacity Building"
         ], 
@@ -1916,8 +2110,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.2181993, 
-          42.3687409
+          -71.2203085, 
+          42.3695956
         ]
       }, 
       "properties": {
@@ -1939,7 +2133,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -1977,7 +2173,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2019,7 +2217,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2037,8 +2237,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.3094866, 
-          42.6424005
+          -71.3114673, 
+          42.64218160000001
         ]
       }, 
       "properties": {
@@ -2056,7 +2256,9 @@
         "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2072,8 +2274,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.1146864, 
-          42.3714835
+          -71.11427239999999, 
+          42.3715801
         ]
       }, 
       "properties": {
@@ -2091,7 +2293,9 @@
         "contact_emails": [], 
         "youth_category": "CUT - NOT A MASSACHUSETST RESOURCE", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "", 
+        "service_class_level_2": [
+          ""
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -2127,11 +2331,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "lgbtissues@somervillema.gov"
+          "mailto:lgbtissues@somervillema.gov"
         ], 
         "youth_category": "Government Entity", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Case Management"
         ], 
@@ -2170,11 +2376,13 @@
         ], 
         "contact_emails": [
           "lgbt@tufts.edu", 
-          "Tom.Bourdon@tufts.edu"
+          "mailto:Tom.Bourdon@tufts.edu"
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2211,7 +2419,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -2246,7 +2456,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -2281,7 +2493,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -2316,7 +2530,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -2332,8 +2548,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.06746559999999, 
-          42.4263859
+          -71.0674703, 
+          42.4263877
         ]
       }, 
       "properties": {
@@ -2351,7 +2567,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -2391,11 +2609,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "yof@aac.org"
+          "mailto:yof@aac.org"
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2411,8 +2631,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.3094866, 
-          42.6424005
+          -71.3114673, 
+          42.64218160000001
         ]
       }, 
       "properties": {
@@ -2434,7 +2654,10 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment; Sexual Health", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment", 
+          "Sexual Health"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -2475,7 +2698,9 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -2511,11 +2736,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "info@mtwyouth.org"
+          "mailto:info@mtwyouth.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Employment", 
-        "service_class_level_2": "Job Development and Placement", 
+        "service_class_level_2": [
+          "Job Development and Placement"
+        ], 
         "service_classes": [
           "Education, Vocational and Skills Training"
         ], 
@@ -2556,7 +2783,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2597,11 +2826,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "youth@casparinc.org\u00a0"
+          "mailto:youth@casparinc.org%22"
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach, and Stabilization Services", 
           "Case Management"
@@ -2644,7 +2875,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services; Awareness", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [], 
         "target_populations": [
           "LGBTQ Youth"
@@ -2681,7 +2914,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2719,7 +2954,9 @@
         "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2756,7 +2993,9 @@
         "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2772,8 +3011,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -70.18522500000002, 
-          42.053066
+          -70.18480029999999, 
+          42.0527299
         ]
       }, 
       "properties": {
@@ -2794,7 +3033,9 @@
         "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2835,7 +3076,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -2878,7 +3121,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -2922,7 +3167,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -2960,7 +3207,9 @@
         "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -3004,7 +3253,9 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -3035,7 +3286,7 @@
         ], 
         "web_url": "http://www.berkshireahec.org/page.php?PageID=2067&PageName=Youth+Suicide+Prevention+Project", 
         "phone_numbers": [
-          "413-447-2417"
+          "mailto:bmchugh@berkshireahec.org%20%20413-447-2417"
         ], 
         "contact_names": [
           "Bear McHugh"
@@ -3045,7 +3296,9 @@
         ], 
         "youth_category": "Training and Technical Assistance", 
         "service_class_level_1": "Training and Educational Activities", 
-        "service_class_level_2": "Suicide Prevention Traiing", 
+        "service_class_level_2": [
+          "Suicide Prevention Traiing"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -3087,7 +3340,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -3125,7 +3380,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -3154,7 +3411,7 @@
           "STI Testing", 
           "HIV/AIDS"
         ], 
-        "web_url": "http://www.tapestryhealth.org", 
+        "web_url": "http://www.tapestryhealth.org/", 
         "phone_numbers": [
           "(413) 528-4238"
         ], 
@@ -3162,7 +3419,10 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Professional Support Services; Behavioral Health Services", 
+        "service_class_level_2": [
+          "Professional Support Services", 
+          "Behavioral Health Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -3191,7 +3451,7 @@
           "STI Testing", 
           "HIV/AIDS"
         ], 
-        "web_url": "http://www.tapestryhealth.org", 
+        "web_url": "http://www.tapestryhealth.org/", 
         "phone_numbers": [
           "(413) 664-5659"
         ], 
@@ -3199,7 +3459,10 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Professional Support Services; Behavioral Health Services", 
+        "service_class_level_2": [
+          "Professional Support Services", 
+          "Behavioral Health Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -3228,7 +3491,7 @@
           "STI Testing", 
           "HIV/AIDS"
         ], 
-        "web_url": "http://www.tapestryhealth.org", 
+        "web_url": "http://www.tapestryhealth.org/", 
         "phone_numbers": [
           "(413) 443-2844"
         ], 
@@ -3236,7 +3499,10 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Professional Support Services; Behavioral Health Services", 
+        "service_class_level_2": [
+          "Professional Support Services", 
+          "Behavioral Health Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -3278,7 +3544,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -3322,7 +3590,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Child/ Adolescent/ Young Adult Intermediate-term Stabilization", 
           "Clubhouse"
@@ -3341,8 +3611,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.798283, 
-          42.2693265
+          -71.7981214, 
+          42.2695
         ]
       }, 
       "properties": {
@@ -3354,17 +3624,19 @@
           "Social Group", 
           "Leadership Development"
         ], 
-        "web_url": "www.swagly.org", 
+        "web_url": "http://www.swagly.org/", 
         "phone_numbers": [
           "(508) 755-0005"
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "Director@swagly.org"
+          "mailto:Director@swagly.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -3402,7 +3674,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -3443,11 +3717,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "info@aidsprojectworcester.org"
+          "mailto:info@aidsprojectworcester.org"
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Case Management", 
+        "service_class_level_2": [
+          "Case Management"
+        ], 
         "service_classes": [
           "Community Prevention, Education, and Outreach"
         ], 
@@ -3482,11 +3758,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "GLBTalliance@gmail.com"
+          "mailto:GLBTalliance@gmail.com"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -3521,11 +3799,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "GLBTalliance@gmail.com"
+          "mailto:GLBTalliance@gmail.com"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -3563,11 +3843,13 @@
         ], 
         "contact_emails": [
           " info@aclum.org ", 
-          "crobarge@aclum.org"
+          "mailto:crobarge@aclum.org"
         ], 
         "youth_category": "Legal Services", 
         "service_class_level_1": "Legal Services", 
-        "service_class_level_2": "Legal Services", 
+        "service_class_level_2": [
+          "Legal Services"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -3602,7 +3884,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -3618,8 +3902,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.09979899999999, 
-          42.320702
+          -71.09940139999999, 
+          42.3205415
         ]
       }, 
       "properties": {
@@ -3641,7 +3925,11 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health; Legal Services; Case Management", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Legal Services; Clinical and Medical Counseling, Therapy, and Treatment; Case Management", 
+        "service_class_level_2": [
+          "Legal Services", 
+          "Clinical and Medical Counseling, Therapy, and Treatment", 
+          "Case Management"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -3657,8 +3945,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.061595, 
-          42.355726
+          -71.06145169999999, 
+          42.3556777
         ]
       }, 
       "properties": {
@@ -3670,7 +3958,7 @@
           "Resources", 
           "Public Education"
         ], 
-        "web_url": "www.glad.org", 
+        "web_url": "http://www.glad.org/", 
         "phone_numbers": [
           "(617) 426-1350"
         ], 
@@ -3678,7 +3966,9 @@
         "contact_emails": [], 
         "youth_category": "Legal Services", 
         "service_class_level_1": "Legal Services", 
-        "service_class_level_2": "Legal Services", 
+        "service_class_level_2": [
+          "Legal Services"
+        ], 
         "service_classes": [
           "Hotline Support"
         ], 
@@ -3706,9 +3996,9 @@
           "Resources", 
           "Public Education"
         ], 
-        "web_url": "www.mass.gov/cgly", 
+        "web_url": "http://www.mass.gov/cgly", 
         "phone_numbers": [
-          "www.mass.gov/cgly"
+          "http://www.mass.gov/cgly"
         ], 
         "contact_names": [], 
         "contact_emails": [
@@ -3716,7 +4006,9 @@
         ], 
         "youth_category": "Government Entity", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Capacity Building"
         ], 
@@ -3753,7 +4045,9 @@
         ], 
         "youth_category": "Government Entity", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Advocacy and Funding"
         ], 
@@ -3789,7 +4083,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Hotline Services", 
+        "service_class_level_2": [
+          "Hotline Services"
+        ], 
         "service_classes": [
           "Helpline"
         ], 
@@ -3828,7 +4124,9 @@
         ], 
         "youth_category": "Legal Services", 
         "service_class_level_1": "Legal Services", 
-        "service_class_level_2": "Legal Services", 
+        "service_class_level_2": [
+          "Legal Services"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -3866,7 +4164,9 @@
         "contact_emails": [], 
         "youth_category": "Is This Accessible To Youth?", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -3904,7 +4204,9 @@
         ], 
         "youth_category": "Faith-based Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -3920,8 +4222,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.05360399999999, 
-          42.34301199999999
+          -71.0536424, 
+          42.3427576
         ]
       }, 
       "properties": {
@@ -3935,7 +4237,7 @@
         ], 
         "web_url": "http://afhboston.org/", 
         "phone_numbers": [
-          "(617) 268-7620"
+          "http://afhboston.org/%20%20(617)%20268-7620"
         ], 
         "contact_names": [
           "Susan Rodgerson"
@@ -3945,7 +4247,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Employment", 
-        "service_class_level_2": "Job Development and Placement", 
+        "service_class_level_2": [
+          "Job Development and Placement"
+        ], 
         "service_classes": [
           "Competitive Integrated Employment"
         ], 
@@ -3991,7 +4295,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -4035,11 +4341,13 @@
           "Ismael Rivera"
         ], 
         "contact_emails": [
-          "irivera@jri.org"
+          "mailto:irivera@jri.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -4061,7 +4369,7 @@
       }, 
       "properties": {
         "address": "47 West Street\nSuffolk, MA 02111", 
-        "organization_name": "Bridge Over Troubled Waters", 
+        "organization_name": "http://bridgeotw.org/", 
         "community": "Boston", 
         "services_offered": [
           "Shelter Services", 
@@ -4079,11 +4387,14 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "bridge@bridgeotw.org"
+          "mailto:bridge@bridgeotw.org"
         ], 
         "youth_category": "Health and Mental Health; Shelter; Case Management", 
         "service_class_level_1": "Support Services; Health Services", 
-        "service_class_level_2": "Housing Services; Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Housing Services", 
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Child/adolescent Short-term Stabilization, Emergency Placement"
         ], 
@@ -4123,11 +4434,14 @@
           "Jovan Zuniga "
         ], 
         "contact_emails": [
-          "btgboston@use.salvationarmy.org"
+          "mailto:btgboston@gmail.com"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services; Employment", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support; Job Development and Placement", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support", 
+          "Job Development and Placement"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -4145,8 +4459,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.10537099999999, 
-          42.336891
+          -71.1053496, 
+          42.3373687
         ]
       }, 
       "properties": {
@@ -4167,7 +4481,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -4183,8 +4499,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.10537099999999, 
-          42.336891
+          -71.1053496, 
+          42.3373687
         ]
       }, 
       "properties": {
@@ -4203,7 +4519,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Psychiatric Services", 
+        "service_class_level_2": [
+          "Psychiatric Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -4219,8 +4537,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.10537099999999, 
-          42.336891
+          -71.1053496, 
+          42.3373687
         ]
       }, 
       "properties": {
@@ -4241,7 +4559,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -4277,7 +4597,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -4315,7 +4637,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -4333,8 +4657,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.0993201, 
-          42.344145
+          -71.098984, 
+          42.3440764
         ]
       }, 
       "properties": {
@@ -4356,7 +4680,50 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
+        "service_classes": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
+        "target_populations": [
+          "LGBTQ Folks"
+        ], 
+        "age_range": "", 
+        "additional_notes": []
+      }
+    }, 
+    {
+      "type": "Feature", 
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          -71.0882511, 
+          42.3463486
+        ]
+      }, 
+      "properties": {
+        "address": "16 Haviland Street\nSuffolk, MA 02215", 
+        "organization_name": "Fenway  Health Center", 
+        "community": "Boston", 
+        "services_offered": [
+          "Support Group", 
+          "Healthcare", 
+          "Mental Health Services", 
+          "HIV/AIDS", 
+          "STI Testing"
+        ], 
+        "web_url": "http://www.fenwayhealth.org/", 
+        "phone_numbers": [
+          "617.267.0159"
+        ], 
+        "contact_names": [], 
+        "contact_emails": [], 
+        "youth_category": "Health and Mental Health", 
+        "service_class_level_1": "Health Services", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -4394,11 +4761,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "Info@HBGC-Boston.org"
+          "mailto:Info@HBGC-Boston.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -4435,11 +4804,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "info@hydesquare.org"
+          "mailto:info@hydesquare.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -4455,8 +4826,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.104567, 
-          42.3147108
+          -71.10458489999999, 
+          42.3147726
         ]
       }, 
       "properties": {
@@ -4481,7 +4852,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -4516,12 +4889,14 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "Chairperson@k-street.com", 
-          "Secretary@k-street.com"
+          "mailto:chairperson@k-street.com", 
+          "mailto:secretary@k-street.com"
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -4560,11 +4935,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "boston@lhi.org\u00a0"
+          "mailto:boston@lhi.org"
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -4610,7 +4987,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -4629,8 +5008,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.0634738, 
-          42.343267
+          -71.0636263, 
+          42.3433993
         ]
       }, 
       "properties": {
@@ -4647,11 +5026,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "info@mtwyouth.org"
+          "mailto:info@mtwyouth.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Employment", 
-        "service_class_level_2": "Job Development and Placement", 
+        "service_class_level_2": [
+          "Job Development and Placement"
+        ], 
         "service_classes": [
           "Education, Vocational and Skills Training"
         ], 
@@ -4669,8 +5050,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.0996354, 
-          42.3253578
+          -71.0996352, 
+          42.3253576
         ]
       }, 
       "properties": {
@@ -4697,7 +5078,10 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services; Awareness", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support; Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support", 
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Clinical and Medical Diagnostics"
         ], 
@@ -4728,7 +5112,7 @@
           "Leadership Development", 
           "Public Education"
         ], 
-        "web_url": "http://www.projecthiphop.org/   ", 
+        "web_url": "http://www.projecthiphop.org/", 
         "phone_numbers": [
           "(617) 427-7950"
         ], 
@@ -4738,7 +5122,10 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Recreation Services; Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Recreation Services", 
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -4780,7 +5167,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -4821,11 +5210,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "information@fenwayhealth.org"
+          "mailto:%20information@fenwayhealth.org"
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -4870,7 +5261,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -4909,12 +5302,14 @@
           "George Lee, Youth Programs"
         ], 
         "contact_emails": [
-          "admin@spontaneouscelebrations.org", 
-          "george@spontaneouscelebrations.org"
+          "mailto:admin@spontaneouscelebrations.org", 
+          "mailto:george@spontaneouscelebrations.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -4955,7 +5350,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -4993,11 +5390,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "samantha@teenempowerment.org"
+          "mailto:samantha@teenempowerment.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -5039,7 +5438,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -5080,11 +5481,13 @@
         ], 
         "contact_emails": [
           "info@thetheateroffensive.org", 
-          "evelyn@thetheateroffensive.org"
+          "mailto:evelyn@thetheateroffensive.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -5102,8 +5505,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -71.09979899999999, 
-          42.320702
+          -71.09940139999999, 
+          42.3205415
         ]
       }, 
       "properties": {
@@ -5122,11 +5525,13 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "transcend@aac.org"
+          "mailto:transcend@aac.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -5170,7 +5575,9 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -5215,11 +5622,13 @@
           "Larry Kessler, Boston Living Center Director"
         ], 
         "contact_emails": [
-          "lkessler@vpi.org"
+          "mailto:lkessler@vpi.org"
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Housing Services", 
+        "service_class_level_2": [
+          "Housing Services"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach, and Stabilization Services", 
           "Clubhouse"
@@ -5259,7 +5668,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -5303,7 +5714,9 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -5322,7 +5735,7 @@
         "type": "Point", 
         "coordinates": [
           -72.5199411, 
-          42.377577
+          42.3775775
         ]
       }, 
       "properties": {
@@ -5343,7 +5756,9 @@
         ], 
         "youth_category": "Bookstore", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -5361,8 +5776,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.630627, 
-          42.3161879
+          -72.630605, 
+          42.31627
         ]
       }, 
       "properties": {
@@ -5383,7 +5798,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -5401,8 +5818,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.630627, 
-          42.3161879
+          -72.630605, 
+          42.31627
         ]
       }, 
       "properties": {
@@ -5423,7 +5840,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Center-based Basic Living and Personal Care Supports", 
-        "service_class_level_2": "Center-based Basic Living and Personal Care Supports", 
+        "service_class_level_2": [
+          "Center-based Basic Living and Personal Care Supports"
+        ], 
         "service_classes": [
           "Center-based Basic Living and Personal Care Supports", 
           "Training and Skills Development"
@@ -5467,7 +5886,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -5486,8 +5907,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.5333095, 
-          42.325729
+          -72.5245461, 
+          42.3262388
         ]
       }, 
       "properties": {
@@ -5511,7 +5932,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -5550,12 +5973,14 @@
         ], 
         "contact_names": [], 
         "contact_emails": [
-          "thebeemyns@gogtt.net", 
+          "mailto:thebeemyns@gogtt.net", 
           "info@masstherapist.com"
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -5573,8 +5998,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.63022880000001, 
-          42.3351393
+          -72.6287699, 
+          42.3361671
         ]
       }, 
       "properties": {
@@ -5594,7 +6019,9 @@
         "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Awareness", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -5635,7 +6062,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -5676,7 +6105,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Community Outreach, Education, and Engagement", 
+        "service_class_level_2": [
+          "Community Outreach, Education, and Engagement"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -5692,8 +6123,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.6405689, 
-          42.3193912
+          -72.64033189999999, 
+          42.3184542
         ]
       }, 
       "properties": {
@@ -5714,7 +6145,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Education, Vocational and Skills Training"
         ], 
@@ -5758,7 +6191,9 @@
         "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Individual Advocacy Services", 
+        "service_class_level_2": [
+          "Individual Advocacy Services"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -5798,7 +6233,9 @@
         ], 
         "youth_category": "Faith-based Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Direct Prevention, Outreach and Stabilization Services"
         ], 
@@ -5835,7 +6272,10 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Professional Support Services; Behavioral Health Services", 
+        "service_class_level_2": [
+          "Professional Support Services", 
+          "Behavioral Health Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -5853,8 +6293,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.5183736, 
-          42.3799378
+          -72.518373, 
+          42.379938
         ]
       }, 
       "properties": {
@@ -5874,7 +6314,10 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Professional Support Services; Behavioral Health Services", 
+        "service_class_level_2": [
+          "Professional Support Services", 
+          "Behavioral Health Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -5913,7 +6356,10 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Professional Support Services; Behavioral Health Services", 
+        "service_class_level_2": [
+          "Professional Support Services", 
+          "Behavioral Health Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -5956,7 +6402,10 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Case Management; Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Case Management", 
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Child/ Adolescent/ Young Adult Intermediate-term Stabilization"
         ], 
@@ -5999,7 +6448,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -6017,8 +6468,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.5782401, 
-          42.25380370000001
+          -72.5782346, 
+          42.2538001
         ]
       }, 
       "properties": {
@@ -6041,7 +6492,9 @@
         ], 
         "youth_category": "Higher Education Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Clubhouse"
         ], 
@@ -6080,7 +6533,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -6121,7 +6576,9 @@
         "contact_emails": [], 
         "youth_category": "Safe Home", 
         "service_class_level_1": "Placement Services", 
-        "service_class_level_2": "Placement Services and Supports", 
+        "service_class_level_2": [
+          "Placement Services and Supports"
+        ], 
         "service_classes": [
           "Placement Services and Supports"
         ], 
@@ -6140,8 +6597,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.6292157, 
-          42.3198511
+          -72.6291658, 
+          42.3198577
         ]
       }, 
       "properties": {
@@ -6163,7 +6620,9 @@
         ], 
         "youth_category": "Legal Services", 
         "service_class_level_1": "Legal Services", 
-        "service_class_level_2": "Legal Services", 
+        "service_class_level_2": [
+          "Legal Services"
+        ], 
         "service_classes": [
           "Community Prevention, Education and Outreach"
         ], 
@@ -6201,7 +6660,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -6240,7 +6701,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment", 
           "Clicinical and Medical Diagnostics"
@@ -6279,7 +6742,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Individual Primary Care Wellness"
         ], 
@@ -6320,7 +6785,9 @@
         ], 
         "youth_category": "Faith-based Org", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education, and Outreach"
         ], 
@@ -6355,7 +6822,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -6393,7 +6862,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Individual Primary Care Wellness"
         ], 
@@ -6435,7 +6906,9 @@
         ], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education, and Outreach", 
           "Child/adolescent Community Based Social Skills and Recreation"
@@ -6454,8 +6927,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.6086073, 
-          42.2072928
+          -72.608413, 
+          42.20748930000001
         ]
       }, 
       "properties": {
@@ -6475,7 +6948,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment", 
           "Clicinical and Medical Diagnostics"
@@ -6517,7 +6992,9 @@
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -6558,7 +7035,9 @@
         ], 
         "youth_category": "Legal Services", 
         "service_class_level_1": "Legal Services", 
-        "service_class_level_2": "Legal Services", 
+        "service_class_level_2": [
+          "Legal Services"
+        ], 
         "service_classes": [
           "Legal Protective Services"
         ], 
@@ -6593,7 +7072,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -6632,7 +7113,9 @@
         "contact_emails": [], 
         "youth_category": "Legal Services", 
         "service_class_level_1": "Legal Services", 
-        "service_class_level_2": "Legal Services", 
+        "service_class_level_2": [
+          "Legal Services"
+        ], 
         "service_classes": [
           "Legal Protective Services"
         ], 
@@ -6673,7 +7156,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -6712,7 +7197,9 @@
         "contact_emails": [], 
         "youth_category": "Legal Services", 
         "service_class_level_1": "Legal Services", 
-        "service_class_level_2": "Legal Services", 
+        "service_class_level_2": [
+          "Legal Services"
+        ], 
         "service_classes": [
           "Legal Protective Services"
         ], 
@@ -6751,7 +7238,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -6790,7 +7279,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -6808,8 +7299,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.6086073, 
-          42.2072928
+          -72.608413, 
+          42.20748930000001
         ]
       }, 
       "properties": {
@@ -6829,7 +7320,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -6873,7 +7366,9 @@
         "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education, and Outreach", 
           "Child/adolescent Community Based Social Skills and Recreation"
@@ -6912,7 +7407,9 @@
         "contact_emails": [], 
         "youth_category": "Community Group", 
         "service_class_level_1": "Support Services", 
-        "service_class_level_2": "Para-professional Counseling, Therapy, and Support", 
+        "service_class_level_2": [
+          "Para-professional Counseling, Therapy, and Support"
+        ], 
         "service_classes": [
           "Community Prevention, Education, and Outreach"
         ], 
@@ -6952,7 +7449,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy, and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy, and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment"
         ], 
@@ -6970,8 +7469,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.6086073, 
-          42.2072928
+          -72.608413, 
+          42.20748930000001
         ]
       }, 
       "properties": {
@@ -6992,7 +7491,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Primary Care Services", 
+        "service_class_level_2": [
+          "Primary Care Services"
+        ], 
         "service_classes": [
           "Individual Primary Care Wellness"
         ], 
@@ -7029,7 +7530,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -7068,7 +7571,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -7086,8 +7591,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.5828422, 
-          42.1020584
+          -72.5805101, 
+          42.1001396
         ]
       }, 
       "properties": {
@@ -7109,7 +7614,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -7127,8 +7634,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.5828422, 
-          42.1020584
+          -72.5805101, 
+          42.1001396
         ]
       }, 
       "properties": {
@@ -7151,7 +7658,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -7167,8 +7676,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.5828422, 
-          42.1020584
+          -72.5805101, 
+          42.1001396
         ]
       }, 
       "properties": {
@@ -7190,7 +7699,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 
@@ -7208,8 +7719,8 @@
       "geometry": {
         "type": "Point", 
         "coordinates": [
-          -72.5809981, 
-          42.0895863
+          -72.5810351, 
+          42.0896172
         ]
       }, 
       "properties": {
@@ -7229,7 +7740,9 @@
         "contact_emails": [], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Psychiatric Services", 
+        "service_class_level_2": [
+          "Psychiatric Services"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy, and Treatment", 
           "Clinical and Medical Diagnostics"
@@ -7265,15 +7778,17 @@
           "413-657-6105"
         ], 
         "contact_names": [
-          "Eunice Aviles"
+          "Eunice Aviles", 
+          "therapy@euniceaviles.com "
         ], 
         "contact_emails": [
-          "dr.euniceaviles@gmail.com", 
-          "therapy@euniceaviles.com "
+          "dr.euniceaviles@gmail.com"
         ], 
         "youth_category": "Health and Mental Health", 
         "service_class_level_1": "Health Services", 
-        "service_class_level_2": "Clinical and Medical Counseling, Therapy and Treatment", 
+        "service_class_level_2": [
+          "Clinical and Medical Counseling, Therapy and Treatment"
+        ], 
         "service_classes": [
           "Clinical and Medical Counseling, Therapy and Treatment"
         ], 

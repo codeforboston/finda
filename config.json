@@ -37,7 +37,7 @@
             "title": "Category",
             "type": "single"
         },
-        "services_offered": {
+        "service_class_level_2": {
             "title": "Services",
             "type": "list"
         }
