@@ -36,10 +36,6 @@
         "youth_category": {
             "title": "Category",
             "type": "single"
-        },
-        "service_class_level_2": {
-            "title": "Services",
-            "type": "list"
         }
     },
   "analytics": {
