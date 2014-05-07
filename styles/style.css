@@ -12,16 +12,21 @@ body > div.container {
   padding: 0;
 }
 
-.navbar-default {
+.navbar {
   background: #e5e5e5; /*This should be the brand primary color*/
   border-bottom: 2px solid #69579c; /*This should be the brand accent color*/
-  /*box-shadow: 0 0 15px rgba(0,0,0,0.2);*/
-  height:50px;
 }
 
-.navbar .navbar-header{
-  margin-top:8px;
+.navbar .navbar-header {
+  margin-top: 8px;
+  margin-left: 0;
 }
+
+.navbar .navbar-header .navbar-toggle {
+  /* cancel out above margin */
+  margin-top: 0;
+}
+
 .navbar img {
   display: inline-block;
   margin-right: 15px;
