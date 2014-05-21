@@ -2,4 +2,6 @@
 
 #phone_numbers     { font-style: italic; }
 #address           { font-style: italic; }
-#organization_name { font-weight: bold; }
+#organization_name { font-weight: bold;
+                     font-size: 20px;
+                   }
