@@ -9,7 +9,7 @@ var input = [
   'data.geojson',
   'config.json',
   'styles/properties.css',
-  'img/finda_small.png'
+  'img/logo.png'
 ];
 var inGlobs = [
   '*.md',
