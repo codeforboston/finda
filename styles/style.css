@@ -69,7 +69,7 @@ body > div.container {
 #map {
   position:fixed;
   left: 300px;
-  top: 0;
+  top: 50px;
   bottom: 0;
   right:0;
   z-index: 1;
@@ -142,3 +142,4 @@ body > div.container {
   height: 2.5em;
   float: left;
 }
+
