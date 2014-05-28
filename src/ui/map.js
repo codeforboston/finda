@@ -86,8 +86,10 @@ define(function(require, exports, module) {
       this.selectFeature = function(ev, feature) {
         if (this.previouslyClicked) {
           this.previouslyClicked.setIcon(this.defaultIcon);
+          this.trigger(document, 'deselectFeature', this.currentFeature);
         }
         if (feature) {
+          this.currentFeature = feature;
           var layer = this.attr.features[feature.geometry.coordinates];
           layer.setIcon(this.grayIcon);
           this.previouslyClicked = layer;
