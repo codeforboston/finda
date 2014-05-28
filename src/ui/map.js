@@ -145,7 +145,7 @@ define(function(require, exports, module) {
       };
 
       this.after('initialize', function() {
-        this.map = L.map(this.node, {zoomControl: false});
+        this.map = L.map(this.node, {});
 
         this.attr.features = {};
 
