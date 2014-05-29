@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
     'use strict';
-    // compile all the templates
+    // compile all the templates. Changing the comment
     var flight = require('flight');
     var Handlebars = require('handlebars');
     var _ = require('lodash');
