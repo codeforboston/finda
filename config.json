@@ -1,7 +1,7 @@
 {
     "project": {
-        "name": "MA Housing Finder",
-        "description": "<p>The MA Housing Finder is a sample app built on Code for Boston's Finda platform, intended to show quick and dirty development of mapping applications using freely available, open-source tools.</p>",
+        "name": "Finda",
+        "description": "<p>Finda is a generic \"find-a\" app for geographic datasets.</p>",
         "contact": "Please send feedback, ideas, and bug reports to our <a href=\"https://github.com/codeforboston/finda/issues\" target=\"_blank\">Github</a> page."
     },
     "map": {
