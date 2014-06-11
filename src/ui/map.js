@@ -2,6 +2,7 @@ define(function(require, exports, module) {
     'use strict';
     var flight = require('flight');
     var L = require('leaflet');
+    require('L.Control.Locate');
     module.exports = flight.component(function map() {
       this.defaultAttrs({
         tileUrl: 'http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png',
@@ -37,8 +38,10 @@ define(function(require, exports, module) {
         if (mapConfig.maxBounds){
           this.map.setMaxBounds(mapConfig.maxBounds);
         }
-        // geolocate once the configuration is set
-        this.map.locate({setView: true, maxZoom: mapConfig.zoom});
+
+        // Add the location control which will zoom to current
+        // location
+        L.control.locate().addTo(this.map);
 
         // set feature attribute to be used as preview text to config
         this.featurePreviewAttr = config.map.preview_attribute;
