@@ -67,6 +67,15 @@ body > div.container {
   background-color: #342B4E; /*This should be a 50% darken of the brand accent color*/
 }
 
+#search-results {
+  left: 142px;
+}
+
+#search-results li {
+  padding: 3px 20px;
+  cursor: pointer;
+}
+
 #map {
   position:fixed;
   left: 300px;
@@ -154,4 +163,3 @@ body > div.container {
   height: 2.5em;
   float: left;
 }
-

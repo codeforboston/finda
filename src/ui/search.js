@@ -1,10 +1,15 @@
 define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
+  var $ = require('jquery');
+  var _ = require('lodash');
+  var Handlebars = require('handlebars');
 
   module.exports = flight.component(function search() {
     this.defaultAttrs({
-      searchSelector: 'input'
+      searchSelector: 'input',
+      searchResultsSelector: '#search-results',
+      resultTemplate: '<strong>{{ organization_name }}</strong> ({{ address }})'
     });
 
     this.configureSearch = function(ev, config) {
@@ -32,15 +37,43 @@ define(function(require, exports, module) {
                     lng: result.lng});
     };
 
-    this.after('initialize', function() {
-      this.on('submit', this.search);
-      this.on(document, 'config', this.configureSearch);
-    });
+    this.inProgressSearch = _.debounce(function() {
+      var query = this.select('searchSelector').val();
+      this.trigger(document, 'uiInProgressSearch', {query: query});
+    }, 100);
+
+    this.displaySearchResults = function(ev, options) {
+      var results = options.results,
+          resultTemplate = Handlebars.compile(this.attr.resultTemplate),
+          that = this;
+      this.select('searchResultsSelector').empty();
+      if (this.select('searchSelector').val() && results.length) {
+        _.each(results.slice(0, 5), function(result) {
+          var html = resultTemplate(result.properties);
+          this.select('searchResultsSelector').append(
+            $("<li/>").html(html).click(function(ev) {
+              that.select('searchSelector').val(ev.target.innerText);
+              that.trigger('hideSearchResults');
+              that.trigger(document, 'selectFeature', result);
+            }));
+        }, this);
+        this.select('searchResultsSelector').show();
+      } else {
+        this.select('searchResultsSelector').hide();
+      }
+    };
+
+    this.hideSearchResults = function(ev) {
+      ev.preventDefault();
+      this.select('searchResultsSelector').hide();
+    };
 
     this.after('initialize', function() {
+      this.on(this.attr.searchSelector, 'keydown', this.inProgressSearch);
       this.on('submit', this.search);
       this.on(document, 'config', this.configureSearch);
       this.on(document, 'dataSearchResult', this.onSearchResult);
+      this.on(document, 'dataTypeaheadResults', this.displaySearchResults);
     });
   });
 });

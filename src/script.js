@@ -7,7 +7,8 @@ require.config({
     'L.Control.Locate': '../lib/leaflet/L.Control.Locate',
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
-    'flight': '../lib/flight.min'
+    'flight': '../lib/flight.min',
+    'fuse': '../lib/fuse.min'
   },
   shim: {
     'handlebars': {
@@ -42,5 +43,6 @@ define(function(require) {
   require('ui/project').attachTo(document);
   require('data/analytics').attachTo(document);
   require('data/search').attachTo(document);
+  require('data/typeahead').attachTo(document);
   require('data/loader').attachTo(document);
 });

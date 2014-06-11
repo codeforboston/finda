@@ -49,7 +49,6 @@ define(function(require) {
       }
     };
 
-
     this.after('initialize', function() {
       this.on(document, 'config', this.configureSearch);
       this.on(document, 'uiSearch', this.onSearch);
