@@ -33,12 +33,12 @@
         "geosearch": true
     },
     "facets": {
-        "youth_category": {
-            "title": "Category",
-            "type": "single"
-        },
         "target_populations": {
             "title": "Populations Served",
+            "type": "single"
+        },
+        "youth_category": {
+            "title": "Category",
             "type": "single"
         }
     },
