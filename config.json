@@ -35,7 +35,7 @@
     "facets": {
         "target_populations": {
             "title": "Populations Served",
-            "type": "single"
+            "type": "list"
         },
         "youth_category": {
             "title": "Category",
