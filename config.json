@@ -33,6 +33,10 @@
         "geosearch": true
     },
     "facets": {
+        "target_populations": {
+            "title": "Populations Served",
+            "type": "list"
+        },
         "youth_category": {
             "title": "Category",
             "type": "single"
