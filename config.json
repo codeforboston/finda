@@ -14,21 +14,20 @@
             [44.5, -65.0]
         ]
     },
-    "properties":{
-        "organization_name": {},
-        "address": {},
-        "web_url": { "title": "website", "url": true },
+    "properties": [
+        "organization_name",
+        "address",
+        {"type": "web_url", "title": "website", "url": true },
+        {"type": "contact_names", "title": "Contact Information" },
+        "contact_emails",
+        "phone_numbers",
 
-        "contact_names": { "title": "Contact Information" },
-        "contact_emails": {},
-        "phone_numbers": {},
+        {"type": "services_offered", "title": "Services" },
+        {"type": "youth_category", "title": "Type of Organization" },
+        {"type": "target_populations", "title": "Populations Served" },
 
-        "services_offered": { "title": "Services" },
-        "youth_category": { "title": "Type of Organization" },
-        "target_populations": { "title": "Populations Served" },
-
-        "additional_notes": { "title": "Information"}
-    },
+        {"type": "additional_notes", "title": "Information"}
+    ],
     "search": {
         "geosearch": true
     },

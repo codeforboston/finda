@@ -64,7 +64,15 @@ define(function(require, exports) {
       exports.popup = function(properties, feature) {
         var popup = [],
             rendered;
-        _.each(properties, function(property, key) {
+        _.each(properties, function(property, index) {
+
+          var key;
+          if (typeof property == "string") {
+            key = property;
+          } else if (typeof property == "object") {
+            key = property['type'];
+          }
+
           var value = feature[key];
           if (value !== undefined && (value.length === undefined || value.length !== 0)) {
             rendered = format(value, property);
