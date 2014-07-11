@@ -7,6 +7,7 @@ define(function(require, exports) {
       image: Handlebars.compile('<img src="{{url}}"/>'),
       title: Handlebars.compile('<div><h4>{{title}}</h4><div>{{{rendered}}}</div></div>'),
       list: Handlebars.compile('<ul> {{#list}} <li>{{{this}}}</li> {{/list}} </ul>'),
+      directions: Handlebars.compile('<a href="http://maps.google.com/maps?q={{directions}}">{{title}}</a>'),
       simple: Handlebars.compile('{{text}}'),
       popup: Handlebars.compile('<div>{{#popup}}<div id="{{div_id}}">{{{rendered}}}</div>{{/popup}}</div>')
     },
@@ -40,6 +41,12 @@ define(function(require, exports) {
           simple: function(value) {
             return templates.simple({text: value}).replace(
                 /\n/g, '<br>');
+          },
+
+          directions: function(value, property) {
+            var title = property.title || "directions";
+            return templates.directions({title: title,
+                                         directions: value});
           }
         };
 
@@ -50,6 +57,8 @@ define(function(require, exports) {
             formatter = 'url';
           } else if (property.image) {
             formatter = 'image';
+          } else if (property.directions) {
+            formatter = 'directions';
           } else if (property.title) {
             formatter = 'title';
           } else if (_.isArray(value)) {
@@ -70,7 +79,7 @@ define(function(require, exports) {
           if (typeof property == "string") {
             key = property;
           } else if (typeof property == "object") {
-            key = property['type'];
+            key = property['name'];
           }
 
           var value = feature[key];

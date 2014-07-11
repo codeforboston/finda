@@ -17,16 +17,17 @@
     "properties": [
         "organization_name",
         "address",
-        {"type": "web_url", "title": "website", "url": true },
-        {"type": "contact_names", "title": "Contact Information" },
+        {"name": "address", "title": "directions", "directions": true },
+        {"name": "web_url", "title": "website", "url": true },
+        {"name": "contact_names", "title": "Contact Information" },
         "contact_emails",
         "phone_numbers",
 
-        {"type": "services_offered", "title": "Services" },
-        {"type": "youth_category", "title": "Type of Organization" },
-        {"type": "target_populations", "title": "Populations Served" },
+        {"name": "services_offered", "title": "Services" },
+        {"name": "youth_category", "title": "Type of Organization" },
+        {"name": "target_populations", "title": "Populations Served" },
 
-        {"type": "additional_notes", "title": "Information"}
+        {"name": "additional_notes", "title": "Information"}
     ],
     "search": {
         "geosearch": true
