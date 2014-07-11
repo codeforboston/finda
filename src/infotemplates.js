@@ -73,13 +73,13 @@ define(function(require, exports) {
       exports.popup = function(properties, feature) {
         var popup = [],
             rendered;
-        _.each(properties, function(property, index) {
+        _.each(properties, function(property) {
 
           var key;
-          if (typeof property == "string") {
+          if (typeof property === "string") {
             key = property;
-          } else if (typeof property == "object") {
-            key = property['name'];
+          } else if (typeof property === "object") {
+            key = property.name;
           }
 
           var value = feature[key];
