@@ -4,7 +4,7 @@ require.config({
       'jquery': '../lib/jquery-1.10.2',
       'bootstrap': '../lib/bootstrap.min',
       'leaflet': '../lib/leaflet/leaflet',
-      'L.Control.Locate': '../lib/L.Control.Locate',
+      'L.Control.Locate': '../lib/leaflet/L.Control.Locate',
       'handlebars': '../lib/handlebars',
       'lodash': '../lib/lodash.min',
       'flight': '../lib/flight.min'
