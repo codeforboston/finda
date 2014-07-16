@@ -14,21 +14,21 @@ define({
         [44.5, -65.0]
       ]
     },
-    "properties":{
-      "organization_name": {},
-      "address": {},
-      "web_url": { "title": "website", "url": true },
+    "properties":[
+        "organization_name",
+        "address",
+        {"name": "address", "title": "directions", "directions": true },
+        {"name": "web_url", "title": "website", "url": true },
+        {"name": "contact_names", "title": "Contact Information" },
+        "contact_emails",
+        "phone_numbers",
 
-      "contact_names": { "title": "Contact Information" },
-      "contact_emails": {},
-      "phone_numbers": {},
+        {"name": "services_offered", "title": "Services" },
+        {"name": "youth_category", "title": "Type of Organization" },
+        {"name": "target_populations", "title": "Populations Served" },
 
-      "services_offered": { "title": "Services" },
-      "youth_category": { "title": "Type of Organization" },
-      "target_populations": { "title": "Populations Served" },
-
-      "additional_notes": { "title": "Information"}
-    },
+        {"name": "additional_notes", "title": "Information"}
+    ],
     "facets": {
       services_offered: {
         title: "Services",
