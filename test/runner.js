@@ -14,6 +14,7 @@ require.config({
     'test': '../test',
     'jquery': '../lib/jquery-1.10.2',
     'leaflet': '../lib/leaflet/leaflet',
+    'L.Control.Locate': '../lib/leaflet/L.Control.Locate',
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min'
@@ -26,7 +27,7 @@ require.config({
       exports: '_'
     },
     'flight': {
-      
+
       exports: 'flight'
     }
   },
