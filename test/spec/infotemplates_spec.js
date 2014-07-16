@@ -12,7 +12,7 @@ define(
           var link = $rendered.find('#web_url a');
           expect(link.length).toEqual(1);
           expect(link.attr('href')).toEqual(feature.web_url);
-          expect(link.text()).toEqual(config.web_url.title);
+          expect(link.text()).toEqual(config[3].title);
         });
         it('images are rendered as images', function() {
           var image = $rendered.find('#image img');
@@ -22,7 +22,7 @@ define(
         it('titles are rendered as h4s', function () {
           var title = $rendered.find('#contact_names h4');
           expect(title.length).toEqual(1);
-          expect(title.text()).toEqual(config.contact_names.title);
+          expect(title.text()).toEqual(config[4].title);
         });
         it('lists are rendered as unordered lists', function() {
           var services_offered = $rendered.find('#services_offered ul');
@@ -31,7 +31,7 @@ define(
         });
         it('plain text is rendered as-is, with \n -> <br>', function () {
           var address = $rendered.find('#address');
-          expect(address.length).toEqual(1);
+          expect(address.length).toEqual(2);
           expect(address.html()).toEqual(
             feature.address.replace(/\n/g, '<br>'));
         });
