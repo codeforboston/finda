@@ -27,8 +27,10 @@ require.config({
       exports: '_'
     },
     'flight': {
-
       exports: 'flight'
+    },
+    'L.Control.Locate': {
+      deps: ['leaflet']
     }
   },
 
