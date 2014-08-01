@@ -16,8 +16,9 @@ define(
       it('config sets up the map object', function() {
         this.component.map = jasmine.createSpyObj('Map',
                                                   ['setView',
-                                                   'setMaxBounds',
-                                                   'locate']);
+                                                   'setMaxBounds']);
+        spyOn(L.control, 'locate').andReturn(
+          jasmine.createSpyObj('Locate', ['addTo']));
         this.component.map.options = {};
         this.component.trigger('config', mock.config);
         expect(this.component.map.options.maxZoom, mock.config.map.maxZoom);
@@ -25,10 +26,9 @@ define(
           mock.config.map.center, mock.config.map.zoom);
         expect(this.component.map.setMaxBounds).toHaveBeenCalledWith(
           mock.config.map.maxBounds);
-        expect(this.component.map.locate).toHaveBeenCalledWith({
-          setView: true,
-          maxZoom: mock.config.map.zoom
-        });
+        expect(L.control.locate).toHaveBeenCalledWith();
+        expect(L.control.locate().addTo).toHaveBeenCalledWith(
+          this.component.map);
       });
 
       it('data sets up the features', function() {

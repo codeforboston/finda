@@ -1,5 +1,6 @@
 @import url("../lib/bootstrap.min.css");
 @import url("../lib/leaflet/leaflet.css");
+@import url("../lib/leaflet/L.Control.Locate.css");
 
 html { height: 100%;}
 body { height: 100%;
@@ -80,6 +81,17 @@ body > div.container {
     font: 14px/16px;
     background: #f3f3f3;
     display: none;
+}
+
+.leaflet-control-locate {
+  border:1px solid rgba(0,0,0,0.4);
+}
+.leaflet-control-locate a {
+  background-color:#fff;
+  background-position:-3px, -2px;
+}
+.leaflet-control-locate.active a {
+  background-position:-33px -2px;
 }
 
 .control h4 {
