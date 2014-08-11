@@ -1,16 +1,14 @@
 define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
-  var $ = require('jquery');
-  var _ = require('lodash');
+
   module.exports = flight.component(function search() {
     this.defaultAttrs({
-      searchSelector: 'input',
-      searchUrl: '//nominatim.openstreetmap.org/search'
+      searchSelector: 'input'
     });
+
     this.configureSearch = function(ev, config) {
       if (config.search && config.search.geosearch) {
-        this.maxBounds = config.map.maxBounds;
         this.$node.show();
       } else {
         this.$node.hide();
@@ -20,45 +18,29 @@ define(function(require, exports, module) {
     this.search = function(ev) {
       ev.preventDefault();
       var address = this.select('searchSelector').val();
-      var parameters = {
-        format: "json",
-        addressdetails: 1,
-        q: address
-      };
-      if (!address) {
-        return;
+      if (address) {
+        this.trigger(document, 'uiSearch', {query: address});
       }
-      this.trigger(document, 'uiSearch', {query: address});
-      if (this.maxBounds) {
-        parameters.viewbox = [
-          this.maxBounds[0][0], this.maxBounds[0][1],
-          this.maxBounds[1][0], this.maxBounds[1][1]
-        ].join(',');
-      }
-      $.getJSON(this.attr.searchUrl,
-                parameters,
-                this.searchResults.bind(this));
     };
 
-    this.searchResults = function(results) {
-      if (results.length) {
-        var location = results[0],
-            displayName = _.compact([location.address.road,
-                                     location.address.city,
-                                     location.address.state
-                                    ]).join(', ');
-        this.select('searchSelector').attr('placeholder',
-                                           displayName).val('');
-        this.trigger(this.attr.mapSelector,
-                     'panTo',
-                     {lat: location.lat,
-                      lng: location.lon});
-      }
+    this.onSearchResult = function(ev, result) {
+      this.select('searchSelector').attr('placeholder',
+                                         result.name).val('');
+      this.trigger(this.attr.mapSelector,
+                   'panTo',
+                   {lat: result.lat,
+                    lng: result.lng});
     };
 
     this.after('initialize', function() {
       this.on('submit', this.search);
       this.on(document, 'config', this.configureSearch);
+    });
+
+    this.after('initialize', function() {
+      this.on('submit', this.search);
+      this.on(document, 'config', this.configureSearch);
+      this.on(document, 'dataSearchResult', this.onSearchResult);
     });
   });
 });
