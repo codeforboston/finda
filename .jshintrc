@@ -18,6 +18,7 @@
   "trailing": true,
   "undef": true,
   "unused": true,
+  "indent": 2,
   "globals": {
     "define": false,
     "require": false,
