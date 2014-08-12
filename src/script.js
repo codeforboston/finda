@@ -37,6 +37,7 @@ define(function(require) {
   // attach components to the DOM
   require('ui/map').attachTo('#map');
   require('ui/search').attachTo('#search', {mapSelector: '#map'});
+  require('ui/search_results').attachTo('#search-results');
   require('ui/info').attachTo('#info');
   require('ui/facet').attachTo('#facets');
   require('data/facet').attachTo(document);

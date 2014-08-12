@@ -71,9 +71,25 @@ body > div.container {
   left: 142px;
 }
 
+#search-results .help {
+  padding: 3px 20px;
+}
+
+#search-results .suggested {
+  border-top: 1px solid #eee;
+  color: #ccc;
+  padding: 6px 20px 3px;
+  margin-bottom: 0;
+}
+
+#search-results ul {
+  padding: 0;
+}
+
 #search-results li {
   padding: 3px 20px;
   cursor: pointer;
+  list-style: none;
 }
 
 #map {
