@@ -41,5 +41,6 @@ define(function(require) {
   require('data/facet').attachTo(document);
   require('ui/project').attachTo(document);
   require('data/analytics').attachTo(document);
+  require('data/search').attachTo(document);
   require('data/loader').attachTo(document);
 });

@@ -29,6 +29,9 @@ define({
 
         {"name": "additional_notes", "title": "Information"}
     ],
+    "search": {
+        "geosearch": true
+    },
     "facets": {
       services_offered: {
         title: "Services",
@@ -153,6 +156,31 @@ define({
         }
       }
     ]
-  }
+  },
 
+  openSearchResult: {
+    "place_id":"98244943",
+    "licence":"Data \u00a9 OpenStreetMap contributors, ODbL 1.0. http:\/\/www.openstreetmap.org\/copyright",
+    "osm_type":"relation",
+    "osm_id":"2315704",
+    "boundingbox": "box",
+    "lat":"42.3604823",
+    "lon":"-71.0595678",
+    "display_name":"display name",
+    "class":"place",
+    "type":"city",
+    "importance":1.0299782170989,
+    "icon":"http:\/\/nominatim.openstreetmap.org\/images\/mapicons\/poi_place_city.p.20.png",
+    "address":{
+      "city":"Boston",
+      "county":"Suffolk County",
+      "state":"Massachusetts",
+      "country":"United States of America",
+      "country_code":"us"}},
+
+  parsedSearchResult: {
+    name: "Boston, Massachusetts",
+    lat: "42.3604823",
+    lng: "-71.0595678"
+  }
 });
