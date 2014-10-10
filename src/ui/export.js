@@ -11,9 +11,10 @@ define(function(require, exports, module) {
     }
 
     this.doExport = function(ev) {
-      var uri;
+      var uri, json;
       ev.preventDefault();
-      uri = 'data:text/plain,'+encodeURIComponent(JSON.stringify(this.data));
+      json = JSON.stringify(this.data, undefined, 2);
+      uri = 'data:text/plain,'+encodeURIComponent(json);
       window.open(uri, "Exported Finda Data")
     }
 
