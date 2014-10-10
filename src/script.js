@@ -40,6 +40,7 @@ define(function(require) {
   require('ui/search_results').attachTo('#search-results');
   require('ui/info').attachTo('#info');
   require('ui/facet').attachTo('#facets');
+  require('ui/export').attachTo('#export');
   require('data/facet').attachTo(document);
   require('ui/project').attachTo(document);
   require('data/analytics').attachTo(document);
