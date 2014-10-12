@@ -4,10 +4,21 @@ define(function(require, exports, module) {
   var $ = require('jquery');
   var _ = require('lodash');
 
-  module.exports = flight.component(function project() {
+  module.exports = flight.component(function () {
+
+    this.configure = function(ev, config) {
+      if (!config.edit_mode) {
+	this.$node.hide();
+      }
+    }
 
     this.noteData = function(ev, data) { 
-      this.data = data; 
+
+      // Squirrel away a copy of the whole in-core data block,
+      // with the idea that it will be modified by subsequent
+      // operations, and be available for export...
+
+      this.data = data;
     }
 
     this.doExport = function(ev) {
@@ -19,6 +30,7 @@ define(function(require, exports, module) {
     }
 
     this.after('initialize', function() {
+      this.on(document, 'config', this.configure);
       this.on(document, 'data', this.noteData);
       this.on('submit', this.doExport);
     });

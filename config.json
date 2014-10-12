@@ -58,5 +58,6 @@
     "hostname": "auto",
     "detail_enabled": true
   },
-  "geojson_source": "data.geojson"
+  "geojson_source": "data.geojson",
+  "edit_mode": true
 }
