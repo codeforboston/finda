@@ -37,7 +37,8 @@ define({
         title: "Services",
         type: "list"
       }
-    }
+    },
+    "edit_mode": false
   },
 
   "data": {
