@@ -25,10 +25,24 @@ define(function(require, exports, module) {
       this.trigger(handlerEvent, this.data);
     }
 
+    // Should probably guard against selecting a feature that's not a point.
+
+    this.selectFeature = function(ev, feature) {
+      this.selectedFeature = feature;
+    }
+
+    this.selectedFeatureMoved = function(ev, latlng) {
+      if (this.selectedFeature) {
+	this.selectedFeature.geometry.coordinates = [latlng.lng, latlng.lat];
+      }
+    }
+
     this.after('initialize', function() {
       this.on(document, 'config', this.configure);
       this.on(document, 'data', this.loadData);
       this.on(document, 'requestEditedData', this.provideEdits);
+      this.on(document, 'selectFeature', this.selectFeature);
+      this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);
     });
   });
 });

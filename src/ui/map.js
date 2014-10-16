@@ -45,6 +45,10 @@ define(function(require, exports, module) {
 
       // set feature attribute to be used as preview text to config
       this.featurePreviewAttr = config.map.preview_attribute;
+
+      // Determine whether edit-mode features are enabled (particularly
+      // dragging selected feature).
+      this.edit_mode = config.edit_mode;
     };
 
     this.loadData = function(ev, data) {
@@ -97,6 +101,13 @@ define(function(require, exports, module) {
         layer.setIcon(this.grayIcon);
         this.previouslyClicked = layer;
 
+	if (this.edit_mode) {
+          layer.dragging.enable();
+	  layer.on("dragend", function(ev) {
+	    this.trigger(document, 'selectedFeatureMoved', ev.target.getLatLng());
+	  }.bind(this));
+	}
+
         // re-bind popup to feature with specified preview attribute
         this.bindPopupToFeature(
           layer,
@@ -112,6 +123,9 @@ define(function(require, exports, module) {
     this.deselectFeature = function(ev, feature) {
       if (this.previouslyClicked) {
         this.previouslyClicked.setIcon(this.defaultIcon);
+	if (this.edit_mode) {
+	  this.previouslyClicked.dragging.disable();
+	}
       }
       var layer = this.attr.features[feature.geometry.coordinates];
       // re-bind popup to feature with specified preview attribute
