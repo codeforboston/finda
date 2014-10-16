@@ -12,27 +12,21 @@ define(function(require, exports, module) {
       }
     }
 
-    this.noteData = function(ev, data) { 
-
-      // Squirrel away a copy of the whole in-core data block,
-      // with the idea that it will be modified by subsequent
-      // operations, and be available for export...
-
-      this.data = data;
+    this.triggerExport = function(ev) {
+      ev.preventDefault();
+      $(document).trigger('requestEditedData', 'editedDataForSave');
     }
 
-    this.doExport = function(ev) {
-      var uri, json;
-      ev.preventDefault();
-      json = JSON.stringify(this.data, undefined, 2);
-      uri = 'data:text/plain,'+encodeURIComponent(json);
+    this.doExport = function(ev, data) {
+      var json = JSON.stringify(data, undefined, 2);
+      var uri = 'data:text/plain,'+encodeURIComponent(json);
       window.open(uri, "Exported Finda Data")
     }
 
     this.after('initialize', function() {
       this.on(document, 'config', this.configure);
-      this.on(document, 'data', this.noteData);
-      this.on('submit', this.doExport);
+      this.on(document, 'editedDataForSave', this.doExport);
+      this.on('submit', this.triggerExport);
     });
   });
 });

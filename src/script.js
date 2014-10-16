@@ -47,4 +47,5 @@ define(function(require) {
   require('data/search').attachTo(document);
   require('data/typeahead').attachTo(document);
   require('data/loader').attachTo(document);
+  require('data/edit_state').attachTo(document);
 });

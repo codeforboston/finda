@@ -30,10 +30,13 @@ define(['test/mock', 'jquery'], function(mock, $) {
     describe('on export', function() {
       it('does an export when triggered', function() {
 
-	spyOn(window, 'open');
-	this.component.trigger('data', mock.data);
+	// Note that we are *not* mocking out the request/response
+	// protocol that gets the request data from the edit-state
+	// component; setting up that test environment would be...
+	// complex.
 
-	this.$node.trigger('submit');
+	spyOn(window, 'open');
+	this.component.trigger('editedDataForSave', mock.data);
 	expect(window.open).toHaveBeenCalled();
 	
 	// Verify that the args are as expected...
