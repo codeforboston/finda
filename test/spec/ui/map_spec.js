@@ -94,6 +94,12 @@ define(
         var icon = this.component.$node.find('.leaflet-marker-icon:first');
         expect(icon.attr('src')).toMatch(/marker-icon\.png$/);
       });
+
+      it('leaves dragging off when not in edit mode', function() {
+	var feature = mock.data.features[0];
+	var marker = this.component.attr.features[feature.geometry.coordinates];
+	expect(!marker.dragging._enabled).toBe(true);
+      });
     });
 
     describe('deselectFeature', function() {
@@ -107,6 +113,54 @@ define(
         this.component.trigger(document, 'deselectFeature', mock.data.features[0]);
         var icon = this.component.$node.find('.leaflet-marker-icon:first');
         expect(icon.attr('src')).toMatch(/marker-icon\.png$/);
+      });
+
+    });
+
+    describe('in edit mode', function() {
+      var layer;
+      beforeEach(function() {
+
+	// Initialize with deep copies of mock config & data, so we
+	// don't have to worry about scribbling on the originals.
+	//
+	// Also, set 'edit_mode' to true in the mock config.
+
+        this.component.trigger('config', $.extend(true, {}, mock.config,
+						  {edit_mode: true}));
+	this.mockData = $.extend(true, {}, mock.data);
+        this.component.trigger('data', this.mockData);
+      });
+
+      describe('with a feature', function() {
+
+	beforeEach(function() {
+	  this.feature = this.mockData.features[0];
+	  this.marker = this.component.attr.features[this.feature.geometry.coordinates];
+	});
+
+	// For some reason, spies on this.marker.dragging.{enable,disable}
+	// don't work, so...
+
+	it('enables dragging on select', function() {
+	  this.component.trigger(document, 'selectFeature', this.feature);
+	  expect(this.marker.dragging._enabled).toBe(true);
+	});
+	
+	it('disables dragging on deselect', function() {
+	  this.component.trigger(document, 'selectFeature', this.feature);
+	  this.component.trigger(document, 'deselectFeature', this.feature);
+	  expect(!this.marker.dragging._enabled).toBe(true);
+	});
+
+	it('reports new position on drag-end', function() {
+	  spyOnEvent(document, 'selectedFeatureMoved');
+	  this.component.trigger(document, 'selectFeature', this.feature);
+	  this.marker.fireEvent('dragend');
+	  expect('selectedFeatureMoved').toHaveBeenTriggeredOnAndWith(
+	    document, this.marker.getLatLng());
+	});
+
       });
 
     });

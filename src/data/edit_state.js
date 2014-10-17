@@ -22,7 +22,7 @@ define(function(require, exports, module) {
     // still feels odd.
 
     this.provideEdits = function(ev, handlerEvent) {
-      this.trigger(handlerEvent, this.data);
+      $(document).trigger(handlerEvent, this.data);
     }
 
     // Should probably guard against selecting a feature that's not a point.

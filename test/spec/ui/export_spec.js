@@ -5,6 +5,7 @@ define(['test/mock', 'jquery'], function(mock, $) {
   describeComponent('ui/export', function() {
     beforeEach(function() {
       setupComponent('<form id="export">foo:<input/></form>');
+      spyOnEvent(document,'requestEditedData');
     });
 
     afterEach(function() {
@@ -28,6 +29,13 @@ define(['test/mock', 'jquery'], function(mock, $) {
     });
 
     describe('on export', function() {
+      
+      it('requests export data on form submittal', function() {
+	this.$node.trigger('submit');
+	expect('requestEditedData').toHaveBeenTriggeredOnAndWith(
+	  document,'editedDataForSave');
+      });
+
       it('does an export when triggered', function() {
 
 	// Note that we are *not* mocking out the request/response
