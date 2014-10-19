@@ -37,12 +37,21 @@ define(function(require, exports, module) {
       }
     }
 
+    this.propEdit = function(ev, newProps) {
+      if (this.selectedFeature) {
+	// Events may specify values for only *some* properties;
+	// if so, we want to leave the others alone.
+	$.extend(this.selectedFeature.properties, newProps);
+      }
+    }
+
     this.after('initialize', function() {
       this.on(document, 'config', this.configure);
       this.on(document, 'data', this.loadData);
       this.on(document, 'requestEditedData', this.provideEdits);
       this.on(document, 'selectFeature', this.selectFeature);
       this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);
+      this.on(document, 'selectedFeaturePropsChanged', this.propEdit);
     });
   });
 });

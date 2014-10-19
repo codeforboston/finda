@@ -38,6 +38,19 @@ define(['test/mock', 'jquery'], function(mock, $) {
 	  expect(this.feature.geometry.coordinates).toEqual([44, 55]);
 	  expect(this.component.data.features[0].geometry.coordinates).toEqual([44,55]);
 	});
+
+	it("changes properties on request", function() {
+	  $(document).trigger('selectedFeaturePropsChanged',
+			      {organization_name: "fred"});
+	  expect(this.feature.properties.organization_name).toBe("fred");
+	});
+
+	it("leaves props alone unless changed value specified", function() {
+	  var oldUrl = this.feature.properties.web_url;
+	  $(document).trigger('selectedFeaturePropsChanged',
+			      {organization_name: "fred"});
+	  expect(this.feature.properties.web_url).toBe(oldUrl);
+	});
       });
 
       it('sends edited data back to whoever asks', function() {
