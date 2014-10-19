@@ -120,6 +120,15 @@ define(function(require, exports, module) {
       }
     };
 
+    this.selectedFeatureMoved = function(ev, latlng) {
+      if (this.previouslyClicked) {
+	var oldLatLng = this.previouslyClicked.getLatLng();
+	if (latlng.lat !== oldLatLng.lat || latlng.lng !== oldLatLng.lng) {
+	  this.previouslyClicked.setLatLng(latlng);
+	}
+      }
+    };
+
     this.deselectFeature = function(ev, feature) {
       if (this.previouslyClicked) {
         this.previouslyClicked.setIcon(this.defaultIcon);
@@ -129,6 +138,8 @@ define(function(require, exports, module) {
       }
       var layer = this.attr.features[feature.geometry.coordinates];
       // re-bind popup to feature with specified preview attribute
+      // NB if value of preview attr has changed in edit, this is
+      // where the map picks it up.
       this.bindPopupToFeature(
         layer,
         feature.properties[this.featurePreviewAttr]);
@@ -182,6 +193,7 @@ define(function(require, exports, module) {
       this.on(document, 'deselectFeature', this.deselectFeature);
       this.on(document, 'hoverFeature', this.hoverFeature);
       this.on(document, 'clearHoverFeature', this.clearHoverFeature);
+      this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);
       this.on('panTo', this.panTo);
     });
   });

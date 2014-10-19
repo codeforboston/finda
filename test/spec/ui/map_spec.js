@@ -153,6 +153,25 @@ define(
 	  expect(!this.marker.dragging._enabled).toBe(true);
 	});
 
+	it('resets position on external posn change', function() {
+	  this.component.trigger(document, 'selectFeature', this.feature);
+	  var newPos = {lat: 33, lng: 44};
+
+	  spyOn(this.marker, 'setLatLng');
+	  this.component.trigger(document, 'selectedFeatureMoved', newPos);
+	  expect(this.marker.setLatLng).toHaveBeenCalledWith(newPos);
+	});
+	
+	it("doesn't reset posn unless 'move' event actually moved", function() {
+	  this.component.trigger(document, 'selectFeature', this.feature);
+	  var oldLatLng = this.marker.getLatLng();
+	  var newPos = {lat: oldLatLng.lat, lng: oldLatLng.lng};
+
+	  spyOn(this.marker, 'setLatLng');
+	  this.component.trigger(document, 'selectedFeatureMoved', newPos);
+	  expect(this.marker.setLatLng).not.toHaveBeenCalled();
+	});
+	
 	it('reports new position on drag-end', function() {
 	  spyOnEvent(document, 'selectedFeatureMoved');
 	  this.component.trigger(document, 'selectFeature', this.feature);
