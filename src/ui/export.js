@@ -26,7 +26,7 @@ define(function(require, exports, module) {
     this.after('initialize', function() {
       this.on(document, 'config', this.configure);
       this.on(document, 'editedDataForSave', this.doExport);
-      this.on('submit', this.triggerExport);
+      this.on('click', this.triggerExport);
     });
   });
 });

@@ -31,7 +31,7 @@ define(['test/mock', 'jquery'], function(mock, $) {
     describe('on export', function() {
       
       it('requests export data on form submittal', function() {
-        this.$node.trigger('submit');
+        this.$node.trigger('click');
         expect('requestEditedData').toHaveBeenTriggeredOnAndWith(
           document,'editedDataForSave');
       });
