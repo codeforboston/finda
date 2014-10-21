@@ -11,6 +11,11 @@ define(function(require, exports, module) {
 
     this.configureInfo = function(ev, config) {
       this.infoConfig = config.properties;
+      this.editMode = config.edit_mode;
+      if (this.editMode) {
+	alert("info edit mode");
+	this.editSchema = config.feature_property_json_schema;
+      }
     };
 
     this.update = function(ev, feature) {
@@ -18,19 +23,42 @@ define(function(require, exports, module) {
         return;
       }
       this.attr.currentFeature = feature;
-      var popup = templates.popup(this.infoConfig,
-                                  feature.properties);
       var content = this.$node.find("div." + this.attr.contentClass);
       if (!content.length) {
         content = $("<div/>").addClass(this.attr.contentClass).
           appendTo(this.$node);
       }
-      content.html(popup);
+      if (this.editMode) {
+	this.startEditing(content, feature.properties);
+      }
+      else {
+	var popup = templates.popup(this.infoConfig,
+                                    feature.properties);
+	content.html(popup);
+      }
+      
       this.$node.show();
     };
 
+    this.startEditing = function(contentNode, props) {
+      this.killCurrentEditor(); // in case we had one...
+      this.currentEditor = new JSONEditor(contentNode[0], {
+	schema: this.editSchema,
+	startval: props,
+	theme: "bootstrap3"
+      });
+    }
+
+    this.killCurrentEditor = function() {
+      if (this.currentEditor) {
+	this.currentEditor.destroy();
+	this.currentEditor = undefined;
+      }
+    }
+
     this.hide = function() {
       this.$node.hide();
+      this.killCurrentEditor();
       this.trigger(document, 'deselectFeature', this.attr.currentFeature);
       this.attr.currentFeature = null;
     };

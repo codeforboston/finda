@@ -8,7 +8,8 @@ require.config({
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
-    'fuse': '../lib/fuse.min'
+    'fuse': '../lib/fuse.min',
+    'jsoneditor': '../lib/jsoneditor.min'
   },
   shim: {
     'handlebars': {
@@ -34,6 +35,7 @@ require.config({
 define(function(require) {
   'use strict';
   require('bootstrap');
+  require('jsoneditor');
   // attach components to the DOM
   require('ui/map').attachTo('#map');
   require('ui/search').attachTo('#search', {mapSelector: '#map'});
