@@ -13,7 +13,6 @@ define(function(require, exports, module) {
       this.infoConfig = config.properties;
       this.editMode = config.edit_mode;
       if (this.editMode) {
-        alert("info edit mode");
         this.editSchema = config.feature_property_json_schema;
       }
     };
@@ -42,10 +41,15 @@ define(function(require, exports, module) {
 
     this.startEditing = function(contentNode, props) {
       this.killCurrentEditor(); // in case we had one...
-      this.currentEditor = new JSONEditor(contentNode[0], {
+      var editor = new JSONEditor(contentNode[0], {
         schema: this.editSchema,
-        startval: props,
+        startval: _.cloneDeep(props),
         theme: "bootstrap3"
+      });
+      this.currentEditor = editor;
+      editor.on('change', function() {
+        $(document).trigger('selectedFeaturePropsChanged', 
+                            editor.getValue());
       });
     }
 
