@@ -13,8 +13,8 @@ define(function(require, exports, module) {
       this.infoConfig = config.properties;
       this.editMode = config.edit_mode;
       if (this.editMode) {
-	alert("info edit mode");
-	this.editSchema = config.feature_property_json_schema;
+        alert("info edit mode");
+        this.editSchema = config.feature_property_json_schema;
       }
     };
 
@@ -29,12 +29,12 @@ define(function(require, exports, module) {
           appendTo(this.$node);
       }
       if (this.editMode) {
-	this.startEditing(content, feature.properties);
+        this.startEditing(content, feature.properties);
       }
       else {
-	var popup = templates.popup(this.infoConfig,
+        var popup = templates.popup(this.infoConfig,
                                     feature.properties);
-	content.html(popup);
+        content.html(popup);
       }
       
       this.$node.show();
@@ -43,16 +43,16 @@ define(function(require, exports, module) {
     this.startEditing = function(contentNode, props) {
       this.killCurrentEditor(); // in case we had one...
       this.currentEditor = new JSONEditor(contentNode[0], {
-	schema: this.editSchema,
-	startval: props,
-	theme: "bootstrap3"
+        schema: this.editSchema,
+        startval: props,
+        theme: "bootstrap3"
       });
     }
 
     this.killCurrentEditor = function() {
       if (this.currentEditor) {
-	this.currentEditor.destroy();
-	this.currentEditor = undefined;
+        this.currentEditor.destroy();
+        this.currentEditor = undefined;
       }
     }
 

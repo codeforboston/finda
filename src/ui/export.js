@@ -8,7 +8,7 @@ define(function(require, exports, module) {
 
     this.configure = function(ev, config) {
       if (!config.edit_mode) {
-	this.$node.hide();
+        this.$node.hide();
       }
     }
 

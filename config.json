@@ -69,10 +69,10 @@
       "address": { "type": "string" },
       "web_url": { "type": "string", "format": "url" },
       "contact_names": {
-	"title": "Contacts",
-	"type": "array",
-	"format": "table",
-	"items": { "type": "string" }
+        "title": "Contacts",
+        "type": "array",
+        "format": "table",
+        "items": { "type": "string" }
       }
     }
   }

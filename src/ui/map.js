@@ -101,12 +101,12 @@ define(function(require, exports, module) {
         layer.setIcon(this.grayIcon);
         this.previouslyClicked = layer;
 
-	if (this.edit_mode) {
+        if (this.edit_mode) {
           layer.dragging.enable();
-	  layer.on("dragend", function(ev) {
-	    this.trigger(document, 'selectedFeatureMoved', ev.target.getLatLng());
-	  }.bind(this));
-	}
+          layer.on("dragend", function(ev) {
+            this.trigger(document, 'selectedFeatureMoved', ev.target.getLatLng());
+          }.bind(this));
+        }
 
         // re-bind popup to feature with specified preview attribute
         this.bindPopupToFeature(
@@ -122,19 +122,19 @@ define(function(require, exports, module) {
 
     this.selectedFeatureMoved = function(ev, latlng) {
       if (this.previouslyClicked) {
-	var oldLatLng = this.previouslyClicked.getLatLng();
-	if (latlng.lat !== oldLatLng.lat || latlng.lng !== oldLatLng.lng) {
-	  this.previouslyClicked.setLatLng(latlng);
-	}
+        var oldLatLng = this.previouslyClicked.getLatLng();
+        if (latlng.lat !== oldLatLng.lat || latlng.lng !== oldLatLng.lng) {
+          this.previouslyClicked.setLatLng(latlng);
+        }
       }
     };
 
     this.deselectFeature = function(ev, feature) {
       if (this.previouslyClicked) {
         this.previouslyClicked.setIcon(this.defaultIcon);
-	if (this.edit_mode) {
-	  this.previouslyClicked.dragging.disable();
-	}
+        if (this.edit_mode) {
+          this.previouslyClicked.dragging.disable();
+        }
       }
       var layer = this.attr.features[feature.geometry.coordinates];
       // re-bind popup to feature with specified preview attribute

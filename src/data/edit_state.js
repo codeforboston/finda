@@ -33,15 +33,15 @@ define(function(require, exports, module) {
 
     this.selectedFeatureMoved = function(ev, latlng) {
       if (this.selectedFeature) {
-	this.selectedFeature.geometry.coordinates = [latlng.lng, latlng.lat];
+        this.selectedFeature.geometry.coordinates = [latlng.lng, latlng.lat];
       }
     }
 
     this.propEdit = function(ev, newProps) {
       if (this.selectedFeature) {
-	// Events may specify values for only *some* properties;
-	// if so, we want to leave the others alone.
-	$.extend(this.selectedFeature.properties, newProps);
+        // Events may specify values for only *some* properties;
+        // if so, we want to leave the others alone.
+        $.extend(this.selectedFeature.properties, newProps);
       }
     }
 
