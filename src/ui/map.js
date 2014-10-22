@@ -3,6 +3,8 @@ define(function(require, exports, module) {
   var flight = require('flight');
   var L = require('leaflet');
   require('L.Control.Locate');
+  require('leaflet.markercluster');
+
   module.exports = flight.component(function map() {
     this.defaultAttrs({
       tileUrl: 'http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png',
@@ -67,11 +69,12 @@ define(function(require, exports, module) {
 
       if (this.attr.layer) {
         this.attr.features = {};
-        this.map.removeLayer(this.attr.layer);
+
+        this.cluster.removeLayer(this.attr.layer);
       }
 
       this.attr.layer = L.geoJson(data, {onEachFeature: setupFeature});
-      this.attr.layer.addTo(this.map);
+      this.attr.layer.addTo(this.cluster);
     };
 
     this.emitClick = function(e) {
@@ -150,6 +153,9 @@ define(function(require, exports, module) {
 
     this.after('initialize', function() {
       this.map = L.map(this.node, {});
+      this.cluster = new L.MarkerClusterGroup();
+
+      this.cluster.addTo(this.map);
 
       this.attr.features = {};
 

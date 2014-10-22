@@ -1,6 +1,8 @@
 @import url("../lib/bootstrap.min.css");
 @import url("../lib/leaflet/leaflet.css");
 @import url("../lib/leaflet/L.Control.Locate.css");
+@import url("../lib/leaflet.markercluster/MarkerCluster.css");
+@import url("../lib/leaflet.markercluster/MarkerCluster.Default.css");
 
 html { height: 100%;}
 body { height: 100%;
