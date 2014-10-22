@@ -38,7 +38,23 @@ define({
         type: "list"
       }
     },
-    "edit_mode": false
+    "edit_mode": false,
+    "feature_property_json_schema": {
+      "title": "Organization",
+      "type": "object",
+      "id": "properties",
+      "properties": {
+        "organization_name": { "type": "string" },
+        "address": { "type": "string" },
+        "web_url": { "type": "string", "format": "url" },
+        "contact_names": {
+          "title": "Contacts",
+          "type": "array",
+          "format": "table",
+          "items": { "type": "string" }
+        }
+      }
+    }
   },
 
   "data": {
