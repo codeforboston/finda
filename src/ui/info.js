@@ -53,6 +53,10 @@ define(function(require, exports, module) {
         $(document).trigger('selectedFeaturePropsChanged', 
                             editor.getValue());
       });
+
+      // In case we were scrolled down editing a previous feature,
+      // scroll our pane back up to the top.
+      this.$node.scrollTop(0);
     }
 
     this.killCurrentEditor = function() {
