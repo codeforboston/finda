@@ -166,9 +166,10 @@ body > div.container {
  */
 
 #info.editing {
-    width: 380px;
+    width: 390px;
     font-size: 80%;
     height: 90%;
+    right: 5px;
 }
 
 #info.editing input {
