@@ -67,13 +67,38 @@
     "properties": {
       "organization_name": { "type": "string" },
       "address": { "type": "string" },
+      "city": {"type": "string" },
       "web_url": { "type": "string", "format": "url" },
+      "phone_numbers": {
+        "title": "Phone numbers",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "contact_emails": {
+        "title": "Email addresses",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
       "contact_names": {
-        "title": "Contacts",
-        "type": "array",
-        "format": "table",
-        "items": { "type": "string" }
-      }
+        "title": "Contact names",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "target_populations": {
+        "title": "Target Populations",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "youth_category": {
+        "title": "Youth category",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "service_class_level_1": {
+        "title": "Service class lvl 1",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "service_class_level_2": {
+        "title": "Service class lvl 2",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "age_range": { "type": "string" },
+      "additional_notes": { "type": "string" }
     }
   }
 }
