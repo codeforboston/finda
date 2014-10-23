@@ -46,7 +46,9 @@ define(function(require, exports, module) {
         schema: this.editSchema,
         startval: _.cloneDeep(props),
         theme: "bootstrap3",
-        iconlib: "bootstrap3"
+        iconlib: "bootstrap3",
+        disable_collapse: true,
+        disable_edit_json: true
       });
       this.currentEditor = editor;
       editor.on('change', function() {
