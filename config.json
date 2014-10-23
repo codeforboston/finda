@@ -65,10 +65,10 @@
     "type": "object",
     "id": "properties",
     "properties": {
-      "organization_name": { "type": "string" },
-      "address": { "type": "string" },
-      "city": {"type": "string" },
-      "web_url": { "type": "string", "format": "url" },
+      "organization_name": { "title": "Name", "type": "string" },
+      "address": { "title": "Address", "type": "string" },
+      "city": { "title": "City", "type": "string" },
+      "web_url": { "title": "Web URL", "type": "string", "format": "url" },
       "phone_numbers": {
         "title": "Phone numbers",
         "type": "array", "format": "table", "items": { "type": "string" }
@@ -97,8 +97,8 @@
         "title": "Service class lvl 2",
         "type": "array", "format": "table", "items": { "type": "string" }
       },
-      "age_range": { "type": "string" },
-      "additional_notes": { "type": "string" }
+      "age_range": { "title": "Age Range", "type": "string" },
+      "additional_notes": { "title": "Further Notes", "type": "string" }
     }
   }
 }
