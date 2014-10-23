@@ -45,7 +45,8 @@ define(function(require, exports, module) {
       var editor = new JSONEditor(contentNode[0], {
         schema: this.editSchema,
         startval: _.cloneDeep(props),
-        theme: "bootstrap3"
+        theme: "bootstrap3",
+        iconlib: "bootstrap3"
       });
       this.currentEditor = editor;
       editor.on('change', function() {
