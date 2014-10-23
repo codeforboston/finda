@@ -14,6 +14,7 @@ define(function(require, exports, module) {
       this.editMode = config.edit_mode;
       if (this.editMode) {
         this.editSchema = config.feature_property_json_schema;
+        this.$node.addClass('editing');
       }
     };
 

@@ -158,6 +158,42 @@ body > div.container {
     border-radius: 5px;
 }
 
+/* Styling info overlay for the JSON editor. 
+ *
+ * Just copying in Bootstrap 3 rules for '-sm'all inputs and buttons for
+ * now, to avoid doing a custom theme and custom build of JsonEditor itself,
+ * which would add the '-sm' classes.
+ */
+
+#info.editing {
+    width: 350px;
+    font-size: 80%;
+    height: 90%;
+}
+
+#info.editing input {
+    height:30px;
+    padding:5px 10px;
+    font-size:12px;
+    line-height:1.5;
+    border-radius:3px
+}
+
+#info.editing select.input-sm{
+    height:30px;
+    line-height:30px
+}
+
+#info.editing textarea, #info.editing select[multiple]{
+    height:auto
+}
+
+#info.editing .btn {
+    padding:5px 10px;
+    font-size:12px;
+    line-height:1.5;
+    border-radius:3px
+}
 
 #facets {
   position: absolute;
