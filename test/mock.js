@@ -39,6 +39,7 @@ define({
       }
     },
     "edit_mode": false,
+    "new_feature_popup_label": "Add new frobnitz",
     "feature_property_json_schema": {
       "title": "Organization",
       "type": "object",

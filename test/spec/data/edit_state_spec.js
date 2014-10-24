@@ -1,4 +1,4 @@
-define(['test/mock', 'jquery'], function(mock, $) {
+define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
   'use strict';
   describeComponent('data/edit_state', function() {
     beforeEach(function() {
@@ -13,6 +13,22 @@ define(['test/mock', 'jquery'], function(mock, $) {
     });
 
     describe('editing protocol', function() {
+
+      it('adds new features on request', function() {
+        var newFeature = { 
+          type: "Feature",
+          geometry: { type: "Point", coordinates: [0, 90] },
+          properties: { name: "North Pole" }
+        };
+        this.component.trigger('data', _.cloneDeep(mock.data));
+        this.component.trigger('newFeature', newFeature);
+
+        var features = this.component.data.features;
+        expect(features.length).toBe(mock.data.features.length + 1);
+
+        var lastFeature = features[features.length - 1];
+        expect(lastFeature).toBe(newFeature);
+      });
 
       describe('with a selected feature', function() {
 
