@@ -60,6 +60,7 @@
   },
   "geojson_source": "data.geojson",
   "edit_mode": true,
+  "new_feature_popup_label": "Add service provider named...",
   "feature_property_json_schema": {
     "title": "Organization",
     "type": "object",

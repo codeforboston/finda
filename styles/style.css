@@ -196,6 +196,12 @@ body > div.container {
     border-radius:3px
 }
 
+/* More editing widgetry; styling for the "create feature" popup */
+
+form.create-feature-popup-form {
+    width: 250px;
+}
+
 #facets {
   position: absolute;
   padding: 10px 14px;

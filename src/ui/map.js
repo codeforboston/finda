@@ -49,6 +49,13 @@ define(function(require, exports, module) {
       // Determine whether edit-mode features are enabled (particularly
       // dragging selected feature).
       this.edit_mode = config.edit_mode;
+
+      if (this.edit_mode) {
+        var label = config.new_feature_popup_label;
+        if (label !== undefined) {
+          $("#new-feature-popup-label").html(label);
+        }
+      }
     };
 
     this.loadData = function(ev, data) {
@@ -76,6 +83,11 @@ define(function(require, exports, module) {
 
       this.attr.layer = L.geoJson(data, {onEachFeature: setupFeature});
       this.attr.layer.addTo(this.map);
+
+      if (this.edit_mode) {
+        this.map.doubleClickZoom.disable();
+        this.map.on('dblclick', this.startCreate.bind(this));
+      }
     };
 
     this.emitClick = function(e) {
@@ -173,6 +185,66 @@ define(function(require, exports, module) {
       this.map.panTo(latlng);
     };
 
+    // Managing the two-step process of creating a new feature.
+    // (It's two steps, with the simple form in a popup, so stray
+    // double-clicks are easy to undo.)
+
+    // Start create: handles a Leaflet double-click event.
+
+    this.startCreate = function(e) {
+      var popup = L.popup();
+      this.createPopup = popup;
+      this.otherthing = 'foo';
+      popup.setLatLng(e.latlng);
+      popup.setContent($("#new-feature-popup").html());
+      popup.openOn(this.map);
+
+      var form = this.$node.find('.create-feature-popup-form');
+      form.on('submit', this.finishCreate.bind(this));
+      form.find('input').first().focus();
+    };
+
+    // Finish create: handles ordinary submission of the form in the
+    // "startCreate" popup.
+
+    this.finishCreate = function(e) {
+      e.preventDefault();
+
+      var popup = this.createPopup; // stashed away in step 1 above
+      if (popup === undefined) {
+        // Ordinarily "can't happen", but the test framework leaves old
+        // map components lying around.  The finishCreate tests only create
+        // a mock popup on the one set up for them, and we need to keep
+        // the others from blowing up.  (All due to the use of a 'live'
+        // event handler declaration below.)
+        return;
+      }
+
+      var latlng = popup.getLatLng();
+
+      var props = {};
+      props[this.featurePreviewAttr] = $(e.target).serializeArray()[0].value;
+
+      var feature = { 
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [latlng.lng, latlng.lat]
+        },
+        properties: props
+      };
+
+      this.lastCreatedFeature = feature; // for tests (only! no other use!)
+
+      this.map.removeLayer(popup); // don't need it any longer...
+      $(document).trigger('newFeature', feature);
+      $(document).trigger('selectFeature', feature);
+    };
+
+    this.handleNewFeature = function(e, feature) {
+      this.attr.layer.addData(feature);
+    };
+
     this.after('initialize', function() {
       this.map = L.map(this.node, {});
 
@@ -194,6 +266,7 @@ define(function(require, exports, module) {
       this.on(document, 'hoverFeature', this.hoverFeature);
       this.on(document, 'clearHoverFeature', this.clearHoverFeature);
       this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);
+      this.on(document, 'newFeature', this.handleNewFeature);
       this.on('panTo', this.panTo);
     });
   });

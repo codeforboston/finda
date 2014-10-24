@@ -48,7 +48,8 @@ define(function(require, exports, module) {
         theme: "bootstrap3",
         iconlib: "bootstrap3",
         disable_collapse: true,
-        disable_edit_json: true
+        disable_edit_json: true,
+        required_by_default: true
       });
       this.currentEditor = editor;
       editor.on('change', function() {

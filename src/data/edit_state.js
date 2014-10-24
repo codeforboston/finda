@@ -25,6 +25,10 @@ define(function(require, exports, module) {
       $(document).trigger(handlerEvent, this.data);
     }
 
+    this.newFeature = function(ev, feature) {
+      this.data.features.push(feature);
+    }
+
     // Should probably guard against selecting a feature that's not a point.
 
     this.selectFeature = function(ev, feature) {
@@ -49,6 +53,7 @@ define(function(require, exports, module) {
       this.on(document, 'config', this.configure);
       this.on(document, 'data', this.loadData);
       this.on(document, 'requestEditedData', this.provideEdits);
+      this.on(document, 'newFeature', this.newFeature);
       this.on(document, 'selectFeature', this.selectFeature);
       this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);
       this.on(document, 'selectedFeaturePropsChanged', this.propEdit);
