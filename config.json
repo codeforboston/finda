@@ -66,7 +66,7 @@
     "id": "properties",
     "properties": {
       "organization_name": { "title": "Name", "type": "string" },
-      "address": { "title": "Address", "type": "string" },
+      "address": { "title": "Address", "type": "string", "format": "textarea" },
       "city": { "title": "City", "type": "string" },
       "web_url": { "title": "Web URL", "type": "string", "format": "url" },
       "phone_numbers": {
