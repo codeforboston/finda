@@ -2,7 +2,10 @@ define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
   var $ = require('jquery');
+  var _ = require('lodash');
   var templates = require('infotemplates');
+  var JSONEditor = window.JSONEditor;
+
   module.exports = flight.component(function info() {
     this.defaultAttrs({
       "contentClass": "content",
@@ -53,21 +56,21 @@ define(function(require, exports, module) {
       });
       this.currentEditor = editor;
       editor.on('change', function() {
-        $(document).trigger('selectedFeaturePropsChanged', 
+        $(document).trigger('selectedFeaturePropsChanged',
                             editor.getValue());
       });
 
       // In case we were scrolled down editing a previous feature,
       // scroll our pane back up to the top.
       this.$node.scrollTop(0);
-    }
+    };
 
     this.killCurrentEditor = function() {
       if (this.currentEditor) {
         this.currentEditor.destroy();
         this.currentEditor = undefined;
       }
-    }
+    };
 
     this.hide = function() {
       this.$node.hide();

@@ -1,7 +1,6 @@
 define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
-  var _ = require('lodash');
   var $ = require('jquery');
 
   module.exports = flight.component(function() {
@@ -9,11 +8,11 @@ define(function(require, exports, module) {
     this.configure = function(ev, config) {
       // deep copy property info (so we can make notes w/o bothering anyone)
       this.property_info = $.extend(true, {}, config.properties);
-    }
+    };
 
     this.loadData = function(ev, data) {
       this.data = data;
-    }
+    };
     
     // Only way I can see to provide edited data back to the
     // *particular* other flight component that requested it is for it
@@ -23,23 +22,23 @@ define(function(require, exports, module) {
 
     this.provideEdits = function(ev, handlerEvent) {
       $(document).trigger(handlerEvent, this.data);
-    }
+    };
 
     this.newFeature = function(ev, feature) {
       this.data.features.push(feature);
-    }
+    };
 
     // Should probably guard against selecting a feature that's not a point.
 
     this.selectFeature = function(ev, feature) {
       this.selectedFeature = feature;
-    }
+    };
 
     this.selectedFeatureMoved = function(ev, latlng) {
       if (this.selectedFeature) {
         this.selectedFeature.geometry.coordinates = [latlng.lng, latlng.lat];
       }
-    }
+    };
 
     this.propEdit = function(ev, newProps) {
       if (this.selectedFeature) {
@@ -47,7 +46,7 @@ define(function(require, exports, module) {
         // if so, we want to leave the others alone.
         $.extend(this.selectedFeature.properties, newProps);
       }
-    }
+    };
 
     this.after('initialize', function() {
       this.on(document, 'config', this.configure);

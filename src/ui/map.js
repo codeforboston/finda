@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
+  var $ = require('jquery');
   var L = require('leaflet');
   require('L.Control.Locate');
   module.exports = flight.component(function map() {
@@ -225,7 +226,7 @@ define(function(require, exports, module) {
       var props = {};
       props[this.featurePreviewAttr] = $(e.target).serializeArray()[0].value;
 
-      var feature = { 
+      var feature = {
         type: "Feature",
         geometry: {
           type: "Point",
