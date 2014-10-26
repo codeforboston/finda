@@ -196,6 +196,15 @@ body > div.container {
     border-radius:3px
 }
 
+/* Further changes; style the <h3> elements that head arrays same as labels,
+   since that's the semantic role they serve...
+ */
+
+#info.editing div.well h3 {
+    font-size: 100%;
+    font-weight: bold;
+}
+
 /* More editing widgetry; styling for the "create feature" popup */
 
 form.create-feature-popup-form {
