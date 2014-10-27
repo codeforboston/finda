@@ -19,6 +19,9 @@ define(function(require, exports, module) {
         this.editSchema = config.feature_property_json_schema;
         this.$node.addClass('editing');
       }
+      else {
+        $("#editing-help-link").remove();
+      }
     };
 
     this.update = function(ev, feature) {
