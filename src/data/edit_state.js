@@ -53,13 +53,13 @@ define(function(require, exports, module) {
       }
     };
 
-    this.markDeletion = function(ev) {
+    this.markDeletion = function() {
       if (this.selectedFeature) {
         this.selectedFeature.deleted = true;
       }
     };
 
-    this.markUndeletion = function(ev) {
+    this.markUndeletion = function() {
       if (this.selectedFeature) {
         this.selectedFeature.deleted = false;
       }
