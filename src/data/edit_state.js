@@ -2,6 +2,7 @@ define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
   var $ = require('jquery');
+  var _ = require('lodash');
 
   module.exports = flight.component(function() {
 
@@ -21,7 +22,19 @@ define(function(require, exports, module) {
     // still feels odd.
 
     this.provideEdits = function(ev, handlerEvent) {
-      $(document).trigger(handlerEvent, this.data);
+      var copy = _.cloneDeep(this.data);
+      var filtered = _.filter(copy.features, function(feature) {
+        if (feature.deleted) {
+          return false;
+        }
+        else {
+          delete feature.deleted;
+          return true;
+        }
+      });
+      copy.features = filtered;
+      this.lastExport = copy;   // for tests.  sigh...
+      $(document).trigger(handlerEvent, copy);
     };
 
     this.newFeature = function(ev, feature) {
@@ -37,6 +50,18 @@ define(function(require, exports, module) {
     this.selectedFeatureMoved = function(ev, latlng) {
       if (this.selectedFeature) {
         this.selectedFeature.geometry.coordinates = [latlng.lng, latlng.lat];
+      }
+    };
+
+    this.markDeletion = function(ev) {
+      if (this.selectedFeature) {
+        this.selectedFeature.deleted = true;
+      }
+    };
+
+    this.markUndeletion = function(ev) {
+      if (this.selectedFeature) {
+        this.selectedFeature.deleted = false;
       }
     };
 
@@ -56,6 +81,8 @@ define(function(require, exports, module) {
       this.on(document, 'selectFeature', this.selectFeature);
       this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);
       this.on(document, 'selectedFeaturePropsChanged', this.propEdit);
+      this.on(document, 'selectedFeatureDeleted', this.markDeletion);
+      this.on(document, 'selectedFeatureUndeleted', this.markUndeletion);
     });
   });
 });

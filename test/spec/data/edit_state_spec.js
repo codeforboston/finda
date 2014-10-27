@@ -49,6 +49,17 @@ define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
           expect(this.component.selectedFeature).toBe(this.feature);
         });
 
+        it("sets deleted flag on selectedFeatureDeleted", function() {
+          $(document).trigger('selectedFeatureDeleted');
+          expect(this.component.selectedFeature.deleted).toBe(true);
+        });
+
+        it("clears deleted flag on selectedFeatureUndeleted", function() {
+          this.component.selectedFeature.deleted = true;
+          $(document).trigger('selectedFeatureUndeleted');
+          expect(this.component.selectedFeature.deleted).toBe(false);
+        });
+
         it("updates position upon UI request", function() {
           $(document).trigger('selectedFeatureMoved', {lat: 55, lng: 44});
           expect(this.feature.geometry.coordinates).toEqual([44, 55]);
@@ -73,9 +84,25 @@ define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
         spyOnEvent(document, 'callbackEvent');
         this.component.trigger('data', mock.data);
         $(document).trigger('requestEditedData', 'callbackEvent')
-        expect('callbackEvent').toHaveBeenTriggeredOnAndWith(
-          document, mock.data);
+        expect('callbackEvent').toHaveBeenTriggeredOn(document);
+        expect(this.component.lastExport).toEqual(mock.data);
       });
+
+      it("respects deleted flag on exports", function() {
+        this.copiedData = $.extend(true, {}, mock.data);
+        this.component.trigger('data', this.copiedData);
+        this.copiedData.features[0].deleted = true;
+        this.copiedData.features[1].deleted = false;
+
+        spyOnEvent(document, 'callbackEvent');
+        $(document).trigger('requestEditedData', 'callbackEvent')
+
+        var exported = this.component.lastExport.features;
+        var original = mock.data.features;
+        expect(exported.length).toBe(original.length - 1);
+        expect(exported[0]).toEqual(original[1]);
+      });
+
     });
   });
 });

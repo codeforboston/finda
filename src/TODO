@@ -49,10 +49,10 @@ TODO:
        may need startCreate/cancelCreate events to mediate this
     +) submit sends a newFeature event
 
- *) delete event support
-    *) editState sets flag on item, and culls from export
-    *) map turns opacity on icon to 50%
-    *) "delete/undelete" button on above forms to show status & trigger changes
+ +) delete event support
+    +) editState sets flag on item, and culls from export
+    +) map turns opacity on icon to 50%
+    +) "delete/undelete" button on above forms to show status & trigger changes
 
  *) Edit help text and display, similar to current "About"
 

@@ -228,6 +228,20 @@ define(
             document, this.marker.getLatLng());
         });
 
+        it('fades marker on selectedFeatureDeleted', function() {
+          spyOn(this.marker, 'setOpacity');
+          this.component.trigger(document, 'selectFeature', this.feature);
+          this.component.trigger(document, 'selectedFeatureDeleted');
+          expect(this.marker.setOpacity).toHaveBeenCalledWith(0.4);
+        });
+
+        it('unfades marker on selectedFeatureUndeleted', function() {
+          spyOn(this.marker, 'setOpacity');
+          this.component.trigger(document, 'selectFeature', this.feature);
+          this.component.trigger(document, 'selectedFeatureUndeleted');
+          expect(this.marker.setOpacity).toHaveBeenCalledWith(1.0);
+        });
+
       });
 
     });

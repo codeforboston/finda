@@ -32,7 +32,7 @@ define(function(require, exports, module) {
           appendTo(this.$node);
       }
       if (this.editMode) {
-        this.startEditing(content, feature.properties);
+        this.startEditing(content, feature);
       }
       else {
         var popup = templates.popup(this.infoConfig,
@@ -43,11 +43,11 @@ define(function(require, exports, module) {
       this.$node.show();
     };
 
-    this.startEditing = function(contentNode, props) {
+    this.startEditing = function(contentNode, feature) {
       this.killCurrentEditor(); // in case we had one...
       var editor = new JSONEditor(contentNode[0], {
         schema: this.editSchema,
-        startval: _.cloneDeep(props),
+        startval: _.cloneDeep(feature.properties),
         theme: "bootstrap3",
         iconlib: "bootstrap3",
         disable_collapse: true,
@@ -60,9 +60,32 @@ define(function(require, exports, module) {
                             editor.getValue());
       });
 
+      // Add delete button.
+      var deleteButton = 
+        $('<button class="btn btn-small pull-right btn-delete"/>');
+      deleteButton.text(feature.deleted ? "Restore" : "Delete");
+      this.$node.find("h3").first().prepend(deleteButton);
+
+      deleteButton.on("click", function() {
+        if (feature.deleted) {
+          $(document).trigger('selectedFeatureUndeleted');
+        }
+        else {
+          $(document).trigger('selectedFeatureDeleted');
+        }
+      });
+
       // In case we were scrolled down editing a previous feature,
       // scroll our pane back up to the top.
       this.$node.scrollTop(0);
+    };
+
+    this.markDeletion = function() {
+      this.$node.find(".btn-delete").text("Restore");
+    };
+
+    this.markUndeletion = function() {
+      this.$node.find(".btn-delete").text("Delete");
     };
 
     this.killCurrentEditor = function() {
@@ -82,6 +105,8 @@ define(function(require, exports, module) {
     this.after('initialize', function() {
       this.on(document, 'config', this.configureInfo);
       this.on(document, 'selectFeature', this.update);
+      this.on(document, 'selectedFeatureDeleted', this.markDeletion);
+      this.on(document, 'selectedFeatureUndeleted', this.markUndeletion);
       this.on(this.select('closeSelector'), 'click', this.hide);
     });
   });

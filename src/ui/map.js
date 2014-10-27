@@ -158,6 +158,18 @@ define(function(require, exports, module) {
       this.previouslyClicked = null;
     };
 
+    this.markDeletion = function() {
+      if (this.previouslyClicked) {
+        this.previouslyClicked.setOpacity(0.4);
+      }
+    };
+
+    this.markUndeletion = function() {
+      if (this.previouslyClicked) {
+        this.previouslyClicked.setOpacity(1.0);
+      }
+    };
+
     this.bindPopupToFeature = function(layer, feature){
       layer.bindPopup(
         feature,
@@ -266,6 +278,8 @@ define(function(require, exports, module) {
       this.on(document, 'hoverFeature', this.hoverFeature);
       this.on(document, 'clearHoverFeature', this.clearHoverFeature);
       this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);
+      this.on(document, 'selectedFeatureDeleted', this.markDeletion);
+      this.on(document, 'selectedFeatureUndeleted', this.markUndeletion);
       this.on(document, 'newFeature', this.handleNewFeature);
       this.on('panTo', this.panTo);
     });
