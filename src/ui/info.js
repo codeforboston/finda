@@ -61,7 +61,7 @@ define(function(require, exports, module) {
       });
 
       // Add delete button.
-      var deleteButton = 
+      var deleteButton =
         $('<button class="btn btn-small pull-right btn-delete"/>');
       deleteButton.text(feature.deleted ? "Restore" : "Delete");
       this.$node.find("h3").first().prepend(deleteButton);
