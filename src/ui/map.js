@@ -105,6 +105,7 @@ define(function(require, exports, module) {
 
     this.selectFeature = function(ev, feature) {
       if (this.previouslyClicked) {
+        this.previouslyClicked.dragging.disable();
         this.previouslyClicked.setIcon(this.defaultIcon);
         this.trigger(document, 'deselectFeature', this.currentFeature);
       }
@@ -144,10 +145,8 @@ define(function(require, exports, module) {
 
     this.deselectFeature = function(ev, feature) {
       if (this.previouslyClicked) {
+        this.previouslyClicked.dragging.disable();
         this.previouslyClicked.setIcon(this.defaultIcon);
-        if (this.edit_mode) {
-          this.previouslyClicked.dragging.disable();
-        }
       }
       var layer = this.attr.features[feature.geometry.coordinates];
       // re-bind popup to feature with specified preview attribute
