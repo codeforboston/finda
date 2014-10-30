@@ -47,9 +47,9 @@ define(function(require, exports, module) {
       this.selectedFeature = feature;
     };
 
-    this.selectedFeatureMoved = function(ev, latlng) {
+    this.selectedFeatureMoved = function(ev, pos) {
       if (this.selectedFeature) {
-        this.selectedFeature.geometry.coordinates = [latlng.lng, latlng.lat];
+        this.selectedFeature.geometry.coordinates = pos;
       }
     };
 

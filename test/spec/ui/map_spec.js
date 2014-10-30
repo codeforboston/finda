@@ -203,20 +203,24 @@ define(
 
         it('resets position on external posn change', function() {
           this.component.trigger(document, 'selectFeature', this.feature);
-          var newPos = {lat: 33, lng: 44};
+          var newPos = [44, 33];
 
           spyOn(this.marker, 'setLatLng');
-          this.component.trigger(document, 'selectedFeatureMoved', newPos);
-          expect(this.marker.setLatLng).toHaveBeenCalledWith(newPos);
+          this.component.trigger(document, 'selectedFeatureMoved', [newPos]);
+          expect(this.marker.setLatLng).toHaveBeenCalled;
+
+          var latlng = this.marker.setLatLng.mostRecentCall.args[0];
+          expect(latlng.lat).toBe(33);
+          expect(latlng.lng).toBe(44);
         });
         
         it("doesn't reset posn unless 'move' event actually moved", function() {
           this.component.trigger(document, 'selectFeature', this.feature);
           var oldLatLng = this.marker.getLatLng();
-          var newPos = {lat: oldLatLng.lat, lng: oldLatLng.lng};
+          var newPos = [oldLatLng.lng, oldLatLng.lat];
 
           spyOn(this.marker, 'setLatLng');
-          this.component.trigger(document, 'selectedFeatureMoved', newPos);
+          this.component.trigger(document, 'selectedFeatureMoved', [newPos]);
           expect(this.marker.setLatLng).not.toHaveBeenCalled();
         });
         
@@ -224,8 +228,9 @@ define(
           spyOnEvent(document, 'selectedFeatureMoved');
           this.component.trigger(document, 'selectFeature', this.feature);
           this.marker.fireEvent('dragend');
+          var pos = this.marker.getLatLng();
           expect('selectedFeatureMoved').toHaveBeenTriggeredOnAndWith(
-            document, this.marker.getLatLng());
+            document, [pos.lng, pos.lat]);
         });
 
         it('fades marker on selectedFeatureDeleted', function() {

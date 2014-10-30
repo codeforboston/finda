@@ -61,7 +61,7 @@ define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
         });
 
         it("updates position upon UI request", function() {
-          $(document).trigger('selectedFeatureMoved', {lat: 55, lng: 44});
+          $(document).trigger('selectedFeatureMoved', [[44, 55]]);
           expect(this.feature.geometry.coordinates).toEqual([44, 55]);
           expect(this.component.data.features[0].geometry.coordinates).toEqual([44,55]);
         });

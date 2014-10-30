@@ -118,7 +118,10 @@ define(function(require, exports, module) {
         if (this.edit_mode) {
           layer.dragging.enable();
           layer.on("dragend", function(ev) {
-            this.trigger(document, 'selectedFeatureMoved', ev.target.getLatLng());
+            var latlng = ev.target.getLatLng();
+            var pos = [latlng.lng, latlng.lat];
+            this.attr.features[pos] = feature;
+            this.trigger(document, 'selectedFeatureMoved', [pos]);
           }.bind(this));
         }
 
@@ -134,11 +137,11 @@ define(function(require, exports, module) {
       }
     };
 
-    this.selectedFeatureMoved = function(ev, latlng) {
+    this.selectedFeatureMoved = function(ev, pos) {
       if (this.previouslyClicked) {
         var oldLatLng = this.previouslyClicked.getLatLng();
-        if (latlng.lat !== oldLatLng.lat || latlng.lng !== oldLatLng.lng) {
-          this.previouslyClicked.setLatLng(latlng);
+        if (oldLatLng.lat !== pos[1] || oldLatLng.lng !== pos[0]) {
+          this.previouslyClicked.setLatLng(L.latLng(pos[1], pos[0]));
         }
       }
     };
