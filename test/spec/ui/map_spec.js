@@ -249,9 +249,11 @@ define(
           spyOnEvent(document, 'selectedFeatureMoved');
           this.component.trigger(document, 'selectFeature', this.feature);
           this.marker.fireEvent('dragend');
-          var pos = this.marker.getLatLng();
+          var latlng = this.marker.getLatLng();
+          var pos = [latlng.lng, latlng.lat];
+          expect(this.component.attr.features[pos]).toBe(this.marker);
           expect('selectedFeatureMoved').toHaveBeenTriggeredOnAndWith(
-            document, [pos.lng, pos.lat]);
+            document, pos);
         });
 
         it('fades marker on selectedFeatureDeleted', function() {

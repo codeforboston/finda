@@ -120,7 +120,7 @@ define(function(require, exports, module) {
           layer.on("dragend", function(ev) {
             var latlng = ev.target.getLatLng();
             var pos = [latlng.lng, latlng.lat];
-            this.attr.features[pos] = feature;
+            this.attr.features[pos] = layer;
             this.trigger(document, 'selectedFeatureMoved', [pos]);
           }.bind(this));
         }
