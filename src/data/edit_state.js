@@ -7,8 +7,7 @@ define(function(require, exports, module) {
   module.exports = flight.component(function() {
 
     this.configure = function(ev, config) {
-      // deep copy property info (so we can make notes w/o bothering anyone)
-      this.property_info = $.extend(true, {}, config.properties);
+      this.reindexTimeoutSecs = config.edit_reindex_timeout_secs || 10;
     };
 
     this.loadData = function(ev, data) {
@@ -39,6 +38,7 @@ define(function(require, exports, module) {
 
     this.newFeature = function(ev, feature) {
       this.data.features.push(feature);
+      this.scheduleReindex();
     };
 
     // Should probably guard against selecting a feature that's not a point.
@@ -50,6 +50,7 @@ define(function(require, exports, module) {
     this.selectedFeatureMoved = function(ev, pos) {
       if (this.selectedFeature) {
         this.selectedFeature.geometry.coordinates = pos;
+        this.scheduleReindex();
       }
     };
 
@@ -70,7 +71,18 @@ define(function(require, exports, module) {
         // Events may specify values for only *some* properties;
         // if so, we want to leave the others alone.
         $.extend(this.selectedFeature.properties, newProps);
+        this.scheduleReindex();
       }
+    };
+
+    this.scheduleReindex = function() {
+      if (this.reindexTimeout) {
+        clearTimeout(this.reindexTimeout);
+      }
+      var trigger = function() {
+        $(document).trigger('reindex', data);
+      }.bind(this);
+      this.reindexTimeout = setTimeout(trigger, 1000 * this.reindexTimeoutSecs);
     };
 
     this.after('initialize', function() {

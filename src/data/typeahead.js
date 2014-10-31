@@ -33,6 +33,7 @@ define(function(require) {
     this.after('initialize', function() {
       this.on(document, 'config', this.configureSearch);
       this.on(document, 'data', this.createFuse);
+      this.on(document, 'reindex', this.createFuse);
       this.on(document, 'uiInProgressSearch', this.updateSearch);
     });
   });

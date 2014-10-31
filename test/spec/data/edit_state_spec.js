@@ -5,10 +5,31 @@ define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
       setupComponent();
     });
 
+    afterEach(function() {
+      if (this.component.reindexTimeout) {
+        clearTimeout(this.component.reindexTimeout);
+      }
+    });
+
     describe('on data load', function() {
       it('records the data', function() {
         this.component.trigger('data', mock.data);
         expect(this.component.data).toEqual(mock.data);
+      });
+    });
+
+    describe('on config', function() {
+      it ('honors explicit edit_reindex_timeout_secs', function() {
+        var config = _.cloneDeep(mock.config);
+        config.edit_reindex_timeout_secs = 2;
+        this.component.trigger('config', config);
+        expect(this.component.reindexTimeoutSecs).toBe(2);
+      });
+      it ('defaults unspecified edit_reindex_timeout_secs', function() {
+        var config = _.cloneDeep(mock.config);
+        config.edit_reindex_timeout_secs = undefined;
+        this.component.trigger('config', config);
+        expect(this.component.reindexTimeoutSecs).toBe(10);
       });
     });
 
@@ -77,6 +98,19 @@ define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
           $(document).trigger('selectedFeaturePropsChanged',
                               {organization_name: "fred"});
           expect(this.feature.properties.web_url).toBe(oldUrl);
+        });
+
+        it("schedules reindex upon position change", function() {
+          spyOn(this.component, 'scheduleReindex');
+          $(document).trigger('selectedFeatureMoved', [[44, 55]]);
+          expect(this.component.scheduleReindex).toHaveBeenCalled();
+        });
+
+        it("schedules reindex upon property change", function() {
+          spyOn(this.component, 'scheduleReindex');
+          $(document).trigger('selectedFeaturePropsChanged',
+                              {organization_name: "fred"});
+          expect(this.component.scheduleReindex).toHaveBeenCalled();
         });
       });
 
