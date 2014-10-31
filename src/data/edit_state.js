@@ -80,7 +80,7 @@ define(function(require, exports, module) {
         clearTimeout(this.reindexTimeout);
       }
       var trigger = function() {
-        $(document).trigger('reindex', data);
+        $(document).trigger('reindex', this.data);
       }.bind(this);
       this.reindexTimeout = setTimeout(trigger, 1000 * this.reindexTimeoutSecs);
     };
