@@ -7,6 +7,29 @@ define(
       setupComponent();
     });
 
+    afterEach(function() {
+
+      // The following bit of voodoo eliminates a Heisenbug causing spurious
+      // test run failures (from exceptions thrown in a timeout outside of any
+      // test).  What seems to be happening:
+      //
+      // Leaflet sometimes tries to fire 'moveend' events in a timeout, to
+      // avoid a flurry of them.  That, in turn, tries to reset the pan bounds
+      // to the map's max bounds, if those are defined -- and that process
+      // can blow up in some circumstances if the timeout fires after the map
+      // has already been removed from the DOM.
+      //
+      // Explicitly nullifying the bounds has the side-effect of removing the
+      // event handler which blows up; with this patch, have >100 successful
+      // test runs with no blowups in timeouts outside tests.
+
+      if (this.component.map) {
+        if (this.component.map.setMaxBounds) {
+          this.component.map.setMaxBounds();
+        }
+      }
+    });
+
     describe('initialize', function() {
       it('sets up the map', function() {
         expect(this.component.map).toBeDefined();
@@ -57,23 +80,23 @@ define(
     });
 
     describe('clicking an icon', function() {
-      var layer;
       beforeEach(function() {
         spyOnEvent(document, 'selectFeature');
         this.component.trigger('config', mock.config);
         this.component.trigger('data', mock.data);
 
         // fake the click event
-        layer = this.component.attr.features[
+        var layer = this.component.attr.features[
           mock.data.features[0].geometry.coordinates];
         layer.fireEvent('click', {
           latlng: layer._latlng
         });
+        this.clickLayer = layer;
       });
 
       it('sends a selectFeature event', function() {
         expect('selectFeature').toHaveBeenTriggeredOnAndWith(
-          document, layer.feature);
+          document, this.clickLayer.feature);
       });
     });
 
@@ -118,9 +141,7 @@ define(
     });
 
     describe('in edit mode', function() {
-      var layer;
       beforeEach(function() {
-
         // Initialize with deep copies of mock config & data, so we
         // don't have to worry about scribbling on the originals.
         //
