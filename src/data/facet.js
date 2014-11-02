@@ -15,11 +15,9 @@ define(function(require, exports, module) {
     };
 
     this.loadData = function(ev, data) {
-      if (!this.attr.data) {
-        this.attr.data = data;
-        if (this.attr.config) {
-          this.initializeFacets();
-        }
+      this.attr.data = data;
+      if (this.attr.config) {
+        this.initializeFacets();
       }
     };
 
@@ -140,6 +138,7 @@ define(function(require, exports, module) {
     this.after('initialize', function() {
       this.on(document, 'config', this.configure);
       this.on(document, 'data', this.loadData);
+      this.on(document, 'reindex', this.loadData);
       this.on(document, 'uiFilterFacet', this.filterData);
     });
   });
