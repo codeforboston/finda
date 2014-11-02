@@ -41,6 +41,7 @@ define(function(require) {
   require('ui/search').attachTo('#search', {mapSelector: '#map'});
   require('ui/search_results').attachTo('#search-results');
   require('ui/info').attachTo('#info');
+  require('ui/infoedits').attachTo('#infoedits');
   require('ui/facet').attachTo('#facets');
   require('ui/export').attachTo('#export');
   require('data/facet').attachTo(document);
