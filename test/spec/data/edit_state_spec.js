@@ -29,7 +29,7 @@ define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
         var config = _.cloneDeep(mock.config);
         config.edit_reindex_timeout_secs = undefined;
         this.component.trigger('config', config);
-        expect(this.component.reindexTimeoutSecs).toBe(10);
+        expect(this.component.reindexTimeoutSecs).toBe(5);
       });
     });
 

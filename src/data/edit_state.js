@@ -7,7 +7,7 @@ define(function(require, exports, module) {
   module.exports = flight.component(function() {
 
     this.configure = function(ev, config) {
-      this.reindexTimeoutSecs = config.edit_reindex_timeout_secs || 10;
+      this.reindexTimeoutSecs = config.edit_reindex_timeout_secs || 5;
     };
 
     this.loadData = function(ev, data) {
