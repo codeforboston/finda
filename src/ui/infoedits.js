@@ -57,7 +57,7 @@ define(function(require, exports, module) {
 
       // Add delete button
 
-      var deleteButton = 
+      var deleteButton =
         $('<button class="btn btn-small btn-delete"/>');
       deleteButton.text(feature.deleted ? "Restore" : "Delete");
       btnGroup.append(deleteButton);
@@ -73,7 +73,7 @@ define(function(require, exports, module) {
 
       // Add 'revert' button
 
-      var revertButton = 
+      var revertButton =
         $('<button class="btn btn-small btn-revert" disabled/>');
       revertButton.text("Revert");
       btnGroup.prepend(revertButton);

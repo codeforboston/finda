@@ -94,10 +94,10 @@ define(function(require, exports, module) {
     this.sendUndoStatus = function(feature) {
       var deleted = feature.deleted;
       var undoInfo = feature.undoInfo;
-      var changed = undoInfo && 
+      var changed = undoInfo &&
         !_.isEqual(undoInfo, this.extractUndoInfo(feature));
 
-      $(document).trigger('selectedFeatureUndoStatus', 
+      $(document).trigger('selectedFeatureUndoStatus',
                           deleted || changed || false);
     };
     

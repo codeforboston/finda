@@ -141,7 +141,7 @@ define(function(require, exports, module) {
       if (this.previouslyClicked) {
         var oldLatLng = this.previouslyClicked.getLatLng();
         if (oldLatLng.lat !== pos[1] || oldLatLng.lng !== pos[0]) {
-          var latlng = L.latLng(pos[1], pos[0])
+          var latlng = L.latLng(pos[1], pos[0]);
           this.previouslyClicked.setLatLng(latlng);
           this.map.panTo(latlng);
         }
