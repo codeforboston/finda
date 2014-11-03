@@ -26,10 +26,11 @@ How to configure edit mode:
 Innards -- Expected protocol:
 
   A flight component can either listen for incremental changes to
-  data items, or wait for the edit state to pump out an 'editedData'
+  data items, or wait for the edit state to pump out an 'reindex'
   event.  The latter is for things that need to rebuild the world,
-  and we may want to put some hysteresis on it.  (Current component
-  that does that, for the moment, the fuse index for data/typeahead.)
+  and we may want to put some hysteresis on it.  (Current components
+  that do that, for the moment: the fuse index for data/typeahead,
+  and the facets data component.)
 
   If you're listening for incremental changes, you need to listen
   for all of 'em.  So, map should be listening for selectedFeatureMoved
