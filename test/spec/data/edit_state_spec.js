@@ -114,27 +114,112 @@ define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
         });
       });
 
-      it('sends edited data back to whoever asks', function() {
-        spyOnEvent(document, 'callbackEvent');
-        this.component.trigger('data', mock.data);
-        $(document).trigger('requestEditedData', 'callbackEvent')
-        expect('callbackEvent').toHaveBeenTriggeredOn(document);
-        expect(this.component.lastExport).toEqual(mock.data);
+      describe("undo protocol", function() {
+
+        beforeEach(function() {
+          this.copiedData = $.extend(true, {}, mock.data);
+          this.component.trigger('data', this.copiedData);
+          spyOnEvent(document, 'selectedFeatureUndoStatus');
+          this.sampleFeature = this.copiedData.features[0];
+        });
+
+        it("reports no undo when selecting unchanged feature", function() {
+          this.component.trigger('selectFeature', this.sampleFeature);
+          expect('selectedFeatureUndoStatus').toHaveBeenTriggeredOnAndWith(
+            document, false);
+        });
+
+        it("reports undo status when selecting changed feature", function() {
+          this.component.prepForUndo(this.sampleFeature);
+          this.sampleFeature.properties.organization_name = 'Fred';
+          this.component.trigger('selectFeature', this.sampleFeature);
+          expect('selectedFeatureUndoStatus').toHaveBeenTriggeredOnAndWith(
+            document, true);
+        });
+
+        it("reports undo status when selecting deleted feature", function() {
+          this.component.prepForUndo(this.sampleFeature);
+          this.sampleFeature.deleted = true;
+          this.component.trigger('selectFeature', this.sampleFeature);
+          expect('selectedFeatureUndoStatus').toHaveBeenTriggeredOnAndWith(
+            document, true);
+        });
+
+        it("reports no undo when selecting reverted feature", function() {
+          // The following sets up feature with undo state, but *no* changes.
+          this.component.prepForUndo(this.sampleFeature);
+          this.component.trigger('selectFeature', this.sampleFeature);
+          expect('selectedFeatureUndoStatus').toHaveBeenTriggeredOnAndWith(
+            document, false);
+        });
+
+        it("reports change in undo status when deleting", function() {
+          // Want to trigger "undo status" event only once, so can't
+          // do selectFeature...
+          this.component.selectedFeature = this.sampleFeature;
+          this.component.trigger('selectedFeatureDeleted');
+          expect('selectedFeatureUndoStatus').toHaveBeenTriggeredOnAndWith(
+            document, true);
+        });
+
+        it("reports change in undo status when moving", function() {
+          this.component.selectedFeature = this.sampleFeature;
+          this.component.trigger('selectedFeatureMoved', [[90, 0]]);
+          expect('selectedFeatureUndoStatus').toHaveBeenTriggeredOnAndWith(
+            document, true);
+        });
+
+        it("reports change in undo status when changing features", function() {
+          this.component.selectedFeature = this.sampleFeature;
+          this.component.trigger('selectedFeaturePropsChanged',
+                                 {organization_name: 'Shady Town Hall'});
+          expect('selectedFeatureUndoStatus').toHaveBeenTriggeredOnAndWith(
+            document, true);
+        });
+
+        it("restores data when undo requested", function() {
+          spyOnEvent(document, 'selectedFeatureUndeleted');
+          spyOnEvent(document, 'selectedFeatureMoved');
+          spyOnEvent(document, 'selectedFeaturePropsChanged');
+
+          var origPosn = _.clone(this.sampleFeature.geometry.coordinates);
+
+          this.component.selectedFeature = this.sampleFeature;
+          this.component.trigger('selectedFeatureMoved', [[90, 0]]);
+
+          this.component.trigger('requestUndo');
+          expect('selectedFeatureUndeleted').toHaveBeenTriggeredOn(document);
+          expect('selectedFeatureMoved').toHaveBeenTriggeredOnAndWith(
+            document, origPosn);
+          expect('selectedFeaturePropsChanged').toHaveBeenTriggeredOnAndWith(
+            document, this.sampleFeature.properties);
+        });
       });
 
-      it("respects deleted flag on exports", function() {
-        this.copiedData = $.extend(true, {}, mock.data);
-        this.component.trigger('data', this.copiedData);
-        this.copiedData.features[0].deleted = true;
-        this.copiedData.features[1].deleted = false;
+      describe("export protocol", function() {
 
-        spyOnEvent(document, 'callbackEvent');
-        $(document).trigger('requestEditedData', 'callbackEvent')
+        it('sends edited data back to whoever asks', function() {
+          spyOnEvent(document, 'callbackEvent');
+          this.component.trigger('data', mock.data);
+          $(document).trigger('requestEditedData', 'callbackEvent')
+          expect('callbackEvent').toHaveBeenTriggeredOn(document);
+          expect(this.component.lastExport).toEqual(mock.data);
+        });
 
-        var exported = this.component.lastExport.features;
-        var original = mock.data.features;
-        expect(exported.length).toBe(original.length - 1);
-        expect(exported[0]).toEqual(original[1]);
+        it("respects deleted flag on exports", function() {
+          this.copiedData = $.extend(true, {}, mock.data);
+          this.component.trigger('data', this.copiedData);
+          this.copiedData.features[0].deleted = true;
+          this.copiedData.features[1].deleted = false;
+
+          spyOnEvent(document, 'callbackEvent');
+          $(document).trigger('requestEditedData', 'callbackEvent')
+
+          var exported = this.component.lastExport.features;
+          var original = mock.data.features;
+          expect(exported.length).toBe(original.length - 1);
+          expect(exported[0]).toEqual(original[1]);
+        });
       });
 
     });

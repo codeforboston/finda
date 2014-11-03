@@ -227,12 +227,14 @@ define(
           var newPos = [44, 33];
 
           spyOn(this.marker, 'setLatLng');
+          spyOn(this.component.map, 'panTo');
           this.component.trigger(document, 'selectedFeatureMoved', [newPos]);
           expect(this.marker.setLatLng).toHaveBeenCalled;
 
           var latlng = this.marker.setLatLng.mostRecentCall.args[0];
           expect(latlng.lat).toBe(33);
           expect(latlng.lng).toBe(44);
+          expect(this.component.map.panTo).toHaveBeenCalledWith(latlng);
         });
         
         it("doesn't reset posn unless 'move' event actually moved", function() {

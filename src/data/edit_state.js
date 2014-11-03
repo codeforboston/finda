@@ -28,6 +28,7 @@ define(function(require, exports, module) {
         }
         else {
           delete feature.deleted;
+          delete feature.undoInfo;
           return true;
         }
       });
@@ -45,33 +46,72 @@ define(function(require, exports, module) {
 
     this.selectFeature = function(ev, feature) {
       this.selectedFeature = feature;
+      this.sendUndoStatus(feature);
     };
 
     this.selectedFeatureMoved = function(ev, pos) {
-      if (this.selectedFeature) {
-        this.selectedFeature.geometry.coordinates = pos;
-        this.scheduleReindex();
-      }
+      this.withUndoForSelectedFeature(function(feature) {
+        feature.geometry.coordinates = pos;
+      });
     };
 
     this.markDeletion = function() {
-      if (this.selectedFeature) {
-        this.selectedFeature.deleted = true;
-      }
+      this.withUndoForSelectedFeature(function(feature) {
+        feature.deleted = true;
+      });
     };
 
     this.markUndeletion = function() {
-      if (this.selectedFeature) {
-        this.selectedFeature.deleted = false;
-      }
+      this.withUndoForSelectedFeature(function(feature) {
+        feature.deleted = false;
+      });
     };
 
     this.propEdit = function(ev, newProps) {
-      if (this.selectedFeature) {
+      this.withUndoForSelectedFeature(function(feature) {
         // Events may specify values for only *some* properties;
         // if so, we want to leave the others alone.
-        $.extend(this.selectedFeature.properties, newProps);
+        $.extend(feature.properties, newProps);
+      });
+    };
+
+    this.withUndoForSelectedFeature = function(fn) {
+      var feature = this.selectedFeature;
+      if (feature) {
+        this.prepForUndo(feature);
+        fn(feature);
+        this.sendUndoStatus(feature);
         this.scheduleReindex();
+      }
+    };
+
+    this.prepForUndo = function(feature) {
+      if (!feature.undoInfo) {
+        feature.undoInfo = _.cloneDeep(this.extractUndoInfo(feature));
+      }
+    };
+
+    this.sendUndoStatus = function(feature) {
+      var deleted = feature.deleted;
+      var undoInfo = feature.undoInfo;
+      var changed = undoInfo && 
+        !_.isEqual(undoInfo, this.extractUndoInfo(feature));
+
+      $(document).trigger('selectedFeatureUndoStatus', 
+                          deleted || changed || false);
+    };
+    
+    this.extractUndoInfo = function(feature) {
+      return { position: feature.geometry.coordinates,
+               properties: feature.properties };
+    };
+
+    this.doUndo = function() {
+      if (this.selectedFeature && this.selectedFeature.undoInfo) {
+        var undo = this.selectedFeature.undoInfo;
+        $(document).trigger('selectedFeatureUndeleted');
+        $(document).trigger('selectedFeatureMoved', [undo.position]);
+        $(document).trigger('selectedFeaturePropsChanged', undo.properties);
       }
     };
 
@@ -89,6 +129,7 @@ define(function(require, exports, module) {
       this.on(document, 'config', this.configure);
       this.on(document, 'data', this.loadData);
       this.on(document, 'requestEditedData', this.provideEdits);
+      this.on(document, 'requestUndo', this.doUndo);
       this.on(document, 'newFeature', this.newFeature);
       this.on(document, 'selectFeature', this.selectFeature);
       this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);

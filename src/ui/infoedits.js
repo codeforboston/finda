@@ -46,11 +46,21 @@ define(function(require, exports, module) {
                             editor.getValue());
       });
 
-      // Add delete button.
-      var deleteButton =
-        $('<button class="btn btn-small pull-right btn-delete"/>');
+      // Add container for buttons we'll add, and clear out the ones
+      // we don't want from the JSON editor's standard set.
+
+      var btnHdr = this.$node.find("h3").first();
+      btnHdr.find('.btn-group .btn').remove();
+
+      var btnGroup = btnHdr.find('.btn-group').first();
+      btnGroup.addClass('pull-right');
+
+      // Add delete button
+
+      var deleteButton = 
+        $('<button class="btn btn-small btn-delete"/>');
       deleteButton.text(feature.deleted ? "Restore" : "Delete");
-      this.$node.find("h3").first().prepend(deleteButton);
+      btnGroup.append(deleteButton);
 
       deleteButton.on("click", function() {
         if (feature.deleted) {
@@ -61,9 +71,37 @@ define(function(require, exports, module) {
         }
       });
 
+      // Add 'revert' button
+
+      var revertButton = 
+        $('<button class="btn btn-small btn-revert" disabled/>');
+      revertButton.text("Revert");
+      btnGroup.prepend(revertButton);
+      
+      revertButton.on("click", function() {
+        $(document).trigger('requestUndo');
+      });
+
       // In case we were scrolled down editing a previous feature,
       // scroll our pane back up to the top.
+
       this.$node.scrollTop(0);
+    };
+
+    this.noteUndoStatus = function(ev, haveUndo) {
+      if (haveUndo) {
+        this.$node.find(".btn-revert").removeAttr('disabled');
+      }
+      else {
+        this.$node.find(".btn-revert").attr('disabled','disabled');
+      }
+    };
+
+    this.notePropChange = function(ev, properties) {
+      var editor = this.currentEditor;
+      if (editor && !_.isEqual(editor.getValue(), properties)) {
+        editor.setValue(_.cloneDeep(properties));
+      }
     };
 
     this.markDeletion = function() {
@@ -91,8 +129,10 @@ define(function(require, exports, module) {
     this.after('initialize', function() {
       this.on(document, 'config', this.configureInfo);
       this.on(document, 'selectFeature', this.update);
+      this.on(document, 'selectedFeaturePropsChanged', this.notePropChange);
       this.on(document, 'selectedFeatureDeleted', this.markDeletion);
       this.on(document, 'selectedFeatureUndeleted', this.markUndeletion);
+      this.on(document, 'selectedFeatureUndoStatus', this.noteUndoStatus);
       this.on(this.select('closeSelector'), 'click', this.hide);
     });
   });

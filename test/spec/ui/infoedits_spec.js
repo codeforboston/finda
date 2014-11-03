@@ -31,7 +31,7 @@ define(['jquery', 'test/mock', 'lodash'],
         editConfig.edit_mode = true;
         $(document).trigger('config', editConfig);
 
-        this.feature = mock.data.features[0];
+        this.feature = _.cloneDeep(mock.data.features[0]);
       });
 
       // Ideally, would also be testing the behavior of the JSONEditor
@@ -40,6 +40,14 @@ define(['jquery', 'test/mock', 'lodash'],
       it('creates an editor on select feature', function() {
         $(document).trigger('selectFeature', this.feature);
         expect(this.component.currentEditor).not.toBe(undefined);
+      });
+
+      it("updates editor when prop changes come from elsewhere", function() {
+        $(document).trigger('selectFeature', this.feature);
+        spyOn(this.component.currentEditor, 'setValue');
+        $(document).trigger('selectedFeaturePropsChanged', {foo: 'bar'});
+        expect(this.component.currentEditor.setValue).toHaveBeenCalledWith(
+          {foo: 'bar'});
       });
 
       it('adds the delete button', function() {
@@ -76,6 +84,38 @@ define(['jquery', 'test/mock', 'lodash'],
           spyOnEvent(document, 'selectedFeatureUndeleted');
           this.$node.find(".btn-delete").click();
           expect('selectedFeatureUndeleted').toHaveBeenTriggeredOn(document);
+        });
+      });
+
+      describe("revert button", function() {
+
+        it('adds the revert button', function() {
+          $(document).trigger('selectFeature', this.feature);
+          var revertButtons = this.$node.find(".btn-revert");
+          expect(revertButtons.size()).toBe(1);
+          expect(revertButtons.attr("disabled")).toBe("disabled");
+        });
+
+        it('enables the revert button when it can revert', function() {
+          $(document).trigger('selectFeature', this.feature);
+          $(document).trigger('selectedFeatureUndoStatus', true);
+          var revertButtons = this.$node.find(".btn-revert");
+          expect(revertButtons.attr("disabled")).toBe(undefined);
+        });
+
+        it('enables the revert button when it cannot revert', function() {
+          $(document).trigger('selectFeature', this.feature);
+          $(document).trigger('selectedFeatureUndoStatus', true);
+          $(document).trigger('selectedFeatureUndoStatus', false);
+          var revertButtons = this.$node.find(".btn-revert");
+          expect(revertButtons.attr("disabled")).toBe("disabled");
+        });
+
+        it('requests revert when Revert button pressed', function() {
+          spyOnEvent(document, 'requestUndo');
+          $(document).trigger('selectFeature', this.feature);
+          this.$node.find(".btn-revert").click();
+          expect('requestUndo').toHaveBeenTriggeredOn(document);
         });
       });
 
