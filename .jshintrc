@@ -33,6 +33,8 @@
     "beforeEach": false,
     "afterEach": false,
     "it": false,
-    "expect": false
+    "expect": false,
+    "waits": false,
+    "runs": false
   }
 }

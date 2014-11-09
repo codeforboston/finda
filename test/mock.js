@@ -29,6 +29,10 @@ define({
 
         {"name": "additional_notes", "title": "Information"}
     ],
+    "list": [
+      "organization_name",
+      "address"
+    ],
     "search": {
         "geosearch": true
     },
