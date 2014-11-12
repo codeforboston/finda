@@ -30,7 +30,23 @@ define(function(require, exports, module) {
     };
 
     this.configureMap = function(ev, config) {
+      // if list or facets are emabled, give the map less space
+      var addition = 0;
+      if (config.facets) {
+        addition += 300;
+      }
+      if (config.list) {
+        addition += 300;
+      }
+
+      if (addition > 0) {
+        window.setTimeout(function() {
+          this.$node.css('left', '+=' + addition);
+        }.bind(this), 50);
+      }
+
       var mapConfig = config.map;
+
       this.map.setView(mapConfig.center, mapConfig.zoom);
       if (mapConfig.maxZoom){
         this.map.options.maxZoom = mapConfig.maxZoom;
