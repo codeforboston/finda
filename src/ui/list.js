@@ -39,6 +39,7 @@ define(function(require, exports, module) {
         this.teardown();
         return;
       }
+      this.$node.show();
       this.render = _.partial(templates.popup, listConfig);
     };
 
