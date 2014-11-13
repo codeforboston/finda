@@ -5,6 +5,7 @@ require.config({
     'bootstrap': '../lib/bootstrap.min',
     'leaflet': '../lib/leaflet/leaflet',
     'L.Control.Locate': '../lib/leaflet/L.Control.Locate',
+    'leaflet.markercluster': '../lib/leaflet.markercluster/leaflet.markercluster',
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
@@ -25,9 +26,11 @@ require.config({
       deps: ['jquery'],
       exports: '$'
     },
-    'L.Control.Locate': {
-      deps: ['leaflet']
-    }
+    leaflet: {
+      exports: 'L'
+    },
+    'L.Control.Locate': ['leaflet'],
+    'leaflet.markercluster': ['leaflet']
   }
 });
 
