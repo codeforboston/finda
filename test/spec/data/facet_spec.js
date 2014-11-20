@@ -5,7 +5,6 @@ define(['test/mock', 'lodash'], function(mock, _) {
       setupComponent();
       spyOnEvent(document, 'dataFacets');
       spyOnEvent(document, 'dataFiltered');
-      spyOnEvent(document, 'data');
     });
 
     describe('on config', function() {
@@ -98,6 +97,70 @@ define(['test/mock', 'lodash'], function(mock, _) {
               {value: 'support group', count: 2, selected: false}
             ]
             });
+        });
+      });
+      describe("map facet", function() {
+        describe('value not provided', function() {
+          beforeEach(function() {
+            var config = _.clone(mock.config);
+            config.facets = {
+              map: {
+                title: "Map",
+                text: "Limit results",
+                type: 'map'
+              }
+            };
+            this.component.trigger('config', config);
+            this.component.trigger('data', mock.data);
+            this.component.trigger('mapBounds', {
+              southWest: [42.3251, -71.6411],
+              northEast: [42.3250, -72.6412]
+            });
+            this.component.trigger('uiFilterFacet', {
+              facet: 'map',
+              selected: ['Limit results']
+            });
+            waits(50);
+          });
+          it('emits a "dataFiltered" event with the filtered data', function() {
+            expect('dataFiltered').toHaveBeenTriggeredOnAndWith(
+              document,
+              {
+                featureIds: [mock.data.features[0].id]
+              });
+          });
+          it('emits a "dataFacets" event with the filtered values for each facet', function() {
+            expect('dataFacets').toHaveBeenTriggeredOnAndWith(
+              document,
+              {map: [
+                {value: 'Limit results', count: 1, selected: true}
+              ]
+              });
+          });
+        });
+        describe('if value: true is configured', function() {
+          beforeEach(function() {
+            var config = _.clone(mock.config);
+            config.facets = {
+              map: {
+                title: "Map",
+                text: "Limit results",
+                type: 'map',
+                value: true
+              }
+            };
+            this.component.trigger('config', config);
+            this.component.trigger('data', mock.data);
+            waits(50);
+          });
+          it('the facet defaults to selected', function() {
+            expect('dataFacets').toHaveBeenTriggeredOnAndWith(
+              document,
+              {map: [
+                {value: 'Limit results', count: 3, selected: true}
+              ]
+              });
+          });
         });
       });
       describe("multiple facets", function() {

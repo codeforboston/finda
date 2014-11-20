@@ -9,7 +9,7 @@ define(function(require, exports, module) {
   require('leaflet.markercluster');
 
   module.exports = flight.component(function map() {
-    this.defaultAttrs({
+    this.attributes({
       tileUrl: 'http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png',
       tileAttribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
       tileSubdomains: '0123',
@@ -242,6 +242,16 @@ define(function(require, exports, module) {
                     lng: result.lng});
     };
 
+    this.onBoundsChanged = function onBoundsChanged() {
+      var currentBounds = this.map.getBounds(),
+          southWest = currentBounds.getSouthWest(),
+          northEast = currentBounds.getNorthEast();
+      this.trigger('mapBounds', {
+        southWest: [southWest.lat, southWest.lng],
+        northEast: [northEast.lat, northEast.lng]
+      });
+    };
+
     this.after('initialize', function() {
       this.map = L.map(this.node, {})
 ;
@@ -262,6 +272,8 @@ define(function(require, exports, module) {
         minZoom: this.attr.tileMinZoom,
         maxZoom: this.attr.tileMaxZoom
       }).addTo(this.map);
+
+      this.map.on('moveend', this.onBoundsChanged.bind(this));
 
       this.on(document, 'config', this.configureMap);
       this.on(document, 'data', this.loadData);
