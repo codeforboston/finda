@@ -108,8 +108,36 @@ define(
         var icon = this.component.$node.find('.leaflet-marker-icon:first');
         expect(icon.attr('src')).toMatch(/marker-icon\.png$/);
       });
-
     });
 
+    describe("dataSearchResult", function() {
+      beforeEach(function() {
+        this.component.trigger('config', mock.config);
+        this.component.trigger('data', mock.data);
+        spyOnEvent('.component-root', 'panTo');
+        this.component.trigger(
+          document,
+          'dataSearchResult',
+          {
+            lat: 41,
+            lng: -71
+          }
+        );
+      });
+      it('puts a marker on the map', function() {
+        expect(this.$node.find('.search-result-marker').length).toEqual(1);
+      });
+      it('puts the marker at the given lat/lng', function() {
+        expect(this.component.searchMarker._latlng.lat).toEqual(41);
+        expect(this.component.searchMarker._latlng.lng).toEqual(-71);
+      });
+      it('pans to the lat/long if present', function() {
+        expect('panTo').toHaveBeenTriggeredOnAndWith(
+          '.component-root',
+          {lat: 41,
+           lng: -71
+          });
+      });
+    });
   });
 });

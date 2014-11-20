@@ -9,7 +9,7 @@ define(
 
       describe('on config', function() {
         it("calls teardown if there's no list configuration", function() {
-          spyOn(this.component, 'teardown');
+          spyOn(this.component, 'teardown').andCallThrough();
           $(document).trigger('config', {});
           expect(this.component.teardown).toHaveBeenCalledWith();
         });

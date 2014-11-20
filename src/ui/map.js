@@ -167,6 +167,21 @@ define(function(require, exports, module) {
       this.map.panTo(latlng);
     };
 
+    this.onSearchResult = function(ev, result) {
+      if (!this.searchMarker) {
+        this.searchMarker = L.marker(result, {
+          icon: L.divIcon({className: 'search-result-marker'})
+        });
+        this.searchMarker.addTo(this.map);
+      } else {
+        this.searchMarker.setLatLng(result);
+      }
+
+      this.trigger('panTo',
+                   {lat: result.lat,
+                    lng: result.lng});
+    };
+
     this.after('initialize', function() {
       this.map = L.map(this.node, {});
 
@@ -192,6 +207,7 @@ define(function(require, exports, module) {
       this.on(document, 'deselectFeature', this.deselectFeature);
       this.on(document, 'hoverFeature', this.hoverFeature);
       this.on(document, 'clearHoverFeature', this.clearHoverFeature);
+      this.on(document, 'dataSearchResult', this.onSearchResult);
       this.on('panTo', this.panTo);
     });
   });
