@@ -169,9 +169,11 @@ define(function(require, exports, module) {
 
     this.after('initialize', function() {
       this.map = L.map(this.node, {});
-      this.cluster = new L.MarkerClusterGroup();
 
+      this.cluster = new L.MarkerClusterGroup();
       this.cluster.addTo(this.map);
+
+      L.control.scale().addTo(this.map);
 
       this.attr.features = {};
 
