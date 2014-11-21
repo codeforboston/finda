@@ -6,6 +6,7 @@
   },
   "map": {
     "preview_attribute": "organization_name",
+    "new_point_address_attribute": "address",
     "center":[42.3725, -71.1266],
     "zoom":13,
     "maxZoom":16,

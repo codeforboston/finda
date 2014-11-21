@@ -46,6 +46,7 @@ define(function(require, exports, module) {
 
       // set feature attribute to be used as preview text to config
       this.featurePreviewAttr = config.map.preview_attribute;
+      this.newPointAddrAttr = config.map.new_point_address_attribute;
 
       // Determine whether edit-mode features are enabled (particularly
       // dragging selected feature).
@@ -57,6 +58,7 @@ define(function(require, exports, module) {
           $("#new-feature-popup-label").html(label);
         }
       }
+
     };
 
     this.loadData = function(ev, data) {
@@ -87,7 +89,7 @@ define(function(require, exports, module) {
 
       if (this.edit_mode) {
         this.map.doubleClickZoom.disable();
-        this.map.on('dblclick', this.startCreate.bind(this));
+        this.map.on('dblclick', this.emitStartCreate.bind(this));
       }
     };
 
@@ -101,6 +103,11 @@ define(function(require, exports, module) {
 
     this.clearHover = function(e) {
       this.trigger(document, 'clearHoverFeature', e.target.feature);
+    };
+
+    this.emitStartCreate = function(e) {
+      this.trigger(document, 'startCreateFeature',
+                   { position: e.latlng, attrs: {} });
     };
 
     this.selectFeature = function(ev, feature) {
@@ -206,13 +213,13 @@ define(function(require, exports, module) {
     // (It's two steps, with the simple form in a popup, so stray
     // double-clicks are easy to undo.)
 
-    // Start create: handles a Leaflet double-click event.
+    // Start create: sets up the "new-feature" popup at the right location.
 
-    this.startCreate = function(e) {
+    this.startCreate = function(e, data) {
       var popup = L.popup();
       this.createPopup = popup;
-      this.otherthing = 'foo';
-      popup.setLatLng(e.latlng);
+      this.createAddress = data.address;
+      popup.setLatLng(data.position);
       popup.setContent($("#new-feature-popup").html());
       popup.openOn(this.map);
 
@@ -241,6 +248,9 @@ define(function(require, exports, module) {
 
       var props = {};
       props[this.featurePreviewAttr] = $(e.target).serializeArray()[0].value;
+      if (this.newPointAddrAttr) {
+        props[this.newPointAddrAttr] = this.createAddress;
+      }
 
       var feature = {
         type: "Feature",
@@ -285,6 +295,7 @@ define(function(require, exports, module) {
       this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);
       this.on(document, 'selectedFeatureDeleted', this.markDeletion);
       this.on(document, 'selectedFeatureUndeleted', this.markUndeletion);
+      this.on(document, 'startCreateFeature', this.startCreate);
       this.on(document, 'newFeature', this.handleNewFeature);
       this.on('panTo', this.panTo);
     });

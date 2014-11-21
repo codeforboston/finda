@@ -34,6 +34,10 @@
             <li id="editing-help-link"><a href="#" data-toggle="modal" data-target="#editing-how-to">Help</a></li>
           </ul>
           <form id="search" class="navbar-form dropdown" role="search">
+            <!-- VERY awkward to have export button as part of this form
+                 semantically, but it's a kludge to get quarter-decent display.
+             -->
+            <button id="export" type="submit" class="btn btn-default" title="export">Export Data</button>
             <div class="form-group">
               <input type="text" class="address form-control" placeholder="Enter an address..." title="Data © OpenStreetMap contributors, ODbL 1.0. http://www.openstreetmap.org/copyright">
             </div>
@@ -43,10 +47,7 @@
               <p class="suggested">Suggested results:</p>
               <ul></ul>
             </div>
-            <!-- VERY awkward to have export button as part of this form
-                 semantically, but it's a kludge to get quarter-decent display.
-             -->
-            <button id="export" type="submit" class="btn btn-default" title="export">Export Data</button>
+            <button id="add-site" type="submit" class="btn btn-default" title="Add Site">Add Site</button>
           </form>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

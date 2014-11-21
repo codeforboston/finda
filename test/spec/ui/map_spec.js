@@ -160,6 +160,14 @@ define(
         expect($('label').html()).toBe(mock.config.new_feature_popup_label);
       });
 
+      it('sets create-feature popup label from config', function() {
+        var config=_.cloneDeep(mock.config);
+        config.edit_mode = true;
+        config.map.new_point_address_attribute = "xxaddress";
+        this.component.trigger('config', config);
+        expect(this.component.newPointAddrAttr).toBe("xxaddress");
+      });
+
       it('shows create-new-feature popup on double click', function() {
         this.component.map.fireEvent('dblclick', {latlng: L.latLng(90.0, 0.0)});
         var popup = this.component.createPopup;
@@ -167,38 +175,68 @@ define(
         expect(popup.getLatLng().lat).toBe(90);
         expect(popup.getLatLng().lng).toBe(0);
         expect(popup._map).toBe(this.component.map);
+        expect(this.component.createAddress).toBe(undefined);
         this.component.map.removeLayer(popup);
       });
 
-      it('triggers events on create-feature form submit', function() {
-
-        // Put a mock-form in the fixtures.
-        setFixtures('<form class="create-feature-popup-form"><input name="foo" value="North Pole"/></form>');
-        spyOnEvent(document,'newFeature');
-        spyOnEvent(document,'selectFeature');
-
-        // Get a popup in position, since that's where we grab the latlng from.
-        this.component.map.fireEvent('dblclick', {latlng: L.latLng(90, 0)});
+      it('shows create-new-feature popup on external request', function() {
+        this.component.trigger('startCreateFeature', 
+                               {position: L.latLng(90.0, 0.0),
+                                address: "some address"
+                               });
         var popup = this.component.createPopup;
         expect(popup).not.toBe(undefined);
+        expect(popup.getLatLng().lat).toBe(90);
+        expect(popup.getLatLng().lng).toBe(0);
+        expect(popup._map).toBe(this.component.map);
+        expect(this.component.createAddress).toBe("some address");
+        this.component.map.removeLayer(popup);
+      });
 
-        // Also fake up the event binding ordinarily done by startCreate.
-        var form = $("form.create-feature-popup-form");
-        form.on('submit', this.component.finishCreate.bind(this.component));
+      describe("on submission of create-feature form", function() {
+        beforeEach(function() {
+          // Put a mock-form in the fixtures.
+          setFixtures('<form class="create-feature-popup-form"><input name="foo" value="North Pole"/></form>');
+          spyOnEvent(document,'newFeature');
+          spyOnEvent(document,'selectFeature');
 
-        // Fake submittal...
-        this.component.trigger(form, 'submit');
-        expect('newFeature').toHaveBeenTriggeredOn(document);
-        expect('selectFeature').toHaveBeenTriggeredOn(document);
+          // Get a popup in position, since that's where we grab the latlng from.
+          this.component.map.fireEvent('dblclick', {latlng: L.latLng(90, 0)});
+          this.popup = this.component.createPopup;
+          expect(this.popup).not.toBe(undefined);
 
-        var feature = this.component.lastCreatedFeature;
-        expect(feature.geometry.coordinates).toEqual([0, 90]);
+          // Also fake up the event binding ordinarily done by startCreate.
+          this.form = $("form.create-feature-popup-form");
+          this.form.on('submit', 
+                       this.component.finishCreate.bind(this.component));
+        });
 
-        var prop = this.component.featurePreviewAttr;
-        expect(feature.properties[prop]).toBe('North Pole'); // from mock form
+        it('triggers events', function() {
 
-        // Should have taken down the popup on its own as well.
-        expect(popup._map).toBe(null);
+          var popup = this.popup;
+
+          // Fake submittal...
+          this.component.trigger(this.form, 'submit');
+          expect('newFeature').toHaveBeenTriggeredOn(document);
+          expect('selectFeature').toHaveBeenTriggeredOn(document);
+
+          var feature = this.component.lastCreatedFeature;
+          expect(feature.geometry.coordinates).toEqual([0, 90]);
+
+          var prop = this.component.featurePreviewAttr;
+          expect(feature.properties[prop]).toBe('North Pole'); // from mock form
+
+          // Should have taken down the popup on its own as well.
+          expect(popup._map).toBe(null);
+        });
+
+        it('copies address where appropriate', function() {
+          this.component.newPointAddrAttr="xxaddress";
+          this.component.createAddress="90 North"
+          this.component.trigger(this.form, 'submit');
+          var feature = this.component.lastCreatedFeature;
+          expect(feature.properties.xxaddress).toBe("90 North");
+        });
       });
 
       describe('with a feature', function() {
