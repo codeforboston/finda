@@ -4,6 +4,8 @@ define(function(require, exports, module) {
   var $ = require('jquery');
   var L = require('leaflet');
   require('L.Control.Locate');
+  require('leaflet.markercluster');
+
   module.exports = flight.component(function map() {
     this.defaultAttrs({
       tileUrl: 'http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png',
@@ -31,7 +33,23 @@ define(function(require, exports, module) {
     };
 
     this.configureMap = function(ev, config) {
+      // if list or facets are emabled, give the map less space
+      var addition = 0;
+      if (config.facets) {
+        addition += 300;
+      }
+      if (config.list) {
+        addition += 300;
+      }
+
+      if (addition > 0) {
+        window.setTimeout(function() {
+          this.$node.css('left', '+=' + addition);
+        }.bind(this), 50);
+      }
+
       var mapConfig = config.map;
+
       this.map.setView(mapConfig.center, mapConfig.zoom);
       if (mapConfig.maxZoom){
         this.map.options.maxZoom = mapConfig.maxZoom;
@@ -67,6 +85,9 @@ define(function(require, exports, module) {
       var setupFeature = function(feature, layer) {
         this.attr.features[feature.geometry.coordinates] = layer;
 
+        // Want to be able to enable dragging in edit mode, but not yet...
+        // layer.dragging.disable();
+
         // bind popup to feature with specified preview attribute
         this.bindPopupToFeature(
           layer,
@@ -81,11 +102,17 @@ define(function(require, exports, module) {
 
       if (this.attr.layer) {
         this.attr.features = {};
-        this.map.removeLayer(this.attr.layer);
+
+        this.cluster.removeLayer(this.attr.layer);
       }
 
-      this.attr.layer = L.geoJson(data, {onEachFeature: setupFeature});
-      this.attr.layer.addTo(this.map);
+      this.attr.layer = L.geoJson(data, {
+        onEachFeature: setupFeature//,
+        //pointToLayer: function (feature, latlng) {
+        //  return new L.Marker(latlng, {clickable: true, draggable: true});
+        //}
+      });
+      this.attr.layer.addTo(this.cluster);
 
       if (this.edit_mode) {
         this.map.doubleClickZoom.disable();
@@ -112,7 +139,9 @@ define(function(require, exports, module) {
 
     this.selectFeature = function(ev, feature) {
       if (this.previouslyClicked) {
-        this.previouslyClicked.dragging.disable();
+        if (this.previouslyClicked.dragging) {
+          this.previouslyClicked.dragging.disable();
+        }
         this.previouslyClicked.setIcon(this.defaultIcon);
         this.trigger(document, 'deselectFeature', this.currentFeature);
       }
@@ -123,6 +152,7 @@ define(function(require, exports, module) {
         this.previouslyClicked = layer;
 
         if (this.edit_mode) {
+          this.map.addLayer(layer); // if it was buried in a cluster...
           layer.dragging.enable();
           layer.on("dragend", function(ev) {
             var latlng = ev.target.getLatLng();
@@ -157,7 +187,9 @@ define(function(require, exports, module) {
 
     this.deselectFeature = function(ev, feature) {
       if (this.previouslyClicked) {
-        this.previouslyClicked.dragging.disable();
+        if (this.previouslyClicked.dragging) {
+          this.previouslyClicked.dragging.disable();
+        }
         this.previouslyClicked.setIcon(this.defaultIcon);
       }
       var layer = this.attr.features[feature.geometry.coordinates];
@@ -274,6 +306,9 @@ define(function(require, exports, module) {
 
     this.after('initialize', function() {
       this.map = L.map(this.node, {});
+      this.cluster = new L.MarkerClusterGroup();
+
+      this.cluster.addTo(this.map);
 
       this.attr.features = {};
 

@@ -8,6 +8,8 @@ define(function(require) {
     this.configureSearch = function(ev, config) {
       if (config.search && config.search.full_text) {
         this.options = config.search.full_text;
+      } else {
+        this.teardown();
       }
     };
 

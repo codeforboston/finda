@@ -4,13 +4,13 @@ define(function(require, exports) {
       _ = require('lodash');
 
   var templates = {
-    url: Handlebars.compile('<a href="{{url}}">{{title}}</a>'),
+    url: Handlebars.compile('<a target="_blank" href="{{url}}">{{title}}</a>'),
     image: Handlebars.compile('<img src="{{url}}"/>'),
     title: Handlebars.compile('<div><h4>{{title}}</h4><div>{{{rendered}}}</div></div>'),
     list: Handlebars.compile('<ul> {{#list}} <li>{{{this}}}</li> {{/list}} </ul>'),
-    directions: Handlebars.compile('<a href="http://maps.google.com/maps?q={{directions}}">{{title}}</a>'),
+    directions: Handlebars.compile('<a target="_blank" href="http://maps.google.com/maps?q={{directions}}">{{title}}</a>'),
     simple: Handlebars.compile('{{text}}'),
-    popup: Handlebars.compile('<div>{{#popup}}<div id="{{div_id}}">{{{rendered}}}</div>{{/popup}}</div>')
+    popup: Handlebars.compile('<div>{{#popup}}<div class="feature-{{klass}}">{{{rendered}}}</div>{{/popup}}</div>')
   };
   var formatters = {
     url: function(value, property) {
@@ -47,7 +47,8 @@ define(function(require, exports) {
     directions: function(value, property) {
       var title = property.title || "directions";
       return templates.directions({title: title,
-                                   directions: value});
+                                   directions: encodeURIComponent(
+                                     value.replace('\n', ' '))});
     }
   };
 
@@ -88,7 +89,7 @@ define(function(require, exports) {
         rendered = format(value, property);
         if (rendered) {
           popup.push({
-            div_id: key,
+            klass: key.replace(' ', '-'),
             rendered: rendered
           });
         }

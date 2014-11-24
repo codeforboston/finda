@@ -1,6 +1,8 @@
 @import url("../lib/bootstrap.min.css");
 @import url("../lib/leaflet/leaflet.css");
 @import url("../lib/leaflet/L.Control.Locate.css");
+@import url("../lib/leaflet.markercluster/MarkerCluster.css");
+@import url("../lib/leaflet.markercluster/MarkerCluster.Default.css");
 
 html { height: 100%;}
 body { height: 100%;
@@ -94,7 +96,7 @@ body > div.container {
 
 #map {
   position:fixed;
-  left: 300px;
+  left: 0px;
   top: 50px;
   bottom: 0;
   right:0;
@@ -218,13 +220,12 @@ form.create-feature-popup-form {
     width: 250px;
 }
 
-#facets {
-  position: absolute;
+.control.control-sidebar {
+  float: left;
+  box-sizing: border-box;
   padding: 10px 14px;
-  top: 0;
-  bottom: 0;
-  left: 0;
   width: 300px;
+  height: 100%;
   border-right: 1px solid #AFAFAF;
   margin-bottom:30px;
   overflow-y: auto;
@@ -232,6 +233,21 @@ form.create-feature-popup-form {
 
 #facets .checkbox.selected label {
   font-weight: bold;
+}
+
+#list ul {
+  margin: -14px -14px 20px;
+  padding-bottom: 20px;
+  padding-left: 0;
+}
+
+#list li {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #dedede;
+  padding: 1em;
+  cursor: pointer;
+  border-left: 5px solid #fcfcfc;
+  list-style: none;
 }
 
 #about .modal-footer img {
