@@ -44,10 +44,11 @@ define(function(require) {
   require('ui/info').attachTo('#info');
   require('ui/list').attachTo('#list');
   require('ui/facet').attachTo('#facets');
-  require('data/facet').attachTo(document);
   require('ui/project').attachTo(document);
+  require('data/facet').attachTo(document);
   require('data/analytics').attachTo(document);
   require('data/search').attachTo(document);
   require('data/typeahead').attachTo(document);
-  require('data/loader').attachTo(document);
+  require('data/geojson').attachTo(document);
+  require('data/config').attachTo(document);
 });
