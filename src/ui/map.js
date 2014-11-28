@@ -49,7 +49,6 @@ define(function(require, exports, module) {
 
       var mapConfig = config.map;
 
-      this.map.setView(mapConfig.center, mapConfig.zoom);
       if (mapConfig.maxZoom){
         this.map.options.maxZoom = mapConfig.maxZoom;
       }
@@ -57,19 +56,26 @@ define(function(require, exports, module) {
         this.map.setMaxBounds(mapConfig.maxBounds);
       }
 
-      // Add the location control which will zoom to current
-      // location
-      L.control.locate().addTo(this.map);
-
       // set feature attribute to be used as preview text to config
       this.featurePreviewAttr = config.map.preview_attribute;
+
+      var setView = function() {
+        if (!this.map) {
+          return;
+        }
+        this.map.setView(mapConfig.center, mapConfig.zoom);
+      };
+
+      // setup the center after we're done moving around
+      setView.call(this);
+      window.setTimeout(setView.bind(this), 100);
     };
 
     this.loadData = function(ev, data) {
       this.defineIconStyles();
 
       var setupFeature = function(feature, layer) {
-        this.attr.features[feature.geometry.coordinates] = layer;
+        this.layers[feature.id] = L.stamp(layer);
 
         // bind popup to feature with specified preview attribute
         this.bindPopupToFeature(
@@ -83,14 +89,14 @@ define(function(require, exports, module) {
         });
       }.bind(this);
 
-      if (this.attr.layer) {
-        this.attr.features = {};
+      if (this.layerGroup) {
+        this.layers = {};
 
-        this.cluster.removeLayer(this.attr.layer);
+        this.cluster.removeLayer(this.layerGroup);
       }
 
-      this.attr.layer = L.geoJson(data, {onEachFeature: setupFeature});
-      this.attr.layer.addTo(this.cluster);
+      this.layerGroup = L.geoJson(data, {onEachFeature: setupFeature});
+      this.layerGroup.addTo(this.cluster);
     };
 
     this.emitClick = function(e) {
@@ -112,7 +118,8 @@ define(function(require, exports, module) {
       }
       if (feature) {
         this.currentFeature = feature;
-        var layer = this.attr.features[feature.geometry.coordinates];
+        var layerId = this.layers[feature.id],
+            layer = this.layerGroup.getLayer(layerId);
         layer.setIcon(this.grayIcon);
         this.previouslyClicked = layer;
 
@@ -132,7 +139,8 @@ define(function(require, exports, module) {
       if (this.previouslyClicked) {
         this.previouslyClicked.setIcon(this.defaultIcon);
       }
-      var layer = this.attr.features[feature.geometry.coordinates];
+      var layerId = this.layers[feature.id],
+          layer = this.layerGroup.getLayer(layerId);
       // re-bind popup to feature with specified preview attribute
       this.bindPopupToFeature(
         layer,
@@ -151,14 +159,16 @@ define(function(require, exports, module) {
 
     this.hoverFeature = function(ev, feature) {
       if (feature) {
-        var layer = this.attr.features[feature.geometry.coordinates];
+        var layerId = this.layers[feature.id],
+            layer = this.layerGroup.getLayer(layerId);
         layer.openPopup();
       }
     };
 
     this.clearHoverFeature = function(ev, feature) {
       if (feature) {
-        var layer = this.attr.features[feature.geometry.coordinates];
+        var layerId = this.layers[feature.id],
+            layer = this.layerGroup.getLayer(layerId);
         layer.closePopup();
       }
     };
@@ -168,14 +178,18 @@ define(function(require, exports, module) {
     };
 
     this.after('initialize', function() {
-      this.map = L.map(this.node, {});
-
+      this.map = L.map(this.node, {})
+;
       this.cluster = new L.MarkerClusterGroup();
       this.cluster.addTo(this.map);
 
       L.control.scale().addTo(this.map);
+      // Add the location control which will zoom to current
+      // location
+      L.control.locate().addTo(this.map);
 
-      this.attr.features = {};
+
+      this.layers = {};
 
       L.tileLayer(this.attr.tileUrl, {
         attribution: this.attr.tileAttribution,
@@ -193,6 +207,13 @@ define(function(require, exports, module) {
       this.on(document, 'hoverFeature', this.hoverFeature);
       this.on(document, 'clearHoverFeature', this.clearHoverFeature);
       this.on('panTo', this.panTo);
+    });
+
+    this.before('teardown', function() {
+      if (this.map) {
+        this.map.remove();
+        this.map = undefined;
+      }
     });
   });
 });

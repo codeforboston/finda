@@ -4,6 +4,10 @@ define(
   describeComponent('ui/map', function() {
     beforeEach(function() {
       L.Icon.Default.imagePath = '/base/lib/leaflet/images';
+      spyOn(L.control, 'locate').andReturn(
+        jasmine.createSpyObj('Locate', ['addTo']));
+      spyOn(L.control, 'scale').andReturn(
+        jasmine.createSpyObj('Scale', ['addTo']));
       setupComponent();
     });
 
@@ -11,35 +15,45 @@ define(
       it('sets up the map', function() {
         expect(this.component.map).toBeDefined();
       });
+      it('sets up the scale control', function() {
+        expect(L.control.scale).toHaveBeenCalledWith();
+        expect(L.control.scale().addTo).toHaveBeenCalledWith(
+          this.component.map);
+      });
+      it('sets up the locate control', function() {
+        expect(L.control.locate).toHaveBeenCalledWith();
+        expect(L.control.locate().addTo).toHaveBeenCalledWith(
+          this.component.map);
+      });
     });
     describe('loading data', function () {
       it('config sets up the map object', function() {
         this.component.map = jasmine.createSpyObj('Map',
                                                   ['setView',
-                                                   'setMaxBounds']);
-        spyOn(L.control, 'locate').andReturn(
-          jasmine.createSpyObj('Locate', ['addTo']));
+                                                   'setMaxBounds',
+                                                   'remove'
+                                                  ]);
         this.component.map.options = {};
         this.component.trigger('config', mock.config);
-        expect(this.component.map.options.maxZoom, mock.config.map.maxZoom);
-        expect(this.component.map.setView).toHaveBeenCalledWith(
-          mock.config.map.center, mock.config.map.zoom);
-        expect(this.component.map.setMaxBounds).toHaveBeenCalledWith(
-          mock.config.map.maxBounds);
-        expect(L.control.locate).toHaveBeenCalledWith();
-        expect(L.control.locate().addTo).toHaveBeenCalledWith(
-          this.component.map);
+        waits(101);
+        runs(function() {
+          expect(this.component.map.options.maxZoom, mock.config.map.maxZoom);
+          expect(this.component.map.setView).toHaveBeenCalledWith(
+            mock.config.map.center, mock.config.map.zoom);
+          expect(this.component.map.setMaxBounds).toHaveBeenCalledWith(
+            mock.config.map.maxBounds);
+        });
       });
 
       it('data sets up the features', function() {
         this.component.trigger('data', mock.data);
-        expect(_.size(this.component.attr.features)).toEqual(3);
+        expect(_.size(this.component.layers)).toEqual(3);
       });
 
       it('data a second time resets the data', function() {
         this.component.trigger('data', {type: 'FeatureCollection',
                                         features: []});
-        expect(_.size(this.component.attr.features)).toEqual(0);
+        expect(_.size(this.component.layers)).toEqual(0);
       });
     });
 
@@ -64,8 +78,8 @@ define(
         this.component.trigger('data', mock.data);
 
         // fake the click event
-        layer = this.component.attr.features[
-          mock.data.features[0].geometry.coordinates];
+        var layerId = this.component.layers[mock.data.features[0].id];
+        layer = this.component.layerGroup.getLayer(layerId);
         layer.fireEvent('click', {
           latlng: layer._latlng
         });

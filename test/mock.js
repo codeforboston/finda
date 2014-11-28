@@ -48,6 +48,7 @@ define({
     "type": "FeatureCollection",
     "features": [
       {
+        "id": 1,
         "type": "Feature",
         "geometry": {
           "type": "Point",
@@ -86,6 +87,7 @@ define({
         }
       },
       {
+        "id": 2,
         "type": "Feature",
         "geometry": {
           "type": "Point",
@@ -122,6 +124,7 @@ define({
         }
       },
       {
+        "id": 3,
         "type": "Feature",
         "geometry": {
           "type": "Point",
