@@ -1,7 +1,7 @@
 require.config({
   baseUrl: 'src/',
   paths: {
-    'jquery': '../lib/jquery-1.10.2',
+    'jquery': '../lib/jquery-1.11.1.min',
     'bootstrap': '../lib/bootstrap.min',
     'leaflet': '../lib/leaflet/leaflet',
     'L.Control.Locate': '../lib/leaflet/L.Control.Locate',

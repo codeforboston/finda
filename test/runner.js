@@ -12,7 +12,7 @@ require.config({
   baseUrl: '/base/src/',
   paths: {
     'test': '../test',
-    'jquery': '../lib/jquery-1.10.2',
+    'jquery': '../lib/jquery-1.11.1.min',
     'leaflet': '../lib/leaflet/leaflet',
     'L.Control.Locate': '../lib/leaflet/L.Control.Locate',
     'leaflet.markercluster': '../lib/leaflet.markercluster/leaflet.markercluster',
