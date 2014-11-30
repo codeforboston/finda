@@ -19,13 +19,9 @@ require.config({
       exports: '_'
     },
     'flight': {
-      deps: ['../lib/es5-shim.min', '../lib/es5-sham.min'],
       exports: 'flight'
     },
-    'bootstrap': {
-      deps: ['jquery'],
-      exports: '$'
-    },
+    'bootstrap': ['jquery'],
     leaflet: {
       exports: 'L'
     },
@@ -44,6 +40,7 @@ define(function(require) {
   require('ui/info').attachTo('#info');
   require('ui/list').attachTo('#list');
   require('ui/facet').attachTo('#facets');
+  require('ui/loading').attachTo('#loading');
   require('ui/project').attachTo(document);
   require('data/facet').attachTo(document);
   require('data/analytics').attachTo(document);

@@ -4,6 +4,7 @@ define(function(require, exports, module) {
   var _ = require('lodash');
   var $ = require('jquery');
   var templates = require('infotemplates');
+  var timedWithObject = require('timed_with_object');
 
   module.exports = flight.component(function list() {
     this.defaultAttrs({
@@ -39,20 +40,37 @@ define(function(require, exports, module) {
         this.teardown();
         return;
       }
+      this.trigger('listStarted', {});
       this.$node.show();
       this.render = _.partial(templates.popup, listConfig);
     };
 
     this.loadData = function(ev, data) {
       var $ul = this.$node.empty().html('<ul></ul>').find('ul');
-      var l = _.map(data.features, function(feature) {
-        var $li = $("<li/>").html(this.render(feature.properties))
-              .data('feature', feature);
-        $li._text = $li.text();
-        return $li;
-      }, this);
-      l.sort(compareListItems);
-      $ul.html(l);
+      timedWithObject(
+        data.features,
+        function(feature, l) {
+          var $li = $("<li/>").html(this.render(feature.properties))
+                .data('feature', feature);
+          $li._text = $li.text();
+          l.push($li);
+          return l;
+        },
+        [],
+        this).then(function(l) {
+          l.sort(compareListItems);
+          $ul.append(l);
+          this.trigger('listFinished', {});
+        }.bind(this));
+    };
+
+    this.filterData = function(ev, data) {
+      this.trigger('listFilteringStarted', {});
+      this.$node.find('li').hide().filter(function() {
+        var $li = $(this);
+        return _.contains(data.featureIds, $li.data('feature').id);
+      }).show();
+      this.trigger('listFinished', {});
     };
 
     this.onFeatureClick = function onFeatureClick(ev) {
@@ -73,7 +91,7 @@ define(function(require, exports, module) {
     this.after('initialize', function() {
       this.on(document, 'config', this.configureList);
       this.on(document, 'data', this.loadData);
-      this.on(document, 'dataFiltered', this.loadData);
+      this.on(document, 'dataFiltered', this.filterData);
       this.on(document, 'selectFeature', this.onFeatureSelected);
       this.on('click', {
         listItemSelector: this.onFeatureClick

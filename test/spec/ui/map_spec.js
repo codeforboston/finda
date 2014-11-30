@@ -31,29 +31,33 @@ define(
         this.component.map = jasmine.createSpyObj('Map',
                                                   ['setView',
                                                    'setMaxBounds',
+                                                   'invalidateSize',
                                                    'remove'
                                                   ]);
         this.component.map.options = {};
         this.component.trigger('config', mock.config);
-        waits(101);
-        runs(function() {
-          expect(this.component.map.options.maxZoom, mock.config.map.maxZoom);
-          expect(this.component.map.setView).toHaveBeenCalledWith(
-            mock.config.map.center, mock.config.map.zoom);
-          expect(this.component.map.setMaxBounds).toHaveBeenCalledWith(
-            mock.config.map.maxBounds);
-        });
+        expect(this.component.map.options.maxZoom, mock.config.map.maxZoom);
+        expect(this.component.map.setView).toHaveBeenCalledWith(
+          mock.config.map.center, mock.config.map.zoom);
+        expect(this.component.map.setMaxBounds).toHaveBeenCalledWith(
+          mock.config.map.maxBounds);
       });
 
       it('data sets up the features', function() {
         this.component.trigger('data', mock.data);
-        expect(_.size(this.component.layers)).toEqual(3);
+        waits(25);
+        runs(function() {
+          expect(_.size(this.component.layers)).toEqual(3);
+        });
       });
 
       it('data a second time resets the data', function() {
         this.component.trigger('data', {type: 'FeatureCollection',
                                         features: []});
-        expect(_.size(this.component.layers)).toEqual(0);
+        waits(25);
+        runs(function() {
+          expect(_.size(this.component.layers)).toEqual(0);
+        });
       });
     });
 
@@ -77,11 +81,13 @@ define(
         this.component.trigger('config', mock.config);
         this.component.trigger('data', mock.data);
 
-        // fake the click event
-        var layerId = this.component.layers[mock.data.features[0].id];
-        layer = this.component.layerGroup.getLayer(layerId);
-        layer.fireEvent('click', {
-          latlng: layer._latlng
+        waits(25);
+        runs(function() {
+          // fake the click event
+          layer = this.component.layers[mock.data.features[0].id];
+          layer.fireEvent('click', {
+            latlng: layer._latlng
+          });
         });
       });
 
@@ -95,8 +101,11 @@ define(
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('data', mock.data);
-        this.component.trigger(document,
-                               'selectFeature', mock.data.features[0]);
+        waits(25);
+        runs(function() {
+          this.component.trigger(document,
+                                 'selectFeature', mock.data.features[0]);
+        });
       });
       it('turns the icon gray', function() {
         var icon = this.component.$node.find('.leaflet-marker-icon:first');
@@ -114,8 +123,11 @@ define(
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('data', mock.data);
-        this.component.trigger(document,
-                               'selectFeature', mock.data.features[0]);
+        waits(25);
+        runs(function() {
+          this.component.trigger(document,
+                                 'selectFeature', mock.data.features[0]);
+        });
       });
       it('turns the icon back to default', function() {
         this.component.trigger(document, 'deselectFeature', mock.data.features[0]);

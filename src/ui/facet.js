@@ -44,10 +44,12 @@ define(function(require, exports, module) {
           facet = $form.data('facet'),
           selected = _.map($form.serializeArray(),
                            'name');
-      $(document).trigger('uiFilterFacet', {
-        facet: facet,
-        selected: selected
-      });
+      window.setTimeout(function() {
+        $(document).trigger('uiFilterFacet', {
+          facet: facet,
+          selected: selected
+        });
+      }, 0);
     };
 
     this.after('initialize', function() {
