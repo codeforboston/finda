@@ -41,10 +41,6 @@ define(function(require, exports, module) {
     this.onSearchResult = function(ev, result) {
       this.select('searchSelector').attr('placeholder',
                                          result.name).val('');
-      this.trigger(this.attr.mapSelector,
-                   'panTo',
-                   {lat: result.lat,
-                    lng: result.lng});
     };
 
     this.after('initialize', function() {
