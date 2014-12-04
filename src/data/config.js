@@ -7,14 +7,7 @@ define(function(require, exports, module) {
       // load the data
       $.getJSON('config.json', function(config) {
         this.trigger('config', config);
-
-        // load the geojson
-        $.getJSON(config.geojson_source, function(data) {
-          this.trigger('data', data);
-        }.bind(this));
       }.bind(this));
     });
   });
-
 });
-

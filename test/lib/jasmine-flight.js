@@ -51,8 +51,8 @@
             this.component = null;
           }
 
-          this.Component = null;
           flight.component.teardownAll();
+          this.Component = null;
         }.bind(this);
 
         require(['flight'], requireCallback);
@@ -117,8 +117,8 @@
             this.component = null;
           }
 
-          this.Component = null;
           flight.component.teardownAll();
+          this.Component = null;
         }.bind(this);
 
         require(['flight'], requireCallback);

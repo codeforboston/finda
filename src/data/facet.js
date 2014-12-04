@@ -3,68 +3,86 @@ define(function(require, exports, module) {
   var flight = require('flight');
   var $ = require('jquery');
   var _ = require('lodash');
+  var timedWithObject = require('timed_with_object');
 
   module.exports = flight.component(function facet() {
     this.configure = function(ev, config) {
-      this.attr.config = config.facets;
-      this.attr.selected = {};
-      this.attr.facets = {};
-      if (this.attr.data) {
-        this.initializeFacets();
-      }
+      this.config = config.facets;
+      this.selected = {};
+      this.facetValues = {};
+      this.facets = {};
+
     };
 
     this.loadData = function(ev, data) {
-      if (!this.attr.data) {
-        this.attr.data = data;
-        if (this.attr.config) {
-          this.initializeFacets();
-        }
-      }
+      this.initializeFacets(data);
     };
 
-    this.filterFeatures = function(geojson, selected) {
-      // given a GeoJSON struture and a set of selected facets, return a
-      // GeoJSON structured filtered to the features which match the
-      // selected facets
+    this.filterFeatures = function(selected) {
+      // given a set of selected facets, return a list of IDs that match the
+      // selected features
+      var ids;
       if (selected) {
-        var features = _.filter(
-          this.attr.data.features,
-          function(feature) {
-            return _.all(
-              selected,
-              _.bind(function(selected, key) {
-                var property = feature.properties[key];
-                if (!_.isArray(property)) {
-                  property = [property];
-                }
-                // calculate the intersection of our selected values and
-                // the values on the given feature
-                var intersection = _.intersection(selected, property);
-                if (this.attr.config[key].type === 'list') {
-                  // must match all of the values
-                  return intersection.length === selected.length;
-                } else {
-                  // must match any value
-                  return intersection.length > 0;
-                }
-              }, this));
-          }, this);
-        geojson = _.defaults({features: features}, this.attr.data);
+        ids = _.chain(this.facetValues)
+          .filter(
+            function(facetValues) {
+              return _.all(
+                selected,
+                function(selected, facet) {
+                  var property = facetValues[facet];
+                  if (!_.isArray(property)) {
+                    property = [property];
+                  }
+                  // calculate the intersection of our selected values and
+                  // the values on the given feature
+                  var intersection = _.intersection(selected, property).length;
+                  if (this.config[facet].type === 'list') {
+                    // must match all of the values
+                    return intersection === selected.length;
+                  } else {
+                    // must match any value
+                    return intersection > 0;
+                  }
+                },
+                this);
+            },
+            this)
+          .map('id')
+          .value();
+      } else {
+        ids = _.keys(this.facetValues);
       }
-      return geojson;
+      return ids;
+    };
+
+    // returns a map of feature ID to the values for our facets
+    this.identifyFacetValues = function(data) {
+      return _.reduce(
+        data.features,
+        function(valueMap, feature) {
+          var values = {
+            id: feature.id
+          };
+          valueMap[feature.id] = values;
+          _.mapValues(this.config, function(facetConfig, facet) {
+            values[facet] = feature.properties[facet];
+          });
+          return valueMap;
+        },
+        {}, // valueMap
+        this);
     };
 
     // returns an object with each facet, and a list of facet values
     this.identifyFacets = function() {
       return _.mapValues(
-        this.attr.config,
+        this.config,
         _.bind(function(facetConfig, facet) {
           // adds up the count of the values on the given facet
-          return _.chain(this.attr.data.features)
-            .map(function(feature) {
+          return _.chain(this.facetValues)
+            .map(function(values) {
               // values of the facet on the given feature
-              return feature.properties[facet];
+              return values[facet];
             })
             .flatten(true)
             .uniq()
@@ -73,68 +91,97 @@ define(function(require, exports, module) {
         }, this));
     };
 
-    this.initializeFacets = function() {
-      this.attr.facets = this.identifyFacets();
-      this.filterFacets(this.attr.data);
+    this.initializeFacets = function(data) {
+      this.trigger('dataFilteringStarted', {});
+      this.facetValues = this.identifyFacetValues(data);
+      this.facets = this.identifyFacets();
+      this.filterFacets(_.keys(this.facetValues));
     };
 
-    this.filterFacets = function(data) {
-      var selectedFacets = this.attr.selected,
-          facets = this.attr.facets,
-          filterFeatures = _.bind(this.filterFeatures, this),
-          featureCount = data.features.length,
-          filteredCounts = _.mapValues(
-            this.attr.config,
-            function(facetConfig, facet) {
-              var selectedValues = selectedFacets[facet] || [];
-              return _.chain(facets[facet])
-                .map(function(value) {
-                  var selected = _.contains(selectedValues, value),
-                      count;
-                  if (selected) {
-                    // if the value is already selected, then the count is
-                    // just the current count
-                    count = featureCount;
-                  } else {
-                    // otherwise, generate a new selection which includes
-                    // the value
-                    var selectedWithValue = _.cloneDeep(selectedFacets);
-                    selectedWithValue[facet] = _.union(
-                      selectedWithValue[facet],
-                      [value]);
-                    // and and filter the features with the new selection
-                    count = filterFeatures(data, selectedWithValue).features.length;
-                    // for non-list facets, adding a selection can increase
-                    // the number of features returned, but we actually
-                    // just want to show the number of additional features
-                    // that will be displayed
-                    if (facetConfig.type !== 'list' &&
-                        selectedValues.length &&
-                        count >= featureCount) {
-                      count = count - featureCount;
-                    }
-                  }
-                  return {value: value,
-                          count: count,
-                          selected: selected
-                         };
-                })
-                .value();
-            });
-      $(document).trigger('dataFacets', filteredCounts);
+    this.filterFacets = function(ids) {
+      var filteredCounts = {};
+
+      var callback = function() {
+        if (_.size(filteredCounts) === _.size(this.config)) {
+          $(document).trigger('dataFacets', filteredCounts);
+          this.trigger('dataFilteringFinished', {});
+        }
+      }.bind(this);
+
+      _.mapValues(
+        this.config,
+        function(facetConfig, facet) {
+          var promise = this.filterSingleFacet(facet, facetConfig, ids);
+          promise.then(function(counts) {
+            filteredCounts[facet] = counts;
+            callback();
+          });
+        },
+        this);
+    };
+
+    this.filterSingleFacet = function(facet, facetConfig, ids) {
+      var selectedValues = this.selected[facet] || [];
+      var featureCount = ids.length;
+
+      return timedWithObject(
+        this.facets[facet],
+        function(value, map) {
+          var selected = _.contains(selectedValues, value),
+              count;
+          if (selected) {
+            // if the value is already selected, then the count is
+            // just the current count
+            count = featureCount;
+          } else {
+            // otherwise, generate a new selection which includes
+            // the value
+            var selectedWithValue = _.clone(this.selected);
+            selectedWithValue[facet] = _.union(
+              selectedWithValue[facet],
+              [value]);
+            // and and filter the features with the new selection
+            count = this.filterFeatures(selectedWithValue).length;
+            // for non-list facets, adding a selection can increase
+            // the number of features returned, but we actually
+            // just want to show the number of additional features
+            // that will be displayed
+            if (facetConfig.type === 'single' &&
+                selectedValues.length &&
+                count >= featureCount) {
+              count = count - featureCount;
+            }
+          }
+          map.push({value: value,
+                    count: count,
+                    selected: selected
+                   });
+          return map;
+        },
+        [],
+        this);
     };
 
     this.filterData = function(ev, params) {
       var facet = params.facet,
           selectedValues = params.selected;
-      if (!selectedValues.length) {
-        delete this.attr.selected[facet];
-      } else {
-        this.attr.selected[facet] = selectedValues;
-      }
-      var geojson = this.filterFeatures(this.attr.data, this.attr.selected);
-      $(document).trigger('dataFiltered', geojson);
-      this.filterFacets(geojson);
+
+      this.trigger('dataFilteringStarted', {});
+
+      window.setTimeout(function() {
+        if (!selectedValues.length) {
+          delete this.selected[facet];
+        } else {
+          this.selected[facet] = selectedValues;
+        }
+
+        var ids = this.filterFeatures(this.selected);
+
+        $(document).trigger('dataFiltered', {
+          featureIds: ids
+        });
+        this.filterFacets(ids);
+      }.bind(this), 0);
     };
 
     this.after('initialize', function() {

@@ -1,10 +1,11 @@
-define(['test/mock'], function(mock) {
+define(['test/mock', 'jquery'], function(mock, $) {
   'use strict';
   describeComponent('ui/facet', function() {
     var mockFacets = {
       'services_offered': [{value: 'first', count: 1},
                            {value: 'second', count: 2, selected: true},
-                           {value: 'third', count: 0}]};
+                           {value: 'third', count: 0}]
+    };
 
     beforeEach(function() {
       setupComponent();
@@ -50,19 +51,25 @@ define(['test/mock'], function(mock) {
       });
       it('sends a "uiFilterFacet" event with the selected facets', function () {
         this.component.$node.find('input:first').click();
-        expect('uiFilterFacet').toHaveBeenTriggeredOnAndWith(
-          document,
-          {facet: 'services_offered',
-           selected: ['first', 'second']
-          });
+        waits(1);
+        runs(function() {
+          expect('uiFilterFacet').toHaveBeenTriggeredOnAndWith(
+            document,
+            {facet: 'services_offered',
+             selected: ['first', 'second']
+            });
+        });
       });
       it('sends a "uiFilterFacet" event with no facets', function () {
         this.component.$node.find('input:eq(1)').click();
-        expect('uiFilterFacet').toHaveBeenTriggeredOnAndWith(
-          document,
-          {facet: 'services_offered',
-           selected: []
-          });
+        waits(1);
+        runs(function() {
+          expect('uiFilterFacet').toHaveBeenTriggeredOnAndWith(
+            document,
+            {facet: 'services_offered',
+             selected: []
+            });
+        });
       });
     });
   });

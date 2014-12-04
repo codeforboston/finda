@@ -16,7 +16,7 @@ module.exports = function(config) {
     files: [
       'lib/es5-shim.min.js',
       'lib/es5-sham.min.js',
-      'lib/jquery-1.10.2.js',
+      'lib/jquery-1.11.1.min.js',
 
       'test/lib/jasmine-jquery.js',
       'test/lib/jasmine-flight.js',

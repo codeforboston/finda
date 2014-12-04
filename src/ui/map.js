@@ -2,6 +2,9 @@ define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
   var L = require('leaflet');
+  var _ = require('lodash');
+  var timedWithObject = require('timed_with_object');
+
   require('L.Control.Locate');
   require('leaflet.markercluster');
 
@@ -32,6 +35,7 @@ define(function(require, exports, module) {
     };
 
     this.configureMap = function(ev, config) {
+      this.trigger('mapStarted', {});
       // if list or facets are emabled, give the map less space
       var addition = 0;
       if (config.facets) {
@@ -43,13 +47,15 @@ define(function(require, exports, module) {
 
       if (addition > 0) {
         window.setTimeout(function() {
-          this.$node.css('left', '+=' + addition);
+          if (this.map) {
+            this.$node.css('left', '+=' + addition);
+            this.map.invalidateSize();
+          }
         }.bind(this), 50);
       }
 
       var mapConfig = config.map;
 
-      this.map.setView(mapConfig.center, mapConfig.zoom);
       if (mapConfig.maxZoom){
         this.map.options.maxZoom = mapConfig.maxZoom;
       }
@@ -57,19 +63,18 @@ define(function(require, exports, module) {
         this.map.setMaxBounds(mapConfig.maxBounds);
       }
 
-      // Add the location control which will zoom to current
-      // location
-      L.control.locate().addTo(this.map);
-
       // set feature attribute to be used as preview text to config
       this.featurePreviewAttr = config.map.preview_attribute;
+
+      // setup the center after we're done moving around
+      this.map.setView(mapConfig.center, mapConfig.zoom);
     };
 
     this.loadData = function(ev, data) {
       this.defineIconStyles();
 
       var setupFeature = function(feature, layer) {
-        this.attr.features[feature.geometry.coordinates] = layer;
+        this.layers[feature.id] = layer;
 
         // bind popup to feature with specified preview attribute
         this.bindPopupToFeature(
@@ -83,14 +88,56 @@ define(function(require, exports, module) {
         });
       }.bind(this);
 
-      if (this.attr.layer) {
-        this.attr.features = {};
+      this.layers = {};
 
-        this.cluster.removeLayer(this.attr.layer);
-      }
+      var geojson = L.geoJson(data, {onEachFeature: setupFeature});
+      window.setTimeout(function() {
+        geojson.addTo(this.cluster);
+        this.trigger('mapFinished', {});
+      }.bind(this), 25);
+    };
 
-      this.attr.layer = L.geoJson(data, {onEachFeature: setupFeature});
-      this.attr.layer.addTo(this.cluster);
+    this.filterData = function(e, data) {
+      var object = {
+        keepLayers: [],
+        addLayers: [],
+        removeLayers: []
+      };
+      this.trigger('mapFilteringStarted', {});
+      timedWithObject(
+        _.pairs(this.layers),
+        function(pair, object) {
+          var featureId = pair[0],
+              layer = pair[1],
+              selected = _.contains(data.featureIds, featureId),
+              hasLayer = this.cluster.hasLayer(layer);
+          if (selected) {
+            object.keepLayers.push(layer);
+          }
+          if (hasLayer && !selected) {
+            object.removeLayers.push(layer);
+          } else if (!hasLayer && selected) {
+            object.addLayers.push(layer);
+          }
+          return object;
+        },
+        object,
+        this).then(function(object) {
+          // rough level at which it's faster to remove all the layers and just
+          // add the ones we want
+          if (object.removeLayers.length > 1000) {
+            this.cluster.clearLayers();
+            this.cluster.addLayers(object.keepLayers);
+          } else {
+            if (object.addLayers.length) {
+              this.cluster.addLayers(object.addLayers);
+            }
+            if (object.removeLayers.length) {
+              this.cluster.removeLayers(object.removeLayers);
+            }
+          }
+          this.trigger('mapFinished', {});
+        }.bind(this));
     };
 
     this.emitClick = function(e) {
@@ -112,7 +159,7 @@ define(function(require, exports, module) {
       }
       if (feature) {
         this.currentFeature = feature;
-        var layer = this.attr.features[feature.geometry.coordinates];
+        var layer = this.layers[feature.id];
         layer.setIcon(this.grayIcon);
         this.previouslyClicked = layer;
 
@@ -132,7 +179,7 @@ define(function(require, exports, module) {
       if (this.previouslyClicked) {
         this.previouslyClicked.setIcon(this.defaultIcon);
       }
-      var layer = this.attr.features[feature.geometry.coordinates];
+      var layer = this.layers[feature.id];
       // re-bind popup to feature with specified preview attribute
       this.bindPopupToFeature(
         layer,
@@ -151,14 +198,14 @@ define(function(require, exports, module) {
 
     this.hoverFeature = function(ev, feature) {
       if (feature) {
-        var layer = this.attr.features[feature.geometry.coordinates];
+        var layer = this.layers[feature.id];
         layer.openPopup();
       }
     };
 
     this.clearHoverFeature = function(ev, feature) {
       if (feature) {
-        var layer = this.attr.features[feature.geometry.coordinates];
+        var layer = this.layers[feature.id];
         layer.closePopup();
       }
     };
@@ -168,14 +215,18 @@ define(function(require, exports, module) {
     };
 
     this.after('initialize', function() {
-      this.map = L.map(this.node, {});
-
+      this.map = L.map(this.node, {})
+;
       this.cluster = new L.MarkerClusterGroup();
       this.cluster.addTo(this.map);
 
       L.control.scale().addTo(this.map);
+      // Add the location control which will zoom to current
+      // location
+      L.control.locate().addTo(this.map);
 
-      this.attr.features = {};
+
+      this.layers = {};
 
       L.tileLayer(this.attr.tileUrl, {
         attribution: this.attr.tileAttribution,
@@ -186,13 +237,20 @@ define(function(require, exports, module) {
 
       this.on(document, 'config', this.configureMap);
       this.on(document, 'data', this.loadData);
-      this.on(document, 'dataFiltered', this.loadData);
+      this.on(document, 'dataFiltered', this.filterData);
 
       this.on(document, 'selectFeature', this.selectFeature);
       this.on(document, 'deselectFeature', this.deselectFeature);
       this.on(document, 'hoverFeature', this.hoverFeature);
       this.on(document, 'clearHoverFeature', this.clearHoverFeature);
       this.on('panTo', this.panTo);
+    });
+
+    this.before('teardown', function() {
+      if (this.map) {
+        this.map.remove();
+        this.map = undefined;
+      }
     });
   });
 });

@@ -48,6 +48,7 @@ define({
     "type": "FeatureCollection",
     "features": [
       {
+        "id": 'finda-1',
         "type": "Feature",
         "geometry": {
           "type": "Point",
@@ -86,6 +87,7 @@ define({
         }
       },
       {
+        "id": 'finda-2',
         "type": "Feature",
         "geometry": {
           "type": "Point",
@@ -122,6 +124,7 @@ define({
         }
       },
       {
+        "id": 'finda-3',
         "type": "Feature",
         "geometry": {
           "type": "Point",
