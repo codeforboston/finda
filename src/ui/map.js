@@ -91,10 +91,23 @@ define(function(require, exports, module) {
       this.layers = {};
 
       var geojson = L.geoJson(data, {onEachFeature: setupFeature});
-      window.setTimeout(function() {
-        geojson.addTo(this.cluster);
-        this.trigger('mapFinished', {});
-      }.bind(this), 25);
+      if (data.features.length < 1000) {
+        window.setTimeout(function() {
+          geojson.addTo(this.cluster);
+          this.trigger('mapFinished', {});
+        }.bind(this), 25);
+      } else {
+        // break the load into pieces to avoid timeouts
+        timedWithObject(
+          _.values(geojson._layers),
+          function(layer, cluster) {
+            cluster.addLayer(layer);
+            return cluster;
+          },
+          this.cluster).then(function() {
+            this.trigger('mapFinished', {});
+          }.bind(this));
+      }
     };
 
     this.filterData = function(e, data) {
