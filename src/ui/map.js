@@ -242,8 +242,9 @@ define(function(require, exports, module) {
                     lng: result.lng});
     };
 
-    this.onBoundsChanged = function onBoundsChanged() {
-      var currentBounds = this.map.getBounds(),
+    this.onBoundsChanged = function onBoundsChanged(e) {
+      var map = e.target;
+      var currentBounds = map.getBounds(),
           southWest = currentBounds.getSouthWest(),
           northEast = currentBounds.getNorthEast();
       this.trigger('mapBounds', {
