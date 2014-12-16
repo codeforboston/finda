@@ -21,7 +21,7 @@ define(['test/mock', 'lodash'], function(mock, _) {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('data', mock.data);
-        waits(50);
+        waits(100);
       });
       it('emits a "dataFacets" event with the values for each facet', function() {
         expect('dataFacets').toHaveBeenTriggeredOnAndWith(
@@ -52,7 +52,7 @@ define(['test/mock', 'lodash'], function(mock, _) {
             facet: 'community',
             selected: ['Northampton']
           });
-          waits(50);
+          waits(100);
         });
         it('emits a "dataFiltered" event with the filtered data', function() {
           expect('dataFiltered').toHaveBeenTriggeredOnAndWith(
@@ -80,7 +80,7 @@ define(['test/mock', 'lodash'], function(mock, _) {
             facet: 'services_offered',
             selected: ['social group']
           });
-          waits(50);
+          waits(100);
         });
         it('emits a "dataFiltered" event with the filtered data', function() {
           expect('dataFiltered').toHaveBeenTriggeredOnAndWith(
@@ -113,7 +113,7 @@ define(['test/mock', 'lodash'], function(mock, _) {
             facet: 'services_offered',
             selected: ['social group']
           });
-          waits(50);
+          waits(100);
         });
         it('emits a "dataFiltered" event with the filtered data', function() {
           expect('dataFiltered').toHaveBeenTriggeredOnAndWith(
@@ -152,7 +152,7 @@ define(['test/mock', 'lodash'], function(mock, _) {
             facet: 'community',
             selected: ['Northampton']
           });
-          waits(50);
+          waits(100);
           runs(function() {
             expect('dataFacets').toHaveBeenTriggeredOnAndWith(
               document,
@@ -175,7 +175,7 @@ define(['test/mock', 'lodash'], function(mock, _) {
             facet: 'services_offered',
             selected: ['public education']
           });
-          waits(50);
+          waits(100);
           runs(function() {
             expect('dataFacets').toHaveBeenTriggeredOnAndWith(
               document,
