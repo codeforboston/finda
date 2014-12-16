@@ -32,6 +32,7 @@ define(
                                                   ['setView',
                                                    'setMaxBounds',
                                                    'invalidateSize',
+                                                   'addLayer',
                                                    'remove'
                                                   ]);
         this.component.map.options = {};
