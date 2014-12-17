@@ -43,12 +43,6 @@ define(['test/mock', 'jquery'], function(mock, $) {
       beforeEach(function() {
         $(document).trigger('dataSearchResult', mock.parsedSearchResult);
       });
-      it('pans to the first lat/long if present', function() {
-        expect('panTo').toHaveBeenTriggeredOnAndWith(
-          this.component.attr.mapSelector,
-          {lat: mock.parsedSearchResult.lat,
-           lng: mock.parsedSearchResult.lng});
-      });
       it('sets the placeholder display to the city', function() {
         var input = this.component.select('searchSelector');
         expect(input.attr('placeholder')).toEqual(

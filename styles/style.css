@@ -126,6 +126,13 @@ body > div.container {
     color: #777;
 }
 
+.search-result-marker {
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  background-color: #69579c; /*This should be the brand accent color*/
+}
+
 /* only center the search in the big view */
 @media (min-width: 768px) {
   #search {
@@ -253,4 +260,8 @@ form.create-feature-popup-form {
 #about .modal-footer img {
   height: 2.5em;
   float: left;
+}
+
+#loading h4 {
+  text-align: center;
 }

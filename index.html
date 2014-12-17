@@ -121,6 +121,11 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <div class="modal" id="loading" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4></h4>
           </div>
         </div>
       </div>
@@ -137,6 +142,10 @@
       </form>
     </div>
 
+    <!--[if lt IE 9]>
+    <script src="lib/es5-shim.min.js"></script>
+    <script src="lib/es5-sham.min.js"></script>
+    <![endif]-->
     <script type="text/javascript" data-main="src/script.js" src="lib/require.js"></script>
   </body>
 </html>

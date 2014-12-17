@@ -12,13 +12,14 @@ require.config({
   baseUrl: '/base/src/',
   paths: {
     'test': '../test',
-    'jquery': '../lib/jquery-1.10.2',
+    'jquery': '../lib/jquery-1.11.1.min',
     'leaflet': '../lib/leaflet/leaflet',
     'L.Control.Locate': '../lib/leaflet/L.Control.Locate',
     'leaflet.markercluster': '../lib/leaflet.markercluster/leaflet.markercluster',
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
-    'flight': '../lib/flight.min'
+    'flight': '../lib/flight.min',
+    'bootstrap': '../lib/bootstrap.min'
   },
   shim: {
     'handlebars': {
@@ -33,6 +34,7 @@ require.config({
     leaflet: {
       exports: 'L'
     },
+    bootstrap: ['jquery'],
     'L.Control.Locate': ['leaflet'],
     'leaflet.markercluster': ['leaflet']
   },

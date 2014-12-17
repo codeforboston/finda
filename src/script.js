@@ -1,7 +1,7 @@
 require.config({
   baseUrl: 'src/',
   paths: {
-    'jquery': '../lib/jquery-1.10.2',
+    'jquery': '../lib/jquery-1.11.1.min',
     'bootstrap': '../lib/bootstrap.min',
     'leaflet': '../lib/leaflet/leaflet',
     'L.Control.Locate': '../lib/leaflet/L.Control.Locate',
@@ -20,13 +20,9 @@ require.config({
       exports: '_'
     },
     'flight': {
-      deps: ['../lib/es5-shim.min', '../lib/es5-sham.min'],
       exports: 'flight'
     },
-    'bootstrap': {
-      deps: ['jquery'],
-      exports: '$'
-    },
+    'bootstrap': ['jquery'],
     leaflet: {
       exports: 'L'
     },
@@ -41,7 +37,7 @@ define(function(require) {
   require('jsoneditor');
   // attach components to the DOM
   require('ui/map').attachTo('#map');
-  require('ui/search').attachTo('#search', {mapSelector: '#map'});
+  require('ui/search').attachTo('#search');
   require('ui/search_results').attachTo('#search-results');
   require('ui/info').attachTo('#info');
   require('ui/infoedits').attachTo('#infoedits');
@@ -50,10 +46,14 @@ define(function(require) {
   require('ui/export').attachTo('#export');
   require('ui/add_site').attachTo('#add-site');
   require('data/facet').attachTo(document);
+  require('ui/loading').attachTo('#loading');
   require('ui/project').attachTo(document);
+  require('data/facet').attachTo(document);
   require('data/analytics').attachTo(document);
   require('data/search').attachTo(document);
   require('data/typeahead').attachTo(document);
   require('data/loader').attachTo(document);
   require('data/edit_state').attachTo(document);
+  require('data/geojson').attachTo(document);
+  require('data/config').attachTo(document);
 });

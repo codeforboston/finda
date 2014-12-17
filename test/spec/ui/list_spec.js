@@ -9,7 +9,7 @@ define(
 
       describe('on config', function() {
         it("calls teardown if there's no list configuration", function() {
-          spyOn(this.component, 'teardown');
+          spyOn(this.component, 'teardown').andCallThrough();
           $(document).trigger('config', {});
           expect(this.component.teardown).toHaveBeenCalledWith();
         });
@@ -25,6 +25,7 @@ define(
         beforeEach(function() {
           $(document).trigger('config', mock.config);
           $(document).trigger('data', mock.data);
+          waits(25);
         });
 
         it('creates a list item for each feature', function() {
@@ -50,9 +51,12 @@ define(
       });
 
       describe('on item click', function() {
-        it('triggers a selectFeature event', function() {
+        beforeEach(function() {
           $(document).trigger('config', mock.config);
           $(document).trigger('data', mock.data);
+          waits(25);
+        });
+        it('triggers a selectFeature event', function() {
           var spy = spyOnEvent(document, 'selectFeature');
           var $li = this.$node.find('li:eq(1)');
 
@@ -63,9 +67,13 @@ define(
       });
 
       describe('on selectFeature', function() {
-        it('scrolls to the selected feature', function() {
+        beforeEach(function() {
           $(document).trigger('config', mock.config);
           $(document).trigger('data', mock.data);
+          waits(25);
+        });
+
+        it('scrolls to the selected feature', function() {
           spyOn(this.component, 'scrollToOffset');
 
           var $li = this.$node.find('li:eq(1)');
