@@ -58,6 +58,8 @@ define(function(require, exports, module) {
 
       if (mapConfig.maxZoom){
         this.map.options.maxZoom = mapConfig.maxZoom;
+        this.cluster.options.disableClusteringAtZoom = mapConfig.maxZoom;
+        this.cluster._maxZoom = mapConfig.maxZoom - 1;
       }
       if (mapConfig.maxBounds){
         this.map.setMaxBounds(mapConfig.maxBounds);
@@ -91,23 +93,7 @@ define(function(require, exports, module) {
       this.layers = {};
 
       var geojson = L.geoJson(data, {onEachFeature: setupFeature});
-      if (data.features.length < 1000) {
-        window.setTimeout(function() {
-          geojson.addTo(this.cluster);
-          this.trigger('mapFinished', {});
-        }.bind(this), 25);
-      } else {
-        // break the load into pieces to avoid timeouts
-        timedWithObject(
-          _.values(geojson._layers),
-          function(layer, cluster) {
-            cluster.addLayer(layer);
-            return cluster;
-          },
-          this.cluster).then(function() {
-            this.trigger('mapFinished', {});
-          }.bind(this));
-      }
+      geojson.addTo(this.cluster);
     };
 
     this.filterData = function(e, data) {
@@ -142,14 +128,17 @@ define(function(require, exports, module) {
             this.cluster.clearLayers();
             this.cluster.addLayers(object.keepLayers);
           } else {
-            if (object.addLayers.length) {
-              this.cluster.addLayers(object.addLayers);
-            }
             if (object.removeLayers.length) {
               this.cluster.removeLayers(object.removeLayers);
             }
+            if (object.addLayers.length) {
+              this.cluster.addLayers(object.addLayers);
+            } else {
+              // add layers will trigger mapFinished, but if we don't add any
+              // layers then we'll need to do it manually
+              this.trigger('mapFinished', {});
+            }
           }
-          this.trigger('mapFinished', {});
         }.bind(this));
     };
 
@@ -254,9 +243,16 @@ define(function(require, exports, module) {
     };
 
     this.after('initialize', function() {
-      this.map = L.map(this.node, {})
-;
-      this.cluster = new L.MarkerClusterGroup();
+      this.map = L.map(this.node, {});
+
+      this.cluster = new L.MarkerClusterGroup({
+        chunkedLoading: true,
+        chunkProgress: function(processed, total) {
+          if (processed === total) {
+            this.trigger('mapFinished', {});
+          }
+        }.bind(this)
+      });
       this.cluster.addTo(this.map);
 
       L.control.scale().addTo(this.map);

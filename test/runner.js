@@ -13,9 +13,9 @@ require.config({
   paths: {
     'test': '../test',
     'jquery': '../lib/jquery-1.11.1.min',
-    'leaflet': '../lib/leaflet/leaflet',
+    'leaflet': '../lib/leaflet/leaflet-src',
     'L.Control.Locate': '../lib/leaflet/L.Control.Locate',
-    'leaflet.markercluster': '../lib/leaflet.markercluster/leaflet.markercluster',
+    'leaflet.markercluster': '../lib/leaflet.markercluster/leaflet.markercluster-src',
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
