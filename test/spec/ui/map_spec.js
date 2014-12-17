@@ -106,12 +106,12 @@ define(
         waits(25);
         runs(function() {
           // fake the click event
-          layer = this.component.layers[mock.data.features[0].id];
+          var layer = this.component.layers[mock.data.features[0].id];
           layer.fireEvent('click', {
             latlng: layer._latlng
           });
+          this.clickLayer = layer;
         });
-        this.clickLayer = layer;
       });
 
       it('sends a selectFeature event', function() {
@@ -143,7 +143,7 @@ define(
 
       it('leaves dragging off when not in edit mode', function() {
         var feature = mock.data.features[0];
-        var marker = this.component.attr.features[feature.geometry.coordinates];
+        var marker = this.component.layers[feature.id];
         expect(!marker.dragging._enabled).toBe(true);
       });
     });
@@ -176,6 +176,7 @@ define(
                                                   {edit_mode: true}));
         this.mockData = $.extend(true, {}, mock.data);
         this.component.trigger('data', this.mockData);
+        waits(25);
       });
 
       it('sets create-feature popup label from config', function() {
@@ -246,7 +247,7 @@ define(
           expect('selectFeature').toHaveBeenTriggeredOn(document);
 
           var feature = this.component.lastCreatedFeature;
-          expect(feature.geometry.coordinates).toEqual([0, 90]);
+          expect(feature.id).toBe('findanew-0');
 
           var prop = this.component.featurePreviewAttr;
           expect(feature.properties[prop]).toBe('North Pole'); // from mock form
@@ -267,8 +268,8 @@ define(
       describe('with a feature', function() {
 
         beforeEach(function() {
-          this.feature = this.mockData.features[0];
-          this.marker = this.component.attr.features[this.feature.geometry.coordinates];
+          this.marker = _.sample(this.component.layers,1)[0];
+          this.feature = this.marker.feature;
         });
 
         // For some reason, spies on this.marker.dragging.{enable,disable}
@@ -316,7 +317,8 @@ define(
           this.marker.fireEvent('dragend');
           var latlng = this.marker.getLatLng();
           var pos = [latlng.lng, latlng.lat];
-          expect(this.component.attr.features[pos]).toBe(this.marker);
+          var id = this.marker.feature.id;
+          expect(this.component.layers[id]).toBe(this.marker);
           expect('selectedFeatureMoved').toHaveBeenTriggeredOnAndWith(
             document, pos);
         });

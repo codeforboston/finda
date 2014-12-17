@@ -86,27 +86,10 @@ define(function(require, exports, module) {
     this.loadData = function(ev, data) {
       this.defineIconStyles();
 
-      var setupFeature = function(feature, layer) {
-        this.layers[feature.id] = layer;
-
-        // Want to be able to enable dragging in edit mode, but not yet...
-        // layer.dragging.disable();
-
-        // bind popup to feature with specified preview attribute
-        this.bindPopupToFeature(
-          layer,
-          feature.properties[this.featurePreviewAttr]);
-
-        layer.on({
-          click: this.emitClick.bind(this),
-          mouseover: this.emitHover.bind(this),
-          mouseout: this.clearHover.bind(this)
-        });
-      }.bind(this);
-
       this.layers = {};
 
-      var geojson = L.geoJson(data, {onEachFeature: setupFeature});
+      var geojson = L.geoJson(data, {onEachFeature: this.setupFeature.bind(this)});
+
       if (data.features.length < 1000) {
         window.setTimeout(function() {
           geojson.addTo(this.cluster);
@@ -129,6 +112,24 @@ define(function(require, exports, module) {
         this.map.doubleClickZoom.disable();
         this.map.on('dblclick', this.emitStartCreate.bind(this));
       }
+    };
+
+    this.setupFeature = function(feature, layer) {
+      this.layers[feature.id] = layer;
+
+      // Want to be able to enable dragging in edit mode, but not yet...
+      // layer.dragging.disable();
+
+      // bind popup to feature with specified preview attribute
+      this.bindPopupToFeature(
+        layer,
+        feature.properties[this.featurePreviewAttr]);
+
+      layer.on({
+        click: this.emitClick.bind(this),
+        mouseover: this.emitHover.bind(this),
+        mouseout: this.clearHover.bind(this)
+      });
     };
 
     this.filterData = function(e, data) {
@@ -211,7 +212,7 @@ define(function(require, exports, module) {
           layer.on("dragend", function(ev) {
             var latlng = ev.target.getLatLng();
             var pos = [latlng.lng, latlng.lat];
-            this.attr.features[pos] = layer;
+            this.layers[layer.feature.id] = layer;
             this.trigger(document, 'selectedFeatureMoved', [pos]);
           }.bind(this));
         }
@@ -338,8 +339,13 @@ define(function(require, exports, module) {
         props[this.newPointAddrAttr] = this.createAddress;
       }
 
+      this.createCount = this.createCount || 0;
+      var id = 'findanew-' + this.createCount;
+      this.createCount++;
+
       var feature = {
         type: "Feature",
+        id: id,
         geometry: {
           type: "Point",
           coordinates: [latlng.lng, latlng.lat]
@@ -355,7 +361,8 @@ define(function(require, exports, module) {
     };
 
     this.handleNewFeature = function(e, feature) {
-      this.attr.layer.addData(feature);
+      var geojson = L.geoJson(feature, {onEachFeature: this.setupFeature.bind(this)});
+      geojson.addTo(this.cluster);
     };
 
     this.onSearchResult = function(ev, result) {
