@@ -269,7 +269,7 @@ define(
           expect('selectFeature').toHaveBeenTriggeredOn(document);
 
           var feature = this.component.lastCreatedFeature;
-          expect(feature.id).toBe('findanew-0');
+          expect(feature.id).toBe('finda-new-0');
 
           var prop = this.component.featurePreviewAttr;
           expect(feature.properties[prop]).toBe('North Pole'); // from mock form

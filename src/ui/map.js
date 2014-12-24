@@ -328,7 +328,7 @@ define(function(require, exports, module) {
       }
 
       this.createCount = this.createCount || 0;
-      var id = 'findanew-' + this.createCount;
+      var id = 'finda-new-' + this.createCount;
       this.createCount++;
 
       var feature = {

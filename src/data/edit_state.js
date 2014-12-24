@@ -29,6 +29,9 @@ define(function(require, exports, module) {
         else {
           delete feature.deleted;
           delete feature.undoInfo;
+          if (feature.id && feature.id.substr(0,6) === "finda-") {
+            delete feature.id;
+          }
           return true;
         }
       });

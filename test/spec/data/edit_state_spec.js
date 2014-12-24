@@ -203,7 +203,11 @@ define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
           this.component.trigger('data', mock.data);
           $(document).trigger('requestEditedData', 'callbackEvent')
           expect('callbackEvent').toHaveBeenTriggeredOn(document);
-          expect(this.component.lastExport).toEqual(mock.data);
+          
+          var idsCulledData = _.cloneDeep(mock.data);
+          _.each(idsCulledData.features, function(x) {delete x.id});
+
+          expect(this.component.lastExport).toEqual(idsCulledData);
         });
 
         it("respects deleted flag on exports", function() {
@@ -216,7 +220,9 @@ define(['test/mock', 'jquery', 'lodash'], function(mock, $, _) {
           $(document).trigger('requestEditedData', 'callbackEvent')
 
           var exported = this.component.lastExport.features;
-          var original = mock.data.features;
+          var original = _.cloneDeep(mock.data.features);
+          _.each(original, function(x) {delete x.id});
+
           expect(exported.length).toBe(original.length - 1);
           expect(exported[0]).toEqual(original[1]);
         });
