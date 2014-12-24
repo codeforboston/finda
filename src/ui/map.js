@@ -350,7 +350,7 @@ define(function(require, exports, module) {
 
     this.handleNewFeature = function(e, feature) {
       var geojson = L.geoJson(feature, {onEachFeature: this.setupFeature.bind(this)});
-      geojson.addTo(this.cluster);
+      this.map.addLayer(this.layers[feature.id]);
     };
 
     this.onSearchResult = function(ev, result) {
