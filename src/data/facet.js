@@ -86,7 +86,7 @@ define(function(require, exports, module) {
             })
             .flatten(true)
             .uniq()
-            .sortBy(function(value) { return value.toLowerCase(); })
+            .sortBy(function(value) { return (value||'').toLowerCase(); })
             .value();
         }, this));
     };
