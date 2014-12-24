@@ -349,7 +349,9 @@ define(function(require, exports, module) {
     };
 
     this.handleNewFeature = function(e, feature) {
-      var geojson = L.geoJson(feature, {onEachFeature: this.setupFeature.bind(this)});
+      // We use 'setupFeature' to get a marker into this.layers,
+      // then put it on the map.
+      L.geoJson(feature, {onEachFeature: this.setupFeature.bind(this)});
       this.map.addLayer(this.layers[feature.id]);
     };
 
