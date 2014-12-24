@@ -10,7 +10,7 @@ define(function(require, exports, module) {
   require('leaflet.markercluster');
 
   module.exports = flight.component(function map() {
-    this.defaultAttrs({
+    this.attributes({
       tileUrl: 'http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png',
       tileAttribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
       tileSubdomains: '0123',
@@ -59,6 +59,8 @@ define(function(require, exports, module) {
 
       if (mapConfig.maxZoom){
         this.map.options.maxZoom = mapConfig.maxZoom;
+        this.cluster.options.disableClusteringAtZoom = mapConfig.maxZoom;
+        this.cluster._maxZoom = mapConfig.maxZoom - 1;
       }
       if (mapConfig.maxBounds){
         this.map.setMaxBounds(mapConfig.maxBounds);
@@ -81,6 +83,11 @@ define(function(require, exports, module) {
 
       // setup the center after we're done moving around
       this.map.setView(mapConfig.center, mapConfig.zoom);
+
+      if (this.edit_mode) {
+        this.map.doubleClickZoom.disable();
+        this.map.on('dblclick', this.emitStartCreate.bind(this));
+      }
     };
 
     this.loadData = function(ev, data) {
@@ -89,29 +96,7 @@ define(function(require, exports, module) {
       this.layers = {};
 
       var geojson = L.geoJson(data, {onEachFeature: this.setupFeature.bind(this)});
-
-      if (data.features.length < 1000) {
-        window.setTimeout(function() {
-          geojson.addTo(this.cluster);
-          this.trigger('mapFinished', {});
-        }.bind(this), 25);
-      } else {
-        // break the load into pieces to avoid timeouts
-        timedWithObject(
-          _.values(geojson._layers),
-          function(layer, cluster) {
-            cluster.addLayer(layer);
-            return cluster;
-          },
-          this.cluster).then(function() {
-            this.trigger('mapFinished', {});
-          }.bind(this));
-      }
-
-      if (this.edit_mode) {
-        this.map.doubleClickZoom.disable();
-        this.map.on('dblclick', this.emitStartCreate.bind(this));
-      }
+      geojson.addTo(this.cluster);
     };
 
     this.setupFeature = function(feature, layer) {
@@ -164,14 +149,17 @@ define(function(require, exports, module) {
             this.cluster.clearLayers();
             this.cluster.addLayers(object.keepLayers);
           } else {
-            if (object.addLayers.length) {
-              this.cluster.addLayers(object.addLayers);
-            }
             if (object.removeLayers.length) {
               this.cluster.removeLayers(object.removeLayers);
             }
+            if (object.addLayers.length) {
+              this.cluster.addLayers(object.addLayers);
+            } else {
+              // add layers will trigger mapFinished, but if we don't add any
+              // layers then we'll need to do it manually
+              this.trigger('mapFinished', {});
+            }
           }
-          this.trigger('mapFinished', {});
         }.bind(this));
     };
 
@@ -298,7 +286,7 @@ define(function(require, exports, module) {
 
     // Managing the two-step process of creating a new feature.
     // (It's two steps, with the simple form in a popup, so stray
-    // double-clicks are easy to undo.)
+
 
     // Start create: sets up the "new-feature" popup at the right location.
 
@@ -380,10 +368,28 @@ define(function(require, exports, module) {
                     lng: result.lng});
     };
 
+    this.onBoundsChanged = function onBoundsChanged(e) {
+      var map = e.target;
+      var currentBounds = map.getBounds(),
+          southWest = currentBounds.getSouthWest(),
+          northEast = currentBounds.getNorthEast();
+      this.trigger('mapBounds', {
+        southWest: [southWest.lat, southWest.lng],
+        northEast: [northEast.lat, northEast.lng]
+      });
+    };
+
     this.after('initialize', function() {
-      this.map = L.map(this.node, {})
-;
-      this.cluster = new L.MarkerClusterGroup();
+      this.map = L.map(this.node, {});
+
+      this.cluster = new L.MarkerClusterGroup({
+        chunkedLoading: true,
+        chunkProgress: function(processed, total) {
+          if (processed === total) {
+            this.trigger('mapFinished', {});
+          }
+        }.bind(this)
+      });
       this.cluster.addTo(this.map);
 
       L.control.scale().addTo(this.map);
@@ -400,6 +406,8 @@ define(function(require, exports, module) {
         minZoom: this.attr.tileMinZoom,
         maxZoom: this.attr.tileMaxZoom
       }).addTo(this.map);
+
+      this.map.on('moveend', this.onBoundsChanged.bind(this));
 
       this.on(document, 'config', this.configureMap);
       this.on(document, 'data', this.loadData);

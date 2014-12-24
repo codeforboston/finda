@@ -55,6 +55,7 @@ define(
                                                   ['setView',
                                                    'setMaxBounds',
                                                    'invalidateSize',
+                                                   'addLayer',
                                                    'remove'
                                                   ]);
         this.component.map.options = {};
@@ -94,6 +95,27 @@ define(
         this.component.trigger('panTo', latlng);
         expect(this.component.map.panTo).toHaveBeenCalledWith(
           latlng);
+      });
+    });
+
+    describe('on map move', function() {
+      it('triggers a mapBounds event with the corners of the map', function() {
+        var map = this.component.map;
+
+        spyOnEvent(this.component.node, 'mapBounds');
+
+        map.setView([0, 0], 11);
+
+        expect('mapBounds').toHaveBeenTriggeredOn(this.component.node);
+        expect('mapBounds').toHaveBeenTriggeredOnAndWith(
+          this.component.node,
+          {
+            southWest: [map.getBounds().getSouthWest().lat,
+                        map.getBounds().getSouthWest().lng],
+            northEast: [map.getBounds().getNorthEast().lat,
+                        map.getBounds().getNorthEast().lng]
+          }
+        );
       });
     });
 
