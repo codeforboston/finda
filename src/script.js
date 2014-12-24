@@ -52,7 +52,6 @@ define(function(require) {
   require('data/analytics').attachTo(document);
   require('data/search').attachTo(document);
   require('data/typeahead').attachTo(document);
-  require('data/loader').attachTo(document);
   require('data/edit_state').attachTo(document);
   require('data/geojson').attachTo(document);
   require('data/config').attachTo(document);
