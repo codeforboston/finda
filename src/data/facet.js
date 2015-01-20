@@ -221,9 +221,6 @@ define(function(require, exports, module) {
 
     this.clearFacets = function(ev, params) {
       params.selected = [];
-      // TODO: again, not sure what do here. Did not want to replicate the filterData
-      // code, but what this is doing is essentially just running filter data on an
-      // empty selected set.
       this.filterData(ev, params);
     };
 

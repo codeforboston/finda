@@ -183,10 +183,10 @@ body > div.container {
   font-weight: bold;
 }
 
-#facets #clear-facets {
+#facets .clear-facets {
   font-style: italic;
 }
-#facets #clear-facets:hover {
+#facets .clear-facets:hover {
   color: red; /* TODO: red is probably a horrible color. suggestions? */;
   cursor:pointer;
 }
