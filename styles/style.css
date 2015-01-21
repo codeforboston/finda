@@ -171,7 +171,7 @@ body > div.container {
 .control.control-sidebar {
   float: left;
   box-sizing: border-box;
-  padding: 10px 14px;
+  padding: 10px 14px 50px;
   width: 300px;
   height: 100%;
   border-right: 1px solid #AFAFAF;
