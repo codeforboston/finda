@@ -100,7 +100,7 @@ body > div.container {
   top: 50px;
   bottom: 0;
   right:0;
-  z-index: 1;
+  z-index: -1;
 }
 
 .control {
@@ -179,12 +179,114 @@ body > div.container {
   overflow-y: auto;
 }
 
+
+/* ====================
+  SIDEBAR
+  ==================== */
+
+.sidebar-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  background: #666;
+  cursor: pointer;
+}
+
+.sidebar-toggle a {
+  text-align: center;
+  display: block;
+  position: relative;
+  top: 50%;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: -2px auto;
+  border-radius: 6px;
+}
+.sidebar-toggle a:before, .sidebar-toggle a:after {
+  content: "";
+  width: 25px;
+  height: 3px;
+  display: block;
+  position: relative;
+  background: inherit;
+  border-radius: 8px;
+}
+.sidebar-toggle a:before {
+  top: -8px;
+}
+.sidebar-toggle a:after {
+  bottom: -5px;
+
+}
+
+.sidebar {
+  width: 30%;
+  height: 100%;
+  position: relative;
+  padding-top: 50px;
+  background: #f3f3f3;
+  margin-left: -30%;
+  transition: all 0.2s;
+}
+.sidebar.open {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70%;
+    margin-left: -70%;
+  }
+  .sidebar.open{
+    margin-left: 0%;
+  }
+}
+
+.sidebar-nav {
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.sidebar-nav .items{
+  overflow: auto;
+  zoom: 1;
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav .items li{
+  width: 50%;
+  float: left;
+}
+  /*buttons*/
+.sidebar-nav a{
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+.sidebar-nav a.active{
+  background: #666;
+  color: #fff;
+}
+
+.sidebar .control {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 #facets .checkbox.selected label {
   font-weight: bold;
 }
 
 #list ul {
-  margin: -14px -14px 20px;
   padding-bottom: 20px;
   padding-left: 0;
 }
