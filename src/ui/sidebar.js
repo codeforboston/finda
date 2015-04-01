@@ -34,6 +34,7 @@ define(function(require, exports, module) {
     this.toggleSidebar = function(e) {
       e.preventDefault();
       this.$node.toggleClass('open');
+      $('.sidebar-toggle').toggleClass('active');
     }
 
     this.after('initialize', function() {
