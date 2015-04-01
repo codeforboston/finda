@@ -11,8 +11,9 @@ _You have data with locations. Share it with the world._
 
 ## I want to use this app for my data set.
 
-Great! Head over to our [Getting Started wiki](https://github.com/codeforboston/finda/wiki/Getting-Started) 
+Great! Head over to our [Getting Started wiki](https://github.com/codeforboston/finda/wiki/Getting-Started)
 
 ## I want to help build Finda
 
 Great! See [Developing Finda](https://github.com/codeforboston/finda/wiki/Developing-Finda) on the wiki.
+
