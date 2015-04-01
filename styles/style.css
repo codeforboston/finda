@@ -168,16 +168,8 @@ body > div.container {
 }
 
 
-.control.control-sidebar {
-  float: left;
-  box-sizing: border-box;
-  padding: 10px 14px 50px;
-  width: 300px;
-  height: 100%;
-  border-right: 1px solid #AFAFAF;
-  margin-bottom:30px;
-  overflow-y: auto;
-}
+
+
 
 
 /* ====================
@@ -186,15 +178,24 @@ body > div.container {
 
 .sidebar-toggle {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
-  border-radius: 50px;
+  right: 0px;
+  bottom: 16px;
+  /* weird bottom offset to make space for leaflet credits*/
   width: 50px;
   height: 50px;
-  background: #666;
+  background: rgba(0,0,0,0.6);
   cursor: pointer;
+  display: none;
 }
 
+/* Only show sidebar toggle on small screens, since sidebar is default visible on larger */
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}
+
+/* CSS hamburger */
 .sidebar-toggle a {
   text-align: center;
   display: block;
@@ -220,20 +221,47 @@ body > div.container {
 }
 .sidebar-toggle a:after {
   bottom: -5px;
-
 }
 
+/* transform toggle into a X when active */
+.sidebar-toggle.active a:before {
+  transform: rotate(-45deg);
+  top: 1px;
+}
+.sidebar-toggle.active a {
+  height: 0px;
+}
+.sidebar-toggle.active a:after {
+  transform: rotate(45deg);
+  top: -2px;
+}
+
+
+
+/*
+  The sidebar container:
+    two column large screens,
+    single column, tabbed on mid,
+    single column, tabbed, and hidden on small
+ */
 .sidebar {
-  width: 30%;
+  width: 45%;
   height: 100%;
   position: relative;
-  padding-top: 50px;
   background: #f3f3f3;
-  margin-left: -30%;
   transition: all 0.2s;
 }
 .sidebar.open {
   margin-left: 0;
+}
+
+@media (max-width: 955px) {
+  .sidebar {
+    width: 30%;
+    margin-left: 0%;
+    padding-top: 50px;
+
+  }
 }
 
 @media (max-width: 768px) {
@@ -246,11 +274,38 @@ body > div.container {
   }
 }
 
+/* The sidebar columns (filter, list, etc) */
+.sidebar .control {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 50%;
+  float: left;
+  padding: 0 10px;
+}
+
+@media (max-width: 955px) {
+.sidebar .control {
+    width: 100%;
+    float: none;
+  }
+}
+
+
+/* sidebar button toggles to show list vs filter, etc */
 .sidebar-nav {
   height: 50px;
   width: 100%;
   position: absolute;
   top: 0;
+  display: none;
+}
+
+/* Only display this when we have a tabbed view (mid-screen size & lower) */
+@media (max-width: 955px) {
+  .sidebar-nav {
+    display: initial;
+  }
 }
 
 .sidebar-nav .items{
@@ -264,23 +319,21 @@ body > div.container {
   width: 50%;
   float: left;
 }
+
   /*buttons*/
 .sidebar-nav a{
   text-decoration: none;
   padding: 10px;
   display: block;
   text-align: center;
+  background-color: #e5e5e5;
 }
 .sidebar-nav a.active{
-  background: #666;
-  color: #fff;
+  background-color: #f3f3f3;
 }
 
-.sidebar .control {
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
+
+
 
 #facets .checkbox.selected label {
   font-weight: bold;
