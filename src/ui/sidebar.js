@@ -30,6 +30,11 @@ define(function(require, exports, module) {
       this.select('listButton').removeClass('active');
     };
 
+    this.showFullSidebar = function() {
+      this.select('facet').show();
+      this.select('list').show();
+    };
+
     this.toggleSidebar = function(e) {
       e.preventDefault();
       this.$node.toggleClass('open');
@@ -44,6 +49,11 @@ define(function(require, exports, module) {
 
       // This is outside of the component, but it controls it.. perhaps refactor to include within root element?
       $(document).on('click', '.sidebar-toggle', this.toggleSidebar.bind(this) );
+      $(window).on('resize', function(){
+        if( document.body.clientWidth > 955 ) {
+          this.showFullSidebar();
+        }
+      }.bind(this));
 
 
     });

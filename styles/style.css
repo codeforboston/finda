@@ -266,8 +266,8 @@ body > div.container {
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 70%;
-    margin-left: -70%;
+    width: 80%;
+    margin-left: -80%;
   }
   .sidebar.open{
     margin-left: 0%;
@@ -330,6 +330,36 @@ body > div.container {
 }
 .sidebar-nav a.active{
   background-color: #f3f3f3;
+}
+
+
+/* map offset should be zero no matter the configuration of the sidebar since sidebar is an overlay*/
+body.has-facets.has-list #map {
+  left: 0;
+}
+
+/* At larger sizes, adjust map to fit sidebar space depending on configuration */
+@media (min-width: 768px) {
+  body.has-facets #map {
+    left: 15%;
+  }
+  body.has-list #map {
+    left: 15%;
+  }
+  body.has-facets.has-list #map {
+    left: 30%;
+  }
+}
+@media (min-width: 956px) {
+  body.has-facets #map {
+    left: 22.5%;
+  }
+  body.has-list #map {
+    left: 22.5%;
+  }
+  body.has-facets.has-list #map {
+    left: 45%;
+  }
 }
 
 
