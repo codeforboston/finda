@@ -37,13 +37,12 @@ define(function(require, exports, module) {
     this.configureMap = function(ev, config) {
       this.trigger('mapStarted', {});
       // if list or facets are emabled, give the map less space
-      // var addition = 0;
-      // if (config.facets) {
-      //   addition += 300;
-      // }
-      // if (config.list) {
-      //   addition += 300;
-      // }
+      if (config.facets) {
+        $('body').addClass('has-facets');
+      }
+      if (config.list) {
+        $('body').addClass('has-list');
+      }
 
       // if (addition > 0) {
       //   window.setTimeout(function() {
