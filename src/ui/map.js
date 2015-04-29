@@ -2,6 +2,7 @@ define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
   var L = require('leaflet');
+  var $ = require('jquery');
   var _ = require('lodash');
   var timedWithObject = require('timed_with_object');
 
@@ -44,14 +45,6 @@ define(function(require, exports, module) {
         $('body').addClass('has-list');
       }
 
-      // if (addition > 0) {
-      //   window.setTimeout(function() {
-      //     if (this.map) {
-      //       this.$node.css('left', '+=' + addition);
-      //       this.map.invalidateSize();
-      //     }
-      //   }.bind(this), 50);
-      // }
 
       var mapConfig = config.map;
 
