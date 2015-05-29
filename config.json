@@ -6,13 +6,9 @@
   },
   "map": {
     "preview_attribute": "organization_name",
-    "center":[42.3725, -71.1266],
-    "zoom":13,
-    "maxZoom":16,
-    "maxBounds":[
-      [39.2, -78.0],
-      [44.5, -65.0]
-    ]
+    "center":[38.0297, -84.4947],
+    "zoom":11,
+    "maxZoom":16
   },
   "properties": [
     "organization_name",
