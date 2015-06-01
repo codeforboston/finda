@@ -42,13 +42,9 @@
     }
   },
   "facets": {
-    "target_populations": {
-      "title": "Populations Served",
+    "facility_type": {
+      "title": "Facility Type",
       "type": "list"
-    },
-    "youth_category": {
-      "title": "Category",
-      "type": "single"
     }
   },
   "analytics": {
