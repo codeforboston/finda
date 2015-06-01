@@ -16,7 +16,7 @@ require.config({
     'handlebars': {
       exports: 'Handlebars'
     },
-    'underscore': {
+    'lodash': {
       exports: '_'
     },
     'flight': {
