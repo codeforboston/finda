@@ -26,8 +26,7 @@ define(function() {
     });
 
     describe('ETL CSV to GeoJSON', function() {
-      // todo: find correct language for "search value"
-      it('groups search values into facets', function() {
+      it('groups facet values into facets', function() {
 
         var csvRow = {
           organization_name: 'My org',
@@ -35,7 +34,7 @@ define(function() {
           residential_offered: "1"
         };
 
-        var searchValues = {
+        var facetValues = {
           oupatient_offered: "facility_type",
           residential_offered: "facility_type",
         }
@@ -48,7 +47,7 @@ define(function() {
           ]
         };
 
-        var processed = this.component.csvRowToProperties(csvRow, searchValues);
+        var processed = this.component.csvRowToProperties(csvRow, facetValues);
         expect(processed.organization_name).toEqual(properties.organization_name);
         expect(processed.facility_type).toEqual(properties.facility_type);
       });
@@ -61,7 +60,7 @@ define(function() {
           residential_offered: "0"
         };
 
-        var searchValues = {
+        var facetValues = {
           oupatient_offered: "facility_type",
           residential_offered: "facility_type",
         }
@@ -73,7 +72,7 @@ define(function() {
           ]
         };
 
-        var processed = this.component.csvRowToProperties(csvRow, searchValues);
+        var processed = this.component.csvRowToProperties(csvRow, facetValues);
         expect(processed.facility_type).toEqual(properties.facility_type);
       });
     });

@@ -22,7 +22,7 @@ define(function(require, exports, module) {
 
     };
 
-    this.csvRowToProperties = function csvRowToProperties(csvRow, searchValues) {
+    this.csvRowToProperties = function csvRowToProperties(csvRow, facetValues) {
       var properties = {
         "organization_name": csvRow.organization_name,
         "phone_numbers": csvRow["Phone Number"],
@@ -30,16 +30,16 @@ define(function(require, exports, module) {
         "city": csvRow.physicalcity
       };
 
-      _.each(searchValues, function(facet, searchValue) {
+      _.each(facetValues, function(facet, facetValue) {
         if (! properties[facet])  { properties[facet] = []; }
-        if (csvRow[searchValue] === "1") {
-          properties[facet].push(searchValue);
+        if (csvRow[facetValue] === "1") {
+          properties[facet].push(facetValue);
         }
       });
       return properties;
     };
 
-    this.csvRowToFeature = function csvRowToFeature(csvRow, searchValues) {
+    this.csvRowToFeature = function csvRowToFeature(csvRow, facetValues) {
       return {
         "type": "Feature",
         "geometry": {
@@ -49,12 +49,12 @@ define(function(require, exports, module) {
             csvRow.lat
           ]
         },
-        "properties": this.csvRowToProperties(csvRow, searchValues)
+        "properties": this.csvRowToProperties(csvRow, facetValues)
       };
     };
 
     this.csvToGeojson = function csvToGeojson(csv) {
-      var searchValues = {
+      var facetValues = {
         oupatient_offered: "facility_type",
         residential_offered: "facility_type",
         partial_hosp_offered: "out_patient",
@@ -75,7 +75,7 @@ define(function(require, exports, module) {
         serves_veterans: "other"
       };
       var features = _.map(csv, function(row) {
-        return this.csvRowToFeature(row, searchValues);
+        return this.csvRowToFeature(row, facetValues);
       }.bind(this));
 
       return {
