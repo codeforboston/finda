@@ -3,6 +3,7 @@ define(function(require, exports, module) {
   var flight = require('flight');
   var $ = require('jquery');
   var d3 = require('d3');
+  var Tabletop = require('Tabletop');
   // consider removing lodash for jquery comprehensions?
   var _ = require('lodash');
 
@@ -13,12 +14,18 @@ define(function(require, exports, module) {
         $.getJSON(config.geojson_source, function(data) {
           this.trigger('data', this.processData(data));
         }.bind(this));
-      } else {
+      } else if (0) {
         // d3.csv("treatment-centers.csv", function(data) {
         d3.csv("kentucky substance abuse referral list.csv", function(data) {
           data.splice(0, 2)
           this.trigger('data', this.processData(this.csvToGeojson(data)));
         }.bind(this));
+      } else {
+        Tabletop.init( { key: '1oWIrEg77ZSOiYGUA6H4b1wlvtC8pIrvdznQDcbLEUPg',
+          callback: function(data) {
+            this.trigger('data', this.processData(this.csvToGeojson(data)));
+          }.bind(this),
+          simpleSheet: true } );
       }
 
     };
