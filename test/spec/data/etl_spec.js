@@ -10,7 +10,8 @@ define(function() {
         var csvRow = {
           organization_name: 'My org',
           lat: 38,
-          lng: -84
+          lng: -84,
+          oupatient_offered: "1"
         };
 
         var feature = {
@@ -23,40 +24,41 @@ define(function() {
             ]
           },
           "properties": {
-            "organization_name": "Bluegrass.org Pride Program"
+            "organization_name": "My org",
+            "facility_type": [
+              "oupatient_offered"
+            ]
           }
         }
 
-        var processed = this.component.csvRowToFeature(csvRow);
+        var processed = this.component.csvRowToFeature(csvRow, {oupatient_offered: "facility_type"});
         expect(processed).toEqual(feature);
       });
 
-      iit('transforms csv to GeoJSON', function() {
-        var data = [{
-          organization_name: 'My org',
-          lat: 38,
-          lng: -84
-        }];
+      // todo: find correct language for "search value"
+      iit('groups two serach values into facets', function() {
 
-        var geoJson = {
-          "type": "FeatureCollection",
-          "features": [{
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -84,
-                38
-              ]
-            },
-            "properties": {
-              "organization_name": "Bluegrass.org Pride Program"
-            }
-          }]
+        var csvRow = {
+          organization_name: 'My org',
+          oupatient_offered: "1",
+          residential_offered: "1"
         };
 
-        var processed = this.component.csvToGeojson(data);
-        expect(processed).toEqual(geoJson);
+        var searchValues = {
+          oupatient_offered: "facility_type",
+          residential_offered: "facility_type",
+        }
+
+        var properties = {
+          "organization_name": "My org",
+          "facility_type": [
+            "oupatient_offered",
+            "residential_offered"
+          ]
+        };
+
+        var processed = this.component.csvRowToProperties(csvRow, searchValues);
+        expect(processed).toEqual(properties);
       });
     });
   });

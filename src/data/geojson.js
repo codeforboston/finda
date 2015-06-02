@@ -13,20 +13,27 @@ define(function(require, exports, module) {
       }.bind(this));
     };
 
-    this.csvRowToFeature = function csvRowToFeature(csvRow) {
+    this.csvRowToProperties = function csvRowToProperties(csvRow, searchValues) {
+      var properties = {"organization_name": csvRow.organization_name};
+      _.each(searchValues, function(facet, searchValue) {
+        if (! properties[facet])  { properties[facet] = []; }
+        properties[facet].push(searchValue);
+      });
+      return properties;
+    };
+
+    this.csvRowToFeature = function csvRowToFeature(csvRow, searchValues) {
       return {
-          "type": "Feature",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              csvRow.lng,
-              csvRow.lat
-            ]
-          },
-          "properties": {
-            "organization_name": "Bluegrass.org Pride Program"
-          }
-        };
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            csvRow.lng,
+            csvRow.lat
+          ]
+        },
+        "properties": this.csvRowToProperties(csvRow, searchValues)
+      };
     };
 
     this.csvToGeojson = function csvToGeojson(csv) {
