@@ -14,7 +14,7 @@ define(function(require, exports, module) {
           this.trigger('data', this.processData(data));
         }.bind(this));
       } else {
-        d3.csv("/treatment-centers.csv", function(data) {
+        d3.csv("treatment-centers.csv", function(data) {
           // console.log(data[0]);
           this.trigger('data', this.processData(this.csvToGeojson(data)));
         }.bind(this));
