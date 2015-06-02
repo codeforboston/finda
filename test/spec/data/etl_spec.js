@@ -58,7 +58,8 @@ define(function() {
         };
 
         var processed = this.component.csvRowToProperties(csvRow, searchValues);
-        expect(processed).toEqual(properties);
+        expect(processed.organization_name).toEqual(properties.organization_name);
+        expect(processed.facility_type).toEqual(properties.facility_type);
       });
 
       it('it only includes the search values an org offers', function() {
