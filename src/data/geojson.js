@@ -23,7 +23,13 @@ define(function(require, exports, module) {
     };
 
     this.csvRowToProperties = function csvRowToProperties(csvRow, searchValues) {
-      var properties = {"organization_name": csvRow.organization_name};
+      var properties = {
+        "organization_name": csvRow.organization_name,
+        "phone_numbers": csvRow["Phone Number"],
+        "address": csvRow.address + " " + csvRow.physicalcity + ", Kentucky",
+        "city": csvRow.physicalcity
+      };
+
       _.each(searchValues, function(facet, searchValue) {
         if (! properties[facet])  { properties[facet] = []; }
         if (csvRow[searchValue] === "1") {

@@ -19,11 +19,11 @@
     "contact_emails",
     "phone_numbers",
 
-    {"name": "services_offered", "title": "Services" },
-    {"name": "youth_category", "title": "Type of Organization" },
-    {"name": "target_populations", "title": "Populations Served" },
-
-    {"name": "additional_notes", "title": "Information"}
+    {"name": "facility_type", "title": "Facility Type" },
+    {"name": "out_patient", "title": "Outpatient Services" },
+    {"name": "age", "title": "Ages served" },
+    {"name": "gender", "title": "Genders served" },
+    {"name": "other", "title": "Other"}
   ],
   "list": [
     "organization_name",
@@ -59,7 +59,7 @@
       "type": "list"
     },
     "other": {
-      "title": "other",
+      "title": "Other",
       "type": "list"
     }
   },
