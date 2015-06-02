@@ -24,5 +24,58 @@ define(function() {
         expect(processed.features[0].id).toEqual(1);
       });
     });
+
+    describe('ETL CSV to GeoJSON', function() {
+      // todo: find correct language for "search value"
+      it('groups search values into facets', function() {
+
+        var csvRow = {
+          organization_name: 'My org',
+          oupatient_offered: "1",
+          residential_offered: "1"
+        };
+
+        var searchValues = {
+          oupatient_offered: "facility_type",
+          residential_offered: "facility_type",
+        }
+
+        var properties = {
+          "organization_name": "My org",
+          "facility_type": [
+            "oupatient_offered",
+            "residential_offered"
+          ]
+        };
+
+        var processed = this.component.csvRowToProperties(csvRow, searchValues);
+        expect(processed.organization_name).toEqual(properties.organization_name);
+        expect(processed.facility_type).toEqual(properties.facility_type);
+      });
+
+      it('it only includes the search values an org offers', function() {
+
+        var csvRow = {
+          organization_name: 'My org',
+          oupatient_offered: "1",
+          residential_offered: "0"
+        };
+
+        var searchValues = {
+          oupatient_offered: "facility_type",
+          residential_offered: "facility_type",
+        }
+
+        var properties = {
+          "organization_name": "My org",
+          "facility_type": [
+            "oupatient_offered"
+          ]
+        };
+
+        var processed = this.component.csvRowToProperties(csvRow, searchValues);
+        expect(processed.facility_type).toEqual(properties.facility_type);
+      });
+    });
   });
 });
