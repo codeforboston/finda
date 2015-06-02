@@ -45,6 +45,22 @@
     "facility_type": {
       "title": "Facility Type",
       "type": "list"
+    },
+    "out_patient": {
+      "title": "Out Patient",
+      "type": "list"
+    },
+    "age": {
+      "title": "Age",
+      "type": "list"
+    },
+    "gender": {
+      "title": "Gender",
+      "type": "list"
+    },
+    "other": {
+      "title": "other",
+      "type": "list"
     }
   },
   "analytics": {

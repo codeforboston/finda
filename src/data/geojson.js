@@ -50,7 +50,23 @@ define(function(require, exports, module) {
     this.csvToGeojson = function csvToGeojson(csv) {
       var searchValues = {
         oupatient_offered: "facility_type",
-        residential_offered: "facility_type"
+        residential_offered: "facility_type",
+        partial_hosp_offered: "out_patient",
+        transitional_living_offered: "out_patient",
+        peer_services_offered: "out_patient",
+        peer_mentoring: "out_patient",
+        peer_groups_12steps: "out_patient",
+        peer_transitional_living: "out_patient",
+        serves_adolescent_females: "age",
+        serves_adolescent_males: "age",
+        serves_children: "age",
+        serves_female_only: "gender",
+        serves_male_only: "gender",
+        serves_females_males_both: "gender",
+        serves_preg_females: "gender",
+        serves_faith_based: "other",
+        serves_families: "other",
+        serves_veterans: "other"
       };
       var features = _.map(csv, function(row) {
         return this.csvRowToFeature(row, searchValues);
