@@ -48,8 +48,19 @@
     </nav>
 
     <div class="container">
-      <div id="list" class="control control-sidebar"></div>
-      <div id="facets" class="control control-sidebar"></div>
+      <div class="sidebar-toggle">
+        <a href="#"></a>
+      </div>
+      <aside id="sidebar" class="sidebar">
+        <nav class="sidebar-nav">
+          <ul class="items">
+            <li><a class="select-list active" href="#">List</a></li>
+            <li><a class="select-facet" href="#">Filter</a></li>
+          </ul>
+        </nav>
+        <div id="list" class="control sidebar-item"></div>
+        <div id="facets" class="control sidebar-item"></div>
+      </aside>
       <div id="map"></div>
       <div id="info" class="control">
         <button type="button" class="close">&times;</button>

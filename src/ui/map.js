@@ -2,6 +2,7 @@ define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
   var L = require('leaflet');
+  var $ = require('jquery');
   var _ = require('lodash');
   var timedWithObject = require('timed_with_object');
 
@@ -37,22 +38,13 @@ define(function(require, exports, module) {
     this.configureMap = function(ev, config) {
       this.trigger('mapStarted', {});
       // if list or facets are emabled, give the map less space
-      var addition = 0;
       if (config.facets) {
-        addition += 300;
+        $('body').addClass('has-facets');
       }
       if (config.list) {
-        addition += 300;
+        $('body').addClass('has-list');
       }
 
-      if (addition > 0) {
-        window.setTimeout(function() {
-          if (this.map) {
-            this.$node.css('left', '+=' + addition);
-            this.map.invalidateSize();
-          }
-        }.bind(this), 50);
-      }
 
       var mapConfig = config.map;
 
