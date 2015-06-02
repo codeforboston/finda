@@ -6,12 +6,18 @@
   },
   "map": {
     "preview_attribute": "organization_name",
-    "center":[42.3725, -71.1266],
-    "zoom":13,
+    "center":[37.6864, -85.2219],
+    "zoom":7,
     "maxZoom":16,
-    "maxBounds":[
-      [39.2, -78.0],
-      [44.5, -65.0]
+    "maxBounds": [
+      [
+        36.4964,
+        -89.5715
+      ],
+      [
+        38.6855,
+        -81.8509
+      ]
     ]
   },
   "properties": [
@@ -23,11 +29,11 @@
     "contact_emails",
     "phone_numbers",
 
-    {"name": "services_offered", "title": "Services" },
-    {"name": "youth_category", "title": "Type of Organization" },
-    {"name": "target_populations", "title": "Populations Served" },
-
-    {"name": "additional_notes", "title": "Information"}
+    {"name": "facility_type", "title": "Facility Type" },
+    {"name": "out_patient", "title": "Outpatient Services" },
+    {"name": "age", "title": "Ages served" },
+    {"name": "gender", "title": "Genders served" },
+    {"name": "other", "title": "Other"}
   ],
   "list": [
     "organization_name",
@@ -46,13 +52,25 @@
     }
   },
   "facets": {
-    "target_populations": {
-      "title": "Populations Served",
+    "facility_type": {
+      "title": "Facility Type",
       "type": "list"
     },
-    "youth_category": {
-      "title": "Category",
-      "type": "single"
+    "out_patient": {
+      "title": "Out Patient",
+      "type": "list"
+    },
+    "age": {
+      "title": "Age",
+      "type": "list"
+    },
+    "gender": {
+      "title": "Gender",
+      "type": "list"
+    },
+    "other": {
+      "title": "Other",
+      "type": "list"
     }
   },
   "analytics": {

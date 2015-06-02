@@ -9,13 +9,14 @@ require.config({
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
-    'fuse': '../lib/fuse.min'
+    'fuse': '../lib/fuse.min',
+    'd3': '../lib/d3.min'
   },
   shim: {
     'handlebars': {
       exports: 'Handlebars'
     },
-    'underscore': {
+    'lodash': {
       exports: '_'
     },
     'flight': {
