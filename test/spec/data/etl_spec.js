@@ -6,7 +6,7 @@ define(function() {
     });
 
     describe('on config', function() {
-      iit('transforms csv row to GeoJSON feature', function() {
+      it('transforms csv row to GeoJSON feature', function() {
         var csvRow = {
           organization_name: 'My org',
           lat: 38,
@@ -54,6 +54,30 @@ define(function() {
           "facility_type": [
             "oupatient_offered",
             "residential_offered"
+          ]
+        };
+
+        var processed = this.component.csvRowToProperties(csvRow, searchValues);
+        expect(processed).toEqual(properties);
+      });
+
+      it('it only includes the search values an org offers', function() {
+
+        var csvRow = {
+          organization_name: 'My org',
+          oupatient_offered: "1",
+          residential_offered: "0"
+        };
+
+        var searchValues = {
+          oupatient_offered: "facility_type",
+          residential_offered: "facility_type",
+        }
+
+        var properties = {
+          "organization_name": "My org",
+          "facility_type": [
+            "oupatient_offered"
           ]
         };
 
