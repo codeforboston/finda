@@ -21,7 +21,7 @@ define(function() {
           }]
         };
         var processed = this.component.processData(data);
-        expect(processed.features[0].id).toEqual(1);
+        expect(processed.features[0].id).toEqual('1');
       });
     });
   });
