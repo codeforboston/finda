@@ -11,10 +11,12 @@ define(function(require, exports, module) {
     };
 
     this.processData = function processData(data) {
-      // give each feature an ID if it doesn't have one already
+      // give each feature an string ID if it doesn't have one already
       data.features.forEach(function(feature, index) {
         if (!feature.id) {
           feature.id = 'finda-' + index;
+        } else {
+          feature.id = feature.id.toString();
         }
       });
       return data;
