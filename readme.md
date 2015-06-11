@@ -1,4 +1,4 @@
-# Finda [![Build Status](https://travis-ci.org/codeforboston/finda.png)](https://travis-ci.org/codeforboston/finda)
+# Finda [![Build Status](https://travis-ci.org/openlexington/finda.svg)](https://travis-ci.org/openlexington/finda)
 
 _You have data with locations. Share it with the world._
 
