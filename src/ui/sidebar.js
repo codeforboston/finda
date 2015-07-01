@@ -2,59 +2,78 @@ define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
   var $ = require('jquery');
+  var _ = require('underscore');
 
 
   module.exports = flight.component(function sidebar() {
 
+    var potentialSidebarItems = ['facets', 'list'];
+    var presentItems = [];
+
     this.defaultAttrs({
-      listButton: '.select-list',
-      facetButton: '.select-facet',
-      list: '#list',
-      facet: '#facets'
+      toggleButtons: '.sidebar-action',
+      sidebarItems: '.sidebar-item'
     });
 
+    this.configureSidebar = function(e, config){
+      var configAttr = _.keys(config);
+      presentItems = _.intersection(potentialSidebarItems, configAttr);
 
-    this.showList = function(e){
-      e.preventDefault();
-      this.select('list').show();
-      this.select('facet').hide();
-      this.select('listButton').addClass('active');
-      this.select('facetButton').removeClass('active');
+      var $sidebar = this.$node;
+
+      // add class .sidebar-items-X based on active sidebar items
+      $sidebar.addClass('sidebar-items-'+presentItems.length);
+      // activate configured sidebar items
+      _.each(presentItems, function(item){
+        $sidebar.find(item).show();
+        $sidebar.find('[data-select="'+item+'"]').parent().show();
+      });
+
+      if( presentItems.length === 1) {
+        $sidebar.find('.sidebar-nav').hide();
+        $sidebar.addClass('no-tabs');
+      }
     };
 
-    this.showFacet = function(e){
+    this.showItem = function(e, elemObj) {
+      // generic toggle fn for sidebar tabs
       e.preventDefault();
-      this.select('facet').show();
-      this.select('list').hide();
-      this.select('facetButton').addClass('active');
-      this.select('listButton').removeClass('active');
+      var $el = $(elemObj.el);
+      var itemTitle = $el.data('select');
+      this.select('sidebarItems').hide();
+      this.$node.find('#'+itemTitle).show();
+      this.select('toggleButtons').removeClass('active');
+      $el.addClass('active');
     };
 
     this.showFullSidebar = function() {
-      this.select('facet').show();
-      this.select('list').show();
+      var $sidebar = this.$node;
+      _.each(presentItems, function(item){
+        $sidebar.find(item).show();
+      });
     };
 
-    this.toggleSidebar = function(e) {
+    this.toggleHiddenSidebar = function(e) {
       e.preventDefault();
       this.$node.toggleClass('open');
       $('.sidebar-toggle').toggleClass('active');
     };
 
     this.after('initialize', function() {
+      this.on(document, 'config', this.configureSidebar);
+
       this.on('click', {
-        listButton: this.showList,
-        facetButton: this.showFacet
+        toggleButtons: this.showItem
       });
 
       // This is outside of the component, but it controls it.. perhaps refactor to include within root element?
-      $(document).on('click', '.sidebar-toggle', this.toggleSidebar.bind(this) );
+      $(document).on('click', '.sidebar-toggle', this.toggleHiddenSidebar.bind(this) );
+
       $(window).on('resize', function(){
         if( document.body.clientWidth > 955 ) {
           this.showFullSidebar();
         }
       }.bind(this));
-
 
     });
   });

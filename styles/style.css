@@ -48,6 +48,10 @@ body > div.container {
   color: #69579c;
 }
 
+.navbar-form {
+  width: 80%;
+}
+
 .navbar-form .btn {
   border:none;
   outline:none;
@@ -226,6 +230,7 @@ body > div.container {
 /* transform toggle into a X when active */
 .sidebar-toggle.active a:before {
   transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
   top: 1px;
 }
 .sidebar-toggle.active a {
@@ -233,6 +238,7 @@ body > div.container {
 }
 .sidebar-toggle.active a:after {
   transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
   top: -2px;
 }
 
@@ -245,7 +251,6 @@ body > div.container {
     single column, tabbed, and hidden on small
  */
 .sidebar {
-  width: 45%;
   height: 100%;
   position: relative;
   background: #f3f3f3;
@@ -255,12 +260,15 @@ body > div.container {
   margin-left: 0;
 }
 
-@media (max-width: 955px) {
+
+@media (max-width: 1200px) {
   .sidebar {
-    width: 30%;
+    width: 33%;
     margin-left: 0%;
     padding-top: 50px;
-
+  }
+  .sidebar.no-tabs {
+    padding-top: 0;
   }
 }
 
@@ -279,12 +287,19 @@ body > div.container {
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 50%;
   float: left;
   padding: 0 10px;
+  display: none;
 }
 
-@media (max-width: 955px) {
+.sidebar-items-2 .control {
+  width: 50%;
+}
+.sidebar-items-1 .control {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
 .sidebar .control {
     width: 100%;
     float: none;
@@ -302,7 +317,7 @@ body > div.container {
 }
 
 /* Only display this when we have a tabbed view (mid-screen size & lower) */
-@media (max-width: 955px) {
+@media (max-width: 1200px) {
   .sidebar-nav {
     display: initial;
   }
@@ -316,8 +331,14 @@ body > div.container {
 }
 
 .sidebar-nav .items li{
-  width: 50%;
   float: left;
+  display: none;
+}
+.sidebar-items-2 .sidebar-nav .items li{
+  width: 50%;
+}
+.sidebar-items-1 .sidebar-nav .items li{
+  width: 100%;
 }
 
   /*buttons*/
@@ -334,35 +355,33 @@ body > div.container {
 
 
 /* map offset should be zero no matter the configuration of the sidebar since sidebar is an overlay*/
-body.has-facets.has-list #map {
+body #map {
   left: 0;
 }
 
 /* At larger sizes, adjust map to fit sidebar space depending on configuration */
 @media (min-width: 768px) {
-  body.has-facets #map {
+  .sidebar-items-1 + #map {
     left: 15%;
   }
-  body.has-list #map {
-    left: 15%;
-  }
-  body.has-facets.has-list #map {
-    left: 30%;
+  .sidebar-items-2 + #map {
+    left: 33%;
   }
 }
-@media (min-width: 956px) {
-  body.has-facets #map {
-    left: 22.5%;
+@media (min-width: 1200px) {
+  .sidebar-items-1 {
+    width: 330px;
   }
-  body.has-list #map {
-    left: 22.5%;
+  .sidebar-items-2 {
+    width: 500px;
   }
-  body.has-facets.has-list #map {
-    left: 45%;
+ .sidebar-items-1 + #map {
+    left: 330px;
+  }
+  .sidebar-items-2 + #map {
+    left: 500px;
   }
 }
-
-
 
 
 #facets .checkbox.selected label {
