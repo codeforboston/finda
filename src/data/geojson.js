@@ -14,8 +14,9 @@ define(function(require, exports, module) {
           this.trigger('data', this.processData(data));
         }.bind(this));
       } else {
-        d3.csv("treatment-centers.csv", function(data) {
-          // console.log(data[0]);
+        // d3.csv("treatment-centers.csv", function(data) {
+        d3.csv("kentucky substance abuse referral list.csv", function(data) {
+          data.splice(0, 2)
           this.trigger('data', this.processData(this.csvToGeojson(data)));
         }.bind(this));
       }
@@ -74,6 +75,9 @@ define(function(require, exports, module) {
         serves_families: "other",
         serves_veterans: "other"
       };
+      csv = _.filter(csv, function(row) {
+        return row["organization_name"] !== ""
+      });
       var features = _.map(csv, function(row) {
         return this.csvRowToFeature(row, facetValues);
       }.bind(this));
