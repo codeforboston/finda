@@ -2,7 +2,7 @@ define(['test/mock', 'jquery'], function(mock, $) {
   'use strict';
   describeComponent('ui/search', function() {
     beforeEach(function() {
-      setupComponent('<div><form><input class=address></form></div>',
+      setupComponent('<div><form><input class=Address></form></div>',
                      {searchSelector: 'input',
                       mapSelector: 'div'});
       spyOnEvent('div', 'panTo');
@@ -33,9 +33,9 @@ define(['test/mock', 'jquery'], function(mock, $) {
         expect('uiSearch').not.toHaveBeenTriggered();
       });
       it('emits a uiSearch event with the search query', function() {
-        this.$node.find('input').val('address').submit();
+        this.$node.find('input').val('Address').submit();
         expect('uiSearch').toHaveBeenTriggeredOnAndWith(document,
-                                                        {query: 'address'});
+                                                        {query: 'Address'});
       });
     });
 

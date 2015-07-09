@@ -27,6 +27,10 @@ define(function(require, exports, module) {
         iconUrl: path + '/marker-icon-gray.png',
         shadowUrl: path + '/marker-shadow.png'
       });
+      this.redIcon = L.icon({
+        iconUrl: path + '/marker-icon-red.png',
+        shadowUrl: path + '/marker-shadow.png'
+      });
 
       this.defaultIcon = L.icon({
         iconUrl: path + '/marker-icon.png',
@@ -162,7 +166,7 @@ define(function(require, exports, module) {
       if (feature) {
         this.currentFeature = feature;
         var layer = this.layers[feature.id];
-        layer.setIcon(this.grayIcon);
+        layer.setIcon(this.redIcon);
         this.previouslyClicked = layer;
 
         // re-bind popup to feature with specified preview attribute

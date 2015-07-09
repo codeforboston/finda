@@ -15,11 +15,11 @@ define(
           expect(link.text()).toEqual(config[3].title);
         });
         it('directions are rendered as links to Google Maps', function() {
-          var $directions = $rendered.find('.feature-address a');
+          var $directions = $rendered.find('.feature-Address a');
           expect($directions.text()).toEqual(config[2].title);
           expect($directions.attr('href')).toMatch('maps.google.com');
           expect($directions.attr('href')).toMatch('q=' + encodeURIComponent(
-            feature.address.replace('\n', ' ')));
+            feature.Address.replace('\n', ' ')));
         });
         it('images are rendered as images', function() {
           var image = $rendered.find('.feature-image img');
@@ -38,10 +38,10 @@ define(
           expect(services_offered.find('li').length).toEqual(2);
         });
         it('plain text is rendered as-is, with \n -> <br>', function () {
-          var address = $rendered.find('.feature-address');
-          expect(address.length).toEqual(2);
-          expect(address.html()).toEqual(
-            feature.address.replace(/\n/g, '<br>'));
+          var Address = $rendered.find('.feature-Address');
+          expect(Address.length).toEqual(2);
+          expect(Address.html()).toEqual(
+            feature.Address.replace(/\n/g, '<br>'));
         });
         it('empty attributes are not rendered', function() {
           var additional_notes = $rendered.find('.feature-additional_notes');

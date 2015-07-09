@@ -1,58 +1,47 @@
 {
   "project": {
-    "name": "Finda",
+    "name": "Greensboro Finda",
     "description": "<p>Finda is a generic \"find-a\" app for geographic datasets.</p>",
-    "contact": "Please send feedback, ideas, and bug reports to our <a href=\"https://github.com/codeforboston/finda/issues\" target=\"_blank\">Github</a> page."
+    "contact": "Please send feedback, ideas, and bug reports to our <a href=\"https://github.com/codeforgreensboro/finda/issues\" target=\"_blank\">Github</a> page."
   },
   "map": {
-    "preview_attribute": "organization_name",
-    "center":[42.3725, -71.1266],
+    "preview_attribute": "AutoLabel",
+    "center":[36.0745810, -79.7917670],
     "zoom":13,
     "maxZoom":16,
     "maxBounds":[
-      [39.2, -78.0],
-      [44.5, -65.0]
+      [36, -79.7],
+      [37, -80]
     ]
   },
   "properties": [
-    "organization_name",
-    "address",
-    {"name": "address", "title": "directions", "directions": true },
-    {"name": "web_url", "title": "website", "url": true },
+    "AutoLabel",
+    "Address",
+    {"name": "Address", "title": "directions", "directions": true },
+    {"name": "WebSite", "title": "WebSite", "url": true },
     {"name": "contact_names", "title": "Contact Information" },
-    "contact_emails",
-    "phone_numbers",
-
-    {"name": "services_offered", "title": "Services" },
-    {"name": "youth_category", "title": "Type of Organization" },
-    {"name": "target_populations", "title": "Populations Served" },
-
-    {"name": "additional_notes", "title": "Information"}
+    {"name": "SiteHours", "title": "Hours" },
+    {"name": "PhoneNumber", "title": "Phone " },
+    {"name": "AssetClass", "title": "Facility Type" }
   ],
   "list": [
-    "organization_name",
-    "address"
+    "AutoLabel",
+    "Address"
   ],
   "search": {
     "geosearch": true,
     "full_text": {
       "keys": [
-        "address",
-        "organization_name",
+        "Address",
+        "AutoLabel",
         "community",
-        "youth_category",
-        "service_class_level_2",
-        "additional_notes"]
+        "property_type"]
     }
   },
   "facets": {
-    "target_populations": {
-      "title": "Populations Served",
+    "AssetClass": {
+      "title": "Property Type",
       "type": "list"
-    },
-    "youth_category": {
-      "title": "Category",
-      "type": "single"
     }
   },
   "analytics": {
@@ -62,5 +51,5 @@
     "hostname": "auto",
     "detail_enabled": true
   },
-  "geojson_source": "data.geojson"
+  "geojson_source": "cityfacilities.geojson"
 }

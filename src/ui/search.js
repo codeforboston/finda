@@ -7,7 +7,7 @@ define(function(require, exports, module) {
     this.defaultAttrs({
       searchSelector: 'input',
       searchResultsSelector: '#search-results',
-      resultTemplate: '<strong>{{ organization_name }}</strong> ({{ address }})'
+      resultTemplate: '<strong>{{ AutoLabel }}</strong> ({{ Address }})'
     });
 
     this.configureSearch = function(ev, config) {
@@ -31,9 +31,9 @@ define(function(require, exports, module) {
 
     this.search = function(ev) {
       ev.preventDefault();
-      var address = this.select('searchSelector').val();
-      if (address) {
-        this.trigger(document, 'uiSearch', {query: address});
+      var Address = this.select('searchSelector').val();
+      if (Address) {
+        this.trigger(document, 'uiSearch', {query: Address});
       }
       this.select('searchResultsSelector').trigger('uiHideSearchResults');
     };

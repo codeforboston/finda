@@ -28,7 +28,7 @@ define(['test/mock', 'jquery'], function(mock, $) {
           this.component.attr.searchUrl,
           {
             format: 'json',
-            addressdetails: 1,
+            Addressdetails: 1,
             q: 'search query',
             viewbox: '39.2,-78,44.5,-65'
           },

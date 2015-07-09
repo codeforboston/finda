@@ -4,7 +4,7 @@ _You have data with locations. Share it with the world._
 
 ### Why use Finda?
 
-1. You have data with addresses / locations.
+1. You have data with Addresses / locations.
 2. You want to put it online.
 3. You want people to be able to search data and find the services they need near them.
 

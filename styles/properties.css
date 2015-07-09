@@ -1,15 +1,15 @@
 /* Styles for each individual property, as defined in config.json */
 
-.feature-phone_numbers {
+.feature-PhoneNumber {
   font-style: italic;
 }
-.feature-address {
+.feature-Address {
   font-style: italic;
 }
-.feature-address a { /* directions */
+.feature-Address a { /* directions */
   font-style: normal;
 }
-.feature-organization_name {
+.feature-AutoLabel {
   font-weight: bold;
   font-size: 20px;
 }

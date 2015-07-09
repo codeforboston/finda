@@ -21,7 +21,7 @@ body > div.container {
 
 .navbar {
   background: #e5e5e5; /*This should be the brand primary color*/
-  border-bottom: 2px solid #69579c; /*This should be the brand accent color*/
+  border-bottom: 2px solid #d04027; /*This should be the brand accent color*/
 }
 
 .navbar .navbar-header {
@@ -45,13 +45,13 @@ body > div.container {
   vertical-align: middle;
   font-weight: 300;
   font-size: 27px;
-  color: #69579c;
+  color: #d04027;
 }
 
 .navbar-form .btn {
   border:none;
   outline:none;
-  background-color: #69579c; /*This should be the brand accent color*/
+  background-color: #d04027; /*This should be the brand accent color*/
   color: #fff;
   font-weight: 400;
   vertical-align: middle;
@@ -60,13 +60,13 @@ body > div.container {
   box-shadow: none;
   outline:none;
   border:none;
-  background-color: #4F4175; /*This should be a 25% darken of the brand accent color*/
+  background-color: #b53524; /*This should be a 25% darken of the brand accent color*/
 }
 .navbar-form .btn:active{
   box-shadow: none;
   outline:none;
   border:none;
-  background-color: #342B4E; /*This should be a 50% darken of the brand accent color*/
+  background-color: #992c1d; /*This should be a 50% darken of the brand accent color*/
 }
 
 #search-results {

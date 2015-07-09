@@ -20,7 +20,7 @@ define(function(require) {
       ev.preventDefault();
       var parameters = {
         format: "json",
-        addressdetails: 1,
+        Addressdetails: 1,
         q: options.query
       };
       if (this.maxBounds) {
@@ -37,9 +37,9 @@ define(function(require) {
     this.searchResults = function(results) {
       if (results.length) {
         var location = results[0],
-            displayName = _.compact([location.address.road,
-                                     location.address.city,
-                                     location.address.state
+            displayName = _.compact([location.Address.road,
+                                     location.Address.city,
+                                     location.Address.state
                                     ]).join(', ');
         this.trigger('dataSearchResult', {
           name: displayName,
