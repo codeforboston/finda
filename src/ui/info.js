@@ -38,6 +38,7 @@ define(function(require, exports, module) {
     this.after('initialize', function() {
       this.on(document, 'config', this.configureInfo);
       this.on(document, 'selectFeature', this.update);
+      this.on(document, 'hide', this.hide);
       this.on('click', {
         closeSelector: this.hide
       });

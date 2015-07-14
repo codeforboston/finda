@@ -16,9 +16,9 @@ define(function(require) {
       this.show(this.attr.loadingText);
     };
 
-    this.showFiltering = function() {
-      this.show(this.attr.filteringText);
-    };
+    // this.showFiltering = function() {
+    //   //this.show(this.attr.filteringText);
+    // };
 
     this.show = function(content) {
       showCount = showCount + 1;
@@ -40,14 +40,14 @@ define(function(require) {
     this.after('initialize', function() {
       showCount = 0;
       this.on(document, 'mapStarted', this.showLoading);
-      this.on(document, 'mapFilteringStarted', this.showFiltering);
+      //this.on(document, 'mapFilteringStarted', this.showFiltering);
       this.on(document, 'mapFinished', this.hide);
 
       this.on(document, 'listStarted', this.showLoading);
-      this.on(document, 'listFilteringStarted', this.showFiltering);
+      //this.on(document, 'listFilteringStarted', this.showFiltering);
       this.on(document, 'listFinished', this.hide);
 
-      this.on(document, 'dataFilteringStarted', this.showFiltering);
+      //this.on(document, 'dataFilteringStarted', this.showFiltering);
       this.on(document, 'dataFilteringFinished', this.hide);
     });
   });

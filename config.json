@@ -1,17 +1,17 @@
 {
   "project": {
-    "name": "Greensboro Finda",
+    "name": "Greensboro Finda Facility",
     "description": "<p>Finda is a generic \"find-a\" app for geographic datasets.</p>",
     "contact": "Please send feedback, ideas, and bug reports to our <a href=\"https://github.com/codeforgreensboro/finda/issues\" target=\"_blank\">Github</a> page."
   },
   "map": {
     "preview_attribute": "AutoLabel",
     "center":[36.0745810, -79.7917670],
-    "zoom":13,
+    "zoom":12,
     "maxZoom":16,
     "maxBounds":[
-      [36, -79.7],
-      [37, -80]
+      [35.8, -79.5],
+      [36.3, -80.2]
     ]
   },
   "properties": [
@@ -34,8 +34,8 @@
       "keys": [
         "Address",
         "AutoLabel",
-        "community",
-        "property_type"]
+        "AssetClass",
+        "ParentType"]
     }
   },
   "facets": {
