@@ -77,11 +77,13 @@ define(function(require, exports, module) {
       var $li = $(ev.target).closest('li');
       var feature = $li.data('feature');
       this.trigger('selectFeature', feature);
+      $('.selected').removeClass('selected');
+      $li.addClass('selected');
     };
 
     this.onFeatureSelected = function onFeatureSelected(ev, feature) {
-      var offset = $elementForFeature.call(this, feature).offset().top - 50;
-      this.scrollToOffset(offset);
+      //var offset = $elementForFeature.call(this, feature).offset().top - 50;
+      //this.scrollToOffset(offset);
     };
 
     this.scrollToOffset = function(offset) {
