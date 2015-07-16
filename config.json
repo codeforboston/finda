@@ -17,7 +17,7 @@
   "properties": [
     "AutoLabel",
     "Address",
-    {"name": "Address", "title": "directions", "directions": true },
+    {"name": "Address", "title": "Directions", "directions": true },
     {"name": "WebSite", "title": "WebSite", "url": true },
     {"name": "contact_names", "title": "Contact Information" },
     {"name": "SiteHours", "title": "Hours" },
