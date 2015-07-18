@@ -19,7 +19,7 @@ define(function(require) {
     this.onSearch = function(ev, options) {
       ev.preventDefault();
       var parameters = {
-        format: "json",
+        format: "jsonp",
         Addressdetails: 1,
         q: options.query
       };
