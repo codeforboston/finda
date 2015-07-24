@@ -70,7 +70,7 @@ body > div.container {
 }
 
 #search-results {
-  left: 142px;
+  left: 15px;
 }
 
 #search-results .help {
@@ -138,6 +138,9 @@ body > div.container {
   #search {
     /*text-align: center;*/
     float: none !important;
+    position: absolute;
+    display: inline;
+    width: 40%;
   }
 
   #search .form-group {
@@ -145,7 +148,7 @@ body > div.container {
   }
 
   #search input {
-    width: 30%;
+    width: 70%;
   }
   #search input:focus{
     box-shadow: inset 0px 1px 2px rgba(0,0,0,.15);
