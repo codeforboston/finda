@@ -60,16 +60,24 @@
       "title": "Out Patient",
       "type": "list"
     },
-    "age": {
-      "title": "Age",
+    "residential": {
+      "title": "Residential",
       "type": "list"
     },
     "gender": {
       "title": "Gender",
       "type": "list"
     },
-    "other": {
-      "title": "Other",
+    "pregnancy": {
+      "title": "Pregnancy",
+      "type": "list"
+    },
+    "age": {
+      "title": "Age",
+      "type": "list"
+    },
+    "insurance": {
+      "title": "Insurance Accepted",
       "type": "list"
     }
   },
