@@ -20,6 +20,7 @@ require.config({
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
     'd3': '../lib/d3.min',
+    'Tabletop': '../lib/tabletop',
     'bootstrap': '../lib/bootstrap.min'
   },
   shim: {
