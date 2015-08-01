@@ -17,6 +17,9 @@ define(function(require, exports, module) {
     };
 
     this.displayFacets = function(ev, facetData) {
+      facetData = {
+        age: facetData.age
+      }
       this.$node.html(
         _.chain(facetData)
           .map(
