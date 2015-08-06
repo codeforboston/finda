@@ -18,7 +18,7 @@ define({
       "AutoLabel",
       "Address",
       {"name": "Address", "title": "directions", "directions": true },
-      {"name": "WebSite", "title": "WebSite", "url": true },
+      {"name": "Web site", "title": "Web site", "url": true },
       {"name": "contact_names", "title": "Contact Information" },
       {"name": "SiteHours", "title": "Hours" },
       {"name": "PhoneNumber", "title": "Phone " },
