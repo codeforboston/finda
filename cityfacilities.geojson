@@ -12,7 +12,7 @@
          "type":"Feature",
          "id":1,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=202",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=202",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"J. Edward Kitchen Operation Center",
@@ -33,7 +33,7 @@
          "type":"Feature",
          "id":2,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1276",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1276",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Mitchell Park",
@@ -54,7 +54,7 @@
          "type":"Feature",
          "id":3,
          "properties":{
-            "WebSite":"http://www.greensborocoliseum.com/",
+            "Website":"http://www.greensborocoliseum.com/",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"War Memorial Auditorium",
@@ -75,7 +75,7 @@
          "type":"Feature",
          "id":4,
          "properties":{
-            "WebSite":"http://www.greensborocoliseum.com/",
+            "Website":"http://www.greensborocoliseum.com/",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"Greensboro Coliseum",
@@ -96,7 +96,7 @@
          "type":"Feature",
          "id":5,
          "properties":{
-            "WebSite":"http://www.greensborosportsplex.com/Sportsplex/",
+            "Website":"http://www.greensborosportsplex.com/Sportsplex/",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"Greensboro Sportsplex",
@@ -117,7 +117,7 @@
          "type":"Feature",
          "id":6,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1115",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1115",
             "AssetClass":"Other",
             "MajorAsset":"YES",
             "AutoLabel":"Maplewood Cemetery",
@@ -139,7 +139,7 @@
          "type":"Feature",
          "id":7,
          "properties":{
-            "WebSite":"http://www.greensborounited.org/Facilities/642884.html",
+            "Website":"http://www.greensborounited.org/Facilities/642884.html",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"NO",
             "AutoLabel":"Smith Soccer Complex",
@@ -180,7 +180,7 @@
          "type":"Feature",
          "id":9,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1116",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1116",
             "AssetClass":"Other",
             "MajorAsset":"NO",
             "AutoLabel":"Union Cemetery",
@@ -202,7 +202,7 @@
          "type":"Feature",
          "id":10,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1114",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1114",
             "AssetClass":"Other",
             "MajorAsset":"YES",
             "AutoLabel":"Green Hill Cemetery",
@@ -224,7 +224,7 @@
          "type":"Feature",
          "id":11,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1265",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1265",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Lake Daniel Park",
@@ -245,7 +245,7 @@
          "type":"Feature",
          "id":12,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1248",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1248",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Greenway Park",
@@ -266,7 +266,7 @@
          "type":"Feature",
          "id":13,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1256",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1256",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Hillsdale Park",
@@ -287,7 +287,7 @@
          "type":"Feature",
          "id":14,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1113",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1113",
             "AssetClass":"Other",
             "MajorAsset":"YES",
             "AutoLabel":"Forest Lawn Cemetery",
@@ -309,7 +309,7 @@
          "type":"Feature",
          "id":15,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1305",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1305",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Woodlea Acres Park",
@@ -330,7 +330,7 @@
          "type":"Feature",
          "id":16,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1263",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1263",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"King's Forest Park",
@@ -351,7 +351,7 @@
          "type":"Feature",
          "id":17,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1268",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1268",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Lindley Park",
@@ -372,7 +372,7 @@
          "type":"Feature",
          "id":18,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1212",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1212",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Autumn Park",
@@ -393,7 +393,7 @@
          "type":"Feature",
          "id":19,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1251",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1251",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Hampton Park",
@@ -414,7 +414,7 @@
          "type":"Feature",
          "id":20,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1261",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1261",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Johnson Park",
@@ -435,7 +435,7 @@
          "type":"Feature",
          "id":21,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1304",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1304",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Westbury Park",
@@ -456,7 +456,7 @@
          "type":"Feature",
          "id":22,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1231",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1231",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Dorothy Brown Park",
@@ -497,7 +497,7 @@
          "type":"Feature",
          "id":24,
          "properties":{
-            "WebSite":"N/A",
+            "Website":"N/A",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"NO",
             "AutoLabel":"North Buffalo Water Reclamation Facility",
@@ -518,7 +518,7 @@
          "type":"Feature",
          "id":25,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=563",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=563",
             "AssetClass":"Operations Building",
             "MajorAsset":"YES",
             "AutoLabel":"Solid Waste Transfer Station",
@@ -540,7 +540,7 @@
          "type":"Feature",
          "id":26,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1340",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1340",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Leonard Recreation Center",
@@ -562,7 +562,7 @@
          "type":"Feature",
          "id":27,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=824",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=824",
             "AssetClass":"Library",
             "MajorAsset":"YES",
             "AutoLabel":"Kathleen Clay Edwards Library",
@@ -584,7 +584,7 @@
          "type":"Feature",
          "id":28,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1272",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1272",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Mayer Park",
@@ -605,7 +605,7 @@
          "type":"Feature",
          "id":29,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1224",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1224",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"College Park",
@@ -626,7 +626,7 @@
          "type":"Feature",
          "id":30,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1267",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1267",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Latham Park",
@@ -667,7 +667,7 @@
          "type":"Feature",
          "id":32,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=3642",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=3642",
             "AssetClass":"Swimming Pool",
             "MajorAsset":"NO",
             "AutoLabel":"Peeler Pool",
@@ -688,7 +688,7 @@
          "type":"Feature",
          "id":33,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1287",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1287",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Pear Street Park",
@@ -709,7 +709,7 @@
          "type":"Feature",
          "id":34,
          "properties":{
-            "WebSite":"N/A",
+            "Website":"N/A",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"Justice Building",
@@ -730,7 +730,7 @@
          "type":"Feature",
          "id":35,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1247",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1247",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Greentree Park",
@@ -751,7 +751,7 @@
          "type":"Feature",
          "id":36,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1344",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1344",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Trotter Recreation Center",
@@ -793,7 +793,7 @@
          "type":"Feature",
          "id":38,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1297",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1297",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Springdale Park",
@@ -814,7 +814,7 @@
          "type":"Feature",
          "id":39,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1339",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1339",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Glenwood Recreation Center",
@@ -836,7 +836,7 @@
          "type":"Feature",
          "id":40,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=809",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=809",
             "AssetClass":"Library",
             "MajorAsset":"YES",
             "AutoLabel":"Glenwood Library",
@@ -858,7 +858,7 @@
          "type":"Feature",
          "id":41,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #56",
@@ -879,7 +879,7 @@
          "type":"Feature",
          "id":42,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1253",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1253",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Heath Park",
@@ -900,7 +900,7 @@
          "type":"Feature",
          "id":43,
          "properties":{
-            "WebSite":"http://www.greensboromcu.org/ASP/home.asp",
+            "Website":"http://www.greensboromcu.org/ASP/home.asp",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"Credit Union",
@@ -922,7 +922,7 @@
          "type":"Feature",
          "id":44,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1277",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1277",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Murchie Park",
@@ -963,7 +963,7 @@
          "type":"Feature",
          "id":46,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1338",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1338",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Craft Recreation Center",
@@ -985,7 +985,7 @@
          "type":"Feature",
          "id":47,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1225",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1225",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Coronado Park",
@@ -1006,7 +1006,7 @@
          "type":"Feature",
          "id":48,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #41",
@@ -1027,7 +1027,7 @@
          "type":"Feature",
          "id":49,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=564",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=564",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"White Street Landfill",
@@ -1049,7 +1049,7 @@
          "type":"Feature",
          "id":50,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1213",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1213",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Benbow Park",
@@ -1070,7 +1070,7 @@
          "type":"Feature",
          "id":51,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1274",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1274",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"McCulloch Park",
@@ -1111,7 +1111,7 @@
          "type":"Feature",
          "id":53,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1266",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1266",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Lake Daniel Reservoir",
@@ -1132,7 +1132,7 @@
          "type":"Feature",
          "id":54,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #43",
@@ -1153,7 +1153,7 @@
          "type":"Feature",
          "id":55,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1291",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1291",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Revolution Park",
@@ -1174,7 +1174,7 @@
          "type":"Feature",
          "id":56,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1925",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1925",
             "AssetClass":"Police Station",
             "MajorAsset":"YES",
             "AutoLabel":"Maple Street Sub-Station",
@@ -1195,7 +1195,7 @@
          "type":"Feature",
          "id":57,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1239",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1239",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Fisher Park",
@@ -1216,7 +1216,7 @@
          "type":"Feature",
          "id":58,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1342",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1342",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Lindley Recreation Center",
@@ -1238,7 +1238,7 @@
          "type":"Feature",
          "id":59,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=3642",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=3642",
             "AssetClass":"Swimming Pool",
             "MajorAsset":"YES",
             "AutoLabel":"Lindley Pool",
@@ -1259,7 +1259,7 @@
          "type":"Feature",
          "id":60,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1227",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1227",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Cumberland Park",
@@ -1280,7 +1280,7 @@
          "type":"Feature",
          "id":61,
          "properties":{
-            "WebSite":"http://gsofarmersmarket.org/",
+            "Website":"http://gsofarmersmarket.org/",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"Curb Market",
@@ -1321,7 +1321,7 @@
          "type":"Feature",
          "id":63,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1264",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1264",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Kirkwood Park",
@@ -1342,7 +1342,7 @@
          "type":"Feature",
          "id":64,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1341",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1341",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Lewis Recreation Center",
@@ -1364,7 +1364,7 @@
          "type":"Feature",
          "id":65,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1452",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1452",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Caldcleugh Multicultural Arts Center",
@@ -1385,7 +1385,7 @@
          "type":"Feature",
          "id":66,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1296",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1296",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Southmont Park",
@@ -1406,7 +1406,7 @@
          "type":"Feature",
          "id":67,
          "properties":{
-            "WebSite":"http://www.greensboromcu.org/ASP/home.asp",
+            "Website":"http://www.greensboromcu.org/ASP/home.asp",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"Credit Union Soabar Branch",
@@ -1428,7 +1428,7 @@
          "type":"Feature",
          "id":68,
          "properties":{
-            "WebSite":"http://citynet/hr/Pages/MedicalServices.aspx",
+            "Website":"http://citynet/hr/Pages/MedicalServices.aspx",
             "AssetClass":"Operations Building",
             "MajorAsset":"YES",
             "AutoLabel":"Medical Services",
@@ -1449,7 +1449,7 @@
          "type":"Feature",
          "id":69,
          "properties":{
-            "WebSite":"N/A",
+            "Website":"N/A",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"Service Center \"A\" Building",
@@ -1470,7 +1470,7 @@
          "type":"Feature",
          "id":70,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1135",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1135",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"NO",
             "AutoLabel":"Gillespie Golf Course",
@@ -1492,7 +1492,7 @@
          "type":"Feature",
          "id":71,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1293",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1293",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Rotherwood Park",
@@ -1513,7 +1513,7 @@
          "type":"Feature",
          "id":72,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #10",
@@ -1554,7 +1554,7 @@
          "type":"Feature",
          "id":74,
          "properties":{
-            "WebSite":"http://www.greensborobeautiful.org/gardens/bicentennial_garden.php",
+            "Website":"http://www.greensborobeautiful.org/gardens/bicentennial_garden.php",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Tanger Family Bicentennial Gardens",
@@ -1576,7 +1576,7 @@
          "type":"Feature",
          "id":75,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1218",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1218",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Brown Bark Park",
@@ -1597,7 +1597,7 @@
          "type":"Feature",
          "id":76,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #49",
@@ -1618,7 +1618,7 @@
          "type":"Feature",
          "id":77,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1285",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1285",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Oaks West",
@@ -1639,7 +1639,7 @@
          "type":"Feature",
          "id":78,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1290",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1290",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Random Woods Park",
@@ -1660,7 +1660,7 @@
          "type":"Feature",
          "id":79,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1220",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1220",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Carolina Laurel Park",
@@ -1681,7 +1681,7 @@
          "type":"Feature",
          "id":80,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1232",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1232",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Douglas Park",
@@ -1702,7 +1702,7 @@
          "type":"Feature",
          "id":81,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #48",
@@ -1723,7 +1723,7 @@
          "type":"Feature",
          "id":82,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #18",
@@ -1744,7 +1744,7 @@
          "type":"Feature",
          "id":83,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1294",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1294",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Shannon Hills Park",
@@ -1765,7 +1765,7 @@
          "type":"Feature",
          "id":84,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #14",
@@ -1786,7 +1786,7 @@
          "type":"Feature",
          "id":85,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=627",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=627",
             "AssetClass":"Public Safety Building",
             "MajorAsset":"YES",
             "AutoLabel":"Police/Fire Training Center",
@@ -1807,7 +1807,7 @@
          "type":"Feature",
          "id":86,
          "properties":{
-            "WebSite":"N/A",
+            "Website":"N/A",
             "AssetClass":"Operations Building",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Garage, Fire & Life Safety Division",
@@ -1828,7 +1828,7 @@
          "type":"Feature",
          "id":87,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #01",
@@ -1849,7 +1849,7 @@
          "type":"Feature",
          "id":88,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1222",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1222",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Cascade Park",
@@ -1870,7 +1870,7 @@
          "type":"Feature",
          "id":89,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=813",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=813",
             "AssetClass":"Library",
             "MajorAsset":"YES",
             "AutoLabel":"Hemphill Branch Library",
@@ -1892,7 +1892,7 @@
          "type":"Feature",
          "id":90,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #07",
@@ -1933,7 +1933,7 @@
          "type":"Feature",
          "id":92,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #08",
@@ -1954,7 +1954,7 @@
          "type":"Feature",
          "id":93,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=27&recordid=204",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=27&recordid=204",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"MMOB",
@@ -1976,7 +1976,7 @@
          "type":"Feature",
          "id":94,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=189",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=189",
             "AssetClass":"Operations Building",
             "MajorAsset":"YES",
             "AutoLabel":"J. Douglas Galyon Depot",
@@ -1997,7 +1997,7 @@
          "type":"Feature",
          "id":95,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #02",
@@ -2018,7 +2018,7 @@
          "type":"Feature",
          "id":96,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1318",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1318",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"Lake Higgins Marina",
@@ -2039,7 +2039,7 @@
          "type":"Feature",
          "id":97,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #20",
@@ -2060,7 +2060,7 @@
          "type":"Feature",
          "id":98,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #19",
@@ -2081,7 +2081,7 @@
          "type":"Feature",
          "id":99,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #52",
@@ -2102,7 +2102,7 @@
          "type":"Feature",
          "id":100,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1270",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1270",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Luper Park",
@@ -2123,7 +2123,7 @@
          "type":"Feature",
          "id":101,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #21",
@@ -2144,7 +2144,7 @@
          "type":"Feature",
          "id":102,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1301",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1301",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Three Meadows Park",
@@ -2165,7 +2165,7 @@
          "type":"Feature",
          "id":103,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1254",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1254",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Henry Street Park",
@@ -2186,7 +2186,7 @@
          "type":"Feature",
          "id":104,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1284",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1284",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"O Henry Oaks Park",
@@ -2207,7 +2207,7 @@
          "type":"Feature",
          "id":105,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1208",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1208",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Apache Street Park",
@@ -2228,7 +2228,7 @@
          "type":"Feature",
          "id":106,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1343",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1343",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Peeler Recreation Center",
@@ -2250,7 +2250,7 @@
          "type":"Feature",
          "id":107,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1215",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1215",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Bingham Park",
@@ -2311,7 +2311,7 @@
          "type":"Feature",
          "id":110,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1346",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1346",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Windsor Recreation Center",
@@ -2333,7 +2333,7 @@
          "type":"Feature",
          "id":111,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=3642",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=3642",
             "AssetClass":"Swimming Pool",
             "MajorAsset":"NO",
             "AutoLabel":"Windsor Pool",
@@ -2354,7 +2354,7 @@
          "type":"Feature",
          "id":112,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=836",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=836",
             "AssetClass":"Library",
             "MajorAsset":"YES",
             "AutoLabel":"Vance Chavis Library",
@@ -2396,7 +2396,7 @@
          "type":"Feature",
          "id":114,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #17",
@@ -2417,7 +2417,7 @@
          "type":"Feature",
          "id":115,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1317",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1317",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"Lake Brandt Marina",
@@ -2438,7 +2438,7 @@
          "type":"Feature",
          "id":116,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #40",
@@ -2459,7 +2459,7 @@
          "type":"Feature",
          "id":117,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1356",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1356",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Smith Senior Center",
@@ -2521,7 +2521,7 @@
          "type":"Feature",
          "id":120,
          "properties":{
-            "WebSite":"N/A",
+            "Website":"N/A",
             "AssetClass":"Operations Building",
             "MajorAsset":"YES",
             "AutoLabel":"Mitchell Water Treatment Plant",
@@ -2542,7 +2542,7 @@
          "type":"Feature",
          "id":121,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #05",
@@ -2563,7 +2563,7 @@
          "type":"Feature",
          "id":122,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1217",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1217",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"British Woods Park",
@@ -2584,7 +2584,7 @@
          "type":"Feature",
          "id":123,
          "properties":{
-            "WebSite":"http://www.greensborobeautiful.org/gardens/greensboro_arboretum.php",
+            "Website":"http://www.greensborobeautiful.org/gardens/greensboro_arboretum.php",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Greensboro Arboretum",
@@ -2646,7 +2646,7 @@
          "type":"Feature",
          "id":126,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1299",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1299",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Steelman Park",
@@ -2667,7 +2667,7 @@
          "type":"Feature",
          "id":127,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1345",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1345",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Warnersville Recreation Center",
@@ -2709,7 +2709,7 @@
          "type":"Feature",
          "id":129,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1298",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1298",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Spring Valley Park",
@@ -2730,7 +2730,7 @@
          "type":"Feature",
          "id":130,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1337",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1337",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Brown Recreation Center",
@@ -2752,7 +2752,7 @@
          "type":"Feature",
          "id":131,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1337",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1337",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Brown Recreation Center Park",
@@ -2773,7 +2773,7 @@
          "type":"Feature",
          "id":132,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=3002&recordid=123",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=3002&recordid=123",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Folk Recreation Center",
@@ -2795,7 +2795,7 @@
          "type":"Feature",
          "id":133,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1255",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1255",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Highland Park",
@@ -2816,7 +2816,7 @@
          "type":"Feature",
          "id":134,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1216",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1216",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Brevard Park",
@@ -2837,7 +2837,7 @@
          "type":"Feature",
          "id":135,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1925",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1925",
             "AssetClass":"Police Station",
             "MajorAsset":"YES",
             "AutoLabel":"Southern Operations Center",
@@ -2878,7 +2878,7 @@
          "type":"Feature",
          "id":137,
          "properties":{
-            "WebSite":"N/A",
+            "Website":"N/A",
             "AssetClass":"Operations Building",
             "MajorAsset":"YES",
             "AutoLabel":"Fleet Services",
@@ -2899,7 +2899,7 @@
          "type":"Feature",
          "id":138,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1245",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1245",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Greenfield Park",
@@ -2920,7 +2920,7 @@
          "type":"Feature",
          "id":139,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #04",
@@ -2941,7 +2941,7 @@
          "type":"Feature",
          "id":140,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1357",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1357",
             "AssetClass":"Tennis Center",
             "MajorAsset":"YES",
             "AutoLabel":"Spencer Love Tennis Center",
@@ -2982,7 +2982,7 @@
          "type":"Feature",
          "id":142,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=200",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=200",
             "AssetClass":"Parking Deck",
             "MajorAsset":"YES",
             "AutoLabel":"Bellemeade Parking Deck",
@@ -3043,7 +3043,7 @@
          "type":"Feature",
          "id":145,
          "properties":{
-            "WebSite":"http://www.greensborohistory.org",
+            "Website":"http://www.greensborohistory.org",
             "AssetClass":"Museum",
             "MajorAsset":"YES",
             "AutoLabel":"Greensboro Historical Museum",
@@ -3065,7 +3065,7 @@
          "type":"Feature",
          "id":146,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=198",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=198",
             "AssetClass":"Parking Deck",
             "MajorAsset":"YES",
             "AutoLabel":"Davie Parking Deck",
@@ -3126,7 +3126,7 @@
          "type":"Feature",
          "id":149,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1241",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1241",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Forest Valley Park",
@@ -3167,7 +3167,7 @@
          "type":"Feature",
          "id":151,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=3642",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=3642",
             "AssetClass":"Swimming Pool",
             "MajorAsset":"NO",
             "AutoLabel":"Warnersville Pool",
@@ -3188,7 +3188,7 @@
          "type":"Feature",
          "id":152,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1160",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1160",
             "AssetClass":"Other",
             "MajorAsset":"YES",
             "AutoLabel":"Barber Park Sprayground",
@@ -3210,7 +3210,7 @@
          "type":"Feature",
          "id":153,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #61",
@@ -3251,7 +3251,7 @@
          "type":"Feature",
          "id":155,
          "properties":{
-            "WebSite":"http://www.greensborobeautiful.org/gardens/gateway_gardens.php",
+            "Website":"http://www.greensborobeautiful.org/gardens/gateway_gardens.php",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Gateway Gardens",
@@ -3273,7 +3273,7 @@
          "type":"Feature",
          "id":156,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=803",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=803",
             "AssetClass":"Library",
             "MajorAsset":"YES",
             "AutoLabel":"Benjamin Library",
@@ -3295,7 +3295,7 @@
          "type":"Feature",
          "id":157,
          "properties":{
-            "WebSite":"http://www.greensboroaquaticcenter.com/",
+            "Website":"http://www.greensboroaquaticcenter.com/",
             "AssetClass":"Swimming Pool",
             "MajorAsset":"YES",
             "AutoLabel":"Greensboro Aquatic Center",
@@ -3316,7 +3316,7 @@
          "type":"Feature",
          "id":158,
          "properties":{
-            "WebSite":"http://www.greensborocoliseum.com/page/white-oak-amphitheatre",
+            "Website":"http://www.greensborocoliseum.com/page/white-oak-amphitheatre",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"White Oak Amphitheatre",
@@ -3337,7 +3337,7 @@
          "type":"Feature",
          "id":159,
          "properties":{
-            "WebSite":"http://www.greensborocoliseum.com/",
+            "Website":"http://www.greensborocoliseum.com/",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"Special Events Center",
@@ -3358,7 +3358,7 @@
          "type":"Feature",
          "id":160,
          "properties":{
-            "WebSite":"http://www.acchallofchampions.net/",
+            "Website":"http://www.acchallofchampions.net/",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"ACC Hall of Champions",
@@ -3380,7 +3380,7 @@
          "type":"Feature",
          "id":161,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=2180",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=2180",
             "AssetClass":"Operations Building",
             "MajorAsset":"YES",
             "AutoLabel":"GTA Operations Facility and Administrative Offices",
@@ -3401,7 +3401,7 @@
          "type":"Feature",
          "id":162,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1925",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1925",
             "AssetClass":"Police Station",
             "MajorAsset":"YES",
             "AutoLabel":"Swing Road Sub-Station",
@@ -3422,7 +3422,7 @@
          "type":"Feature",
          "id":163,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1260",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1260",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Joe Davis Park",
@@ -3443,7 +3443,7 @@
          "type":"Feature",
          "id":164,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1209",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1209",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Ardmore Park",
@@ -3464,7 +3464,7 @@
          "type":"Feature",
          "id":165,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #53",
@@ -3505,7 +3505,7 @@
          "type":"Feature",
          "id":167,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1249",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1249",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Guilford Hills Park",
@@ -3526,7 +3526,7 @@
          "type":"Feature",
          "id":168,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1242",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1242",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Friendly Acres Park",
@@ -3547,7 +3547,7 @@
          "type":"Feature",
          "id":169,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1306",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1306",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Woodmere Park",
@@ -3568,7 +3568,7 @@
          "type":"Feature",
          "id":170,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1221",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1221",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Carriage Hills Park",
@@ -3589,7 +3589,7 @@
          "type":"Feature",
          "id":171,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1275",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1275",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Merryweather Park",
@@ -3610,7 +3610,7 @@
          "type":"Feature",
          "id":172,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #57",
@@ -3631,7 +3631,7 @@
          "type":"Feature",
          "id":173,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1210",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1210",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Arlington Park",
@@ -3652,7 +3652,7 @@
          "type":"Feature",
          "id":174,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1292",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1292",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Rolling Roads Park",
@@ -3673,7 +3673,7 @@
          "type":"Feature",
          "id":175,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1258",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1258",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Hunter Hills Park",
@@ -3714,7 +3714,7 @@
          "type":"Feature",
          "id":177,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=199",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=199",
             "AssetClass":"Parking Deck",
             "MajorAsset":"YES",
             "AutoLabel":"Church Street Parking Deck",
@@ -3735,7 +3735,7 @@
          "type":"Feature",
          "id":178,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=197",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=197",
             "AssetClass":"Parking Deck",
             "MajorAsset":"YES",
             "AutoLabel":"Greene Street Parking Deck",
@@ -3756,7 +3756,7 @@
          "type":"Feature",
          "id":179,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1236",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1236",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Elmwood Park",
@@ -3777,7 +3777,7 @@
          "type":"Feature",
          "id":180,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1925",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1925",
             "AssetClass":"Police Station",
             "MajorAsset":"YES",
             "AutoLabel":"Police Headquarters",
@@ -3798,7 +3798,7 @@
          "type":"Feature",
          "id":181,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1244",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1244",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Gracewood Park",
@@ -3819,7 +3819,7 @@
          "type":"Feature",
          "id":182,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1278",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1278",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Morris Farlow Park",
@@ -3840,7 +3840,7 @@
          "type":"Feature",
          "id":183,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1279",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1279",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Nealtown Park",
@@ -3881,7 +3881,7 @@
          "type":"Feature",
          "id":185,
          "properties":{
-            "WebSite":"N/A",
+            "Website":"N/A",
             "AssetClass":"Recreation Center",
             "MajorAsset":"YES",
             "AutoLabel":"Griffin Recreation Center",
@@ -3923,7 +3923,7 @@
          "type":"Feature",
          "id":187,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1190",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1190",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Country Park",
@@ -3945,7 +3945,7 @@
          "type":"Feature",
          "id":188,
          "properties":{
-            "WebSite":"http://www.greensboroscience.org/",
+            "Website":"http://www.greensboroscience.org/",
             "AssetClass":"Museum",
             "MajorAsset":"YES",
             "AutoLabel":"Greensboro Science Center",
@@ -3966,7 +3966,7 @@
          "type":"Feature",
          "id":189,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=831",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=831",
             "AssetClass":"Library",
             "MajorAsset":"YES",
             "AutoLabel":"McGirt-Horton Library",
@@ -3988,7 +3988,7 @@
          "type":"Feature",
          "id":190,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=806",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=806",
             "AssetClass":"Library",
             "MajorAsset":"YES",
             "AutoLabel":"Central Library",
@@ -4010,7 +4010,7 @@
          "type":"Feature",
          "id":191,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1203",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1203",
             "AssetClass":"Other",
             "MajorAsset":"NO",
             "AutoLabel":"Keeley Park Sprayground",
@@ -4032,7 +4032,7 @@
          "type":"Feature",
          "id":192,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1219",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1219",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Bywood Park",
@@ -4073,7 +4073,7 @@
          "type":"Feature",
          "id":194,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1252",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1252",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Hannaford Park",
@@ -4094,7 +4094,7 @@
          "type":"Feature",
          "id":195,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1295",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1295",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Shannon Woods Park",
@@ -4115,7 +4115,7 @@
          "type":"Feature",
          "id":196,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1307",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1307",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Price Park",
@@ -4156,7 +4156,7 @@
          "type":"Feature",
          "id":198,
          "properties":{
-            "WebSite":"N/A",
+            "Website":"N/A",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"Lake Townsend Water Treatment Plant",
@@ -4177,7 +4177,7 @@
          "type":"Feature",
          "id":199,
          "properties":{
-            "WebSite":"http://www.bryanpark.com/conferencecenter.html",
+            "Website":"http://www.bryanpark.com/conferencecenter.html",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"Bryan Park Enrichment Center",
@@ -4198,7 +4198,7 @@
          "type":"Feature",
          "id":200,
          "properties":{
-            "WebSite":"http://www.bryanpark.com/conferencecenter.html",
+            "Website":"http://www.bryanpark.com/conferencecenter.html",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"Bryan Park Golf Course Club House",
@@ -4219,7 +4219,7 @@
          "type":"Feature",
          "id":201,
          "properties":{
-            "WebSite":"http://www.greensborounited.org/Facilities/bp/index_E.html",
+            "Website":"http://www.greensborounited.org/Facilities/bp/index_E.html",
             "AssetClass":"Concessions/Restrooms/Ticket Booth",
             "MajorAsset":"NO",
             "AutoLabel":"Bryan Park Soccer Complex",
@@ -4240,7 +4240,7 @@
          "type":"Feature",
          "id":202,
          "properties":{
-            "WebSite":"http://www.bryanpark.com/",
+            "Website":"http://www.bryanpark.com/",
             "AssetClass":"Golf Course",
             "MajorAsset":"YES",
             "AutoLabel":"Bryan Park Golf Course",
@@ -4261,7 +4261,7 @@
          "type":"Feature",
          "id":203,
          "properties":{
-            "WebSite":"N/A",
+            "Website":"N/A",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"YES",
             "AutoLabel":"T.Z. Osborne Water Reclamation Facility",
@@ -4282,7 +4282,7 @@
          "type":"Feature",
          "id":204,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1280",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1280",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Nocho Park",
@@ -4303,7 +4303,7 @@
          "type":"Feature",
          "id":205,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1246",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1246",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Greenhaven Park",
@@ -4324,7 +4324,7 @@
          "type":"Feature",
          "id":206,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1300",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1300",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Sussman Street Park",
@@ -4345,7 +4345,7 @@
          "type":"Feature",
          "id":207,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1214",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1214",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Big Tree Way Park",
@@ -4366,7 +4366,7 @@
          "type":"Feature",
          "id":208,
          "properties":{
-            "WebSite":"http://greensboro-nc.gov/index.aspx?page=2661",
+            "Website":"http://greensboro-nc.gov/index.aspx?page=2661",
             "AssetClass":"Fire Station",
             "MajorAsset":"YES",
             "AutoLabel":"Fire Station #11",
@@ -4407,7 +4407,7 @@
          "type":"Feature",
          "id":210,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Carolyn Allen Community Park and Athletic Complex",
@@ -4428,7 +4428,7 @@
          "type":"Feature",
          "id":211,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1154",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1154",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Bryan Park Complex",
@@ -4470,7 +4470,7 @@
          "type":"Feature",
          "id":213,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1357",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1357",
             "AssetClass":"Tennis Center",
             "MajorAsset":"YES",
             "AutoLabel":"Simkins Indoor Sports Pavilion",
@@ -4491,7 +4491,7 @@
          "type":"Feature",
          "id":214,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1201",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1201",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Oka T Hester Park",
@@ -4513,7 +4513,7 @@
          "type":"Feature",
          "id":215,
          "properties":{
-            "WebSite":"http://www.greensborobeautiful.org/gardens/bog_garden.php",
+            "Website":"http://www.greensborobeautiful.org/gardens/bog_garden.php",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"The Bog Garden",
@@ -4535,7 +4535,7 @@
          "type":"Feature",
          "id":216,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1203",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1203",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Keeley Park",
@@ -4557,7 +4557,7 @@
          "type":"Feature",
          "id":217,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=3022",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=3022",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Hamilton Lakes Park",
@@ -4578,7 +4578,7 @@
          "type":"Feature",
          "id":218,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1289",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1289",
             "AssetClass":"Parkland",
             "MajorAsset":"NO",
             "AutoLabel":"Sheridan Park (aka Pisgah Park)",
@@ -4599,7 +4599,7 @@
          "type":"Feature",
          "id":219,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1156",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1156",
             "AssetClass":"Parkland",
             "MajorAsset":"YES",
             "AutoLabel":"Barber Park",
@@ -4660,7 +4660,7 @@
          "type":"Feature",
          "id":222,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"YES",
             "AutoLabel":"Penn-White Baseball Stadium",
@@ -4681,7 +4681,7 @@
          "type":"Feature",
          "id":223,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Levette Field",
@@ -4702,7 +4702,7 @@
          "type":"Feature",
          "id":224,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Constance Griffin Field (Doak St. Field)",
@@ -4723,7 +4723,7 @@
          "type":"Feature",
          "id":225,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Lonnie Revels Field (Old Peck)",
@@ -4744,7 +4744,7 @@
          "type":"Feature",
          "id":226,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"I.C. Apple Field",
@@ -4765,7 +4765,7 @@
          "type":"Feature",
          "id":227,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Tunstall-Haskins Field",
@@ -4786,7 +4786,7 @@
          "type":"Feature",
          "id":228,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Alvis-Bartlett Field",
@@ -4807,7 +4807,7 @@
          "type":"Feature",
          "id":229,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Pomona Field",
@@ -4828,7 +4828,7 @@
          "type":"Feature",
          "id":230,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1357",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1357",
             "AssetClass":"Tennis Center",
             "MajorAsset":"NO",
             "AutoLabel":"Oka T Hester Park Tennis Center",
@@ -4849,7 +4849,7 @@
          "type":"Feature",
          "id":231,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Hampton Field",
@@ -4889,7 +4889,7 @@
          "type":"Feature",
          "id":233,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=3036",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=3036",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"Greensboro Cultural Center",
@@ -4910,7 +4910,7 @@
          "type":"Feature",
          "id":234,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1357",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1357",
             "AssetClass":"Tennis Center",
             "MajorAsset":"NO",
             "AutoLabel":"Memorial Tennis Center",
@@ -4931,7 +4931,7 @@
          "type":"Feature",
          "id":235,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Entertainment/Cultural/Sporting Venue",
             "MajorAsset":"YES",
             "AutoLabel":"War Memorial Stadium Complex",
@@ -4952,7 +4952,7 @@
          "type":"Feature",
          "id":236,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1357",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1357",
             "AssetClass":"Tennis Center",
             "MajorAsset":"NO",
             "AutoLabel":"Latham Park Tennis Center",
@@ -4973,7 +4973,7 @@
          "type":"Feature",
          "id":237,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Revolution Field",
@@ -4994,7 +4994,7 @@
          "type":"Feature",
          "id":238,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Joe Davis Field",
@@ -5015,7 +5015,7 @@
          "type":"Feature",
          "id":239,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Leonard Center Sports Complex",
@@ -5036,7 +5036,7 @@
          "type":"Feature",
          "id":240,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"YES",
             "AutoLabel":"Stoner-White Stadium",
@@ -5057,7 +5057,7 @@
          "type":"Feature",
          "id":241,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Jerry Stanley Field",
@@ -5078,7 +5078,7 @@
          "type":"Feature",
          "id":242,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Brantley Edwards Field",
@@ -5099,7 +5099,7 @@
          "type":"Feature",
          "id":243,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Henry Bondurant Field",
@@ -5120,7 +5120,7 @@
          "type":"Feature",
          "id":244,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1098",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1098",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"Lewis Center Field",
@@ -5141,7 +5141,7 @@
          "type":"Feature",
          "id":245,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=1319",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=1319",
             "AssetClass":"Marina",
             "MajorAsset":"YES",
             "AutoLabel":"Lake Townsend Marina",
@@ -5162,7 +5162,7 @@
          "type":"Feature",
          "id":246,
          "properties":{
-            "WebSite":"http://www.greensborounited.org/index.html",
+            "Website":"http://www.greensborounited.org/index.html",
             "AssetClass":"Athletic Field/Court",
             "MajorAsset":"NO",
             "AutoLabel":"MacPherson Stadium",
@@ -5183,7 +5183,7 @@
          "type":"Feature",
          "id":247,
          "properties":{
-            "WebSite":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=155",
+            "Website":"http://www.greensboro-nc.gov/index.aspx?page=26&recordid=155",
             "AssetClass":"Office and Administrative",
             "MajorAsset":"NO",
             "AutoLabel":"Parks and Recreation Maintenance",
