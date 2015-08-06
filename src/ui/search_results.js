@@ -90,7 +90,7 @@ define(function(require, exports, module) {
       this.on('click', {
         resultSelector: this.selectedResult
       });
-      this.on(this.attr.searchSelector, 'submit', this.defaultResult);
+      // this.on(this.attr.searchSelector, 'submit', this.defaultResult);
     });
   });
 });
