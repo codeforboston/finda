@@ -70,6 +70,7 @@ define(function(require, exports, module) {
         var $li = $(this);
         return _.contains(data.featureIds, $li.data('feature').id);
       }).show();
+      this.$node.hide().show(0);
       this.trigger('listFinished', {});
     };
 
