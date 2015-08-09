@@ -17,9 +17,6 @@ define(function(require, exports, module) {
     };
 
     this.displayFacets = function(ev, facetData) {
-      facetData = {
-        age: facetData.age
-      }
       this.$node.html(
         _.chain(facetData)
           .map(
@@ -59,6 +56,12 @@ define(function(require, exports, module) {
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);
       this.on(document, 'dataFacets', this.displayFacets);
+
+      this.on(document, 'uiFacetChangeRequest', function(ev, facet) {
+        var input = $('input[name=' + facet.name + ']');
+        input.prop('checked', true);
+        input.trigger('change');
+      });
     });
   });
 });

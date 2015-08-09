@@ -11,7 +11,8 @@ require.config({
     'flight': '../lib/flight.min',
     'fuse': '../lib/fuse.min',
     'Tabletop': '../lib/tabletop',
-    'd3': '../lib/d3.min'
+    'd3': '../lib/d3.min',
+    'StateMachine': '../lib/state-machine'
   },
   shim: {
     'handlebars': {
@@ -36,7 +37,8 @@ define(function(require) {
   'use strict';
   require('bootstrap');
   // attach components to the DOM
-  require('ui/map').attachTo('#map');
+  // require('ui/map').attachTo('#map');
+  require('ui/survey').attachTo('#survey');
   require('ui/search').attachTo('#search');
   require('ui/search_results').attachTo('#search-results');
   require('ui/info').attachTo('#info');

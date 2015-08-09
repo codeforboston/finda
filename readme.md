@@ -17,3 +17,16 @@ Great! Head over to our [Getting Started wiki](https://github.com/codeforboston/
 
 Great! See [Developing Finda](https://github.com/codeforboston/finda/wiki/Developing-Finda) on the wiki.
 
+## Keep test server running to speed up tests
+
+Start test server
+
+```
+npm run test-server
+```
+
+Kick off a test run
+
+```
+npm run test-client
+```
