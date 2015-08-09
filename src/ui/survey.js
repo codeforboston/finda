@@ -6,6 +6,7 @@ define(function(require, exports, module) {
 
   module.exports = flight.component(function() {
     this.after('initialize', function() {
+      $(document).trigger('uiHideResults', {});
       // debugger
       // this.$node.show();
       this.Demo = (function() {
@@ -58,6 +59,7 @@ define(function(require, exports, module) {
           $(document).trigger('uiFacetChangeRequest', {
             name: facetName
           });
+          // $(document).trigger('uiShowResults', {});
         }
       });
     });

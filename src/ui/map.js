@@ -243,6 +243,14 @@ define(function(require, exports, module) {
     };
 
     this.after('initialize', function() {
+      this.on(document, 'uiHideResults', function() {
+        this.$node.hide();
+      });
+
+      this.on(document, 'uiShowResults', function() {
+        this.$node.show();
+      });
+
       this.map = L.map(this.node, {});
 
       this.cluster = new L.MarkerClusterGroup({

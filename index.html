@@ -59,13 +59,13 @@
     </nav>
 
     <div class="container">
-      <!-- <div id="list" class="control control&#45;sidebar"></div> -->
+      <div id="list" class="control control-sidebar"></div>
       <div id="facets" class="control control-sidebar"></div>
       <div id="survey" class="control control-sidebar" style="width:1000px">
         <div id="demo" class='green'>
         </div>
         <div class="question" id="needTreatment">
-          <div id="qNeedTreatment"> 1. Do you need treatment?</div>
+          <div id="qNeedTreatment">Do you need treatment?</div>
           <div class="btn-group" data-toggle="buttons-radio">
             <ul>
               <li><button type="button" data-state-action="needTreatmentYes" class="btn">Yes</button></li>
@@ -74,15 +74,15 @@
           </div>
         </div>
 
-        <div class="question" id="whatType" style="display:none">
-          <div> 2. What kind of treamtent</div>
+        <div class="question" id="whatType">
+          <div>What kind of treatment</div>
           <ul>
             <li><button type="button" class="btn" data-facet-name="oupatient_offered">oupatient_offered</button></li>
           </ul>
         </div>
 
-        <div class="question" id="whatTypeOutpatient" style="display:none">
-          <div> 3. What kind of outpatient</div>
+        <div class="question" id="whatTypeOutpatient">
+          <div>What kind of outpatient</div>
           <ul>
             <li><button type="button" class="btn" data-facet-name="outpatient_intensive">outpatient_intensive</button></li>
             <li><button type="button" class="btn" data-facet-name="outpatient_services ">outpatient_services</button></li>
@@ -90,24 +90,24 @@
           </ul>
         </div>
 
-        <div class="question" id="inpatientTypes" style="display:none">
-          <div> 4. What kind of inpatient</div>
+        <div class="question" id="inpatientTypes">
+          <div>What kind of inpatient</div>
           <ul>
             <li><button id="detox" onclick="Demo.detox();">detox</button></li>
           </ul>
         </div>
 
-        <div class="question" id="gender" style="display:none">
+        <div class="question" id="gender">
           <div>I am interested in services for a</div>
           <ul>
-            <li><button type="button" class="btn" data-facet-name="oupatient_offered">Male</button></li>
+            <li><button type="button" class="btn" data-facet-name="gender_male">Male</button></li>
           </ul>
         </div>
 
         <textarea id="output">
         </textarea>
       </div>
-      <!-- <div id="map"></div> -->
+      <div id="map"></div>
     </div>
 
     <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">

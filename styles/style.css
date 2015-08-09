@@ -206,3 +206,7 @@ body > div.container {
 #loading h4 {
   text-align: center;
 }
+
+#survey .question {
+  display:none;
+}
