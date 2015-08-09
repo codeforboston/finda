@@ -79,7 +79,6 @@ define(function(require, exports, module) {
       var feature = $li.data('feature');
       this.trigger('selectFeature', feature);
       $('.selected').removeClass('selected');
-      $('.selected').removeClass('selected');
       $li.addClass('selected');
     };
 

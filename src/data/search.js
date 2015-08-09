@@ -19,10 +19,16 @@ define(function(require) {
     this.onSearch = function(ev, options) {
       ev.preventDefault();
       var parameters = {
+<<<<<<< HEAD
         // addressdetails: 1,
         format: "json",
         q: options.query,
         bounded: 1
+=======
+        format: "json",
+        Addressdetails: 1,
+        q: options.query
+>>>>>>> Beginning of search fix
       };
       if (this.maxBounds) {
         parameters.viewbox = [

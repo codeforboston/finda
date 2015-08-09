@@ -234,7 +234,6 @@ define(function(require, exports, module) {
     //Added method to pan abnd zoom to features when data is filtered
     this.panToFeatures = function(ev, features) {
       var latLongs = [];
-      console.log(features.keepLayers);
       $.each(features.keepLayers, function(index, value){
         var latLong = [];
         latLong.push(value._latlng.lat);
