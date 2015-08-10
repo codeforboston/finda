@@ -13,10 +13,12 @@ define(
           $(document).trigger('config', {});
           expect(this.component.teardown).toHaveBeenCalledWith();
         });
+      });
 
-        it("makes the node visible if there is a list config", function() {
+      describe('on uiShowResults', function() {
+        it("makes the node visible", function() {
           this.$node.css('display', 'none');
-          $(document).trigger('config', mock.config);
+          $(document).trigger('uiShowResults', mock.config);
           expect(this.$node.css('display')).not.toEqual('none');
         });
       });

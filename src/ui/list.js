@@ -41,7 +41,7 @@ define(function(require, exports, module) {
         return;
       }
       this.trigger('listStarted', {});
-      this.$node.show();
+      // this.$node.show();
       this.render = _.partial(templates.popup, listConfig);
     };
 
@@ -95,6 +95,9 @@ define(function(require, exports, module) {
       this.on(document, 'selectFeature', this.onFeatureSelected);
       this.on('click', {
         listItemSelector: this.onFeatureClick
+      });
+      this.on(document, 'uiShowResults', function() {
+        this.$node.show();
       });
     });
   });

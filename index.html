@@ -60,12 +60,10 @@
 
     <div class="container">
       <div id="list" class="control control-sidebar"></div>
-      <div id="facets" class="control control-sidebar"></div>
+      <div id="facets" class="control control-sidebar" style="display:none"></div>
       <div id="survey" class="control control-sidebar" style="width:1000px">
-        <div id="demo" class='green'>
-        </div>
         <div class="question" id="needTreatment">
-          <div id="qNeedTreatment">Do you need treatment?</div>
+          <div>Do you need treatment?</div>
           <div class="btn-group" data-toggle="buttons-radio">
             <ul>
               <li><button type="button" data-state-action="needTreatmentYes" class="btn">Yes</button></li>
@@ -103,9 +101,6 @@
             <li><button type="button" class="btn" data-facet-name="gender_male">Male</button></li>
           </ul>
         </div>
-
-        <textarea id="output">
-        </textarea>
       </div>
       <div id="map"></div>
     </div>

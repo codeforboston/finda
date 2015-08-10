@@ -36,7 +36,7 @@ define(function(require, exports, module) {
             }, this))
           .value()
           .join('')
-      ).show();
+      ); //.show();
     };
 
     this.selectFacet = function(ev) {
@@ -53,6 +53,14 @@ define(function(require, exports, module) {
     };
 
     this.after('initialize', function() {
+      // this.on(document, 'uiHideResults', function() {
+      //   this.$node.hide();
+      // });
+      //
+      this.on(document, 'uiShowResults', function() {
+        this.$node.show();
+      });
+
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);
       this.on(document, 'dataFacets', this.displayFacets);

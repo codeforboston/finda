@@ -5,6 +5,17 @@ define(function(require, exports, module) {
   var StateMachine = require('StateMachine');
 
   module.exports = flight.component(function() {
+    /*
+      question attributes
+       - nodeName (questionId)
+       - options
+         - radio or checkbox
+         - facetName or stateName
+    this.questions = {
+      title: 'Do you need treatment?',
+    };
+    */
+
     this.after('initialize', function() {
       $(document).trigger('uiHideResults', {});
       // debugger
@@ -59,7 +70,7 @@ define(function(require, exports, module) {
           $(document).trigger('uiFacetChangeRequest', {
             name: facetName
           });
-          // $(document).trigger('uiShowResults', {});
+          $(document).trigger('uiShowResults', {});
         }
       });
     });
