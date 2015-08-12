@@ -2,7 +2,7 @@ define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
   var $ = require('jquery');
-  var _ = require('underscore');
+  var _ = require('lodash');
 
 
   module.exports = flight.component(function sidebar() {
@@ -11,8 +11,9 @@ define(function(require, exports, module) {
     var presentItems = [];
 
     this.defaultAttrs({
-      toggleButtons: '.sidebar-action',
-      sidebarItems: '.sidebar-item'
+      toggleButtons:  '.sidebar-action',
+      sidebarItems:   '.sidebar-item',
+      sidebarToggle:  '.sidebar-toggle'
     });
 
     this.configureSidebar = function(e, config){
@@ -63,11 +64,10 @@ define(function(require, exports, module) {
       this.on(document, 'config', this.configureSidebar);
 
       this.on('click', {
-        toggleButtons: this.showItem
+        toggleButtons: this.showItem,
+        sidebarToggle: this.toggleHiddenSidebar
       });
 
-      // This is outside of the component, but it controls it.. perhaps refactor to include within root element?
-      $(document).on('click', '.sidebar-toggle', this.toggleHiddenSidebar.bind(this) );
 
       $(window).on('resize', function(){
         if( document.body.clientWidth > 955 ) {
