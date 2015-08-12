@@ -248,6 +248,7 @@ define(function(require, exports, module) {
       });
 
       this.on(document, 'uiShowResults', function() {
+        this.map._onResize();
         this.$node.show();
       });
 
