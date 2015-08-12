@@ -2,12 +2,34 @@ define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
   var $ = require('jquery');
+  var _ = require('lodash');
   var StateMachine = require('StateMachine');
+  var Handlebars = require('handlebars');
+  var states = [{
+      name: "needTreatment",
+      title: "Do you need treatment?",
+      options: [{
+          event: "needTreatmentYes",
+          label: "Yes"
+        },{
+          event: "needTreatmentNotSure",
+          label: "I'm not sure"
+        }]
+      }];
+  var statesByName = {};
+  _.each(states, function(state) {
+    statesByName[state.name] = state;
+  });
+  var templates = {
+    state: Handlebars.compile('<div class="question-x" id="{{stateInfo.name}}"><h4>{{stateInfo.title}}</h4>{{{options}}}</div>'),
+    // options: Handlebars.compile('<ul class="list-unstyled">{{#each options}}<li>foo</li>{{/each}}</ul>')
+    options: Handlebars.compile('<ul class="list-unstyled">{{#each options}}<li><button type="button" data-state-action="{{event}}" class="btn">{{label}}</button></li>{{/each}}</ul>')
+  };
 
   module.exports = flight.component(function() {
     /*
       question attributes
-       - nodeName (questionId)
+       - name (questionId)
        - options
          - radio or checkbox
          - facetName or stateName
@@ -18,7 +40,6 @@ define(function(require, exports, module) {
 
     this.after('initialize', function() {
       $(document).trigger('uiHideResults', {});
-      // debugger
       // this.$node.show();
       var _this = this;
       this.Demo = (function() {
@@ -50,8 +71,13 @@ define(function(require, exports, module) {
               state.show();
             },
             onchangestate: function(event, from, to) {
-              $('#' + from).hide();
-              $('#' + to).show();
+              $('#active-state').html(
+                templates.state({
+                  stateInfo: statesByName[to],
+                  options: templates.options(statesByName[to])
+                })
+              ).show();
+              // console.log(templates.state({stateInfo: stateInfo}));
               log("CHANGED STATE: " + from + " to " + to);
             }
           }
