@@ -20,6 +20,7 @@ define(function(require, exports, module) {
       $(document).trigger('uiHideResults', {});
       // debugger
       // this.$node.show();
+      var _this = this;
       this.Demo = (function() {
         // var demo   = document.getElementById('demo'),
         //     count  = 0;
@@ -35,6 +36,7 @@ define(function(require, exports, module) {
           events: [
             { name: 'start', from: 'none',   to: 'needTreatment'  },
             { name: 'needTreatmentYes', from: 'needTreatment',   to: 'whatType'  },
+            { name: 'needTreatmentNotSure', from: 'needTreatment',   to: 'StateNeedTreatmentNotSure'  },
             { name: 'oupatient_offered', from: 'whatType',   to: 'whatTypeOutpatient'  },
             { name: 'outpatient_intensive', from: 'whatTypeOutpatient',   to: 'gender' }
             // { name: 'genderMale', from: 'whatGender',   to: 'inpatientTypes'  }
@@ -43,6 +45,10 @@ define(function(require, exports, module) {
           callbacks: {
             onbeforestart: function() { log("STARTING UP"); },
             onstart:       function() { log("READY");       },
+            onneedTreatmentNotSure: function() {
+              var state = _this.$node.find('.state-machine-state[data-state=stateNeedTreatmentNotSure]');
+              state.show();
+            },
             onchangestate: function(event, from, to) {
               $('#' + from).hide();
               $('#' + to).show();

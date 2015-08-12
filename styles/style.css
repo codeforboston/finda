@@ -210,3 +210,15 @@ body > div.container {
 #survey .question {
   display:none;
 }
+
+#survey .list-unstyled {
+  padding-left: 2em;
+}
+
+#survey .list-unstyled li {
+  line-height: 3em;
+}
+
+.state-machine-state {
+  display:none;
+}

@@ -61,13 +61,15 @@
     <div class="container">
       <div id="list" class="control control-sidebar"></div>
       <div id="facets" class="control control-sidebar" style="display:none"></div>
-      <div id="survey" class="">
+      <div id="survey" class="well">
+        <div class="state-machine-state" data-state="stateNeedTreatmentNotSure">Let's do it</div>
         <div class="question" id="needTreatment">
-          <div>Do you need treatment?</div>
+          <div><label>Do you need treatment?</label></div>
           <div class="btn-group" data-toggle="buttons-radio">
-            <ul>
+            <ul class="list-unstyled">
               <li><button type="button" data-state-action="needTreatmentYes" class="btn">Yes</button></li>
-              <!-- <li><button type="button" class="btn">No</button></li> -->
+              <li><button type="button" data-state-action="needTreatmentNotSure" class="btn">I'm not sure</button></li>
+              <li><button type="button" data-state-action="needTreatmentNo" class="btn">No</button></li>
             </ul>
           </div>
         </div>
