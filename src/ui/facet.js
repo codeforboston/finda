@@ -6,6 +6,7 @@ define(function(require, exports, module) {
   var _ = require('lodash');
   var $ = require('jquery');
   var templates = {
+    needTreatment: Handlebars.compile('<h4>foo</h4>'),
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{ value }} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
     form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
     facet: Handlebars.compile('<h4>{{title}}</h4>{{{form}}}')
@@ -16,7 +17,7 @@ define(function(require, exports, module) {
       this.facetConfig = config.facets;
     };
 
-    this.facetOffset = 0;
+    this.facetOffset = -1;
 
     this.displayFacets = function(ev, facetData) {
       if (facetData) {
@@ -24,12 +25,35 @@ define(function(require, exports, module) {
       } else {
         facetData = this.facetData;
       }
+      if (this.facetOffset === -1) {
+        this.$node.html(
+          templates.needTreatment() +
+          '<a data-next-facet-offset="0" href="#">next</a> '
+        ).show();
+        return
+      }
+      // facetData = {
+      //   'needSomething': {
+      //   }
+      // }
 
       var facets = _.keys(facetData);
       var key = facets[this.facetOffset];
       var newFacetData = {};
       newFacetData[key] = facetData[key];
       facetData = newFacetData;
+      // if (this.facetOffset === 0) {
+      //   facetData = {
+      //     "need_treatment":
+      //       [
+      //         {"value":"yes",
+      //         "count":1,
+      //         "selected":false},
+      //         {"value":"no",
+      //         "count":1,
+      //         "selected":false}
+      //       ]};
+      // }
 
       var facet = _.chain(facetData)
         .map(
