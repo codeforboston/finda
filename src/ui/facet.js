@@ -6,7 +6,7 @@ define(function(require, exports, module) {
   var _ = require('lodash');
   var $ = require('jquery');
   var templates = {
-    needTreatment: Handlebars.compile('<h4>foo</h4>'),
+    needTreatment: Handlebars.compile('<h4>Do you need treatment?</h4><div><a class="foo" data-next-facet-offset="0" href="#">yes</a></div><div><a data-callback="showNoTreatment" href="#">no</a></div>'),
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{ value }} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
     form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
     facet: Handlebars.compile('<h4>{{title}}</h4>{{{form}}}')
@@ -27,8 +27,7 @@ define(function(require, exports, module) {
       }
       if (this.facetOffset === -1) {
         this.$node.html(
-          templates.needTreatment() +
-          '<a data-next-facet-offset="0" href="#">next</a> '
+          templates.needTreatment()
         ).show();
         return
       }
@@ -75,7 +74,7 @@ define(function(require, exports, module) {
         .join('')
       this.$node.html(
         facet +
-          '<a data-next-facet-offset="' + (this.facetOffset + 1) + '" href="#">next</a> ' +
+          '<a class="" data-next-facet-offset="' + (this.facetOffset + 1) + '" href="#">next</a> ' +
           '<a data-next-facet-offset="' + (this.facetOffset - 1) + '" href="#">prev</a>'
       ).show();
     };
@@ -93,6 +92,10 @@ define(function(require, exports, module) {
       }, 0);
     };
 
+    this.showNoTreatment = function() {
+      this.$node.html("Thank you");
+    }
+
     this.after('initialize', function() {
       // this.on(document, 'uiHideResults', function() {
       //   this.$node.hide();
@@ -103,12 +106,14 @@ define(function(require, exports, module) {
       });
 
       this.on('click', function(ev, target) {
-        // console.log('click' + ev.target);
         var nextFacetOffset = $(ev.target).data('nextFacetOffset');
+        var callback = $(ev.target).data('callback');
         if (nextFacetOffset !== undefined) {
           this.facetOffset = nextFacetOffset;
+          this.displayFacets();
+        } else if (callback) {
+          this[callback](ev, target);
         }
-        this.displayFacets();
       }.bind(this));
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);
