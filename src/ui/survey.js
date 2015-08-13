@@ -15,7 +15,19 @@ define(function(require, exports, module) {
           event: "needTreatmentNotSure",
           label: "I'm not sure"
         }]
-      }];
+      },{
+      name: "whatType",
+      title: "What type?",
+      options: [{
+          event: "oupatient_offered",
+          label: "oupatient_offered",
+          facetName: "oupatient_offered",
+        },{
+          event: "outpatient_services",
+          label: "outpatient_services"
+        }]
+      },
+      ];
   var statesByName = {};
   _.each(states, function(state) {
     statesByName[state.name] = state;
@@ -23,7 +35,7 @@ define(function(require, exports, module) {
   var templates = {
     state: Handlebars.compile('<div class="question-x" id="{{stateInfo.name}}"><h4>{{stateInfo.title}}</h4>{{{options}}}</div>'),
     // options: Handlebars.compile('<ul class="list-unstyled">{{#each options}}<li>foo</li>{{/each}}</ul>')
-    options: Handlebars.compile('<ul class="list-unstyled">{{#each options}}<li><button type="button" data-state-action="{{event}}" class="btn">{{label}}</button></li>{{/each}}</ul>')
+    options: Handlebars.compile('<ul class="list-unstyled">{{#each options}}<li><button type="button" data-state-action="{{event}}" data-facet-name="{{facetName}}" class="btn">{{label}}</button></li>{{/each}}</ul>')
   };
 
   module.exports = flight.component(function() {
@@ -46,12 +58,6 @@ define(function(require, exports, module) {
         // var demo   = document.getElementById('demo'),
         //     count  = 0;
 
-        var log = function(/*msg, separate*/) {
-          // count = count + (separate ? 1 : 0);
-          // // output.value = count + ": " + msg + "\n" + (separate ? "\n" : "") + output.value;
-          // demo.innerHTML = fsm.current;
-        };
-
         var fsm = StateMachine.create({
 
           events: [
@@ -64,8 +70,8 @@ define(function(require, exports, module) {
           ],
 
           callbacks: {
-            onbeforestart: function() { log("STARTING UP"); },
-            onstart:       function() { log("READY");       },
+            onbeforestart: function() { console.log("STARTING UP"); },
+            onstart:       function() { console.log("READY");       },
             onneedTreatmentNotSure: function() {
               var state = _this.$node.find('.state-machine-state[data-state=stateNeedTreatmentNotSure]');
               state.show();
@@ -77,8 +83,7 @@ define(function(require, exports, module) {
                   options: templates.options(statesByName[to])
                 })
               ).show();
-              // console.log(templates.state({stateInfo: stateInfo}));
-              log("CHANGED STATE: " + from + " to " + to);
+              console.log("CHANGED STATE: " + from + " to " + to);
             }
           }
         });
@@ -94,15 +99,16 @@ define(function(require, exports, module) {
 
       this.on('click', function(ev) {
         var stateAction = ev.target.dataset.stateAction;
-        if (stateAction) {
-          this.Demo[stateAction]();
-        } else {
-          var facetName = ev.target.dataset.facetName;
+        var facetName = ev.target.dataset.facetName;
+
+        if (facetName) {
           this.Demo[facetName]();
           $(document).trigger('uiFacetChangeRequest', {
             name: facetName
           });
           $(document).trigger('uiShowResults', {});
+        } else if (stateAction) {
+          this.Demo[stateAction]();
         }
       });
     });
