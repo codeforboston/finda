@@ -21,18 +21,18 @@ define(function(require, exports, module) {
     this.facetOffset = 0;
 
     this.meetsFacetDependency = function(facetData, key, dependency) {
-      return _.find(facetData, function(facets, key) {
+      return _.find(facetData, function(facets) {
         return _.find(facets, function(facet) {
           return facet.value === dependency && facet.selected;
         });
       });
-    }
+    };
 
     this.getFacetConfig = function(key, attr) {
       if (this.facetConfig[key]) {
         return this.facetConfig[key][attr];
       }
-    }
+    };
 
     this.displayFacets = function(ev, facetData) {
       if (facetData) {
@@ -40,21 +40,20 @@ define(function(require, exports, module) {
       } else {
         facetData = this.facetData;
       }
-      var allFacetData = facetData;
       if (this.facetOffset === -1) {
         this.$node.html(
           templates.needTreatment()
         ).show();
-        return
+        return;
       }
       // facetData = {
       //   'needSomething': {
       //   }
       // }
 
+      var facets = _.keys(facetData);
+      var key = facets[this.facetOffset];
       if (! this.showAllFacets) {
-        var facets = _.keys(facetData);
-        var key = facets[this.facetOffset];
         // if (! key) { return; }
 
         if (key) {
@@ -101,7 +100,7 @@ define(function(require, exports, module) {
             });
           }, this))
         .value()
-        .join('')
+        .join('');
       this.$node.html(
         facet +
           (this.getFacetConfig(key, "offer_results") ? '<a data-offer-results="true" href="#">results</a> ' : '') +
@@ -126,7 +125,7 @@ define(function(require, exports, module) {
 
     this.showNoTreatment = function() {
       this.$node.html("Thank you");
-    }
+    };
 
     this.after('initialize', function() {
       // this.on(document, 'uiHideResults', function() {
