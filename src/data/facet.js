@@ -10,6 +10,7 @@ define(function(require, exports, module) {
     this.configure = function(ev, config) {
       this.config = config.facets;
       this.selected = {};
+      this.facetTitles = {};
       this.facetValues = null;
       this.facets = null;
 
@@ -178,6 +179,7 @@ define(function(require, exports, module) {
           }
           map.push({value: value,
                     count: count,
+                    title: this.facetTitles[value],
                     selected: selected
                    });
           return map;
@@ -224,6 +226,9 @@ define(function(require, exports, module) {
       this.on(document, 'data', this.loadData);
       this.on(document, 'uiFilterFacet', this.filterData);
       this.on(document, 'mapBounds', this.onMapBounds);
+      this.on(document, 'facetTitles', function(ev, facetTitles) {
+        this.facetTitles = facetTitles;
+      });
     });
   });
 });
