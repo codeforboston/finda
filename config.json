@@ -53,8 +53,7 @@
   },
   "facets": {
     "facility_type": {
-      "title": "Facility Type",
-      "type": "list"
+      "title": "Facility Type"
     },
     "out_patient": {
       "title": "Out Patient",

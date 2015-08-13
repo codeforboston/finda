@@ -23,8 +23,12 @@ define(function(require, exports, module) {
           label: "oupatient_offered",
           facetName: "oupatient_offered",
         },{
-          event: "outpatient_services",
-          label: "outpatient_services"
+          event: "residential_offered",
+          label: "residential_offered",
+          facetName: "residential_offered",
+        },{
+          event: "whatTypeBoth",
+          label: "whatTypeBoth",
         }]
       },
       ];
@@ -65,6 +69,8 @@ define(function(require, exports, module) {
             { name: 'needTreatmentYes', from: 'needTreatment',   to: 'whatType'  },
             { name: 'needTreatmentNotSure', from: 'needTreatment',   to: 'StateNeedTreatmentNotSure'  },
             { name: 'oupatient_offered', from: 'whatType',   to: 'whatTypeOutpatient'  },
+            { name: 'residential_offered', from: 'whatType',   to: 'whatTypeResidential'  },
+            { name: 'whatTypeBoth', from: 'whatType',   to: 'whatTypeOutpatient'  },
             { name: 'outpatient_intensive', from: 'whatTypeOutpatient',   to: 'gender' }
             // { name: 'genderMale', from: 'whatGender',   to: 'inpatientTypes'  }
           ],
@@ -75,6 +81,15 @@ define(function(require, exports, module) {
             onneedTreatmentNotSure: function() {
               var state = _this.$node.find('.state-machine-state[data-state=stateNeedTreatmentNotSure]');
               state.show();
+            },
+            onwhatTypeBoth: function() {
+              $(document).trigger('uiFacetChangeRequest', {
+                name: 'oupatient_offered',
+              });
+              $(document).trigger('uiFacetChangeRequest', {
+                name: 'residential_offered',
+              });
+              $(document).trigger('uiShowResults', {});
             },
             onchangestate: function(event, from, to) {
               $('#active-state').html(
@@ -108,7 +123,11 @@ define(function(require, exports, module) {
           });
           $(document).trigger('uiShowResults', {});
         } else if (stateAction) {
-          this.Demo[stateAction]();
+          if (this.Demo[stateAction]) {
+            this.Demo[stateAction]();
+          } else {
+            console.error('not a valid state action ' + stateAction);
+          }
         }
       });
     });
