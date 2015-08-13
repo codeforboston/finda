@@ -43,16 +43,6 @@ define(function(require, exports, module) {
   };
 
   module.exports = flight.component(function() {
-    /*
-      question attributes
-       - name (questionId)
-       - options
-         - radio or checkbox
-         - facetName or stateName
-    this.questions = {
-      title: 'Do you need treatment?',
-    };
-    */
 
     this.after('initialize', function() {
       $(document).trigger('uiHideResults', {});

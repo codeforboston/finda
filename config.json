@@ -53,31 +53,32 @@
   },
   "facets": {
     "facility_type": {
-      "title": "Facility Type"
+      "title": "Facility Type",
+      "type": "single"
     },
     "out_patient": {
       "title": "Out Patient",
-      "type": "list"
+      "type": "single"
     },
     "residential": {
       "title": "Residential",
-      "type": "list"
+      "type": "single"
     },
     "gender": {
       "title": "Gender",
-      "type": "list"
+      "type": "single"
     },
     "pregnancy": {
       "title": "Pregnancy",
-      "type": "list"
+      "type": "single"
     },
     "age": {
       "title": "Age",
-      "type": "list"
+      "type": "single"
     },
     "insurance": {
       "title": "Insurance Accepted",
-      "type": "list"
+      "type": "single"
     }
   },
   "analytics": {
