@@ -18,6 +18,21 @@ define(function(require, exports, module) {
     };
 
     this.facetOffset = -1;
+    this.facetOffset = 0;
+
+    this.meetsFacetDependency = function(facetData, key, dependency) {
+      return _.find(facetData, function(facets, key) {
+        return _.find(facets, function(facet) {
+          return facet.value === dependency && facet.selected;
+        });
+      });
+    }
+
+    this.getFacetConfig = function(key, attr) {
+      if (this.facetConfig[key]) {
+        return this.facetConfig[key][attr];
+      }
+    }
 
     this.displayFacets = function(ev, facetData) {
       if (facetData) {
@@ -25,6 +40,7 @@ define(function(require, exports, module) {
       } else {
         facetData = this.facetData;
       }
+      var allFacetData = facetData;
       if (this.facetOffset === -1) {
         this.$node.html(
           templates.needTreatment()
@@ -36,11 +52,25 @@ define(function(require, exports, module) {
       //   }
       // }
 
-      var facets = _.keys(facetData);
-      var key = facets[this.facetOffset];
-      var newFacetData = {};
-      newFacetData[key] = facetData[key];
-      facetData = newFacetData;
+      if (! this.showAllFacets) {
+        var facets = _.keys(facetData);
+        var key = facets[this.facetOffset];
+        // if (! key) { return; }
+
+        if (key) {
+          var dependency = this.getFacetConfig(key, "dependency");
+          if (dependency) {
+            if (! this.meetsFacetDependency(facetData, key, dependency)) {
+              this.facetOffset += 1;
+              return this.displayFacets();
+            }
+          }
+        }
+
+        var newFacetData = {};
+        newFacetData[key] = facetData[key];
+        facetData = newFacetData;
+      }
       // if (this.facetOffset === 0) {
       //   facetData = {
       //     "need_treatment":
@@ -59,7 +89,7 @@ define(function(require, exports, module) {
           _.bind(function(values, key) {
             // render a template for each facet
             return templates.facet({
-              title: this.facetConfig[key].title,
+              title: this.getFacetConfig(key, "title"),
               // render the form for each value of the facet
               form: templates.form({
                 key: key,
@@ -74,7 +104,9 @@ define(function(require, exports, module) {
         .join('')
       this.$node.html(
         facet +
-          '<a class="" data-next-facet-offset="' + (this.facetOffset + 1) + '" href="#">next</a> ' +
+          (this.getFacetConfig(key, "offer_results") ? '<a data-offer-results="true" href="#">results</a> ' : '') +
+          (this.showAllFacets ? '<a data-offer-results="false" href="#">Back to Survey</a> ' : '') +
+          '<a data-next-facet-offset="' + (this.facetOffset + 1) + '" href="#">next</a> ' +
           '<a data-next-facet-offset="' + (this.facetOffset - 1) + '" href="#">prev</a>'
       ).show();
     };
@@ -101,19 +133,24 @@ define(function(require, exports, module) {
       //   this.$node.hide();
       // });
       //
-      this.on(document, 'uiShowResults', function() {
-        this.$node.show();
-      });
+      // this.on(document, 'uiShowResults', function() {
+      //   this.$node.show();
+      // });
 
       this.on('click', function(ev, target) {
         var nextFacetOffset = $(ev.target).data('nextFacetOffset');
         var callback = $(ev.target).data('callback');
+        var offerResults = $(ev.target).data('offerResults');
+
         if (nextFacetOffset !== undefined) {
           this.facetOffset = nextFacetOffset;
-          this.displayFacets();
         } else if (callback) {
-          this[callback](ev, target);
+          return this[callback](ev, target);
         }
+        if (offerResults !== undefined) {
+          this.showAllFacets = offerResults;
+        }
+        this.displayFacets();
       }.bind(this));
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);

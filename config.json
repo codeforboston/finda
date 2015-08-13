@@ -54,15 +54,18 @@
   "facets": {
     "facility_type": {
       "title": "Facility Type",
-      "type": "single"
+      "type": "single",
+      "offer_results": "true"
     },
     "out_patient": {
       "title": "Out Patient",
-      "type": "single"
+      "type": "single",
+      "dependency": "oupatient_offered"
     },
     "residential": {
       "title": "Residential",
-      "type": "single"
+      "type": "single",
+      "dependency": "residential_offered"
     },
     "gender": {
       "title": "Gender",
@@ -74,7 +77,8 @@
     },
     "age": {
       "title": "Age",
-      "type": "single"
+      "type": "single",
+      "offer_results": "true"
     },
     "insurance": {
       "title": "Insurance Accepted",
