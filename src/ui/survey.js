@@ -19,18 +19,72 @@ define(function(require, exports, module) {
       name: "whatType",
       title: "What type?",
       options: [{
-          event: "oupatient_offered",
           label: "oupatient_offered",
           facetName: "oupatient_offered",
         },{
-          event: "residential_offered",
           label: "residential_offered",
           facetName: "residential_offered",
         },{
-          event: "whatTypeBoth",
-          label: "whatTypeBoth",
+          event: "oupatient_offered",
+          label: "next",
         }]
+      },{
+      name: "whatTypeOutpatient",
+      title: "whatTypeOutpatient?",
+      options: [{
+          label: "outpatient_intensive",
+          facetName: "outpatient_intensive"
+        },{
+          label: "outpatient_services",
+          facetName: "outpatient_services"
+        },{
+          label: "outpatient_twelvestep",
+          facetName: "outpatient_twelvestep"
+        },{
+          event: "nextResidential",
+          label: "next"
+        }]
+      },{
+      name: "whatTypeResidential",
+      title: "whatTypeResidential?",
+      options: [{
+          label: "residential_detox_offered",
+          facetName: "residential_detox_offered"
+        },{
+          event: "nextGender",
+          label: "next"
+        }
+      ]
+      },{
+      name: "whatTypeGender",
+      title: "whatTypeGender?",
+      options: [{
+          label: "gender_male",
+          facetName: "gender_male"
+        },{
+          label: "gender_female",
+          facetName: "gender_female"
+        },{
+          event: "nextInsurance",
+          label: "next"
+        }
+      ]
+      },{
+      name: "whatTypeInsurance",
+      title: "whatTypeInsurance?",
+      options: [{
+          label: "gender_male",
+          facetName: "gender_male"
+        },{
+          label: "gender_female",
+          facetName: "gender_female"
+        },{
+          event: "nextInsurance",
+          label: "next"
+        }
+      ]
       },
+
       ];
   var statesByName = {};
   _.each(states, function(state) {
@@ -39,7 +93,7 @@ define(function(require, exports, module) {
   var templates = {
     state: Handlebars.compile('<div class="question-x" id="{{stateInfo.name}}"><h4>{{stateInfo.title}}</h4>{{{options}}}</div>'),
     // options: Handlebars.compile('<ul class="list-unstyled">{{#each options}}<li>foo</li>{{/each}}</ul>')
-    options: Handlebars.compile('<ul class="list-unstyled">{{#each options}}<li><button type="button" data-state-action="{{event}}" data-facet-name="{{facetName}}" class="btn">{{label}}</button></li>{{/each}}</ul>')
+    options: Handlebars.compile('<ul class="list-unstyled">{{#each options}}<li><button type="button" data-state-event="{{event}}" data-facet-name="{{facetName}}" class="btn {{#if facetValue}}btn-primary{{else}}btn-default{{/if}}">{{label}}</button></li>{{/each}}</ul>')
   };
 
   module.exports = flight.component(function() {
@@ -60,25 +114,37 @@ define(function(require, exports, module) {
             { name: 'needTreatmentNotSure', from: 'needTreatment',   to: 'StateNeedTreatmentNotSure'  },
             { name: 'oupatient_offered', from: 'whatType',   to: 'whatTypeOutpatient'  },
             { name: 'residential_offered', from: 'whatType',   to: 'whatTypeResidential'  },
-            { name: 'whatTypeBoth', from: 'whatType',   to: 'whatTypeOutpatient'  },
-            { name: 'outpatient_intensive', from: 'whatTypeOutpatient',   to: 'gender' }
+            { name: 'outpatient_services', from: 'whatTypeOutpatient', to: 'whatTypeOutpatient' },
+            { name: 'whatTypeRevisit', from: 'whatTypeOutpatient',   to: 'whatType' },
+            { name: 'next', from: 'whatTypeOutpatient',   to: 'StateResults' },
+            { name: 'nextResidential', from: 'whatTypeOutpatient',   to: 'whatTypeResidential' },
+            { name: 'nextGender', from: 'whatTypeResidential',   to: 'whatTypeGender' },
+            { name: 'nextInsurance', from: 'whatTypeGender',   to: 'whatTypeInsurance' },
             // { name: 'genderMale', from: 'whatGender',   to: 'inpatientTypes'  }
           ],
 
           callbacks: {
-            onbeforestart: function() { console.log("STARTING UP"); },
-            onstart:       function() { console.log("READY");       },
+            // onbeforestart: function() { console.log("STARTING UP"); },
+            // onstart:       function() { console.log("READY");       },
             onneedTreatmentNotSure: function() {
               var state = _this.$node.find('.state-machine-state[data-state=stateNeedTreatmentNotSure]');
               state.show();
             },
-            onwhatTypeBoth: function() {
-              $(document).trigger('uiFacetChangeRequest', {
-                name: 'oupatient_offered',
-              });
-              $(document).trigger('uiFacetChangeRequest', {
-                name: 'residential_offered',
-              });
+            onbeforeoupatient_offered: function () {
+              // figure out if skip outpatient
+              var btn = _this.$node.find('.btn[data-facet=oupatient_offered]');
+              console.log(btn);
+            },
+            // onwhatTypeBoth: function() {
+            //   $(document).trigger('uiFacetChangeRequest', {
+            //     name: 'oupatient_offered',
+            //   });
+            //   $(document).trigger('uiFacetChangeRequest', {
+            //     name: 'residential_offered',
+            //   });
+            //   $(document).trigger('uiShowResults', {});
+            // },
+            onnextInsurance: function() {
               $(document).trigger('uiShowResults', {});
             },
             onchangestate: function(event, from, to) {
@@ -103,20 +169,23 @@ define(function(require, exports, module) {
       }.bind(this), 0);
 
       this.on('click', function(ev) {
-        var stateAction = ev.target.dataset.stateAction;
+        var stateEvent = ev.target.dataset.stateEvent;
         var facetName = ev.target.dataset.facetName;
 
         if (facetName) {
-          this.Demo[facetName]();
+          // this.Demo[facetName]();
           $(document).trigger('uiFacetChangeRequest', {
             name: facetName
           });
-          $(document).trigger('uiShowResults', {});
-        } else if (stateAction) {
-          if (this.Demo[stateAction]) {
-            this.Demo[stateAction]();
+          $(ev.target).toggleClass('btn-primary');
+          // console.log(this.Demo.current);
+          // $(document).trigger('uiShowResults', {});
+        }
+        if (stateEvent) {
+          if (this.Demo[stateEvent]) {
+            this.Demo[stateEvent]();
           } else {
-            console.error('not a valid state action ' + stateAction);
+            console.error('not a valid state action ' + stateEvent);
           }
         }
       });
