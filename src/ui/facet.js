@@ -16,27 +16,44 @@ define(function(require, exports, module) {
       this.facetConfig = config.facets;
     };
 
+    this.facetOffset = 0;
+
     this.displayFacets = function(ev, facetData) {
+      if (facetData) {
+        this.facetData = facetData;
+      } else {
+        facetData = this.facetData;
+      }
+
+      var facets = _.keys(facetData);
+      var key = facets[this.facetOffset];
+      var newFacetData = {};
+      newFacetData[key] = facetData[key];
+      facetData = newFacetData;
+
+      var facet = _.chain(facetData)
+        .map(
+          _.bind(function(values, key) {
+            // render a template for each facet
+            return templates.facet({
+              title: this.facetConfig[key].title,
+              // render the form for each value of the facet
+              form: templates.form({
+                key: key,
+                inputs: _.chain(values)
+                  .filter('count')
+                  .map(templates.input)
+                  .value()
+              })
+            });
+          }, this))
+        .value()
+        .join('')
       this.$node.html(
-        _.chain(facetData)
-          .map(
-            _.bind(function(values, key) {
-              // render a template for each facet
-              return templates.facet({
-                title: this.facetConfig[key].title,
-                // render the form for each value of the facet
-                form: templates.form({
-                  key: key,
-                  inputs: _.chain(values)
-                    .filter('count')
-                    .map(templates.input)
-                    .value()
-                })
-              });
-            }, this))
-          .value()
-          .join('')
-      ); //.show();
+        facet +
+          '<a data-next-facet-offset="' + (this.facetOffset + 1) + '" href="#">next</a> ' +
+          '<a data-next-facet-offset="' + (this.facetOffset - 1) + '" href="#">prev</a>'
+      ).show();
     };
 
     this.selectFacet = function(ev) {
@@ -61,6 +78,14 @@ define(function(require, exports, module) {
         this.$node.show();
       });
 
+      this.on('click', function(ev, target) {
+        // console.log('click' + ev.target);
+        var nextFacetOffset = $(ev.target).data('nextFacetOffset');
+        if (nextFacetOffset !== undefined) {
+          this.facetOffset = nextFacetOffset;
+        }
+        this.displayFacets();
+      }.bind(this));
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);
       this.on(document, 'dataFacets', this.displayFacets);

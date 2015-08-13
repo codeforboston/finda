@@ -41,7 +41,7 @@ define(function(require, exports, module) {
         return;
       }
       this.trigger('listStarted', {});
-      // this.$node.show();
+      this.$node.show();
       this.render = _.partial(templates.popup, listConfig);
     };
 
