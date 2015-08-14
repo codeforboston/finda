@@ -10,8 +10,8 @@ define(function(require, exports, module) {
       Tabletop.init( {
         key: '1oWIrEg77ZSOiYGUA6H4b1wlvtC8pIrvdznQDcbLEUPg',
         callback: function(data) {
-          data.splice(0, 2);
-          this.trigger('facetTitles', {oupatient_offered: "Hi"});
+          var facetTitles = data.splice(0, 1)[0];
+          this.trigger('facetTitles', facetTitles);
           this.trigger('data', this.processData(this.csvToGeojson(data)));
         }.bind(this),
         simpleSheet: true

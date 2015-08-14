@@ -9,7 +9,7 @@ define(function(require, exports, module) {
     needTreatment: Handlebars.compile('<h4>Do you need treatment?</h4><div><a class="foo" data-next-facet-offset="0" href="#">yes</a></div><div><a data-callback="showNoTreatment" href="#">no</a></div>'),
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{#if title}}{{ title }}{{else}}{{ value }}{{/if}} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
     form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
-    facet: Handlebars.compile('<h4>{{title}}</h4>{{{form}}}')
+    facet: Handlebars.compile('<h4>{{{title}}}</h4>{{{form}}}')
   };
 
   module.exports = flight.component(function () {
@@ -88,7 +88,7 @@ define(function(require, exports, module) {
           _.bind(function(values, key) {
             // render a template for each facet
             return templates.facet({
-              title: this.getFacetConfig(key, "title"),
+              title: this.getFacetConfig(key, (this.showAllFacets ? "title" : "survey_title")),
               // render the form for each value of the facet
               form: templates.form({
                 key: key,
