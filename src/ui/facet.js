@@ -7,7 +7,7 @@ define(function(require, exports, module) {
   var $ = require('jquery');
   var templates = {
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{ value }} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
-    form: Handlebars.compile('<form data-facet="{{ key }}"><p data-facet="{{ key }}" class="clear-facets {{#unless has_selected}}hide{{/unless}}">Clear all</p>{{#inputs}}{{{this}}}{{/inputs}}</form>'),
+    form: Handlebars.compile('<span data-facet="{{ key }}" class="clear-facets {{#unless has_selected}}hide{{/unless}}">clear</span><form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
     facet: Handlebars.compile('<h4>{{title}}</h4>{{{form}}}')
   };
 
