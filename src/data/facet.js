@@ -219,11 +219,17 @@ define(function(require, exports, module) {
       }
     };
 
+    this.clearFacets = function(ev, params) {
+      params.selected = [];
+      this.filterData(ev, params);
+    };
+
     this.after('initialize', function() {
       this.on(document, 'config', this.configure);
       this.on(document, 'data', this.loadData);
       this.on(document, 'uiFilterFacet', this.filterData);
       this.on(document, 'mapBounds', this.onMapBounds);
+      this.on(document, 'uiClearFacets', this.clearFacets);
     });
   });
 });

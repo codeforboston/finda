@@ -183,6 +183,16 @@ body > div.container {
   font-weight: bold;
 }
 
+#facets .clear-facets {
+  font-style: italic;
+  float: right;
+  margin: -23px 0 0;
+}
+#facets .clear-facets:hover {
+  color: red; /* TODO: red is probably a horrible color. suggestions? */;
+  cursor:pointer;
+}
+
 #list ul {
   margin: -14px -14px 20px;
   padding-bottom: 20px;

@@ -7,7 +7,7 @@ define(function(require, exports, module) {
   var $ = require('jquery');
   var templates = {
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{ value }} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
-    form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
+    form: Handlebars.compile('<span data-facet="{{ key }}" class="clear-facets {{#unless has_selected}}hide{{/unless}}">clear</span><form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
     facet: Handlebars.compile('<h4>{{title}}</h4>{{{form}}}')
   };
 
@@ -21,12 +21,15 @@ define(function(require, exports, module) {
         _.chain(facetData)
           .map(
             _.bind(function(values, key) {
+              var has_selected = _.some(values, 'selected');
               // render a template for each facet
               return templates.facet({
                 title: this.facetConfig[key].title,
+                key: key,
                 // render the form for each value of the facet
                 form: templates.form({
                   key: key,
+                  has_selected: has_selected,
                   inputs: _.chain(values)
                     .filter('count')
                     .map(templates.input)
@@ -37,6 +40,13 @@ define(function(require, exports, module) {
           .value()
           .join('')
       ).show();
+    };
+
+    this.clearFacets = function(ev) {
+      var facet = $(ev.target).data('facet');
+      $(document).trigger('uiClearFacets', {
+        facet: facet
+      });
     };
 
     this.selectFacet = function(ev) {
@@ -52,10 +62,15 @@ define(function(require, exports, module) {
       }, 0);
     };
 
+    this.defaultAttrs({ // defaultAttrs is now deprecated in favor of 'attributes', but our version of flight still uses this.
+      clearFacetsSelector : ".clear-facets"
+    });
+
     this.after('initialize', function() {
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);
       this.on(document, 'dataFacets', this.displayFacets);
+      this.on('click', { clearFacetsSelector : this.clearFacets });
     });
   });
 });
