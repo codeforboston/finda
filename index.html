@@ -61,52 +61,7 @@
     <div class="container">
       <div id="list" class="control control-sidebar"></div>
       <div id="facets" class="control control-sidebar" style="display:none"></div>
-      <div id="survey" class="well">
-        <div class="state-machine-state" data-state="stateNeedTreatmentNotSure">Not sure: self assessment</div>
-        <div id="active-state">
-        </div>
-        <div class="question" id="needTreatment">
-          <div><label>Do you need treatment?</label></div>
-          <div class="btn-group" data-toggle="buttons-radio">
-            <ul class="list-unstyled">
-              <li><button type="button" data-state-action="needTreatmentYes" class="btn">Yes</button></li>
-              <li><button type="button" data-state-action="needTreatmentNotSure" class="btn">I'm not sure</button></li>
-              <li><button type="button" data-state-action="needTreatmentNo" class="btn">No</button></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="question" id="whatType">
-          <div>What kind of treatment</div>
-          <ul>
-            <li><button type="button" class="btn" data-facet-name="oupatient_offered">oupatient_offered</button></li>
-          </ul>
-        </div>
-
-        <div class="question" id="whatTypeOutpatient">
-          <div>What kind of outpatient</div>
-          <ul>
-            <li><button type="button" class="btn" data-facet-name="outpatient_intensive">outpatient_intensive</button></li>
-            <li><button type="button" class="btn" data-facet-name="outpatient_services ">outpatient_services</button></li>
-            <li><button id="twelvestep" onclick="Demo.twelvestep();">12 steps</button></li>
-          </ul>
-        </div>
-
-        <div class="question" id="inpatientTypes">
-          <div>What kind of inpatient</div>
-          <ul>
-            <li><button id="detox" onclick="Demo.detox();">detox</button></li>
-          </ul>
-        </div>
-
-        <div class="question" id="gender">
-          <div>I am interested in services for a</div>
-          <ul>
-            <li><button type="button" class="btn" data-facet-name="gender_male">Male</button></li>
-          </ul>
-        </div>
-      </div>
-      <div id="map"></div>
+      <!-- <div id="map"></div> -->
     </div>
 
     <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">

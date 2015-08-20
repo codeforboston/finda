@@ -148,6 +148,9 @@ define(function(require, exports, module) {
         }
         if (offerResults !== undefined) {
           this.showAllFacets = offerResults;
+          if (this.showAllFacets) {
+            $(document).trigger('uiShowResults', {});
+          }
         }
         this.displayFacets();
       }.bind(this));

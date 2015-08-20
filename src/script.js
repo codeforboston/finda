@@ -37,8 +37,7 @@ define(function(require) {
   'use strict';
   require('bootstrap');
   // attach components to the DOM
-  require('ui/map').attachTo('#map');
-  // require('ui/survey').attachTo('#survey');
+  // require('ui/map').attachTo('#map');
   require('ui/search').attachTo('#search');
   require('ui/search_results').attachTo('#search-results');
   require('ui/info').attachTo('#info');
