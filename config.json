@@ -59,30 +59,36 @@
       "offer_results": "true"
     },
     "out_patient": {
-      "title": "Out Patient",
+      "title": "Outpatient",
       "type": "single",
-      "dependency": "oupatient_offered"
+      "dependency": "oupatient_offered",
+      "survey_title": "Outpatient treatments I am interested in"
     },
     "residential": {
       "title": "Residential",
       "type": "single",
+      "survey_title": "Residential treatments I am interested in",
       "dependency": "residential_offered"
     },
     "gender": {
       "title": "Gender",
+      "survey_title": "I am in interested in treatments for a",
       "type": "single"
     },
     "pregnancy": {
       "title": "Pregnancy",
+      "survey_title": "I am in interested in treatments for someone who is pregnant",
       "type": "single"
     },
     "age": {
       "title": "Age",
+      "survey_title": "I am interested in treatments for someone",
       "type": "single",
       "offer_results": "true"
     },
     "insurance": {
       "title": "Insurance Accepted",
+      "survey_title": "I am interested in services that accept",
       "type": "single"
     }
   },

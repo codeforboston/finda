@@ -24,7 +24,7 @@ define(['test/mock', 'jquery'], function(mock, $) {
         this.component.trigger('dataFacets', mockFacets);
       });
       it('renders the name of the facet in an h4', function() {
-        expect(this.$node.find('h4').text()).toEqual('Services');
+        expect(this.$node.find('h4').text()).toEqual('What kind of services do you want?');
       });
       it('renders each facet value as a checkbox', function() {
         expect(this.$node.find('input').length).toEqual(2);

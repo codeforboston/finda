@@ -39,6 +39,7 @@ define({
     "facets": {
       services_offered: {
         title: "Services",
+        survey_title: "What kind of services do you want?",
         type: "list"
       }
     }
