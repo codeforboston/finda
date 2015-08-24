@@ -206,19 +206,3 @@ body > div.container {
 #loading h4 {
   text-align: center;
 }
-
-#survey .question {
-  display:none;
-}
-
-#survey .list-unstyled {
-  padding-left: 2em;
-}
-
-#survey .list-unstyled li {
-  line-height: 3em;
-}
-
-.state-machine-state {
-  display:none;
-}

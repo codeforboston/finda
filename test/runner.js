@@ -21,8 +21,7 @@ require.config({
     'flight': '../lib/flight.min',
     'd3': '../lib/d3.min',
     'Tabletop': '../lib/tabletop',
-    'bootstrap': '../lib/bootstrap.min',
-    'StateMachine': '../lib/state-machine'
+    'bootstrap': '../lib/bootstrap.min'
   },
   shim: {
     'handlebars': {
