@@ -31,9 +31,11 @@
 
     {"name": "facility_type", "title": "Facility Type" },
     {"name": "out_patient", "title": "Outpatient Services" },
-    {"name": "age", "title": "Ages Served" },
+    {"name": "residential_offered", "title": "Residential Services" },
     {"name": "gender", "title": "Genders Served" },
-    {"name": "other", "title": "Other"}
+    {"name": "pregnancy_services", "title": "Services for Pregnant Women" },
+    {"name": "age", "title": "Ages Served" },
+    {"name": "insurance", "title": "Insurance accepted"}
   ],
   "list": [
     "organization_name",
@@ -83,12 +85,12 @@
     },
     "age": {
       "title": "Age",
-      "survey_title": "I am interested in treatments for someone",
+      "survey_title": "I am interested in treatments for a",
       "type": "single"
     },
     "insurance": {
       "title": "Insurance Accepted",
-      "survey_title": "I am interested in services that accept",
+      "survey_title": "I am interested in services that accept these payments",
       "type": "single"
     }
   },

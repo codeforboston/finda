@@ -105,14 +105,14 @@ define(function(require, exports, module) {
       this.showAllFacets = offerResults;
       if (this.showAllFacets) {
         $('#facets').addClass('control-sidebar');
+        $('#facets').removeClass('control-survey');
+        $('#facets').remove();
         $(document).trigger('uiShowResults', {});
       } else {
         $('#facets').removeClass('control-sidebar');
         $('#facets').addClass('control-survey');
         $(document).trigger('uiHideResults', {});
-        // $(document).trigger('uiShowSurvey', {});
       }
-      this.displayFacets();
     };
 
     this.nextPrevHandler = function(ev) {
