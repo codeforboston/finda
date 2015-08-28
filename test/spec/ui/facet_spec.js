@@ -22,6 +22,8 @@ define(['test/mock', 'jquery'], function(mock, $) {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('dataFacets', mockFacets);
+        // skip past intro question and to first facet
+        this.component.setFacetOffset(0);
       });
       it('renders the name of the facet in an h4', function() {
         expect(this.$node.find('h4').text()).toEqual('What kind of services do you want?');

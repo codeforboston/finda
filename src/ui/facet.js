@@ -6,11 +6,11 @@ define(function(require, exports, module) {
   var _ = require('lodash');
   var $ = require('jquery');
   var templates = {
-    needTreatment: Handlebars.compile('<h4>Do you need treatment?</h4><div><a class="foo" data-next-facet-offset="0" href="#">yes</a></div><div><a data-callback="showNoTreatment" href="#">no</a></div>'),
+    needTreatment: Handlebars.compile('<h4>Do you need treatment?</h4><div><a class="js-next-prev" data-next-facet-offset="0" href="#">Yes</a></div><div><a class="js-no-treatment" href="#">No</a></div>'),
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{#if title}}{{ title }}{{else}}{{ value }}{{/if}} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
     form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
     facet: Handlebars.compile('<h4>{{{title}}}</h4>{{{form}}}'),
-    facetControls: Handlebars.compile('{{#if showResults}}<a class="js-offer-results" data-offer-results="false" href="#">Back to Survey</a>{{else}}<a href="#"><button data-next-facet-offset="{{facetOffset}}" class="js-next-prev btn btn-default">Next</button></a> <a class="js-offer-results" data-offer-results="true" href="#">Skip to Facilities</a>{{/if}}')
+    facetControls: Handlebars.compile('{{#if showResults}}<a class="js-offer-results" data-offer-results="false" href="#"><< Back to Survey</a>{{else}}<a href="#"><button data-next-facet-offset="{{facetOffset}}" class="js-next-prev btn btn-default">Next</button></a> <a class="js-offer-results" data-offer-results="true" href="#">Skip to Facilities >> </a>{{/if}}')
   };
 
   module.exports = flight.component(function () {
@@ -44,9 +44,9 @@ define(function(require, exports, module) {
         facetData = this.facetData;
       }
       if (this.facetOffset === -1) {
-        this.$node.html(
-          templates.needTreatment()
-        ).show();
+        this.$node.html(templates.needTreatment()).show();
+        this.on('.js-next-prev', 'click', this.nextPrevHandler);
+        this.on('.js-no-treatment', 'click', this.showNoTreatment);
         return;
       }
 
@@ -95,28 +95,32 @@ define(function(require, exports, module) {
         })
       ).show();
 
-      this.on('.js-next-prev', 'click', function(ev) {
-        var nextFacetOffset = $(ev.target).data('nextFacetOffset');
-        this.facetOffset = nextFacetOffset;
-        console.log(this.facetOffset);
-        this.displayFacets();
-      });
+      this.on('.js-next-prev', 'click', this.nextPrevHandler);
+      this.on('.js-offer-results', 'click', this.showResultsHandler);
+    };
 
-      this.on('.js-offer-results', 'click', function(ev) {
-        // can be true or false
-        var offerResults = $(ev.target).data('offerResults');
-        this.showAllFacets = offerResults;
-        if (this.showAllFacets) {
-          $('#facets').addClass('control-sidebar');
-          $(document).trigger('uiShowResults', {});
-        } else {
-          $('#facets').removeClass('control-sidebar');
-          $('#facets').addClass('control-survey');
-          $(document).trigger('uiHideResults', {});
-          // $(document).trigger('uiShowSurvey', {});
-        }
-        this.displayFacets();
-      });
+    this.showResultsHandler = function(ev) {
+      // can be true or false
+      var offerResults = $(ev.target).data('offerResults');
+      this.showAllFacets = offerResults;
+      if (this.showAllFacets) {
+        $('#facets').addClass('control-sidebar');
+        $(document).trigger('uiShowResults', {});
+      } else {
+        $('#facets').removeClass('control-sidebar');
+        $('#facets').addClass('control-survey');
+        $(document).trigger('uiHideResults', {});
+        // $(document).trigger('uiShowSurvey', {});
+      }
+      this.displayFacets();
+    };
+
+    this.nextPrevHandler = function(ev) {
+      this.setFacetOffset($(ev.target).data('nextFacetOffset'));
+    }
+    this.setFacetOffset = function(offset) {
+      this.facetOffset = offset;
+      this.displayFacets();
     };
 
     this.selectFacet = function(ev) {
@@ -134,16 +138,6 @@ define(function(require, exports, module) {
 
     this.showNoTreatment = function() {
       this.$node.html("Thank you");
-    };
-
-    // EDS todo: localize the click handlers so we don't have to ask questions about what type of event it was
-    this.handleClicks = function(ev, target) {
-      var callback = $(ev.target).data('callback');
-
-      if (callback) {
-        return this[callback](ev, target);
-      }
-      this.displayFacets();
     };
 
     this.after('initialize', function() {
