@@ -53,10 +53,9 @@
   },
   "facets": {
     "facility_type": {
-      "title": "Treatment Type",
-      "survey_title": "Treatment can be delivered on an outpatient or inpatient basis. Examples of outpatient treatment options include 12 step programs, counseling, and Intensive Outpatient Programs where you spend several hours per week in treatment.  Examples of inpatient treatment options include inpatient detox and inpatient residential treatment where you stay in the facility overnight for the length of your treatment. <br><br>I am interested in learning about substance abuse treatment resources that are:",
-      "type": "single",
-      "offer_results": "true"
+      "title": "Type of Treatment",
+      "survey_title": "Treatment can be delivered on an outpatient or inpatient basis. <br><br>Examples of outpatient treatment options include 12 step programs, counseling, and Intensive Outpatient Programs where you spend several hours per week in treatment.  Examples of inpatient treatment options include inpatient detox and inpatient residential treatment where you stay in the facility overnight for the length of your treatment. <br><br>I am interested in learning about substance abuse treatment resources that are:",
+      "type": "single"
     },
     "out_patient": {
       "title": "Outpatient",
@@ -76,15 +75,14 @@
       "type": "single"
     },
     "pregnancy": {
-      "title": "Pregnancy",
+      "title": "Services for Preganant woman?",
       "survey_title": "I am in interested in treatments for someone who is pregnant",
       "type": "single"
     },
     "age": {
       "title": "Age",
       "survey_title": "I am interested in treatments for someone",
-      "type": "single",
-      "offer_results": "true"
+      "type": "single"
     },
     "insurance": {
       "title": "Insurance Accepted",

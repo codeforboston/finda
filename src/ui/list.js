@@ -99,6 +99,9 @@ define(function(require, exports, module) {
       this.on(document, 'uiShowResults', function() {
         this.$node.show();
       });
+      this.on(document, 'uiHideResults', function() {
+        this.$node.hide();
+      });
     });
   });
 });

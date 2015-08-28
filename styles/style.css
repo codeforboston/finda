@@ -206,3 +206,21 @@ body > div.container {
 #loading h4 {
   text-align: center;
 }
+
+.control-survey {
+  width: 80%;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 10px 14px 50px;
+  height: 100%;
+  border-right: 1px solid #AFAFAF;
+  border-left: 1px solid #AFAFAF;
+  margin-bottom:30px;
+  overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+  .control-survey {
+    width: 100%;
+  }
+}
