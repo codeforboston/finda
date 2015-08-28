@@ -31,13 +31,14 @@
 
     {"name": "facility_type", "title": "Facility Type" },
     {"name": "out_patient", "title": "Outpatient Services" },
-    {"name": "age", "title": "Ages served" },
-    {"name": "gender", "title": "Genders served" },
+    {"name": "age", "title": "Ages Served" },
+    {"name": "gender", "title": "Genders Served" },
     {"name": "other", "title": "Other"}
   ],
   "list": [
     "organization_name",
-    "address"
+    "city",
+    "phone_numbers"
   ],
   "search": {
     "geosearch": true,
@@ -75,7 +76,7 @@
       "type": "single"
     },
     "pregnancy": {
-      "title": "Services for Preganant woman?",
+      "title": "Services for a Preganant Woman?",
       "survey_title": "I am in interested in treatments for someone who is pregnant",
       "type": "single"
     },

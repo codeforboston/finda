@@ -41,8 +41,9 @@ define(function(require, exports, module) {
         return;
       }
       this.trigger('listStarted', {});
-      // this.$node.show();
-      this.render = _.partial(templates.popup, listConfig);
+      this.$node.show();
+      this.render = _.partial(templates.popup, config.list);
+      this.renderFull = _.partial(templates.popup, config.properties);
     };
 
     this.loadData = function(ev, data) {
@@ -51,6 +52,7 @@ define(function(require, exports, module) {
         data.features,
         function(feature, l) {
           var $li = $("<li/>").html(this.render(feature.properties))
+                .addClass('item')
                 .data('feature', feature);
           $li._text = $li.text();
           l.push($li);
@@ -66,7 +68,7 @@ define(function(require, exports, module) {
 
     this.filterData = function(ev, data) {
       this.trigger('listFilteringStarted', {});
-      this.$node.find('li').hide().filter(function() {
+      this.$node.find('li.item').hide().filter(function() {
         var $li = $(this);
         return _.contains(data.featureIds, $li.data('feature').id);
       }).show();
@@ -74,13 +76,16 @@ define(function(require, exports, module) {
     };
 
     this.onFeatureClick = function onFeatureClick(ev) {
-      var $li = $(ev.target).closest('li');
+      var $li = $(ev.target).closest('li.item');
       var feature = $li.data('feature');
+      this.selectedLi = $li;
       this.trigger('selectFeature', feature);
     };
 
     this.onFeatureSelected = function onFeatureSelected(ev, feature) {
-      var offset = $elementForFeature.call(this, feature).offset().top - 50;
+      var $selectedItem = $elementForFeature.call(this, feature);
+      var offset = $selectedItem.offset().top - 50;
+      $selectedItem.html(this.renderFull(feature.properties));
       this.scrollToOffset(offset);
     };
 

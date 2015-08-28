@@ -8,9 +8,12 @@ define(function(require, exports, module) {
     this.onConfig = function onConfig() {
       // load the geojson
       Tabletop.init( {
-        key: '1oWIrEg77ZSOiYGUA6H4b1wlvtC8pIrvdznQDcbLEUPg',
+        // key: '1oWIrEg77ZSOiYGUA6H4b1wlvtC8pIrvdznQDcbLEUPg',
+        key: '1ubx07oylGxk5FDIjMnQo4cMNBd3a8QYiPm27rWuyByI',
         callback: function(data) {
           var facetTitles = data.splice(0, 1)[0];
+          // throw away survey rows
+          data.splice(0, 1);
           this.trigger('facetTitles', facetTitles);
           this.trigger('data', this.processData(this.csvToGeojson(data)));
         }.bind(this),
@@ -21,9 +24,9 @@ define(function(require, exports, module) {
     this.csvRowToProperties = function csvRowToProperties(csvRow, facetValues) {
       var properties = {
         "organization_name": csvRow.organization_name,
-        "phone_numbers": csvRow["Phone Number"],
-        "address": csvRow.address + " " + csvRow.physicalcity + ", Kentucky",
-        "city": csvRow.physicalcity
+        "phone_numbers": csvRow.phone_numbers,
+        "address": csvRow.address + " " + csvRow.city + ", Kentucky",
+        "city": csvRow.city
       };
 
       _.each(facetValues, function(facet, facetValue) {

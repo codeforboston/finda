@@ -183,13 +183,13 @@ body > div.container {
   font-weight: bold;
 }
 
-#list ul {
+#list.control>ul {
   margin: -14px -14px 20px;
   padding-bottom: 20px;
   padding-left: 0;
 }
 
-#list li {
+#list.control>ul>li {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #dedede;
   padding: 1em;
