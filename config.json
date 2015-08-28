@@ -78,6 +78,7 @@
     "pregnancy": {
       "title": "Services for a Preganant Woman?",
       "survey_title": "I am in interested in treatments for someone who is pregnant",
+      "dependency": "gender_female",
       "type": "single"
     },
     "age": {

@@ -22,7 +22,7 @@ define(['test/mock', 'jquery'], function(mock, $) {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('dataFacets', mockFacets);
-        // skip past intro question and to first facet
+        // skip past intro question to first facet
         this.component.setFacetOffset(0);
       });
       it('renders the name of the facet in an h4', function() {
@@ -50,6 +50,8 @@ define(['test/mock', 'jquery'], function(mock, $) {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('dataFacets', mockFacets);
+        // skip past intro question to first facet
+        this.component.setFacetOffset(0);
       });
       it('sends a "uiFilterFacet" event with the selected facets', function () {
         this.component.$node.find('input:first').click();

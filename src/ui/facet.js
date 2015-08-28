@@ -6,7 +6,7 @@ define(function(require, exports, module) {
   var _ = require('lodash');
   var $ = require('jquery');
   var templates = {
-    needTreatment: Handlebars.compile('<h4>Do you need treatment?</h4><div><a class="js-next-prev" data-next-facet-offset="0" href="#">Yes</a></div><div><a class="js-no-treatment" href="#">No</a></div>'),
+    needTreatment: Handlebars.compile('<h4>Do you/does someone you know need to access substance abuse treatment services?</h4><div><a class="js-next-prev" data-next-facet-offset="0" href="#">Yes</a></div><div><a class="js-not-sure-treatment" href="#">I\'m not sure</a></div><div><a class="js-no-treatment" href="#">No</a></div>'),
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{#if title}}{{ title }}{{else}}{{ value }}{{/if}} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
     form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
     facet: Handlebars.compile('<h4>{{{title}}}</h4>{{{form}}}'),
@@ -20,7 +20,6 @@ define(function(require, exports, module) {
 
     // -1 is start with intro question that is not a facet
     this.facetOffset = -1;
-    this.facetOffset = 0;
 
     this.meetsFacetDependency = function(facetData, key, dependency) {
       return _.find(facetData, function(facets) {
@@ -47,6 +46,7 @@ define(function(require, exports, module) {
         this.$node.html(templates.needTreatment()).show();
         this.on('.js-next-prev', 'click', this.nextPrevHandler);
         this.on('.js-no-treatment', 'click', this.showNoTreatment);
+        this.on('.js-not-sure-treatment', 'click', this.showNoTreatment);
         return;
       }
 
@@ -117,7 +117,7 @@ define(function(require, exports, module) {
 
     this.nextPrevHandler = function(ev) {
       this.setFacetOffset($(ev.target).data('nextFacetOffset'));
-    }
+    };
     this.setFacetOffset = function(offset) {
       this.facetOffset = offset;
       this.displayFacets();
@@ -137,12 +137,10 @@ define(function(require, exports, module) {
     };
 
     this.showNoTreatment = function() {
-      this.$node.html("Thank you");
+      this.$node.html("Thank you for your time.");
     };
 
     this.after('initialize', function() {
-      // this.on('click', this.handleClicks);
-
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);
       this.on(document, 'dataFacets', this.displayFacets);
