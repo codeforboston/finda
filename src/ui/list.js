@@ -85,7 +85,7 @@ define(function(require, exports, module) {
     this.onFeatureSelected = function onFeatureSelected(ev, feature) {
       var $selectedItem = $elementForFeature.call(this, feature);
       var offset = $selectedItem.offset().top - 50;
-      $selectedItem.html(this.renderFull(feature.properties));
+      $selectedItem.html(this.renderFull(feature.properties, this.facetTitles));
       this.scrollToOffset(offset);
     };
 
@@ -106,6 +106,9 @@ define(function(require, exports, module) {
       });
       this.on(document, 'uiHideResults', function() {
         this.$node.hide();
+      });
+      this.on(document, 'facetTitles', function(ev, facetTitles) {
+        this.facetTitles = facetTitles;
       });
     });
   });
