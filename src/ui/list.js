@@ -85,8 +85,22 @@ define(function(require, exports, module) {
     this.onFeatureSelected = function onFeatureSelected(ev, feature) {
       var $selectedItem = $elementForFeature.call(this, feature);
       var offset = $selectedItem.offset().top - 50;
-      $selectedItem.html(this.renderFull(feature.properties, this.facetTitles));
+      var propsWithTitles = this.addFacetTitles(feature.properties, this.facetTitles);
+      $selectedItem.html(this.renderFull(propsWithTitles));
       this.scrollToOffset(offset);
+    };
+
+    this.addFacetTitles = function(featureProperties, facetTitles) {
+      var propsWithTitles = _.clone(featureProperties);
+      // can probably use map rather than each
+      _.each(propsWithTitles, function(values, key) {
+        if (facetTitles && _.isArray(values)) {
+          propsWithTitles[key] = _.map(values, function(value) {
+            return facetTitles[value];
+          }.bind(this));
+        }
+      }.bind(this));
+      return propsWithTitles;
     };
 
     this.scrollToOffset = function(offset) {

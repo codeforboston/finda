@@ -3,8 +3,6 @@ define(function(require, exports) {
   var Handlebars = require('handlebars'),
       _ = require('lodash');
 
-  var facetTitles;
-
   var templates = {
     url: Handlebars.compile('<a target="_blank" href="{{url}}">{{title}}</a>'),
     image: Handlebars.compile('<img src="{{url}}"/>'),
@@ -42,7 +40,7 @@ define(function(require, exports) {
     },
 
     simple: function(value) {
-      var text = value;//facetTitles ? facetTitles[value] : value;
+      var text = value;
       return templates.simple({text: text}).replace(
           /\n/g, '<br>');
     },
@@ -75,9 +73,7 @@ define(function(require, exports) {
     return formatters[formatter](value, property);
   }
 
-  exports.popup = function(properties, feature, thisFacetTitles) {
-    if (thisFacetTitles) { facetTitles = thisFacetTitles; }
-
+  exports.popup = function(properties, feature) {
     var popup = [],
         rendered;
     _.each(properties, function(property) {
