@@ -42,7 +42,7 @@ define(function(require, exports) {
     },
 
     simple: function(value) {
-      var text = facetTitles ? facetTitles[value] : value;
+      var text = value;//facetTitles ? facetTitles[value] : value;
       return templates.simple({text: text}).replace(
           /\n/g, '<br>');
     },
