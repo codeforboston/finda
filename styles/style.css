@@ -219,6 +219,10 @@ body > div.container {
   overflow-y: auto;
 }
 
+.control-survey .btn {
+  margin-bottom: 5px;
+}
+
 @media (max-width: 600px) {
   .control-survey {
     width: 100%;

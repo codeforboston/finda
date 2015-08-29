@@ -6,7 +6,7 @@ define(function(require, exports, module) {
   var _ = require('lodash');
   var $ = require('jquery');
   var templates = {
-    needTreatment: Handlebars.compile('<h4>Do you/does someone you know need to access substance abuse treatment services?</h4><div><a class="js-next-prev" data-next-facet-offset="0" href="#">Yes</a></div><div><a class="js-not-sure-treatment" href="#">I\'m not sure</a></div><div><a class="js-no-treatment" href="#">No</a></div>'),
+    needTreatment: Handlebars.compile('<h4>Do you/does someone you know need to access substance abuse treatment services?</h4><div><a href="#"><button class="js-next-prev btn btn-default" data-next-facet-offset="0">Yes</button></a></div><div><a href="#"><button class="js-not-sure-treatment btn btn-default">I\'m not sure</button></a></div><div><a href="#"><button class="btn btn-default js-no-treatment">No</button></a></div>'),
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{#if title}}{{ title }}{{else}}{{ value }}{{/if}} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
     form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
     facet: Handlebars.compile('<h4>{{{title}}}</h4>{{{form}}}'),
