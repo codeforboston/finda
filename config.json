@@ -63,7 +63,7 @@
     "out_patient": {
       "title": "Outpatient",
       "type": "single",
-      "dependency": "oupatient_offered",
+      "dependency": "outpatient_offered",
       "survey_title": "Outpatient treatments I am interested in"
     },
     "residential": {
