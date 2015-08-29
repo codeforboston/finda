@@ -47,7 +47,7 @@ define(function(require, exports, module) {
     };
 
     this.loadData = function(ev, data) {
-      var $ul = this.$node.empty().html('<ul></ul>').find('ul');
+      var $ul = this.$node.empty().html('<ul><li><a href="javascript:location.reload()"><< Back to Questions</a></li></ul>').find('ul');
       timedWithObject(
         data.features,
         function(feature, l) {

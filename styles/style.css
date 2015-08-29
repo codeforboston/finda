@@ -167,8 +167,7 @@ body > div.container {
     border-radius: 5px;
 }
 
-
-.control.control-sidebar {
+.control-sidebar {
   float: left;
   box-sizing: border-box;
   padding: 10px 14px 50px;
@@ -224,7 +223,7 @@ body > div.container {
 }
 
 @media (max-width: 600px) {
-  .control-survey {
+  .control-survey, .control-sidebar {
     width: 100%;
   }
 }
