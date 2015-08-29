@@ -10,6 +10,7 @@ define(function(require, exports) {
     list: Handlebars.compile('<ul> {{#list}} <li>{{{this}}}</li> {{/list}} </ul>'),
     directions: Handlebars.compile('<a target="_blank" href="http://maps.google.com/maps?q={{directions}}">{{title}}</a>'),
     simple: Handlebars.compile('{{text}}'),
+    phone_numbers: Handlebars.compile('<a href="tel:{{text}}">{{text}}</a>'),
     popup: Handlebars.compile('<div>{{#popup}}<div class="feature-{{klass}}">{{{rendered}}}</div>{{/popup}}</div>')
   };
   var formatters = {
@@ -39,6 +40,10 @@ define(function(require, exports) {
       });
     },
 
+    phone_numbers: function(value) {
+      return templates.phone_numbers({text: value});
+    },
+
     simple: function(value) {
       var text = value;
       return templates.simple({text: text}).replace(
@@ -66,6 +71,8 @@ define(function(require, exports) {
       formatter = 'title';
     } else if (_.isArray(value)) {
       formatter = 'list';
+    } else if (property === "phone_numbers") {
+      formatter = 'phone_numbers';
     } else {
       formatter = 'simple';
     }
