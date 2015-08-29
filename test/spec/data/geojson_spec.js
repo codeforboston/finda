@@ -30,19 +30,19 @@ define(function() {
 
         var csvRow = {
           organization_name: 'My org',
-          oupatient_offered: "1",
+          outpatient_offered: "1",
           residential_offered: "1"
         };
 
         var facetValues = {
-          oupatient_offered: "facility_type",
+          outpatient_offered: "facility_type",
           residential_offered: "facility_type",
         }
 
         var properties = {
           "organization_name": "My org",
           "facility_type": [
-            "oupatient_offered",
+            "outpatient_offered",
             "residential_offered"
           ]
         };
@@ -56,19 +56,19 @@ define(function() {
 
         var csvRow = {
           organization_name: 'My org',
-          oupatient_offered: "1",
+          outpatient_offered: "1",
           residential_offered: "0"
         };
 
         var facetValues = {
-          oupatient_offered: "facility_type",
+          outpatient_offered: "facility_type",
           residential_offered: "facility_type",
         }
 
         var properties = {
           "organization_name": "My org",
           "facility_type": [
-            "oupatient_offered"
+            "outpatient_offered"
           ]
         };
 

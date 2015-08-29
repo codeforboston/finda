@@ -54,7 +54,7 @@ define(function(require, exports, module) {
 
     this.csvToGeojson = function csvToGeojson(csv) {
       var facetValues = {
-        oupatient_offered: "facility_type",
+        outpatient_offered: "facility_type",
         residential_offered: "facility_type",
         outpatient_intensive: "out_patient",
         outpatient_services: "out_patient",
