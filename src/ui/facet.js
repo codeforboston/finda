@@ -53,10 +53,11 @@ define(function(require, exports, module) {
       var facets = _.keys(facetData);
       var key = facets[this.facetOffset];
       if (! this.showAllFacets) {
-      if (this.facetOffset >= _.keys(facetData).length) {
-        this.$node.find('.js-offer-results[data-offer-results=true]').click();
-        return;
-      }
+        if (this.facetOffset >= _.keys(facetData).length) {
+          this.$node.find('.js-offer-results[data-offer-results=true]').click();
+          return;
+        }
+
         // does the facet have a dependency?
         if (key) {
           var dependency = this.getFacetConfig(key, "dependency");
@@ -110,13 +111,13 @@ define(function(require, exports, module) {
       if (this.showAllFacets) {
         $('#facets').addClass('control-sidebar');
         $('#facets').removeClass('control-survey');
-        $('#facets').remove();
         $(document).trigger('uiShowResults', {});
       } else {
         $('#facets').removeClass('control-sidebar');
         $('#facets').addClass('control-survey');
         $(document).trigger('uiHideResults', {});
       }
+      this.displayFacets();
     };
 
     this.nextPrevHandler = function(ev) {
