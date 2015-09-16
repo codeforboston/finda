@@ -10,7 +10,7 @@ define(function(require, exports, module) {
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{#if title}}{{ title }}{{else}}{{ value }}{{/if}} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
     form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
     facet: Handlebars.compile('<h4>{{{title}}}</h4>{{{form}}}'),
-    facetControls: Handlebars.compile('{{#if showResults}}<a class="js-offer-results" data-offer-results="false" href="#"><< Back to Survey</a>{{else}}<a href="#"><button data-next-facet-offset="{{facetOffset}}" class="js-next-prev btn btn-default">Next</button></a> <a class="js-offer-results" data-offer-results="true" href="#">Skip to Facilities >> </a>{{/if}}')
+    facetControls: Handlebars.compile('{{#if showResults}}<a href="javascript:location.reload()"><< Back to Questions</a>{{else}}<a href="#"><button data-next-facet-offset="{{facetOffset}}" class="js-next-prev btn btn-default">Next</button></a> <a class="js-offer-results" data-offer-results="true" href="#">Skip to Facilities >> </a>{{/if}}')
   };
 
   module.exports = flight.component(function () {
