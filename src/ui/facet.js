@@ -93,11 +93,35 @@ define(function(require, exports, module) {
         .value()
         .join('');
       this.$node.html(
+// <<<<<<< HEAD
         facet +
         templates.facetControls({
           showResults: this.showAllFacets,
           facetOffset: this.facetOffset + 1
         })
+// =======
+        // _.chain(facetData)
+        //   .map(
+        //     _.bind(function(values, key) {
+        //       var has_selected = _.some(values, 'selected');
+        //       // render a template for each facet
+        //       return templates.facet({
+        //         title: this.facetConfig[key].title,
+        //         key: key,
+        //         // render the form for each value of the facet
+        //         form: templates.form({
+        //           key: key,
+        //           has_selected: has_selected,
+        //           inputs: _.chain(values)
+        //             .filter('count')
+        //             .map(templates.input)
+        //             .value()
+        //         })
+        //       });
+        //     }, this))
+        //   .value()
+        //   .join('')
+// >>>>>>> upstream/gh-pages
       ).show();
 
       this.on('.js-next-prev', 'click', this.nextPrevHandler);
@@ -128,6 +152,13 @@ define(function(require, exports, module) {
       this.displayFacets();
     };
 
+    this.clearFacets = function(ev) {
+      var facet = $(ev.target).data('facet');
+      $(document).trigger('uiClearFacets', {
+        facet: facet
+      });
+    };
+
     this.selectFacet = function(ev) {
       var $form = $(ev.target).parents('form'),
           facet = $form.data('facet'),
@@ -145,16 +176,20 @@ define(function(require, exports, module) {
       this.$node.html("Thank you for your time.");
     };
 
+    this.defaultAttrs({ // defaultAttrs is now deprecated in favor of 'attributes', but our version of flight still uses this.
+      clearFacetsSelector : ".clear-facets"
+    });
+
     this.after('initialize', function() {
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);
       this.on(document, 'dataFacets', this.displayFacets);
-
       this.on(document, 'uiFacetChangeRequest', function(ev, facet) {
         var input = $('input[name=' + facet.name + ']');
         input.prop('checked', true);
         input.trigger('change');
       });
+      this.on('click', { clearFacetsSelector : this.clearFacets });
     });
   });
 });
