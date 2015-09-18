@@ -8,7 +8,7 @@ define(function(require, exports, module) {
   var templates = {
     needTreatment: Handlebars.compile('<h4>Do you/does someone you know need to access substance abuse treatment services?</h4><div><a href="#"><button class="js-next-prev btn btn-default" data-next-facet-offset="0">Yes</button></a></div><div><a href="#"><button class="js-not-sure-treatment btn btn-default">I\'m not sure</button></a></div><div><a href="#"><button class="btn btn-default js-no-treatment">No</button></a></div>'),
     input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{#if title}}{{ title }}{{else}}{{ value }}{{/if}} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
-    form: Handlebars.compile('<form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
+    form: Handlebars.compile('<span data-facet="{{ key }}" class="clear-facets {{#unless has_selected}}hide{{/unless}}">clear</span><form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
     facet: Handlebars.compile('<h4>{{{title}}}</h4>{{{form}}}'),
     facetControls: Handlebars.compile('{{#if showResults}}<a href="javascript:location.reload()"><< Back to Questions</a>{{else}}<a href="#"><button data-next-facet-offset="{{facetOffset}}" class="js-next-prev btn btn-default">Next</button></a> <a class="js-offer-results" data-offer-results="true" href="#">Skip to Facilities >> </a>{{/if}}')
   };
@@ -28,7 +28,6 @@ define(function(require, exports, module) {
         });
       });
     };
-
     this.getFacetConfig = function(key, attr) {
       if (this.facetConfig[key]) {
         return this.facetConfig[key][attr];
@@ -77,12 +76,15 @@ define(function(require, exports, module) {
       var facet = _.chain(facetData)
         .map(
           _.bind(function(values, key) {
+            var has_selected = _.some(values, 'selected');
             // render a template for each facet
             return templates.facet({
               title: this.getFacetConfig(key, (this.showAllFacets ? "title" : "survey_title")),
+              key: key,
               // render the form for each value of the facet
               form: templates.form({
                 key: key,
+                has_selected: has_selected,
                 inputs: _.chain(values)
                   .filter('count')
                   .map(templates.input)
@@ -92,36 +94,13 @@ define(function(require, exports, module) {
           }, this))
         .value()
         .join('');
+
       this.$node.html(
-// <<<<<<< HEAD
         facet +
         templates.facetControls({
           showResults: this.showAllFacets,
           facetOffset: this.facetOffset + 1
         })
-// =======
-        // _.chain(facetData)
-        //   .map(
-        //     _.bind(function(values, key) {
-        //       var has_selected = _.some(values, 'selected');
-        //       // render a template for each facet
-        //       return templates.facet({
-        //         title: this.facetConfig[key].title,
-        //         key: key,
-        //         // render the form for each value of the facet
-        //         form: templates.form({
-        //           key: key,
-        //           has_selected: has_selected,
-        //           inputs: _.chain(values)
-        //             .filter('count')
-        //             .map(templates.input)
-        //             .value()
-        //         })
-        //       });
-        //     }, this))
-        //   .value()
-        //   .join('')
-// >>>>>>> upstream/gh-pages
       ).show();
 
       this.on('.js-next-prev', 'click', this.nextPrevHandler);

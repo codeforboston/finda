@@ -82,6 +82,8 @@ define(['test/mock', 'jquery'], function(mock, $) {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('dataFacets', mockFacets);
+        // skip past intro question to first facet
+        this.component.setFacetOffset(0);
       });
       it('sends a "uiClearFacets" event', function () {
         this.component.$node.find('.clear-facets').click();
