@@ -44,6 +44,7 @@ define(function(require) {
   require('ui/list').attachTo('#list');
   require('ui/facet').attachTo('#facets');
   require('ui/loading').attachTo('#loading');
+  require('ui/filtering').attachTo('#message');
   require('ui/project').attachTo(document);
   require('data/facet').attachTo(document);
   require('data/analytics').attachTo(document);
