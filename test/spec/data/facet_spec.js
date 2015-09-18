@@ -258,5 +258,28 @@ define(['test/mock', 'lodash'], function(mock, _) {
         });
       });
     });
+    describe('on uiClearFacets', function() {
+      beforeEach(function() {
+        this.component.trigger('config', mock.config);
+        this.component.trigger('data', mock.data);
+        this.component.trigger('uiFilterFacet', {
+            facet: 'community',
+            selected: ['Northampton']            
+        });
+      });
+      it('emits a "dataFacets" event with no facets selected', function() {
+        this.component.trigger('uiClearFacets', {"facet" : "community"});
+        waits(100);
+        runs(function() {
+          expect('dataFacets').toHaveBeenTriggeredOnAndWithFuzzy(
+            document,
+            {community: [
+              {selected: false},
+              {selected: false},
+              {selected: false}]
+            });
+        });
+      });  
+    });
   });
 });

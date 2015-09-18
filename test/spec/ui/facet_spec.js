@@ -10,6 +10,7 @@ define(['test/mock', 'jquery'], function(mock, $) {
     beforeEach(function() {
       setupComponent();
       spyOnEvent(document, 'uiFilterFacet');
+      spyOnEvent(document, 'uiClearFacets');
     });
     describe('on config', function() {
       it('stores the facet config', function() {
@@ -73,6 +74,22 @@ define(['test/mock', 'jquery'], function(mock, $) {
             {facet: 'services_offered',
              selected: []
             });
+        });
+      });
+    });
+
+    describe('on click clear facet', function() {
+      beforeEach(function() {
+        this.component.trigger('config', mock.config);
+        this.component.trigger('dataFacets', mockFacets);
+        // skip past intro question to first facet
+        this.component.setFacetOffset(0);
+      });
+      it('sends a "uiClearFacets" event', function () {
+        this.component.$node.find('.clear-facets').click();
+        waits(1);
+        runs(function() {
+          expect('uiClearFacets').toHaveBeenTriggeredOn(document);
         });
       });
     });
