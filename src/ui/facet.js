@@ -126,6 +126,7 @@ define(function(require, exports, module) {
     this.nextPrevHandler = function(ev) {
       this.setFacetOffset($(ev.target).data('nextFacetOffset'));
     };
+
     this.setFacetOffset = function(offset) {
       this.facetOffset = offset;
       this.displayFacets();

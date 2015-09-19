@@ -16,15 +16,6 @@ define(['jquery'], function($) {
       });
     });
 
-    describe("filtering", function() {
-      it("displays a filtering message on filtering events", function() {
-        $(document).trigger('dataFilteringStarted', {});
-        expect(this.component.select('contentSelector').text()).toEqual(
-          this.component.attr.filteringText);
-      });
-    });
-
-
     describe("the modal", function() {
       beforeEach(function() {
         $(document).trigger('mapStarted', {});
