@@ -13,7 +13,6 @@ define(function(require, exports, module) {
       this.facetTitles = {};
       this.facetValues = null;
       this.facets = null;
-
     };
 
     this.loadData = function(ev, data) {

@@ -28,6 +28,7 @@ define(function(require, exports, module) {
         });
       });
     };
+
     this.getFacetConfig = function(key, attr) {
       if (this.facetConfig[key]) {
         return this.facetConfig[key][attr];
@@ -35,12 +36,17 @@ define(function(require, exports, module) {
     };
 
     this.displayFacets = function(ev, facetData) {
-      // cache facet data so that you can call it internally instead of waiting for event from data facet
+      // cache facet data so that you can call it internally instead of waiting
+      //   for event from data facet
       if (facetData) {
         this.facetData = facetData;
       } else {
         facetData = this.facetData;
       }
+
+      this.noSelectionsAvailable = false;
+
+      // show first question if you're looking for a treatment facility
       if (this.facetOffset === -1) {
         this.$node.html(templates.needTreatment()).show();
         this.on('.js-next-prev', 'click', this.nextPrevHandler);
@@ -76,6 +82,10 @@ define(function(require, exports, module) {
       var facet = _.chain(facetData)
         .map(
           _.bind(function(values, key) {
+            // only one facet available that has no facilities
+            if (values.length === 1 && values[0].count === 0) {
+              this.noSelectionsAvailable = true;
+            }
             var has_selected = _.some(values, 'selected');
             // render a template for each facet
             return templates.facet({
@@ -105,6 +115,15 @@ define(function(require, exports, module) {
 
       this.on('.js-next-prev', 'click', this.nextPrevHandler);
       this.on('.js-offer-results', 'click', this.showResultsHandler);
+
+      if (this.noSelectionsAvailable === true) {
+        // click button to advance to the next facet.
+        // NOTE(chaserx): I couldn't find a way to use `facetOffset` without
+        //    creating infinite loop.
+        this.$node.find("button.js-next-prev.btn.btn-default").trigger('click');
+        this.noSelectionsAvailable = false;
+        return;
+      }
     };
 
     this.showResultsHandler = function(ev) {
@@ -156,7 +175,9 @@ define(function(require, exports, module) {
       this.$node.html("Thank you for your time.");
     };
 
-    this.defaultAttrs({ // defaultAttrs is now deprecated in favor of 'attributes', but our version of flight still uses this.
+    // defaultAttrs is now deprecated in favor of 'attributes', but our
+    //    version of flight still uses this.
+    this.defaultAttrs({
       clearFacetsSelector : ".clear-facets"
     });
 
