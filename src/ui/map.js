@@ -58,7 +58,7 @@ define(function(require, exports, module) {
 
       if (mapConfig.maxZoom){
         this.map.options.maxZoom = mapConfig.maxZoom;
-        this.cluster.options.disableClusteringAtZoom = mapConfig.maxZoom;
+        this.cluster.options.disableClusteringAtZoom = 1;
         this.cluster._maxZoom = mapConfig.maxZoom - 1;
       }
       if (mapConfig.maxBounds){
