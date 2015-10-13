@@ -4,7 +4,7 @@
 
     npm install
     npm install -g http-server
-    http-server
+    npm start
 
 Visit [localhost:8080](http://localhost:8080/) to see the app.
 

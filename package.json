@@ -22,6 +22,7 @@
     "copyfiles": "0.0.1"
   },
   "scripts": {
+    "start": "http-server",
     "test": "jshint src && karma start --single-run --browsers PhantomJS",
     "test-server": "jshint src && karma start --browsers PhantomJS",
     "test-client": "jshint src && karma run",
