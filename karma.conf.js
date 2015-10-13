@@ -26,6 +26,7 @@ module.exports = function(config) {
       'node_modules/karma-requirejs/lib/adapter.js',
 
       {pattern: 'src/**/*.js', included: false},
+      {pattern: 'src/templates/*.html', included: false},
       {pattern: 'lib/**/*.js', included: false},
       {pattern: 'test/spec/**/*_spec.js', included: false},
       {pattern: 'test/mock.js', included: false},

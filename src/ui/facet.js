@@ -5,12 +5,17 @@ define(function(require, exports, module) {
   var Handlebars = require('handlebars');
   var _ = require('lodash');
   var $ = require('jquery');
+  var needTreatmentTemplate = require('text!templates/needTreatment.html');
+  var inputTemplate = require('text!templates/input.html');
+  var formTemplate = require('text!templates/form.html');
+  var facetTemplate = require('text!templates/facet.html');
+  var facetControlsTemplate = require('text!templates/facetControls.html');
   var templates = {
-    needTreatment: Handlebars.compile('<h4>Do you/does someone you know need to access substance abuse treatment services?</h4><div><a href="#"><button class="js-next-prev btn btn-default" data-next-facet-offset="0">Yes</button></a></div><div><a href="#"><button class="js-not-sure-treatment btn btn-default">I\'m not sure</button></a></div><div><a href="#"><button class="btn btn-default js-no-treatment">No</button></a></div>'),
-    input: Handlebars.compile('<div class="checkbox {{#selected}}selected{{/selected}}"><label><input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">{{#if title}}{{ title }}{{else}}{{ value }}{{/if}} {{#selected}}{{else}}({{ count }}){{/selected}}</label></div>'),
-    form: Handlebars.compile('<span data-facet="{{ key }}" class="clear-facets {{#unless has_selected}}hide{{/unless}}">clear</span><form data-facet="{{ key }}">{{#inputs}}{{{this}}}{{/inputs}}</form>'),
-    facet: Handlebars.compile('<h4>{{{title}}}</h4>{{{form}}}'),
-    facetControls: Handlebars.compile('{{#if showResults}}<a href="javascript:location.reload()"><< Back to Questions</a>{{else}}<a href="#"><button data-next-facet-offset="{{facetOffset}}" class="js-next-prev btn btn-default">Next</button></a> <a class="js-offer-results" data-offer-results="true" href="#">Skip to Facilities >> </a>{{/if}}')
+    needTreatment: Handlebars.compile(needTreatmentTemplate),
+    input: Handlebars.compile(inputTemplate),
+    form: Handlebars.compile(formTemplate),
+    facet: Handlebars.compile(facetTemplate),
+    facetControls: Handlebars.compile(facetControlsTemplate)
   };
 
   module.exports = flight.component(function () {
