@@ -4,11 +4,16 @@
 @import url("../lib/leaflet.markercluster/MarkerCluster.css");
 @import url("../lib/leaflet.markercluster/MarkerCluster.Default.css");
 
-html { height: 100%;}
-body { height: 100%;
-       margin: 0;
-       font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-       font-weight: 300; }
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
 
 body > div.container {
   position: fixed;
@@ -40,8 +45,8 @@ body > div.container {
   vertical-align: middle;
 }
 
-.navbar .navbar-brand{
-  float:none;
+.navbar .navbar-brand {
+  float: none;
   vertical-align: middle;
   font-weight: 300;
   font-size: 27px;
@@ -49,32 +54,34 @@ body > div.container {
 }
 
 .navbar-form .btn {
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
   background-color: #69579c; /*This should be the brand accent color*/
   color: #fff;
   font-weight: 400;
   vertical-align: middle;
 }
-.navbar-form .btn:hover{
+
+.navbar-form .btn:hover {
   box-shadow: none;
-  outline:none;
-  border:none;
+  outline: none;
+  border: none;
   background-color: #4F4175; /*This should be a 25% darken of the brand accent color*/
 }
-.navbar-form .btn:active{
+
+.navbar-form .btn:active {
   box-shadow: none;
-  outline:none;
-  border:none;
+  outline: none;
+  border: none;
   background-color: #342B4E; /*This should be a 50% darken of the brand accent color*/
 }
 
 #search-results {
-  left: 142px;
+  left: 142px
 }
 
 #search-results .help {
-  padding: 3px 20px;
+  padding: 3px 20px
 }
 
 #search-results .suggested {
@@ -85,7 +92,7 @@ body > div.container {
 }
 
 #search-results ul {
-  padding: 0;
+  padding: 0
 }
 
 #search-results li {
@@ -95,35 +102,37 @@ body > div.container {
 }
 
 #map {
-  position:fixed;
+  position: fixed;
   left: 0px;
   top: 50px;
   bottom: 0;
-  right:0;
+  right: 0;
   z-index: 1;
 }
 
 .control {
-    z-index: 2;
-    font: 14px/16px;
-    background: #f3f3f3;
-    display: none;
+  z-index: 2;
+  font: 14px/16px;
+  background: #f3f3f3;
+  display: none;
 }
 
 .leaflet-control-locate {
-  border:1px solid rgba(0,0,0,0.4);
+  border: 1px solid rgba(0,0,0,0.4)
 }
+
 .leaflet-control-locate a {
-  background-color:#fff;
-  background-position:-3px, -2px;
+  background-color: #fff;
+  background-position: -3px, -2px;
 }
+
 .leaflet-control-locate.active a {
-  background-position:-33px -2px;
+  background-position: -33px -2px
 }
 
 .control h4 {
-    margin: 10px 0 5px 0;
-    color: #777;
+  margin: 10px 0;
+  color: #777;
 }
 
 .search-result-marker {
@@ -134,37 +143,40 @@ body > div.container {
 }
 
 /* only center the search in the big view */
+
 @media (min-width: 768px) {
-  #search {
-    /*text-align: center;*/
-    float: none !important;
-  }
+    #search {
+      /*text-align: center;*/
+      float: none !important;
+    }
 
-  #search .form-group {
-    display: inline;
-  }
+    #search .form-group {
+      display: inline
+    }
 
-  #search input {
-    width: 30%;
-  }
-  #search input:focus{
-    box-shadow: inset 0px 1px 2px rgba(0,0,0,.15);
-    border: 1px solid #69579c; /*This should be the brand accent color*/
-    color: #333;
-  }
+    #search input {
+      width: 30%
+    }
+
+    #search input:focus {
+      box-shadow: inset 0px 1px 2px rgba(0,0,0,.15);
+      border: 1px solid #69579c;
+      /*This should be the brand accent color*/
+      color: #333;
+    }
 }
 
 #info {
-    position: absolute;
-    border: 1px solid #AFAFAF;
-    padding: 10px 14px;
-    height: auto;
-    width:275px;
-    top: 15px;
-    right: 15px;
-    overflow-y: auto;
-    box-shadow: 0 3px 5px rgba(0,0,0,.25);
-    border-radius: 5px;
+  position: absolute;
+  border: 1px solid #AFAFAF;
+  padding: 10px 14px;
+  height: auto;
+  width: 275px;
+  top: 15px;
+  right: 15px;
+  overflow-y: auto;
+  box-shadow: 0 3px 5px rgba(0,0,0,.25);
+  border-radius: 5px;
 }
 
 .control-sidebar {
@@ -174,12 +186,12 @@ body > div.container {
   width: 300px;
   height: 100%;
   border-right: 1px solid #AFAFAF;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   overflow-y: auto;
 }
 
 #facets .checkbox.selected label {
-  font-weight: bold;
+  font-weight: bold
 }
 
 #facets .clear-facets {
@@ -187,9 +199,10 @@ body > div.container {
   float: right;
   margin: -23px 0 0;
 }
+
 #facets .clear-facets:hover {
-  color: red; /* TODO: red is probably a horrible color. suggestions? */;
-  cursor:pointer;
+  color: red; /* TODO: red is probably a horrible color. suggestions? */;;
+  cursor: pointer;
 }
 
 #list ul {
@@ -213,7 +226,7 @@ body > div.container {
 }
 
 #loading h4 {
-  text-align: center;
+  text-align: center
 }
 
 .control-survey {
@@ -224,16 +237,17 @@ body > div.container {
   height: 100%;
   border-right: 1px solid #AFAFAF;
   border-left: 1px solid #AFAFAF;
-  margin-bottom:30px;
+  margin-bottom: 30px;
   overflow-y: auto;
 }
 
 .control-survey .btn {
-  margin-bottom: 5px;
+  margin-bottom: 5px
 }
 
 @media (max-width: 600px) {
-  .control-survey, .control-sidebar {
-    width: 100%;
+  .control-survey,
+  .control-sidebar {
+    width: 100%
   }
 }
