@@ -215,6 +215,36 @@ body > div.container {
   padding-left: 0;
 }
 
+#list ul ul {
+  margin: 0 0 0 3em;
+  padding-bottom: 0;
+}
+
+#list ul li.item > div > div h4 {
+  margin: 0 0 5px 0;
+  color: #666;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+#list ul li.item > div > div + div {
+  border-bottom: 1px solid #dedede;
+  padding: 0.5em 0.3em;
+  margin-top: 0;
+}
+
+#list ul li.item > div > div + div + div {
+  border-top: 1px solid #fff;
+}
+
+#list ul li.item > div > div:last-child {
+  border-bottom: none;
+}
+
+#list ul li.item:nth-child(even) {
+  background-color: #F1F9FF;
+}
+
 #list.control>ul>li {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #dedede;
@@ -222,6 +252,21 @@ body > div.container {
   cursor: pointer;
   border-left: 5px solid #fcfcfc;
   list-style: none;
+}
+
+#list .feature-gender ul li,
+#list .feature-age ul li {
+  display: inline;
+}
+
+#list .feature-gender ul,
+#list .feature-age ul {
+  margin-left: 0;
+}
+
+#list .feature-gender ul li + li:before,
+#list .feature-age ul li + li:before {
+  content: "\b7\a0";
 }
 
 #about .modal-footer img {
