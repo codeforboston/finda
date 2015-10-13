@@ -1,12 +1,4 @@
-# Finda [![Build Status](https://travis-ci.org/openlexington/finda.svg)](https://travis-ci.org/openlexington/finda) [![Stories in Ready](https://badge.waffle.io/openlexington/finda.svg?label=ready&title=Ready)](http://waffle.io/openlexington/finda)
-
-_You have data with locations. Share it with the world._
-
-### Why use Finda?
-
-1. You have data with addresses / locations.
-2. You want to put it online.
-3. You want people to be able to search data and find the services they need near them.
+# Get Help Kentucky [![Build Status](https://travis-ci.org/openlexington/finda.svg)](https://travis-ci.org/openlexington/finda) [![Stories in Ready](https://badge.waffle.io/openlexington/finda.svg?label=ready&title=Ready)](http://waffle.io/openlexington/finda)
 
 ## How to develop
 
@@ -24,15 +16,17 @@ Great! Head over to our [Getting Started wiki](https://github.com/codeforboston/
 
 Great! See [Developing Finda](https://github.com/codeforboston/finda/wiki/Developing-Finda) on the wiki.
 
-## Keep test server running to speed up tests
+## How to test
 
-Start test server
+Keep test server running to speed up tests
+
+Start test server:
 
 ```
 npm run test-server
 ```
 
-Kick off a test run
+Kick off a test run:
 
 ```
 npm run test-client
