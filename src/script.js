@@ -12,7 +12,8 @@ require.config({
     'fuse': '../lib/fuse.min',
     'Tabletop': '../lib/tabletop',
     'd3': '../lib/d3.min',
-    'StateMachine': '../lib/state-machine'
+    'StateMachine': '../lib/state-machine',
+    'text': '../lib/text'
   },
   shim: {
     'handlebars': {
