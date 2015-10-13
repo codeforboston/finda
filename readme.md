@@ -8,6 +8,13 @@ _You have data with locations. Share it with the world._
 2. You want to put it online.
 3. You want people to be able to search data and find the services they need near them.
 
+## How to develop
+
+    npm install
+    npm install -g http-server
+    http-server
+
+Visit [localhost:8080](http://localhost:8080/) to see the app.
 
 ## I want to use this app for my data set.
 
