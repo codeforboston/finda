@@ -62,17 +62,17 @@ define(function(require, exports, module) {
 
       var facets = _.keys(facetData);
       var key = facets[this.facetOffset];
-      if (! this.showAllFacets) {
-        if (this.facetOffset >= _.keys(facetData).length) {
+      if (!this.showAllFacets) {
+        if (this.facetOffset >= facets.length) {
           this.$node.find('.js-offer-results[data-offer-results=true]').click();
           return;
         }
 
         // does the facet have a dependency?
         if (key) {
-          var dependency = this.getFacetConfig(key, "dependency");
+          var dependency = this.getFacetConfig(key, 'dependency');
           if (dependency) {
-            if (! this.meetsFacetDependency(facetData, key, dependency)) {
+            if (!this.meetsFacetDependency(facetData, key, dependency)) {
               this.facetOffset += 1;
               return this.displayFacets();
             }
@@ -84,37 +84,36 @@ define(function(require, exports, module) {
         facetData = newFacetData;
       }
 
-      var facet = _.chain(facetData)
-        .map(
+      var facet = _.chain(facetData).map(
           _.bind(function(values, key) {
             // only one facet available that has no facilities
             if (values.length === 1 && values[0].count === 0) {
               this.noSelectionsAvailable = true;
             }
-            var has_selected = _.some(values, 'selected');
+            var hasSelected = _.some(values, 'selected');
+            var configKey = this.showAllFacets ? 'title' : 'survey_title';
             // render a template for each facet
             return templates.facet({
-              title: this.getFacetConfig(key, (this.showAllFacets ? "title" : "survey_title")),
+              title: this.getFacetConfig(key, configKey),
               key: key,
               // render the form for each value of the facet
               form: templates.form({
                 key: key,
-                has_selected: has_selected,
-                inputs: _.chain(values)
-                  .filter('count')
-                  .map(templates.input)
-                  .value()
+                has_selected: hasSelected,
+                inputs: _.chain(values).filter('count').map(templates.input).
+                                        value()
               })
             });
-          }, this))
-        .value()
-        .join('');
+          }, this)).value().join('');
 
+      var previousOffset =
+          this.facetHistory[this.facetHistory.length - 1] || -1;
       this.$node.html(
         facet +
         templates.facetControls({
           showResults: this.showAllFacets,
-          facetOffset: this.facetOffset + 1
+          facetOffset: this.facetOffset + 1,
+          previousFacetOffset: previousOffset
         })
       ).show();
 
@@ -125,7 +124,7 @@ define(function(require, exports, module) {
         // click button to advance to the next facet.
         // NOTE(chaserx): I couldn't find a way to use `facetOffset` without
         //    creating infinite loop.
-        this.$node.find("button.js-next-prev.btn.btn-default").trigger('click');
+        this.$node.find('button.js-next-prev.btn.btn-default').trigger('click');
         this.noSelectionsAvailable = false;
         return;
       }
@@ -148,7 +147,20 @@ define(function(require, exports, module) {
     };
 
     this.nextPrevHandler = function(ev) {
-      this.setFacetOffset($(ev.target).data('nextFacetOffset'));
+      if (typeof this.facetHistory === 'undefined') {
+        this.facetHistory = [];
+      }
+      var offset = parseInt($(ev.target).data('nextFacetOffset'), 10);
+      if (offset < this.facetOffset) {
+        this.setFacetOffset(this.facetHistory.pop());
+      } else {
+        var lastItem = this.facetHistory[this.facetHistory.length - 1];
+        if (lastItem !== this.facetOffset) {
+          this.facetHistory.push(this.facetOffset);
+          console.log(this.facetHistory);
+        }
+        this.setFacetOffset(offset);
+      }
     };
 
     this.setFacetOffset = function(offset) {
