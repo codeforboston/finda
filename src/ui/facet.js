@@ -73,8 +73,8 @@ define(function(require, exports, module) {
           var dependency = this.getFacetConfig(key, 'dependency');
           if (dependency) {
             if (!this.meetsFacetDependency(facetData, key, dependency)) {
-              this.facetOffset += 1;
-              return this.displayFacets();
+              this.setFacetOffset(this.facetOffset + 1);
+              return;
             }
           }
         }
@@ -150,9 +150,13 @@ define(function(require, exports, module) {
       if (typeof this.facetHistory === 'undefined') {
         this.facetHistory = [];
       }
-      var offset = parseInt($(ev.target).data('nextFacetOffset'), 10);
-      if (offset < this.facetOffset) {
-        this.setFacetOffset(this.facetHistory.pop());
+      var clickedEl = $(ev.target);
+      var offset = parseInt(clickedEl.data('nextFacetOffset'), 10);
+      if (clickedEl.is('.previous')) {
+        var facet = _.keys(this.facetData)[offset];
+        console.log('clearing facet', facet);
+        $(document).trigger('uiClearFacets', {facet: facet});
+        this.setFacetOffset(this.facetHistory.pop() || -1);
       } else {
         var lastItem = this.facetHistory[this.facetHistory.length - 1];
         if (lastItem !== this.facetOffset) {
