@@ -1,6 +1,6 @@
-<span data-facet="{{ key }}" class="clear-facets {{#unless has_selected}}hide{{/unless}}">clear</span>
-<form data-facet="{{ key }}">
+<form class="facet-form" data-facet="{{ key }}">
   {{#inputs}}
     {{{this}}}
   {{/inputs}}
 </form>
+<span data-facet="{{ key }}" class="clear-facets {{#unless has_selected}}hide{{/unless}}">clear</span>

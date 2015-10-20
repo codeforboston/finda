@@ -198,10 +198,15 @@ body > div.container {
   font-weight: bold
 }
 
+#facets form.facet-form {
+  display: inline-block;
+}
+
 #facets .clear-facets {
+  display: inline-block;
   font-style: italic;
-  float: right;
-  margin: -23px 0 0;
+  margin: 10px 0 0 3em;
+  vertical-align: top;
 }
 
 #facets .clear-facets:hover {
