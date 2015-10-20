@@ -157,10 +157,9 @@ define(function(require, exports, module) {
     };
 
     this.clearFacets = function(ev) {
+      ev.preventDefault();
       var facet = $(ev.target).data('facet');
-      $(document).trigger('uiClearFacets', {
-        facet: facet
-      });
+      $(document).trigger('uiClearFacets', {facet: facet});
     };
 
     this.selectFacet = function(ev) {
