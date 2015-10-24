@@ -47,12 +47,16 @@
     </nav>
 
     <div class="container">
-      <div id="facets" class="control control-survey"></div>
-      <div id="list" style="display:none" class="control control-sidebar"></div>
+      <ul class="nav nav-tabs control-tabs">
+        <li role="presentation" class="active"><a data-toggle="tab" href="#facets" id="facet-click">Get Started</a></li>
+        <li role="presentation"><a data-toggle="tab" id="results-tab" href="#list">View Facilities</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="facets" class="tab-pane control control-survey active"></div>
+        <div id="list" class="tab-pane control control-sidebar"></div>
+      </div>
       <div id="map" style="display:none"></div>
-      <!-- <div id="info" class="control"> -->
-      <!--   <button type="button" class="close">&#38;times;</button> -->
-      <!-- </div> -->
     </div>
 
     <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">

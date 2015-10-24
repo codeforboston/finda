@@ -53,7 +53,7 @@ define(function(require, exports, module) {
 
       // show first question if you're looking for a treatment facility
       if (this.facetOffset === -1) {
-        this.$node.html(templates.needTreatment()).show();
+        this.$node.html(templates.needTreatment());
         this.on('.js-next-prev', 'click', this.nextPrevHandler);
         this.on('.js-no-treatment', 'click', this.showNoTreatment);
         this.on('.js-not-sure-treatment', 'click', this.showNoTreatment);
@@ -116,7 +116,7 @@ define(function(require, exports, module) {
           showResults: this.showAllFacets,
           facetOffset: this.facetOffset + 1
         })
-      ).show();
+      );
 
       this.on('.js-next-prev', 'click', this.nextPrevHandler);
       this.on('.js-offer-results', 'click', this.showResultsHandler);
