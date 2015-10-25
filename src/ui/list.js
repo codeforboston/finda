@@ -50,7 +50,7 @@ define(function(require, exports, module) {
       timedWithObject(
         data.features,
         function(feature, l) {
-          var $li = $("<li/>").html(this.render(feature.properties))
+          var $li = $("<li/>").html(this.render(feature.properties, feature.id))
                 .addClass('item')
                 .data('feature', feature);
           $li._text = $li.text();
@@ -83,10 +83,11 @@ define(function(require, exports, module) {
 
     this.onFeatureSelected = function onFeatureSelected(ev, feature) {
       var $selectedItem = $elementForFeature.call(this, feature);
-      var offset = $selectedItem.offset().top - 50;
       var propsWithTitles = this.addFacetTitles(feature.properties, this.facetTitles);
-      $selectedItem.html(this.renderFull(propsWithTitles));
-      this.scrollToOffset(offset);
+
+      // set url to blah.com#finda-17
+      window.location.hash = feature.id;
+      $selectedItem.html(this.renderFull(propsWithTitles, feature.id));
     };
 
     this.addFacetTitles = function(featureProperties, facetTitles) {
@@ -100,10 +101,6 @@ define(function(require, exports, module) {
         }
       }.bind(this));
       return propsWithTitles;
-    };
-
-    this.scrollToOffset = function(offset) {
-      this.$node.scrollTop(this.$node.scrollTop() + offset);
     };
 
     this.after('initialize', function() {

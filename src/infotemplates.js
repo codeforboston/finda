@@ -11,7 +11,7 @@ define(function(require, exports) {
     directions: Handlebars.compile('<a target="_blank" href="http://maps.google.com/maps?q={{directions}}">{{title}}</a>'),
     simple: Handlebars.compile('{{text}}'),
     phone_numbers: Handlebars.compile('<a href="tel:{{text}}">{{text}}</a>'),
-    popup: Handlebars.compile('<div>{{#popup}}<div class="feature-{{klass}}">{{{rendered}}}</div>{{/popup}}</div>')
+    popup: Handlebars.compile('<a id="{{featureId}}"></a><div>{{#popup}}<div class="feature-{{klass}}">{{{rendered}}}</div>{{/popup}}</div>')
   };
   var formatters = {
     url: function(value, property) {
@@ -80,10 +80,10 @@ define(function(require, exports) {
     return formatters[formatter](value, property);
   }
 
-  exports.popup = function(properties, feature) {
+  exports.popup = function(propertiesToRender, featureProperties, featureId) {
     var popup = [],
         rendered;
-    _.each(properties, function(property) {
+    _.each(propertiesToRender, function(property) {
 
       var key;
       if (typeof property === "string") {
@@ -92,7 +92,7 @@ define(function(require, exports) {
         key = property.name;
       }
 
-      var value = feature[key];
+      var value = featureProperties[key];
       if (value !== undefined && (value.length === undefined || value.length !== 0)) {
         rendered = format(value, property);
         if (rendered) {
@@ -103,6 +103,6 @@ define(function(require, exports) {
         }
       }
     });
-    return templates.popup({popup: popup});
+    return templates.popup({popup: popup, featureId: featureId});
   };
 });
