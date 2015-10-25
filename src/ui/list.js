@@ -88,6 +88,9 @@ define(function(require, exports, module) {
       // set url to blah.com#finda-17
       window.location.hash = feature.id;
       $selectedItem.html(this.renderFull(propsWithTitles, feature.id));
+
+      // does not clear previous selections so they remain findable later
+      $selectedItem.addClass('selected-facility');
     };
 
     this.addFacetTitles = function(featureProperties, facetTitles) {
@@ -110,10 +113,6 @@ define(function(require, exports, module) {
       this.on(document, 'selectFeature', this.onFeatureSelected);
       this.on('click', {
         listItemSelector: this.onFeatureClick
-      });
-      this.on(document, 'uiShowResults', function() {
-        // this.$node.show();
-        $('#results-tab').click();
       });
       this.on(document, 'uiHideResults', function() {
         this.$node.hide();

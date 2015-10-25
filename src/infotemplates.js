@@ -11,7 +11,7 @@ define(function(require, exports) {
     directions: Handlebars.compile('<a target="_blank" href="http://maps.google.com/maps?q={{directions}}">{{title}}</a>'),
     simple: Handlebars.compile('{{text}}'),
     phone_numbers: Handlebars.compile('<a href="tel:{{text}}">{{text}}</a>'),
-    popup: Handlebars.compile('<a id="{{featureId}}"></a><div>{{#popup}}<div class="feature-{{klass}}">{{{rendered}}}</div>{{/popup}}</div>')
+    popup: Handlebars.compile('<a id="{{featureId}}">&nbsp;</a><div>{{#popup}}<div class="feature-{{klass}}">{{{rendered}}}</div>{{/popup}}</div>')
   };
   var formatters = {
     url: function(value, property) {

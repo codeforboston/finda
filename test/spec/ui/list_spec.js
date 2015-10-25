@@ -15,14 +15,6 @@ define(
         });
       });
 
-      describe('on uiShowResults', function() {
-        it("makes the node visible", function() {
-          this.$node.css('display', 'none');
-          $(document).trigger('uiShowResults', mock.config);
-          expect(this.$node.css('display')).not.toEqual('none');
-        });
-      });
-
       describe('on data', function() {
         beforeEach(function() {
           $(document).trigger('config', mock.config);
@@ -39,7 +31,7 @@ define(
           var $li = this.$node.find('li:eq(0)');
           var feature = $li.data('feature');
           expect($li.html()).toEqual(
-            templates.popup(mock.config.list, feature.properties));
+            templates.popup(mock.config.list, feature.properties, feature.id));
         });
 
         it('sorts the list items by their text', function() {
@@ -76,14 +68,11 @@ define(
         });
 
         it('scrolls to the selected feature', function() {
-          spyOn(this.component, 'scrollToOffset');
-
           var $li = this.$node.find('li:eq(1)');
           var feature = $li.data('feature');
 
           $(document).trigger('selectFeature', feature);
-          expect(this.component.scrollToOffset).toHaveBeenCalledWith(
-            $li.offset().top - 50);
+          expect(window.location.hash).toBe('#' + feature.id);
         });
       });
     });

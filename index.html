@@ -28,12 +28,6 @@
       <div class="container-fluid">
          <!--Brand and Toggle get grouped for better mobile display-->
         <div class="navbar-header">
-         <!-- <button type="button" class="navbar&#45;toggle" data&#45;toggle="collapse" data&#45;target="#finda&#45;navbar&#45;collapse"> -->
-         <!--   <span class="sr&#45;only">Toggle Navigation</span> -->
-         <!--   <span class="icon&#45;bar"></span> -->
-         <!--   <span class="icon&#45;bar"></span> -->
-         <!--   <span class="icon&#45;bar"></span> -->
-         <!-- </button> -->
          <a class="navbar-brand" data-project="name" href="">Get Help Kentucky</a> <!-- This is the name of the map -->
          <img src="img/spinner.gif" id="message" style="display:none;" width="20px">
         </div>
@@ -47,10 +41,12 @@
     </nav>
 
     <div class="container">
-      <ul class="nav nav-tabs control-tabs">
-        <li role="presentation" class="active"><a data-toggle="tab" href="#facets" id="facet-click">Get Started</a></li>
-        <li role="presentation"><a data-toggle="tab" id="results-tab" href="#list">View Facilities</a></li>
-      </ul>
+      <nav id="finda-tabs">
+        <ul class="nav nav-tabs survey-tabs control-tabs">
+          <li role="presentation" class="active"><a data-toggle="tab" href="#facets" id="facet-click">Get Started</a></li>
+          <li role="presentation"><a data-toggle="tab" id="results-tab" href="#list">View Facilities</a></li>
+        </ul>
+      </nav>
 
       <div class="tab-content">
         <div id="facets" class="tab-pane control control-survey active"></div>

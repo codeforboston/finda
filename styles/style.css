@@ -190,7 +190,6 @@ body > div.container {
   width: 600px;
   height: 100%;
   border-right: 1px solid #ddd;
-  margin-bottom: 30px;
   overflow-y: auto;
 }
 
@@ -269,6 +268,12 @@ body > div.container {
   content: "\b7\a0";
 }
 
+/* clear the navbar when anchored to in url */
+#list .selected-facility {
+  margin-top: 50px;
+  border-right: 20px solid #69579c;
+}
+
 #about .modal-footer img {
   height: 2.5em;
   float: left;
@@ -282,12 +287,11 @@ body > div.container {
   width: 80%;
   margin: auto;
   box-sizing: border-box;
-  padding: 10px 14px 50px;
+  padding: 10px 14px 20px;
   height: 100%;
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  margin-bottom: 30px;
   overflow-y: auto;
 }
 
@@ -295,7 +299,7 @@ body > div.container {
   margin-bottom: 5px
 }
 
-.control-tabs {
+.survey-tabs {
   width: 80%;
   margin: auto;
 }
@@ -308,6 +312,7 @@ body > div.container {
 
 @media (max-width: 600px) {
   .control-survey,
+  .survey-tabs,
   .control-sidebar {
     width: 100%
   }
