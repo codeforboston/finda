@@ -41,7 +41,6 @@ define(function(require, exports, module) {
         return;
       }
       this.trigger('listStarted', {});
-      // this.$node.show();
       this.render = _.partial(templates.popup, config.list);
       this.renderFull = _.partial(templates.popup, config.properties);
     };
@@ -51,7 +50,7 @@ define(function(require, exports, module) {
       timedWithObject(
         data.features,
         function(feature, l) {
-          var $li = $("<li/>").html(this.render(feature.properties))
+          var $li = $("<li/>").html(this.render(feature.properties, feature.id))
                 .addClass('item')
                 .data('feature', feature);
           $li._text = $li.text();
@@ -84,10 +83,14 @@ define(function(require, exports, module) {
 
     this.onFeatureSelected = function onFeatureSelected(ev, feature) {
       var $selectedItem = $elementForFeature.call(this, feature);
-      var offset = $selectedItem.offset().top - 50;
       var propsWithTitles = this.addFacetTitles(feature.properties, this.facetTitles);
-      $selectedItem.html(this.renderFull(propsWithTitles));
-      this.scrollToOffset(offset);
+
+      // set url to blah.com#finda-17
+      window.location.hash = feature.id;
+      $selectedItem.html(this.renderFull(propsWithTitles, feature.id));
+
+      // does not clear previous selections so they remain findable later
+      $selectedItem.addClass('selected-facility');
     };
 
     this.addFacetTitles = function(featureProperties, facetTitles) {
@@ -103,10 +106,6 @@ define(function(require, exports, module) {
       return propsWithTitles;
     };
 
-    this.scrollToOffset = function(offset) {
-      this.$node.scrollTop(this.$node.scrollTop() + offset);
-    };
-
     this.after('initialize', function() {
       this.on(document, 'config', this.configureList);
       this.on(document, 'data', this.loadData);
@@ -114,9 +113,6 @@ define(function(require, exports, module) {
       this.on(document, 'selectFeature', this.onFeatureSelected);
       this.on('click', {
         listItemSelector: this.onFeatureClick
-      });
-      this.on(document, 'uiShowResults', function() {
-        this.$node.show();
       });
       this.on(document, 'uiHideResults', function() {
         this.$node.hide();

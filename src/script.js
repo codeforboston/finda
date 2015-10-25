@@ -43,6 +43,7 @@ define(function(require) {
   require('ui/search_results').attachTo('#search-results');
   require('ui/info').attachTo('#info');
   require('ui/list').attachTo('#list');
+  require('ui/tabs').attachTo('#finda-tabs');
   require('ui/facet').attachTo('#facets');
   require('ui/loading').attachTo('#loading');
   require('ui/filtering').attachTo('#message');
