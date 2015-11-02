@@ -136,8 +136,7 @@ define(function(require, exports, module) {
       var offerResults = $(ev.target).data('offerResults');
       this.showAllFacets = offerResults;
       if (this.showAllFacets) {
-        $('#facets').addClass('control-sidebar');
-        $('#facets').removeClass('control-survey');
+        this.showResults();
         $(document).trigger('uiShowResults', {});
       } else {
         $('#facets').removeClass('control-sidebar');
@@ -145,6 +144,11 @@ define(function(require, exports, module) {
         $(document).trigger('uiHideResults', {});
       }
       this.displayFacets();
+    };
+
+    this.showResults = function() {
+      $('#facets').addClass('control-sidebar');
+      $('#facets').removeClass('control-survey');
     };
 
     this.nextPrevHandler = function(ev) {
@@ -190,6 +194,7 @@ define(function(require, exports, module) {
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);
       this.on(document, 'dataFacets', this.displayFacets);
+      this.on(document, 'uiShowResults', this.showResults);
       this.on(document, 'uiFacetChangeRequest', function(ev, facet) {
         var input = $('input[name=' + facet.name + ']');
         input.prop('checked', true);

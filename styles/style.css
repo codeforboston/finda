@@ -310,7 +310,14 @@ body > div.container {
   border-right: 1px solid #ddd;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
+  .control-survey,
+  .survey-tabs,
+  .control-sidebar {
+    width: 80%
+  }
+}
+@media (max-width: 900px) {
   .control-survey,
   .survey-tabs,
   .control-sidebar {
