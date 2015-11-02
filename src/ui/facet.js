@@ -10,12 +10,15 @@ define(function(require, exports, module) {
   var formTemplate = require('text!templates/form.html');
   var facetTemplate = require('text!templates/facet.html');
   var facetControlsTemplate = require('text!templates/facetControls.html');
+  var extraResourcesTemplate = require('text!templates/extraResources.html');
+
   var templates = {
-    needTreatment: Handlebars.compile(needTreatmentTemplate),
+    welcome: Handlebars.compile(welcomeTemplate),
     input: Handlebars.compile(inputTemplate),
     form: Handlebars.compile(formTemplate),
     facet: Handlebars.compile(facetTemplate),
-    facetControls: Handlebars.compile(facetControlsTemplate)
+    facetControls: Handlebars.compile(facetControlsTemplate),
+    extraResources: Handlebars.compile(extraResourcesTemplate)
   };
 
   module.exports = flight.component(function () {
@@ -181,7 +184,7 @@ define(function(require, exports, module) {
     };
 
     this.showNoTreatment = function() {
-      this.$node.html("Thank you for your time.");
+      this.$node.html(templates.extraResources());
     };
 
     // defaultAttrs is now deprecated in favor of 'attributes', but our
