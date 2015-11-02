@@ -5,7 +5,7 @@ define(function(require, exports, module) {
   var Handlebars = require('handlebars');
   var _ = require('lodash');
   var $ = require('jquery');
-  var needTreatmentTemplate = require('text!templates/needTreatment.html');
+  var welcomeTemplate = require('text!templates/welcome.html');
   var inputTemplate = require('text!templates/input.html');
   var formTemplate = require('text!templates/form.html');
   var facetTemplate = require('text!templates/facet.html');
@@ -56,7 +56,7 @@ define(function(require, exports, module) {
 
       // show first question if you're looking for a treatment facility
       if (this.facetOffset === -1) {
-        this.$node.html(templates.needTreatment());
+        this.$node.html(templates.welcome());
         this.on('.js-next-prev', 'click', this.nextPrevHandler);
         this.on('.js-no-treatment', 'click', this.showNoTreatment);
         this.on('.js-not-sure-treatment', 'click', this.showNoTreatment);
