@@ -5,17 +5,20 @@ define(function(require, exports, module) {
   var Handlebars = require('handlebars');
   var _ = require('lodash');
   var $ = require('jquery');
-  var needTreatmentTemplate = require('text!templates/needTreatment.html');
+  var welcomeTemplate = require('text!templates/welcome.html');
   var inputTemplate = require('text!templates/input.html');
   var formTemplate = require('text!templates/form.html');
   var facetTemplate = require('text!templates/facet.html');
   var facetControlsTemplate = require('text!templates/facetControls.html');
+  var extraResourcesTemplate = require('text!templates/extraResources.html');
+
   var templates = {
-    needTreatment: Handlebars.compile(needTreatmentTemplate),
+    welcome: Handlebars.compile(welcomeTemplate),
     input: Handlebars.compile(inputTemplate),
     form: Handlebars.compile(formTemplate),
     facet: Handlebars.compile(facetTemplate),
-    facetControls: Handlebars.compile(facetControlsTemplate)
+    facetControls: Handlebars.compile(facetControlsTemplate),
+    extraResources: Handlebars.compile(extraResourcesTemplate)
   };
 
   module.exports = flight.component(function () {
@@ -53,7 +56,7 @@ define(function(require, exports, module) {
 
       // show first question if you're looking for a treatment facility
       if (this.facetOffset === -1) {
-        this.$node.html(templates.needTreatment());
+        this.$node.html(templates.welcome());
         this.on('.js-next-prev', 'click', this.nextPrevHandler);
         this.on('.js-no-treatment', 'click', this.showNoTreatment);
         this.on('.js-not-sure-treatment', 'click', this.showNoTreatment);
@@ -136,8 +139,7 @@ define(function(require, exports, module) {
       var offerResults = $(ev.target).data('offerResults');
       this.showAllFacets = offerResults;
       if (this.showAllFacets) {
-        $('#facets').addClass('control-sidebar');
-        $('#facets').removeClass('control-survey');
+        this.showResults();
         $(document).trigger('uiShowResults', {});
       } else {
         $('#facets').removeClass('control-sidebar');
@@ -145,6 +147,11 @@ define(function(require, exports, module) {
         $(document).trigger('uiHideResults', {});
       }
       this.displayFacets();
+    };
+
+    this.showResults = function() {
+      $('#facets').addClass('control-sidebar');
+      $('#facets').removeClass('control-survey');
     };
 
     this.nextPrevHandler = function(ev) {
@@ -177,7 +184,7 @@ define(function(require, exports, module) {
     };
 
     this.showNoTreatment = function() {
-      this.$node.html("Thank you for your time.");
+      this.$node.html(templates.extraResources());
     };
 
     // defaultAttrs is now deprecated in favor of 'attributes', but our
@@ -190,6 +197,7 @@ define(function(require, exports, module) {
       this.on('change', this.selectFacet);
       this.on(document, 'config', this.configureFacets);
       this.on(document, 'dataFacets', this.displayFacets);
+      this.on(document, 'uiShowResults', this.showResults);
       this.on(document, 'uiFacetChangeRequest', function(ev, facet) {
         var input = $('input[name=' + facet.name + ']');
         input.prop('checked', true);
