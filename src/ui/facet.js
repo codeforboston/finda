@@ -106,8 +106,12 @@ define(function(require, exports, module) {
             });
           }, this)).value().join('');
 
-      var previousOffset =
-          this.facetHistory[this.facetHistory.length - 1] || -1;
+      var previousOffset;
+      if (typeof this.facetHistory === 'object') {
+        previousOffset = this.facetHistory[this.facetHistory.length - 1] || -1;
+      } else {
+        previousOffset = -1;
+      }
       this.$node.html(
         facet +
         templates.facetControls({
