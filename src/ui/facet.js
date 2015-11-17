@@ -129,6 +129,7 @@ define(function(require, exports, module) {
         // NOTE(chaserx): I couldn't find a way to use `facetOffset` without
         //    creating infinite loop.
         this.$node.find('button.btn-next').trigger('click');
+        this.facetHistory.pop();
         this.noSelectionsAvailable = false;
         return;
       }
