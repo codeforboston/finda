@@ -124,7 +124,7 @@ define(function(require, exports, module) {
         // click button to advance to the next facet.
         // NOTE(chaserx): I couldn't find a way to use `facetOffset` without
         //    creating infinite loop.
-        this.$node.find('button.js-next-prev.btn.btn-default').trigger('click');
+        this.$node.find('button.btn-next').trigger('click');
         this.noSelectionsAvailable = false;
         return;
       }
@@ -154,14 +154,12 @@ define(function(require, exports, module) {
       var offset = parseInt(clickedEl.data('nextFacetOffset'), 10);
       if (clickedEl.is('.previous')) {
         var facet = _.keys(this.facetData)[offset];
-        console.log('clearing facet', facet);
         $(document).trigger('uiClearFacets', {facet: facet});
         this.setFacetOffset(this.facetHistory.pop());
       } else {
         var lastItem = this.facetHistory[this.facetHistory.length - 1];
         if (lastItem !== this.facetOffset) {
           this.facetHistory.push(this.facetOffset);
-          console.log(this.facetHistory);
         }
         this.setFacetOffset(offset);
       }
