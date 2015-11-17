@@ -156,7 +156,7 @@ define(function(require, exports, module) {
         var facet = _.keys(this.facetData)[offset];
         console.log('clearing facet', facet);
         $(document).trigger('uiClearFacets', {facet: facet});
-        this.setFacetOffset(this.facetHistory.pop() || -1);
+        this.setFacetOffset(this.facetHistory.pop());
       } else {
         var lastItem = this.facetHistory[this.facetHistory.length - 1];
         if (lastItem !== this.facetOffset) {
