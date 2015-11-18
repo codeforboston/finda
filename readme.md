@@ -16,18 +16,14 @@ Great! Head over to our [Getting Started wiki](https://github.com/codeforboston/
 
 Great! See [Developing Finda](https://github.com/codeforboston/finda/wiki/Developing-Finda) on the wiki.
 
-## How to test
+## How to Test
 
-Keep test server running to speed up tests
+You can run tests once by running: `npm test`
 
-Start test server:
+Keep test server running to speed up tests. Start test server:
 
-```
-npm run test-server
-```
+    npm run test-server
 
-Kick off a test run:
+Kick off a test run when the test server is running:
 
-```
-npm run test-client
-```
+    npm run test-client

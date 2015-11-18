@@ -1,10 +1,15 @@
-{{#if showResults}}
-  <a href="javascript:location.reload()">&laquo; Back to Questions</a>
-{{else}}
-  <button data-next-facet-offset="{{facetOffset}}" class="js-next-prev btn btn-default">
-    Next
-  </button>
-  <a class="js-offer-results" data-offer-results="true" href="#">
-    Skip to Facilities &raquo;
-  </a>
-{{/if}}
+<div class="facet-controls">
+  {{#if showResults}}
+    <a href="javascript:location.reload()">&laquo; Back to Questions</a>
+  {{else}}
+    <button data-next-facet-offset="{{facetOffset}}" class="js-next-prev btn btn-default previous" type="button">
+      Previous
+    </button>
+    <button data-next-facet-offset="{{facetOffset}}" class="btn-next js-next-prev btn btn-default" type="button">
+      Next
+    </button>
+    <a class="js-offer-results" data-offer-results="true" href="#">
+      Skip to Facilities &raquo;
+    </a>
+  {{/if}}
+</div>
