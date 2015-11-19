@@ -16,6 +16,8 @@ Great! Head over to our [Getting Started wiki](https://github.com/codeforboston/
 
 Great! See [Developing Finda](https://github.com/codeforboston/finda/wiki/Developing-Finda) on the wiki.
 
+Look in the [waffle board](https://waffle.io/openlexington/finda) for priority issues.
+
 ## How to Test
 
 You can run tests once by running: `npm test`
