@@ -1,4 +1,4 @@
-# Get Help Kentucky [![Build Status](https://travis-ci.org/openlexington/finda.svg)](https://travis-ci.org/openlexington/finda) [![Stories in Ready](https://badge.waffle.io/openlexington/finda.svg?label=ready&title=Ready)](http://waffle.io/openlexington/finda)
+# Get Help Lexington [![Build Status](https://travis-ci.org/openlexington/finda.svg)](https://travis-ci.org/openlexington/finda) [![Stories in Ready](https://badge.waffle.io/openlexington/finda.svg?label=ready&title=Ready)](http://waffle.io/openlexington/finda)
 
 ## How to develop
 
