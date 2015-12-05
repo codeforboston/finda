@@ -329,3 +329,8 @@ body > div.container {
     width: 100%
   }
 }
+
+.treatment-definition {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
