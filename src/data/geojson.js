@@ -63,6 +63,7 @@ define(function(require, exports, module) {
         gender_male: "gender",
         gender_female: "gender",
         pregnancy_services: "pregnancy",
+        no_pregnancy_services: "pregnancy",
         age_child: "age",
         age_adult: "age",
         insurance_medicare: "insurance",
