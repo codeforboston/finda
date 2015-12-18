@@ -36,7 +36,7 @@ body > div.container {
 
 .navbar .navbar-header .navbar-toggle {
   /* cancel out above margin */
-  margin-top: 0;
+  margin-top: -8px;
 }
 
 .navbar img {
