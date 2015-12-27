@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title data-project="name">Get Help Lexington</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Generic 'find-a' app for geographic datasets">
-    <meta name="author" content="Code for Boston">
+    <meta name="description" content="Get Help Lexington is an on-line resource for people seeking facilities and services for substance use disorder (substance abuse/addiction).">
+    <meta name="author" content="OpenLexington and Code for Boston">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/properties.css">
@@ -34,7 +34,8 @@
         <!--Collected the nav links and content for toggling-->
         <div class="collapse navbar-collapse" id="finda-navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <!-- <li><a href="#" data&#45;toggle="modal" data&#45;target="#about">About</a></li> -->
+            <li><a href="#" data-toggle="modal" data-target="#about">About</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#contact">Contact Us</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -55,6 +56,20 @@
       <div id="map" style="display:none"></div>
     </div>
 
+    <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="aboutLabel">Contact Us</h4>
+          </div>
+          <div class="modal-body">
+            <div>Here's is where you'd put some contact information.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -63,15 +78,23 @@
             <h4 class="modal-title" id="aboutLabel">About <span data-project="name">Finda</span></h4>
           </div>
           <div class="modal-body">
-            <div data-project="description">Finda is a generic "find-a" app for geographic datasets.</div>
-            <h5 data-project="contact">Please send feedback, ideas, and bug reports to our <a href="https://github.com/codeforboston/finda/issues" target="_blank">Github</a> page.</h5>
+            <div data-project="description">Get Help Lexington is an on-line resource for people seeking facilities and services for substance use disorder (substance abuse/addiction). <a href="">Get Help Lexington</a> is a open-source project. GHL is an adaptation of Code for Boston's <a href="">Finda project</a>. The source code for both Finda and GHL are publically available on GitHub.</div>
+            <h5 data-project="contact">Please send feedback, ideas, and bug reports to our <a href="https://github.com/openlexington/finda/issues" target="_blank">Github</a> page.</h5>
             <hr>
-            <h4>About Code for Boston</h4>
-            <p>Code for Boston is a volunteer group of civic-minded developers, designers, urban planners, citizen activists, data geeks and more. Part of the <a href="http://brigade.codeforamerica.org">Code for America Brigade</a> program, we work with Boston-area city governments and local communities to build open-source civic apps, open public data sources, and generally help to leverage technology for use in the public sphere.</p>
-            <p>Feel free to stop by one of our <a href="http://www.meetup.com/Code-for-Boston" target="_blank">Weekly Hack Nights</a>, <a href="http://www.github.com/codeforboston" target="_blank">check us out on Github</a>, or simply <a href="mailto:boston-admin@codeforamerica.org"> drop us a line!</a></p>
+            <h3>Built by the following groups:</h3>
+            <h4>LFUCG Office of Substance Abuse and Violence Intervention (SAVI)</h4>
+            <p>About SAVI</p>
+
+            <h4>OpenLexington</h4>
+            <p><a href="http://openlexington.org">OpenLexington</a> is a volunteer group of civic-minded software developers, designers, urban planners, citizen activists, data geeks and more. Part of the <a href="http://brigade.codeforamerica.org">Code for America Brigade</a> program, we work with LFUCG, Fayette County, and local communities to build open-source civic apps, open public data sources, and generally help to leverage technology for use in the public sphere.</p>
+
+            <h4>LexLadiesCode</h4>
+            <p>LexLadiesCode is a women's coding club based in Lexington, Kentucky gathered to increase the visibility of and possibilities for women in technology.</p>
+
+            <h4>Code for Boston</h4>
+            <p>About Code for Boston</p>
           </div>
           <div class="modal-footer">
-            <script type='text/javascript'>(function(){document.write("<img src='https://bostonbuilt.org/icon.php?q=built_in_boston_color_fancy.png&u=" + window.location.host + "' />");})();</script>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
