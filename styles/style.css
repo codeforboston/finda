@@ -26,7 +26,7 @@ body > div.container {
 
 .navbar {
   background: #e5e5e5; /*This should be the brand primary color*/
-  border-bottom: 2px solid #69579c; /*This should be the brand accent color*/
+  border-bottom: 2px solid #25AAE1; /*This should be the brand accent color*/
 }
 
 .navbar .navbar-header {
@@ -50,13 +50,13 @@ body > div.container {
   vertical-align: middle;
   font-weight: 300;
   font-size: 27px;
-  color: #69579c;
+  color: #25AAE1;
 }
 
 .navbar-form .btn {
   border: none;
   outline: none;
-  background-color: #69579c; /*This should be the brand accent color*/
+  background-color: #25AAE1; /*This should be the brand accent color*/
   color: #fff;
   font-weight: 400;
   vertical-align: middle;
