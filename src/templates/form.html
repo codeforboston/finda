@@ -1,0 +1,6 @@
+<form class="facet-form" data-facet="{{ key }}">
+  {{#inputs}}
+    {{{this}}}
+  {{/inputs}}
+</form>
+<a href="#" data-facet="{{ key }}" class="clear-facets {{#unless has_selected}}hide{{/unless}}">clear</a>

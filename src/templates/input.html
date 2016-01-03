@@ -1,0 +1,14 @@
+<div class="checkbox {{#selected}}selected{{/selected}}">
+  <label>
+    <input type="checkbox" {{#selected}}checked{{/selected}} name="{{ value }}">
+    {{#if title}}
+      {{ title }}
+    {{else}}
+      {{ value }}
+    {{/if}}
+    {{#selected}}
+    {{else}}
+      ({{ count }})
+    {{/selected}}
+  </label>
+</div>

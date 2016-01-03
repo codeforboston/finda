@@ -9,13 +9,17 @@ require.config({
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
-    'fuse': '../lib/fuse.min'
+    'fuse': '../lib/fuse.min',
+    'Tabletop': '../lib/tabletop',
+    'd3': '../lib/d3.min',
+    'StateMachine': '../lib/state-machine',
+    'text': '../lib/text'
   },
   shim: {
     'handlebars': {
       exports: 'Handlebars'
     },
-    'underscore': {
+    'lodash': {
       exports: '_'
     },
     'flight': {
@@ -39,8 +43,10 @@ define(function(require) {
   require('ui/search_results').attachTo('#search-results');
   require('ui/info').attachTo('#info');
   require('ui/list').attachTo('#list');
+  require('ui/tabs').attachTo('#finda-tabs');
   require('ui/facet').attachTo('#facets');
   require('ui/loading').attachTo('#loading');
+  require('ui/filtering').attachTo('#message');
   require('ui/project').attachTo(document);
   require('data/facet').attachTo(document);
   require('data/analytics').attachTo(document);

@@ -41,8 +41,8 @@ define(function(require, exports, module) {
         return;
       }
       this.trigger('listStarted', {});
-      this.$node.show();
-      this.render = _.partial(templates.popup, listConfig);
+      this.render = _.partial(templates.popup, config.list);
+      this.renderFull = _.partial(templates.popup, config.properties);
     };
 
     this.loadData = function(ev, data) {
@@ -50,7 +50,8 @@ define(function(require, exports, module) {
       timedWithObject(
         data.features,
         function(feature, l) {
-          var $li = $("<li/>").html(this.render(feature.properties))
+          var $li = $("<li/>").html(this.render(feature.properties, feature.id))
+                .addClass('item')
                 .data('feature', feature);
           $li._text = $li.text();
           l.push($li);
@@ -66,7 +67,7 @@ define(function(require, exports, module) {
 
     this.filterData = function(ev, data) {
       this.trigger('listFilteringStarted', {});
-      this.$node.find('li').hide().filter(function() {
+      this.$node.find('li.item').hide().filter(function() {
         var $li = $(this);
         return _.contains(data.featureIds, $li.data('feature').id);
       }).show();
@@ -74,18 +75,35 @@ define(function(require, exports, module) {
     };
 
     this.onFeatureClick = function onFeatureClick(ev) {
-      var $li = $(ev.target).closest('li');
+      var $li = $(ev.target).closest('li.item');
       var feature = $li.data('feature');
+      this.selectedLi = $li;
       this.trigger('selectFeature', feature);
     };
 
     this.onFeatureSelected = function onFeatureSelected(ev, feature) {
-      var offset = $elementForFeature.call(this, feature).offset().top - 50;
-      this.scrollToOffset(offset);
+      var $selectedItem = $elementForFeature.call(this, feature);
+      var propsWithTitles = this.addFacetTitles(feature.properties, this.facetTitles);
+
+      // set url to blah.com#finda-17
+      window.location.hash = feature.id;
+      $selectedItem.html(this.renderFull(propsWithTitles, feature.id));
+
+      // does not clear previous selections so they remain findable later
+      $selectedItem.addClass('selected-facility');
     };
 
-    this.scrollToOffset = function(offset) {
-      this.$node.scrollTop(this.$node.scrollTop() + offset);
+    this.addFacetTitles = function(featureProperties, facetTitles) {
+      var propsWithTitles = _.clone(featureProperties);
+      // can probably use map rather than each
+      _.each(propsWithTitles, function(values, key) {
+        if (facetTitles && _.isArray(values)) {
+          propsWithTitles[key] = _.map(values, function(value) {
+            return facetTitles[value];
+          }.bind(this));
+        }
+      }.bind(this));
+      return propsWithTitles;
     };
 
     this.after('initialize', function() {
@@ -95,6 +113,12 @@ define(function(require, exports, module) {
       this.on(document, 'selectFeature', this.onFeatureSelected);
       this.on('click', {
         listItemSelector: this.onFeatureClick
+      });
+      this.on(document, 'uiHideResults', function() {
+        this.$node.hide();
+      });
+      this.on(document, 'facetTitles', function(ev, facetTitles) {
+        this.facetTitles = facetTitles;
       });
     });
   });

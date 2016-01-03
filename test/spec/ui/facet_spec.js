@@ -23,9 +23,11 @@ define(['test/mock', 'jquery'], function(mock, $) {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('dataFacets', mockFacets);
+        // skip past intro question to first facet
+        this.component.setFacetOffset(0);
       });
       it('renders the name of the facet in an h4', function() {
-        expect(this.$node.find('h4').text()).toEqual('Services');
+        expect(this.$node.find('h4').text()).toEqual('What kind of services do you want?');
       });
       it('renders each facet value as a checkbox', function() {
         expect(this.$node.find('input').length).toEqual(2);
@@ -49,6 +51,8 @@ define(['test/mock', 'jquery'], function(mock, $) {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('dataFacets', mockFacets);
+        // skip past intro question to first facet
+        this.component.setFacetOffset(0);
       });
       it('sends a "uiFilterFacet" event with the selected facets', function () {
         this.component.$node.find('input:first').click();
@@ -78,6 +82,8 @@ define(['test/mock', 'jquery'], function(mock, $) {
       beforeEach(function() {
         this.component.trigger('config', mock.config);
         this.component.trigger('dataFacets', mockFacets);
+        // skip past intro question to first facet
+        this.component.setFacetOffset(0);
       });
       it('sends a "uiClearFacets" event', function () {
         this.component.$node.find('.clear-facets').click();

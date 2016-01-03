@@ -10,11 +10,11 @@ define(function(require, exports, module) {
 
   module.exports = flight.component(function map() {
     this.attributes({
-      tileUrl: 'http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png',
-      tileAttribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
-      tileSubdomains: '0123',
+      tileUrl: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+      tileAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+      tileSubdomains: 'abcd',
       tileMinZoom: 2,
-      tileMaxZoom: 18
+      tileMaxZoom: 19
     });
 
     this.defineIconStyles = function() {
@@ -58,7 +58,7 @@ define(function(require, exports, module) {
 
       if (mapConfig.maxZoom){
         this.map.options.maxZoom = mapConfig.maxZoom;
-        this.cluster.options.disableClusteringAtZoom = mapConfig.maxZoom;
+        this.cluster.options.disableClusteringAtZoom = 1;
         this.cluster._maxZoom = mapConfig.maxZoom - 1;
       }
       if (mapConfig.maxBounds){
@@ -243,6 +243,15 @@ define(function(require, exports, module) {
     };
 
     this.after('initialize', function() {
+      this.on(document, 'uiHideResults', function() {
+        this.$node.hide();
+      });
+
+      this.on(document, 'uiShowResults', function() {
+        this.map._onResize();
+        this.$node.show();
+      });
+
       this.map = L.map(this.node, {});
 
       this.cluster = new L.MarkerClusterGroup({

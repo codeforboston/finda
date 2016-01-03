@@ -19,7 +19,10 @@ require.config({
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
-    'bootstrap': '../lib/bootstrap.min'
+    'd3': '../lib/d3.min',
+    'Tabletop': '../lib/tabletop',
+    'bootstrap': '../lib/bootstrap.min',
+    'text': '../lib/text'
   },
   shim: {
     'handlebars': {

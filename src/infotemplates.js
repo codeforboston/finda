@@ -10,7 +10,8 @@ define(function(require, exports) {
     list: Handlebars.compile('<ul> {{#list}} <li>{{{this}}}</li> {{/list}} </ul>'),
     directions: Handlebars.compile('<a target="_blank" href="http://maps.google.com/maps?q={{directions}}">{{title}}</a>'),
     simple: Handlebars.compile('{{text}}'),
-    popup: Handlebars.compile('<div>{{#popup}}<div class="feature-{{klass}}">{{{rendered}}}</div>{{/popup}}</div>')
+    phone_numbers: Handlebars.compile('<a href="tel:{{text}}">{{text}}</a>'),
+    popup: Handlebars.compile('<a id="{{featureId}}">&nbsp;</a><div>{{#popup}}<div class="feature-{{klass}}">{{{rendered}}}</div>{{/popup}}</div>')
   };
   var formatters = {
     url: function(value, property) {
@@ -39,8 +40,13 @@ define(function(require, exports) {
       });
     },
 
+    phone_numbers: function(value) {
+      return templates.phone_numbers({text: value});
+    },
+
     simple: function(value) {
-      return templates.simple({text: value}).replace(
+      var text = value;
+      return templates.simple({text: text}).replace(
           /\n/g, '<br>');
     },
 
@@ -65,6 +71,8 @@ define(function(require, exports) {
       formatter = 'title';
     } else if (_.isArray(value)) {
       formatter = 'list';
+    } else if (property === "phone_numbers") {
+      formatter = 'phone_numbers';
     } else {
       formatter = 'simple';
     }
@@ -72,10 +80,10 @@ define(function(require, exports) {
     return formatters[formatter](value, property);
   }
 
-  exports.popup = function(properties, feature) {
+  exports.popup = function(propertiesToRender, featureProperties, featureId) {
     var popup = [],
         rendered;
-    _.each(properties, function(property) {
+    _.each(propertiesToRender, function(property) {
 
       var key;
       if (typeof property === "string") {
@@ -84,7 +92,7 @@ define(function(require, exports) {
         key = property.name;
       }
 
-      var value = feature[key];
+      var value = featureProperties[key];
       if (value !== undefined && (value.length === undefined || value.length !== 0)) {
         rendered = format(value, property);
         if (rendered) {
@@ -95,6 +103,6 @@ define(function(require, exports) {
         }
       }
     });
-    return templates.popup({popup: popup});
+    return templates.popup({popup: popup, featureId: featureId});
   };
 });

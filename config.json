@@ -1,17 +1,23 @@
 {
   "project": {
-    "name": "Finda",
+    "name": "Get Help Lexington",
     "description": "<p>Finda is a generic \"find-a\" app for geographic datasets.</p>",
     "contact": "Please send feedback, ideas, and bug reports to our <a href=\"https://github.com/codeforboston/finda/issues\" target=\"_blank\">Github</a> page."
   },
   "map": {
     "preview_attribute": "organization_name",
-    "center":[42.3725, -71.1266],
-    "zoom":13,
+    "center":[37.6864, -85.2219],
+    "zoom":7,
     "maxZoom":16,
-    "maxBounds":[
-      [39.2, -78.0],
-      [44.5, -65.0]
+    "maxBounds": [
+      [
+        36.4964,
+        -89.5715
+      ],
+      [
+        38.6855,
+        -81.8509
+      ]
     ]
   },
   "properties": [
@@ -23,15 +29,18 @@
     "contact_emails",
     "phone_numbers",
 
-    {"name": "services_offered", "title": "Services" },
-    {"name": "youth_category", "title": "Type of Organization" },
-    {"name": "target_populations", "title": "Populations Served" },
-
-    {"name": "additional_notes", "title": "Information"}
+    {"name": "facility_type", "title": "Facility Type" },
+    {"name": "out_patient", "title": "Outpatient Services" },
+    {"name": "residential_offered", "title": "Residential Services" },
+    {"name": "gender", "title": "Genders Served" },
+    {"name": "pregnancy_services", "title": "Services for Pregnant Women" },
+    {"name": "age", "title": "Ages Served" },
+    {"name": "insurance", "title": "Payment accepted"}
   ],
   "list": [
     "organization_name",
-    "address"
+    "city",
+    "phone_numbers"
   ],
   "search": {
     "geosearch": true,
@@ -46,12 +55,36 @@
     }
   },
   "facets": {
-    "target_populations": {
-      "title": "Populations Served",
-      "type": "list"
+    "facility_type": {
+      "title": "Type of Treatment",
+      "survey_title": "Treatment can be delivered on an outpatient or residential basis. <br><br>Examples of outpatient treatment options include 12 step programs, counseling, and Intensive Outpatient Programs where you spend several hours per week in treatment.  Examples of residential treatment options include residential detox and residential treatment where you stay in the facility overnight for the length of your treatment. <br><br>I am interested in learning about substance abuse treatment resources that are:",
+      "type": "single"
     },
-    "youth_category": {
-      "title": "Category",
+    "out_patient": {
+      "title": "Outpatient",
+      "type": "single",
+      "dependency": "outpatient_offered",
+      "survey_title": "Outpatient treatments I am interested in"
+    },
+    "gender": {
+      "title": "Gender",
+      "survey_title": "I am in interested in treatments for a",
+      "type": "single"
+    },
+    "pregnancy": {
+      "title": "Services for a Pregnant Woman?",
+      "survey_title": "I am in interested in treatments for someone who is pregnant",
+      "dependency": "gender_female",
+      "type": "single"
+    },
+    "age": {
+      "title": "Age",
+      "survey_title": "I am interested in treatments for a",
+      "type": "single"
+    },
+    "insurance": {
+      "title": "Payment accepted",
+      "survey_title": "I am interested in services that accept these payments",
       "type": "single"
     }
   },

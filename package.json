@@ -22,7 +22,10 @@
     "copyfiles": "0.0.1"
   },
   "scripts": {
+    "start": "http-server",
     "test": "jshint src && karma start --single-run --browsers PhantomJS",
+    "test-server": "jshint src && karma start --browsers PhantomJS",
+    "test-client": "jshint src && karma run",
     "build": "npm run clean && npm run copy && npm run cssmin && npm run requirejs && npm run processhtml && npm run index",
     "clean": "rimraf dist",
     "copy": "copyfiles index.html data.geojson config.json *.md styles/properties.css img/* lib/leaflet/images/marker-* dist",
