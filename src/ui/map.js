@@ -10,11 +10,11 @@ define(function(require, exports, module) {
 
   module.exports = flight.component(function map() {
     this.attributes({
-      tileUrl: 'http://a{s}.acetate.geoiq.com/tiles/acetate-hillshading/{z}/{x}/{y}.png',
-      tileAttribution: '&copy;2012 Esri & Stamen, Data from OSM and Natural Earth',
-      tileSubdomains: '0123',
+      tileUrl: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+      tileAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+      tileSubdomains: 'abcd',
       tileMinZoom: 2,
-      tileMaxZoom: 18
+      tileMaxZoom: 19
     });
 
     this.defineIconStyles = function() {
