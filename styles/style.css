@@ -19,14 +19,14 @@ body > div.container {
   position: relative;
   width: 100%;
   height: 100%;
-  top: 50px;
+  top: 64px;
   margin: 0;
   padding: 0;
 }
 
 .navbar {
   background: #e5e5e5; /*This should be the brand primary color*/
-  border-bottom: 2px solid #69579c; /*This should be the brand accent color*/
+  border-bottom: 2px solid #25AAE1; /*This should be the brand accent color*/
 }
 
 .navbar .navbar-header {
@@ -39,24 +39,24 @@ body > div.container {
   margin-top: -8px;
 }
 
-.navbar img {
+/*.navbar img {
   display: inline-block;
   margin-right: 15px;
   vertical-align: middle;
-}
+}*/
 
 .navbar .navbar-brand {
   float: none;
   vertical-align: middle;
   font-weight: 300;
   font-size: 27px;
-  color: #69579c;
+  color: #25AAE1;
 }
 
 .navbar-form .btn {
   border: none;
   outline: none;
-  background-color: #69579c; /*This should be the brand accent color*/
+  background-color: #25AAE1; /*This should be the brand accent color*/
   color: #fff;
   font-weight: 400;
   vertical-align: middle;
@@ -333,4 +333,17 @@ body > div.container {
 .treatment-definition {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.grey-font {
+  color: #6d6e71;
+}
+
+.mainline {
+  font-weight: 700 !important;
+}
+
+.tagline {
+  font-size: 70%;
+  font-style: italic;
 }
