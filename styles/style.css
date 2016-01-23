@@ -347,3 +347,21 @@ body > div.container {
   font-size: 70%;
   font-style: italic;
 }
+
+/* proudly borrowed from https://github.com/luckyshot/ga-feedback */
+#gaf-button {
+  position: fixed;
+  bottom: 0;
+  right: 1em;
+  background: rgba(61, 194, 85, 0.8);
+  color: #fff;
+  padding: 4px 7px;
+  font-size: 1.3em;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  z-index: 999999999;
+}
+
+#feedback-form textarea {
+  margin-bottom: 20px;
+}

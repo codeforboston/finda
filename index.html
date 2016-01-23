@@ -130,6 +130,28 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="feedback-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Send us your feedback!</h4>
+          </div>
+          <div class="modal-body">
+            <p>Anything missing, incorrect, or anything else?</p>
+            <p>Just remember not to send any sensitive personal information.</p>
+            <form id="feedback-form" class="form-horizontal" action="#" role="form" method="post">
+              <textarea id="feedback-text" class="form-control" aria-describedby="basic-addon2"></textarea>
+              <button type="submit" class="btn btn-primary">Send</button>
+              <button type="button" class="btn btn-cancel">Cancel</button>
+            </form>
+            <h3 class="thank-you" style="display:none">Your feedback has been sent!</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#" id="gaf-button" data-toggle="modal" data-target="#feedback-modal">Feedback</a>
     <!--[if lt IE 9]>
     <script src="lib/es5-shim.min.js"></script>
     <script src="lib/es5-sham.min.js"></script>
