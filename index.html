@@ -9,17 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/properties.css">
-    <!-- Hotjar Tracking Code for openlexington.github.io -->
-    <script>
-        (function(f,b){
-            var c;
-            f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
-            f._hjSettings={hjid:42555, hjsv:4};
-            c=b.createElement("script");c.async=1;
-            c.src="//static.hotjar.com/c/hotjar-"+f._hjSettings.hjid+".js?sv="+f._hjSettings.hjsv;
-            b.getElementsByTagName("head")[0].appendChild(c);
-        })(window,document);
-    </script>
   </head>
 
   <body>
@@ -133,6 +122,30 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="feedback-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Send us your feedback!</h4>
+          </div>
+          <div class="modal-body">
+            <label id="feedback-label">
+              Anything missing, incorrect, or anything else?<br />
+              <em>Just remember not to add any sensitive personal information.</em>
+            </label>
+            <form id="feedback-form" class="form-horizontal" action="#" role="form" method="post">
+              <textarea id="feedback-text" class="form-control" aria-describedby="feedback-label"></textarea>
+              <button type="submit" class="btn btn-primary">Send</button>
+              <button type="button" class="btn btn-cancel">Cancel</button>
+            </form>
+            <h3 class="thank-you" style="display:none">Your feedback has been sent!</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#" id="gaf-button" data-toggle="modal" data-target="#feedback-modal">Feedback</a>
     <!--[if lt IE 9]>
     <script src="lib/es5-shim.min.js"></script>
     <script src="lib/es5-sham.min.js"></script>
