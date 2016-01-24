@@ -128,10 +128,12 @@
             <h4 class="modal-title" id="myModalLabel">Send us your feedback!</h4>
           </div>
           <div class="modal-body">
-            <p>Anything missing, incorrect, or anything else?</p>
-            <p>Just remember not to send any sensitive personal information.</p>
+            <label id="feedback-label">
+              Anything missing, incorrect, or anything else?<br />
+              <em>Just remember not to add any sensitive personal information.</em>
+            </label>
             <form id="feedback-form" class="form-horizontal" action="#" role="form" method="post">
-              <textarea id="feedback-text" class="form-control" aria-describedby="basic-addon2"></textarea>
+              <textarea id="feedback-text" class="form-control" aria-describedby="feedback-label"></textarea>
               <button type="submit" class="btn btn-primary">Send</button>
               <button type="button" class="btn btn-cancel">Cancel</button>
             </form>
