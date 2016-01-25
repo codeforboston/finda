@@ -35,3 +35,7 @@ Kick off a test run when the test server is running:
 GetHelpLex uses Google Tag Manager to manage Google Analytics as described in the [Unified Analytics repository](https://github.com/laurenancona/unified-analytics).
 
 The feedback form is the [ga-feedback approach](https://github.com/luckyshot/ga-feedback) managed by Google Tag Manager [as described here](http://erikschwartz.net/2016-01-23-google-analytics-events-in-google-tag-manager/).
+
+## Add map coordinates for new facilities
+
+![Geocode facilites](./get-help-lex-geocode.gif)
