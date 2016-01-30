@@ -1,4 +1,4 @@
-# Get Help Lex [![Build Status](https://travis-ci.org/openlexington/finda.svg)](https://travis-ci.org/openlexington/finda) [![Stories in Ready](https://badge.waffle.io/openlexington/finda.svg?label=ready&title=Ready)](http://waffle.io/openlexington/finda)
+# Get Help Lex [![Build Status](https://travis-ci.org/openlexington/gethelplex.svg)](https://travis-ci.org/openlexington/gethelplex) [![Stories in Ready](https://badge.waffle.io/openlexington/gethelplex.svg?label=ready&title=Ready)](http://waffle.io/openlexington/gethelplex)
 
 ## How to develop
 
