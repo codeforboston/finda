@@ -19,7 +19,7 @@ define(function(require, exports, module) {
     this.addFeedbackToTagManager = function() {
       // track feedback in Google Tag Manager as a backup
       window.dataLayer.push({
-        'eventLabel': this.feedback(),
+        'eventLabel': this.feedback()
       });
     };
 
@@ -31,17 +31,27 @@ define(function(require, exports, module) {
       // see google-apps-feedback-script.js
       $.ajax({
         url: 'https://script.google.com/macros/s/AKfycbzziKocYO7ZmbLvRaSI_OEFSHTVwnCFrTfQT-OzoqAVQvpg1ZE/exec',
-        type: "post",
-        data: {"feedback": this.feedback() },
+        type: 'POST',
+        data: {feedback: this.feedback()},
         success: this.success.bind(this),
         error: this.error.bind(this)
       });
     };
 
-    this.error = function(data) {
+    this.errorAfterSuccessfulMobileSubmit = function(response) {
+      this.success();
+      throw('Error function called after successful mobile submission. Response: ' +
+        JSON.stringify(response) +
+        ', feedback ' + this.feedback());
+    };
+
+    this.error = function(response) {
+      if (response.status === 0 && response.responseText === "") {
+        return this.errorAfterSuccessfulMobileSubmit(response);
+      }
       this.resetSubmitBtn();
       var error = this.$node.find('.js-error');
-      var body = this.feedback() + " (Error details: " + data.responseText + ")";
+      var body = this.feedback() + " \n\n(Error details: " + JSON.stringify(response) + ")";
       error.find('.js-error-email').prop('href', 'mailto:gethelplex@lexingtonky.gov?subject=[GetHelpLex feedback]&body=' + body);
       error.show();
     };

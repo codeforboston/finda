@@ -141,8 +141,11 @@
             </ul>
             <form id="feedback-form" class="form-horizontal" action="#" role="form" method="post">
               <textarea id="feedback-text" class="form-control" aria-describedby="feedback-label"></textarea>
-              <label><input type="checkbox" required="required"> I have read the
-              <a data-toggle="collapse" href="#feedback-disclaimer" aria-expanded="false" aria-controls="disclaimer">disclaimer</a></label>
+              <div>
+                <label><input type="checkbox" required="required"> I have read the
+                  <a data-toggle="collapse" href="#feedback-disclaimer" aria-expanded="false" aria-controls="disclaimer">disclaimer</a>
+                </label>
+              </div>
               <button type="submit" class="js-submit btn btn-primary">Send</button>
               <button type="button" class="btn btn-cancel">Cancel</button>
             </form>
