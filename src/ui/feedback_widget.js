@@ -20,7 +20,7 @@ define(function(require, exports, module) {
       e.preventDefault();
       this.submitBtn().html('Sending...');
 
-      // based on https://mashe.hawksey.info/2014/07/google-sheets-as-a-database-insert-with-apps-script-using-postget-methods-with-ajax-example/
+      // see google-apps-feedback-script.js
       $.ajax({
         url: 'https://script.google.com/macros/s/AKfycbzziKocYO7ZmbLvRaSI_OEFSHTVwnCFrTfQT-OzoqAVQvpg1ZE/exec',
         type: "post",

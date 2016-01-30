@@ -47,7 +47,7 @@ define(function(require) {
   require('ui/facet').attachTo('#facets');
   require('ui/loading').attachTo('#loading');
   require('ui/filtering').attachTo('#message');
-  require('ui/google_tag_manager').attachTo('#feedback-modal');
+  require('ui/feedback_widget').attachTo('#feedback-modal');
   require('ui/project').attachTo(document);
   require('data/facet').attachTo(document);
   require('data/search').attachTo(document);
