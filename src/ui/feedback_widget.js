@@ -16,9 +16,17 @@ define(function(require, exports, module) {
       this.submitBtn().html('Send');
     };
 
+    this.addFeedbackToTagManager = function() {
+      // track feedback in Google Tag Manager as a backup
+      window.dataLayer.push({
+        'eventLabel': this.feedback(),
+      });
+    };
+
     this.handleSubmission = function(e) {
       e.preventDefault();
       this.submitBtn().html('Sending...');
+      this.addFeedbackToTagManager();
 
       // see google-apps-feedback-script.js
       $.ajax({
