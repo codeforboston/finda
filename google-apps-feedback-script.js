@@ -1,4 +1,4 @@
-// The Google Apps Script that you install in Google sheet to make it a feedback endpoint
+// Copy of the Google Apps Script that you install in Google sheet to make it a feedback endpoint
 // based on:
 // https://mashe.hawksey.info/2014/07/google-sheets-as-a-database-insert-with-apps-script-using-postget-methods-with-ajax-example/
 
