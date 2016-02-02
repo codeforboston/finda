@@ -37,6 +37,8 @@ GetHelpLex uses Google Tag Manager to manage Google Analytics as described in th
 GetHelpLex posts feedback to a Google Spreadsheet [as described here](https://mashe.hawksey.info/2014/07/google-sheets-as-a-database-insert-with-apps-script-using-postget-methods-with-ajax-example/).
 As a backup, feedback is tracked using the [ga-feedback approach](https://github.com/luckyshot/ga-feedback) managed by Google Tag Manager [as described here](http://erikschwartz.net/2016-01-23-google-analytics-events-in-google-tag-manager/).
 
+Feedback is emailed to addresses defined in the script attached to the [feedback spreadsheet](https://docs.google.com/spreadsheets/d/1lP-OsypwXFkH-S3F3Re34fBPSYgpr1ZXY6bRD85w3V8/edit).
+
 ## Add map coordinates for new facilities
 
 ![Geocode facilites](./get-help-lex-geocode.gif)
