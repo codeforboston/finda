@@ -75,7 +75,7 @@
           </div>
           <div class="modal-body">
             <div><strong>Get Help Lex</strong> is a resource for people seeking facilities and services for substance use disorder (substance abuse/addiction) in and around Lexington, Kentucky. <a href="https://github.com/openlexington/finda">Get Help Lex</a> is an open-source project. GHL is an adaptation of Code for Boston's <a href="https://github.com/codeforboston/finda">Finda project</a>. The source code for both Finda and GHL are publically available on GitHub.</div>
-            <h5>Please send feedback, ideas, and bug reports to <a href="mailto:gethelplex@lexingtonky.gov?subject=Get Help Lex Feedback">gethelplex@lexingtonky.gov</a> page.</h5>
+            <h5>Please <a href="#" data-toggle="modal" data-target="#feedback-modal">send feedback, ideas, and bug reports here</a>.</h5>
 
             <hr>
 
@@ -131,16 +131,37 @@
             <h4 class="modal-title" id="myModalLabel">Send us your feedback!</h4>
           </div>
           <div class="modal-body">
-            <label id="feedback-label">
-              Anything missing, incorrect, or anything else?<br />
-              <em>Just remember not to add any sensitive personal information.</em>
-            </label>
+            <div class="alert alert-success js-thank-you" role="alert" style="display:none">Your feedback has been sent!</div>
+            <div class="alert alert-danger js-error" style="display:none">We apologize, there was a problem sending the feedback. Please email <a class="js-error-email" href="#">gethelplex@lexingtonky.gov</a> instead.</div>
+            A few things to remember:
+            <ul>
+              <li>If this is an emergency, please dial <a href="tel:911">911</a></li>
+              <li>This is not for assessment or diagnosis and is not always monitored</li>
+              <li>Please do not add any sensitive personal information</li>
+            </ul>
             <form id="feedback-form" class="form-horizontal" action="#" role="form" method="post">
               <textarea id="feedback-text" class="form-control" aria-describedby="feedback-label"></textarea>
-              <button type="submit" class="btn btn-primary">Send</button>
+              <div>
+                <label><input type="checkbox" required="required"> I have read the
+                  <a data-toggle="collapse" href="#feedback-disclaimer" aria-expanded="false" aria-controls="disclaimer">disclaimer</a>
+                </label>
+              </div>
+              <button type="submit" class="js-submit btn btn-primary">Send</button>
               <button type="button" class="btn btn-cancel">Cancel</button>
             </form>
-            <h3 class="thank-you" style="display:none">Your feedback has been sent!</h3>
+            <div class="collapse well" id="feedback-disclaimer">
+              <p>Get Help Lex is a tool to help you find a substance abuse treatment program for yourself or others. It's an informational tool ONLY. <strong>If you are experiencing a medical emergency, please call <a href="tel:911">911.</a></strong></p>
+
+              <p>Please remember that it is:</p>
+
+              <ul>
+                <li>NOT a diagnostic tool</li>
+                <li>NOT an assessment tool</li>
+                <li>NOT a substitute for substance use treatment services</li>
+              </ul>
+
+              <p><strong>No identifying information is being collected from your search.</strong></p>
+            </div>
           </div>
         </div>
       </div>
