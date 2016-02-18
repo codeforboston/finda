@@ -48,6 +48,10 @@ body > div.container {
   color: #69579c;
 }
 
+.navbar-form {
+  width: 80%;
+}
+
 .navbar-form .btn {
   border:none;
   outline:none;
@@ -100,7 +104,7 @@ body > div.container {
   top: 50px;
   bottom: 0;
   right:0;
-  z-index: 1;
+  z-index: -1;
 }
 
 .control {
@@ -168,16 +172,217 @@ body > div.container {
 }
 
 
-.control.control-sidebar {
-  float: left;
-  box-sizing: border-box;
-  padding: 10px 14px 50px;
-  width: 300px;
-  height: 100%;
-  border-right: 1px solid #AFAFAF;
-  margin-bottom:30px;
-  overflow-y: auto;
+
+
+
+
+/* ====================
+  SIDEBAR
+  ==================== */
+
+.sidebar-toggle {
+  position: fixed;
+  right: 0px;
+  bottom: 16px;
+  /* weird bottom offset to make space for leaflet credits*/
+  width: 50px;
+  height: 50px;
+  background: rgba(0,0,0,0.6);
+  cursor: pointer;
+  display: none;
 }
+
+/* Only show sidebar toggle on small screens, since sidebar is default visible on larger */
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}
+
+/* CSS hamburger */
+.sidebar-toggle a {
+  text-align: center;
+  display: block;
+  position: relative;
+  top: 50%;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: -2px auto;
+  border-radius: 6px;
+}
+.sidebar-toggle a:before, .sidebar-toggle a:after {
+  content: "";
+  width: 25px;
+  height: 3px;
+  display: block;
+  position: relative;
+  background: inherit;
+  border-radius: 8px;
+}
+.sidebar-toggle a:before {
+  top: -8px;
+}
+.sidebar-toggle a:after {
+  bottom: -5px;
+}
+
+/* transform toggle into a X when active */
+.sidebar-toggle.active a:before {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  top: 1px;
+}
+.sidebar-toggle.active a {
+  height: 0px;
+}
+.sidebar-toggle.active a:after {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  top: -2px;
+}
+
+
+
+/*
+  The sidebar container:
+    two column large screens,
+    single column, tabbed on mid,
+    single column, tabbed, and hidden on small
+ */
+.sidebar {
+  height: 100%;
+  position: relative;
+  background: #f3f3f3;
+  transition: all 0.2s;
+}
+.sidebar.open {
+  margin-left: 0;
+}
+
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 33%;
+    margin-left: 0%;
+    padding-top: 50px;
+  }
+  .sidebar.no-tabs {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80%;
+    margin-left: -80%;
+  }
+  .sidebar.open{
+    margin-left: 0%;
+  }
+}
+
+/* The sidebar columns (filter, list, etc) */
+.sidebar .control {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  float: left;
+  padding: 0 10px;
+  display: none;
+}
+
+.sidebar-items-2 .control {
+  width: 50%;
+}
+.sidebar-items-1 .control {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+.sidebar .control {
+    width: 100%;
+    float: none;
+  }
+}
+
+
+/* sidebar button toggles to show list vs filter, etc */
+.sidebar-nav {
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+}
+
+/* Only display this when we have a tabbed view (mid-screen size & lower) */
+@media (max-width: 1200px) {
+  .sidebar-nav {
+    display: initial;
+  }
+}
+
+.sidebar-nav .items{
+  overflow: auto;
+  zoom: 1;
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav .items li{
+  float: left;
+  display: none;
+}
+.sidebar-items-2 .sidebar-nav .items li{
+  width: 50%;
+}
+.sidebar-items-1 .sidebar-nav .items li{
+  width: 100%;
+}
+
+  /*buttons*/
+.sidebar-nav a{
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  background-color: #e5e5e5;
+}
+.sidebar-nav a.active{
+  background-color: #f3f3f3;
+}
+
+
+/* map offset should be zero no matter the configuration of the sidebar since sidebar is an overlay*/
+body #map {
+  left: 0;
+}
+
+/* At larger sizes, adjust map to fit sidebar space depending on configuration */
+@media (min-width: 768px) {
+  .sidebar-items-1 + #map {
+    left: 15%;
+  }
+  .sidebar-items-2 + #map {
+    left: 33%;
+  }
+}
+@media (min-width: 1200px) {
+  .sidebar-items-1 {
+    width: 330px;
+  }
+  .sidebar-items-2 {
+    width: 500px;
+  }
+ .sidebar-items-1 + #map {
+    left: 330px;
+  }
+  .sidebar-items-2 + #map {
+    left: 500px;
+  }
+}
+
 
 #facets .checkbox.selected label {
   font-weight: bold;
@@ -194,7 +399,6 @@ body > div.container {
 }
 
 #list ul {
-  margin: -14px -14px 20px;
   padding-bottom: 20px;
   padding-left: 0;
 }

@@ -48,12 +48,25 @@
     </nav>
 
     <div class="container">
-      <div id="list" class="control control-sidebar"></div>
-      <div id="facets" class="control control-sidebar"></div>
+
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-toggle"><a href="#"></a></div>
+        <nav class="sidebar-nav">
+          <ul class="items">
+            <li><a data-select="list" class="sidebar-action active" href="#">List</a></li>
+            <li><a data-select="facets" class="sidebar-action" href="#">Filter</a></li>
+          </ul>
+        </nav>
+        <div id="list" class="control sidebar-item"></div>
+        <div id="facets" class="control sidebar-item"></div>
+      </aside>
+
       <div id="map"></div>
+
       <div id="info" class="control">
         <button type="button" class="close">&times;</button>
       </div>
+
     </div>
 
     <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
