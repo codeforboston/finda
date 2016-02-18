@@ -33,10 +33,9 @@ define(['test/mock', 'jquery'], function(mock, $) {
         expect(this.$node.find('input').length).toEqual(2);
         expect(this.$node.find('input:first').attr('name')).toEqual('first');
       });
-      it('renders the label with the count', function() {
+      it('renders the label with the facet value', function() {
         var text = this.$node.find("label:first").text();
         expect(text).toContain('first');
-        expect(text).toContain(1);
       });
       it('renders a checked checkbox if selected is true', function() {
         expect(this.$node.find("input[name=second]").val()).toEqual('on');
