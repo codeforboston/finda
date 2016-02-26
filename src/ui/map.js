@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
   'use strict';
   var flight = require('flight');
+  var $ = require('jquery');
   var L = require('leaflet');
   var _ = require('lodash');
   var timedWithObject = require('timed_with_object');
@@ -67,33 +68,53 @@ define(function(require, exports, module) {
 
       // set feature attribute to be used as preview text to config
       this.featurePreviewAttr = config.map.preview_attribute;
+      this.newPointAddrAttr = config.map.new_point_address_attribute;
+
+      // Determine whether edit-mode features are enabled (particularly
+      // dragging selected feature).
+      this.edit_mode = config.edit_mode;
+
+      if (this.edit_mode) {
+        var label = config.new_feature_popup_label;
+        if (label !== undefined) {
+          $("#new-feature-popup-label").html(label);
+        }
+      }
 
       // setup the center after we're done moving around
       this.map.setView(mapConfig.center, mapConfig.zoom);
+
+      if (this.edit_mode) {
+        this.map.doubleClickZoom.disable();
+        this.map.on('dblclick', this.emitStartCreate.bind(this));
+      }
     };
 
     this.loadData = function(ev, data) {
       this.defineIconStyles();
 
-      var setupFeature = function(feature, layer) {
-        this.layers[feature.id] = layer;
-
-        // bind popup to feature with specified preview attribute
-        this.bindPopupToFeature(
-          layer,
-          feature.properties[this.featurePreviewAttr]);
-
-        layer.on({
-          click: this.emitClick.bind(this),
-          mouseover: this.emitHover.bind(this),
-          mouseout: this.clearHover.bind(this)
-        });
-      }.bind(this);
-
       this.layers = {};
 
-      var geojson = L.geoJson(data, {onEachFeature: setupFeature});
+      var geojson = L.geoJson(data, {onEachFeature: this.setupFeature.bind(this)});
       geojson.addTo(this.cluster);
+    };
+
+    this.setupFeature = function(feature, layer) {
+      this.layers[feature.id] = layer;
+
+      // Want to be able to enable dragging in edit mode, but not yet...
+      // layer.dragging.disable();
+
+      // bind popup to feature with specified preview attribute
+      this.bindPopupToFeature(
+        layer,
+        feature.properties[this.featurePreviewAttr]);
+
+      layer.on({
+        click: this.emitClick.bind(this),
+        mouseover: this.emitHover.bind(this),
+        mouseout: this.clearHover.bind(this)
+      });
     };
 
     this.filterData = function(e, data) {
@@ -154,8 +175,16 @@ define(function(require, exports, module) {
       this.trigger(document, 'clearHoverFeature', e.target.feature);
     };
 
+    this.emitStartCreate = function(e) {
+      this.trigger(document, 'startCreateFeature',
+                   { position: e.latlng, attrs: {} });
+    };
+
     this.selectFeature = function(ev, feature) {
       if (this.previouslyClicked) {
+        if (this.previouslyClicked.dragging) {
+          this.previouslyClicked.dragging.disable();
+        }
         this.previouslyClicked.setIcon(this.defaultIcon);
         this.trigger(document, 'deselectFeature', this.currentFeature);
       }
@@ -164,6 +193,17 @@ define(function(require, exports, module) {
         var layer = this.layers[feature.id];
         layer.setIcon(this.grayIcon);
         this.previouslyClicked = layer;
+
+        if (this.edit_mode) {
+          this.map.addLayer(layer); // if it was buried in a cluster...
+          layer.dragging.enable();
+          layer.on("dragend", function(ev) {
+            var latlng = ev.target.getLatLng();
+            var pos = [latlng.lng, latlng.lat];
+            this.layers[layer.feature.id] = layer;
+            this.trigger(document, 'selectedFeatureMoved', [pos]);
+          }.bind(this));
+        }
 
         // re-bind popup to feature with specified preview attribute
         this.bindPopupToFeature(
@@ -177,16 +217,44 @@ define(function(require, exports, module) {
       }
     };
 
+    this.selectedFeatureMoved = function(ev, pos) {
+      if (this.previouslyClicked) {
+        var oldLatLng = this.previouslyClicked.getLatLng();
+        if (oldLatLng.lat !== pos[1] || oldLatLng.lng !== pos[0]) {
+          var latlng = L.latLng(pos[1], pos[0]);
+          this.previouslyClicked.setLatLng(latlng);
+          this.map.panTo(latlng);
+        }
+      }
+    };
+
     this.deselectFeature = function(ev, feature) {
       if (this.previouslyClicked) {
+        if (this.previouslyClicked.dragging) {
+          this.previouslyClicked.dragging.disable();
+        }
         this.previouslyClicked.setIcon(this.defaultIcon);
       }
       var layer = this.layers[feature.id];
       // re-bind popup to feature with specified preview attribute
+      // NB if value of preview attr has changed in edit, this is
+      // where the map picks it up.
       this.bindPopupToFeature(
         layer,
         feature.properties[this.featurePreviewAttr]);
       this.previouslyClicked = null;
+    };
+
+    this.markDeletion = function() {
+      if (this.previouslyClicked) {
+        this.previouslyClicked.setOpacity(0.4);
+      }
+    };
+
+    this.markUndeletion = function() {
+      if (this.previouslyClicked) {
+        this.previouslyClicked.setOpacity(1.0);
+      }
     };
 
     this.bindPopupToFeature = function(layer, feature){
@@ -214,6 +282,77 @@ define(function(require, exports, module) {
 
     this.panTo = function(ev, latlng) {
       this.map.panTo(latlng);
+    };
+
+    // Managing the two-step process of creating a new feature.
+    // (It's two steps, with the simple form in a popup, so stray
+
+
+    // Start create: sets up the "new-feature" popup at the right location.
+
+    this.startCreate = function(e, data) {
+      var popup = L.popup();
+      this.createPopup = popup;
+      this.createAddress = data.address;
+      popup.setLatLng(data.position);
+      popup.setContent($("#new-feature-popup").html());
+      popup.openOn(this.map);
+
+      var form = this.$node.find('.create-feature-popup-form');
+      form.on('submit', this.finishCreate.bind(this));
+      form.find('input').first().focus();
+    };
+
+    // Finish create: handles ordinary submission of the form in the
+    // "startCreate" popup.
+
+    this.finishCreate = function(e) {
+      e.preventDefault();
+
+      var popup = this.createPopup; // stashed away in step 1 above
+      if (popup === undefined) {
+        // Ordinarily "can't happen", but the test framework leaves old
+        // map components lying around.  The finishCreate tests only create
+        // a mock popup on the one set up for them, and we need to keep
+        // the others from blowing up.  (All due to the use of a 'live'
+        // event handler declaration below.)
+        return;
+      }
+
+      var latlng = popup.getLatLng();
+
+      var props = {};
+      props[this.featurePreviewAttr] = $(e.target).serializeArray()[0].value;
+      if (this.newPointAddrAttr) {
+        props[this.newPointAddrAttr] = this.createAddress;
+      }
+
+      this.createCount = this.createCount || 0;
+      var id = 'finda-new-' + this.createCount;
+      this.createCount++;
+
+      var feature = {
+        type: "Feature",
+        id: id,
+        geometry: {
+          type: "Point",
+          coordinates: [latlng.lng, latlng.lat]
+        },
+        properties: props
+      };
+
+      this.lastCreatedFeature = feature; // for tests (only! no other use!)
+
+      this.map.removeLayer(popup); // don't need it any longer...
+      $(document).trigger('newFeature', feature);
+      $(document).trigger('selectFeature', feature);
+    };
+
+    this.handleNewFeature = function(e, feature) {
+      // We use 'setupFeature' to get a marker into this.layers,
+      // then put it on the map.
+      L.geoJson(feature, {onEachFeature: this.setupFeature.bind(this)});
+      this.map.addLayer(this.layers[feature.id]);
     };
 
     this.onSearchResult = function(ev, result) {
@@ -280,6 +419,11 @@ define(function(require, exports, module) {
       this.on(document, 'deselectFeature', this.deselectFeature);
       this.on(document, 'hoverFeature', this.hoverFeature);
       this.on(document, 'clearHoverFeature', this.clearHoverFeature);
+      this.on(document, 'selectedFeatureMoved', this.selectedFeatureMoved);
+      this.on(document, 'selectedFeatureDeleted', this.markDeletion);
+      this.on(document, 'selectedFeatureUndeleted', this.markUndeletion);
+      this.on(document, 'startCreateFeature', this.startCreate);
+      this.on(document, 'newFeature', this.handleNewFeature);
       this.on(document, 'dataSearchResult', this.onSearchResult);
       this.on('panTo', this.panTo);
     });

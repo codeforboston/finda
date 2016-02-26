@@ -167,6 +167,65 @@ body > div.container {
     border-radius: 5px;
 }
 
+/* Styling info overlay for the JSON editor. 
+ *
+ * Just copying in Bootstrap 3 rules for '-sm'all inputs and buttons for
+ * now, to avoid doing a custom theme and custom build of JsonEditor itself,
+ * which would add the '-sm' classes.
+ */
+
+#infoedits {
+    position: absolute;
+    border: 1px solid #AFAFAF;
+    padding: 10px 14px;
+    top: 15px;
+    overflow-y: auto;
+    box-shadow: 0 3px 5px rgba(0,0,0,.25);
+    border-radius: 5px;
+    width: 390px;
+    font-size: 80%;
+    height: 90%;
+    right: 5px;
+}
+
+#infoedits input {
+    height:30px;
+    padding:5px 10px;
+    font-size:12px;
+    line-height:1.5;
+    border-radius:3px
+}
+
+#infoedits select.input-sm{
+    height:30px;
+    line-height:30px
+}
+
+#infoedits textarea, #infoedits select[multiple]{
+    height:auto
+}
+
+#infoedits .btn {
+    padding:5px 10px;
+    font-size:12px;
+    line-height:1.5;
+    border-radius:3px
+}
+
+/* Further changes; style the <h3> elements that head arrays same as labels,
+   since that's the semantic role they serve...
+ */
+
+#infoedits div.well h3 {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+/* More editing widgetry; styling for the "create feature" popup */
+
+form.create-feature-popup-form {
+    width: 250px;
+}
 
 .control.control-sidebar {
   float: left;

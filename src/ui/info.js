@@ -11,10 +11,11 @@ define(function(require, exports, module) {
 
     this.configureInfo = function(ev, config) {
       this.infoConfig = config.properties;
+      this.enabled = !config.edit_mode;
     };
 
     this.update = function(ev, feature) {
-      if (!feature) {
+      if (!feature || !this.enabled) {
         return;
       }
       this.attr.currentFeature = feature;

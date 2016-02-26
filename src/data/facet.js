@@ -107,7 +107,7 @@ define(function(require, exports, module) {
             }.bind(this))
             .flatten(true)
             .uniq()
-            .sortBy(function(value) { return value.toLowerCase(); })
+            .sortBy(function(value) { return (value||'').toLowerCase(); })
             .value();
         }.bind(this));
     };
@@ -227,6 +227,7 @@ define(function(require, exports, module) {
     this.after('initialize', function() {
       this.on(document, 'config', this.configure);
       this.on(document, 'data', this.loadData);
+      this.on(document, 'reindex', this.loadData);
       this.on(document, 'uiFilterFacet', this.filterData);
       this.on(document, 'mapBounds', this.onMapBounds);
       this.on(document, 'uiClearFacets', this.clearFacets);

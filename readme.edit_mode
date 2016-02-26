@@ -1,0 +1,103 @@
+How to configure edit mode:
+
+  Editing mode is controlled by several entries in config.json.
+
+  First off is "edit_mode".  If this isn't set to "true", then
+  all edit-related features are erased.
+
+  If "edit_mode" is set, then there are a couple of other config
+  entries that probably ought to be customized:
+
+    new_feature_popup_label is the prompt that the user will see
+      when creating a new feature, by double-clicking on the map.
+
+    feature_property_json_schema is the JSON schema describing
+      the properties of each feature, the data types, and display.
+      For more on what this ought to be like, see the documentation
+      for the JSON editor, which is what actually manages the 'info'
+      pane in edit mode:
+
+        https://github.com/jdorn/json-editor
+
+      and the official JSON schema spec:
+
+        http://json-schema.org/
+
+Innards -- Expected protocol:
+
+  A flight component can either listen for incremental changes to
+  data items, or wait for the edit state to pump out an 'reindex'
+  event.  The latter is for things that need to rebuild the world,
+  and we may want to put some hysteresis on it.  (Current components
+  that do that, for the moment: the fuse index for data/typeahead,
+  and the facets data component.)
+
+  If you're listening for incremental changes, you need to listen
+  for all of 'em.  So, map should be listening for selectedFeatureMoved
+  as well as sending it, lest something else start sending it as well
+  (in which case, it'll need to move the icon -- plausible case:
+  changes to address moving the icon as well).
+
+  Incremental changes:
+
+     selectFeature
+     deselectFeature
+
+     selectedFeatureMoved [carries an array of properties, as a GeoJSON
+                           lng, lat coordinate pair]
+     selectedFeaturePropsChanged [carries new props; 
+                                  those not mentioned to be left alone]
+
+     selectedFeatureDeleted [sets a flag; actual cull happens at export]
+     selectedFeatureUndeleted [clears the flag]
+
+     newFeature [carries a latlng *and* properties]
+
+  Additionally, there may be components (most notably, the typeahead
+  search engine with its Fuse index) which want to completely rebuild
+  periodically based on changed data.  We don't necessarily want to be
+  running these large computations on every one of a quick succession
+  of changes, only to immediately toss the result.  So, the edit-state
+  manager will send out a 'reindex' event, with a full copy of new data,
+  ten seconds after a series of local change events stops.
+
+TODO:
+
+ +) decide what we're doing about list features.  Set '"list": true' in
+    config for 'em to get off the dime.
+
+ For next three: jdorn/json-editor
+
+ +) alternative infotemplates that render form inputs,
+    with '"data-property": "foo"'
+
+ +) code to scrape property values *out* of the form inputs
+
+ +) code to add and remove list items from list-valued props
+
+ +) glue code to send and process changedProperty events
+
+ +) newFeature event support
+    +) double click sets preliminary marker, and pops up a form asking
+       for a value for the preview_attribute.
+    +) cancel on that form is a no-op; prelim marker goes away.
+       may need startCreate/cancelCreate events to mediate this
+    +) submit sends a newFeature event
+
+ +) delete event support
+    +) editState sets flag on item, and culls from export
+    +) map turns opacity on icon to 50%
+    +) "delete/undelete" button on above forms to show status & trigger changes
+
+ +) Edit help text and display, similar to current "About"
+
+ +) glue code to send the editedData events from edit_state, and
+    have typeahead.js update the FUSE index.
+
+ *) Undo mechanism:
+    items have an undo state which can be null or "revert properties"
+    for pre-exisiting items, edit_state caches properties at first
+      change
+
+ *) UI for filtering to only edited items, for quick review of current
+    change set.  Could possibly use undo-state info.

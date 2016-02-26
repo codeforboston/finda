@@ -66,6 +66,29 @@ define(
         });
       });
 
+      describe('on newFeature', function() {
+        beforeEach(function() {
+          $(document).trigger('config', mock.config);
+          $(document).trigger('data', mock.data);
+          waits(25);
+        });
+
+        it('adds a list item for the new feature', function() {
+          var oldNItems = this.$node.find('li').length;
+          var newFeature = {
+            type: "Feature",
+            id: "bogon",
+            geometry: {type: "Point", coordinates: [0,90]},
+            properties: {name: "North Pole"}
+          };
+
+          $(document).trigger('newFeature', newFeature);
+          var $li = this.$node.find('li');
+          expect($li.length).toBe(oldNItems + 1);
+          expect($li.first().data('feature')).toBe(newFeature);
+        });
+      });
+
       describe('on selectFeature', function() {
         beforeEach(function() {
           $(document).trigger('config', mock.config);

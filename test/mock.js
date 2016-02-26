@@ -41,6 +41,24 @@ define({
         title: "Services",
         type: "list"
       }
+    },
+    "edit_mode": false,
+    "new_feature_popup_label": "Add new frobnitz",
+    "feature_property_json_schema": {
+      "title": "Organization",
+      "type": "object",
+      "id": "properties",
+      "properties": {
+        "organization_name": { "type": "string" },
+        "address": { "type": "string" },
+        "web_url": { "type": "string", "format": "url" },
+        "contact_names": {
+          "title": "Contacts",
+          "type": "array",
+          "format": "table",
+          "items": { "type": "string" }
+        }
+      }
     }
   },
 

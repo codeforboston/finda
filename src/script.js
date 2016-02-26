@@ -9,7 +9,8 @@ require.config({
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
-    'fuse': '../lib/fuse.min'
+    'fuse': '../lib/fuse.min',
+    'jsoneditor': '../lib/jsoneditor.min'
   },
   shim: {
     'handlebars': {
@@ -33,19 +34,25 @@ require.config({
 define(function(require) {
   'use strict';
   require('bootstrap');
+  require('jsoneditor');
   // attach components to the DOM
   require('ui/map').attachTo('#map');
   require('ui/search').attachTo('#search');
   require('ui/search_results').attachTo('#search-results');
   require('ui/info').attachTo('#info');
+  require('ui/infoedits').attachTo('#infoedits');
   require('ui/list').attachTo('#list');
   require('ui/facet').attachTo('#facets');
+  require('ui/export').attachTo('#export');
+  require('ui/add_site').attachTo('#add-site');
+  require('data/facet').attachTo(document);
   require('ui/loading').attachTo('#loading');
   require('ui/project').attachTo(document);
   require('data/facet').attachTo(document);
   require('data/analytics').attachTo(document);
   require('data/search').attachTo(document);
   require('data/typeahead').attachTo(document);
+  require('data/edit_state').attachTo(document);
   require('data/geojson').attachTo(document);
   require('data/config').attachTo(document);
 });

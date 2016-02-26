@@ -6,6 +6,7 @@
   },
   "map": {
     "preview_attribute": "organization_name",
+    "new_point_address_attribute": "address",
     "center":[42.3725, -71.1266],
     "zoom":13,
     "maxZoom":16,
@@ -62,5 +63,48 @@
     "hostname": "auto",
     "detail_enabled": true
   },
-  "geojson_source": "data.geojson"
+  "geojson_source": "data.geojson",
+  "edit_mode": true,
+  "new_feature_popup_label": "Add service provider named...",
+  "feature_property_json_schema": {
+    "title": "Organization",
+    "type": "object",
+    "id": "properties",
+    "properties": {
+      "organization_name": { "title": "Name", "type": "string" },
+      "address": { "title": "Address", "type": "string", "format": "textarea" },
+      "city": { "title": "City", "type": "string" },
+      "web_url": { "title": "Web URL", "type": "string", "format": "url" },
+      "phone_numbers": {
+        "title": "Phone numbers",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "contact_emails": {
+        "title": "Email addresses",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "contact_names": {
+        "title": "Contact names",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "target_populations": {
+        "title": "Target Populations",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "youth_category": {
+        "title": "Youth category",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "service_class_level_1": {
+        "title": "Service class lvl 1",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "service_class_level_2": {
+        "title": "Service class lvl 2",
+        "type": "array", "format": "table", "items": { "type": "string" }
+      },
+      "age_range": { "title": "Age Range", "type": "string" },
+      "additional_notes": { "title": "Further Notes", "type": "string" }
+    }
+  }
 }

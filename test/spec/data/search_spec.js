@@ -5,6 +5,7 @@ define(['test/mock', 'jquery'], function(mock, $) {
       setupComponent();
       spyOn($, 'getJSON');
       spyOnEvent(document, 'dataSearchResult');
+      spyOnEvent(document, 'searchFoo'); // alternate responseEvent below
     });
 
     describe('on config', function() {
@@ -38,14 +39,32 @@ define(['test/mock', 'jquery'], function(mock, $) {
     });
 
     describe("#onSearchResult", function() {
+
+      beforeEach(function() {
+        // Deal with the currying in search-results-handler:
+        // it's a function that takes a set of options, and returns
+        // the function which handles the actual search-result
+        // according to those options.
+        this.searchHandler = this.component.searchResultsHandler({});
+      });
+
       it("does nothing if there's no result", function() {
-        this.component.searchResults([]);
+        this.searchHandler([]);
         expect('dataSearchResult').not.toHaveBeenTriggered();
       });
 
       it("triggers dataSearchResult if there's a result", function() {
-        this.component.searchResults([mock.openSearchResult]);
+        this.searchHandler([mock.openSearchResult]);
         expect('dataSearchResult').toHaveBeenTriggeredOnAndWith(
+          document,
+          mock.parsedSearchResult);
+      });
+
+      it("triggers alternate event if required", function() {
+        var searchHandler = 
+          this.component.searchResultsHandler({responseEvent: 'searchFoo'});
+        searchHandler([mock.openSearchResult]);
+        expect('searchFoo').toHaveBeenTriggeredOnAndWith(
           document,
           mock.parsedSearchResult);
       });

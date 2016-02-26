@@ -31,22 +31,28 @@ define(function(require) {
       }
       $.getJSON(this.attr.searchUrl,
                 parameters,
-                this.searchResults.bind(this));
+                this.searchResultsHandler(options));
     };
 
-    this.searchResults = function(results) {
-      if (results.length) {
-        var location = results[0],
-            displayName = _.compact([location.address.road,
-                                     location.address.city,
-                                     location.address.state
-                                    ]).join(', ');
-        this.trigger('dataSearchResult', {
-          name: displayName,
-          lat: location.lat,
-          lng: location.lon
-        });
-      }
+    this.searchResultsHandler = function(options) {
+
+      var handler = function(results) {
+        if (results.length) {
+          var location = results[0],
+              event = options.responseEvent || 'dataSearchResult',
+              displayName = _.compact([location.address.road,
+                                       location.address.city,
+                                       location.address.state
+                                      ]).join(', ');
+          this.trigger(event, {
+            name: displayName,
+            lat: location.lat,
+            lng: location.lon
+          });
+        }
+      }.bind(this);
+
+      return handler;
     };
 
     this.after('initialize', function() {

@@ -79,6 +79,12 @@ define(function(require, exports, module) {
       this.trigger('selectFeature', feature);
     };
 
+    this.onNewFeature = function onNewFeature(ev, feature) {
+      var $li = $("<li/>").html(this.render(feature.properties))
+        .data('feature', feature);
+      this.$node.find('ul').prepend($li);
+    };
+
     this.onFeatureSelected = function onFeatureSelected(ev, feature) {
       var offset = $elementForFeature.call(this, feature).offset().top - 50;
       this.scrollToOffset(offset);
@@ -92,6 +98,7 @@ define(function(require, exports, module) {
       this.on(document, 'config', this.configureList);
       this.on(document, 'data', this.loadData);
       this.on(document, 'dataFiltered', this.filterData);
+      this.on(document, 'newFeature', this.onNewFeature);
       this.on(document, 'selectFeature', this.onFeatureSelected);
       this.on('click', {
         listItemSelector: this.onFeatureClick

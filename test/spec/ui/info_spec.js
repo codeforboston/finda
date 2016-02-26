@@ -1,4 +1,6 @@
-define(['infotemplates', 'jquery'], function(templates, $) {
+define(['infotemplates', 'jquery', 'test/mock'], 
+       function(templates, $, mock) {
+
   'use strict';
   describeComponent('ui/info', function() {
     beforeEach(function() {
@@ -24,5 +26,23 @@ define(['infotemplates', 'jquery'], function(templates, $) {
         expect(this.$node.hide).toHaveBeenCalledWith();
       });
     });
+
+    describe('in edit mode', function() {
+      beforeEach(function() {
+
+        var editConfig = _.cloneDeep(mock.config);
+        editConfig.edit_mode = true;
+        $(document).trigger('config', editConfig);
+
+        this.feature = mock.data.features[0];
+      });
+
+      it("doesn't do anything", function() {
+        spyOn(templates, 'popup');
+        $(document).trigger('selectFeature', this.feature);
+        expect(templates.popup).not.toHaveBeenCalled();
+      });
+    });
+
   });
 });
