@@ -365,3 +365,15 @@ body > div.container {
 #feedback-form textarea {
   margin-bottom: 20px;
 }
+
+.well {
+  text-align: center;
+}
+
+.welcome-options {
+  padding: 0;
+  list-style-type: none;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
