@@ -13,7 +13,7 @@ define(function(require, exports, module) {
         callback: function(data) {
           var facetTitles = data.splice(0, 1)[0];
           // throw away survey rows
-          data.splice(0, 1);
+          data.splice(0, 2);
           this.trigger('facetTitles', facetTitles);
           this.trigger('data', this.processData(this.csvToGeojson(data)));
         }.bind(this),
