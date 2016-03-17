@@ -57,7 +57,7 @@
   "facets": {
     "facility_type": {
       "title": "Type of Treatment",
-      "survey_title": "Treatment can be delivered on an outpatient or residential basis. <br><br>Examples of outpatient treatment options include 12 step programs, counseling, and Intensive Outpatient Programs where you spend several hours per week in treatment.  Examples of residential treatment options include residential detox and residential treatment where you stay in the facility overnight for the length of your treatment. <br><br>I am interested in learning about substance use treatment resources that are:",
+      "survey_title": "Treatment can be delivered on an outpatient or residential basis. <br><br>I am interested in learning about substance use treatment resources that are:",
       "type": "single"
     },
     "out_patient": {
