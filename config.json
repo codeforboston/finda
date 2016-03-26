@@ -57,34 +57,34 @@
   "facets": {
     "facility_type": {
       "title": "Type of Treatment",
-      "survey_title": "Treatment can be delivered on an outpatient or residential basis. <br><br>Examples of outpatient treatment options include 12 step programs, counseling, and Intensive Outpatient Programs where you spend several hours per week in treatment.  Examples of residential treatment options include residential detox and residential treatment where you stay in the facility overnight for the length of your treatment. <br><br>I am interested in learning about substance abuse treatment resources that are:",
+      "survey_title": "Treatment can be delivered on an outpatient or residential basis. <br><br>I am interested in learning about substance use treatment resources that are:",
       "type": "single"
     },
     "out_patient": {
       "title": "Outpatient",
       "type": "single",
       "dependency": "outpatient_offered",
-      "survey_title": "Outpatient treatments I am interested in"
+      "survey_title": "Outpatient treatments I am interested in:"
     },
     "gender": {
       "title": "Gender",
-      "survey_title": "I am in interested in treatments for a",
+      "survey_title": "I am interested in services for a:",
       "type": "single"
     },
     "pregnancy": {
       "title": "Services for a Pregnant Woman?",
-      "survey_title": "I am in interested in treatments for someone who is pregnant",
+      "survey_title": "I am interested in services for someone who is pregnant:",
       "dependency": "gender_female",
       "type": "single"
     },
     "age": {
       "title": "Age",
-      "survey_title": "I am interested in treatments for a",
+      "survey_title": "I am interested in services for a:",
       "type": "single"
     },
     "insurance": {
       "title": "Payment accepted",
-      "survey_title": "I am interested in services that accept these payments",
+      "survey_title": "I am interested in services that accept these payments:",
       "type": "single"
     }
   },
