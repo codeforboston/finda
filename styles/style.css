@@ -362,6 +362,16 @@ body > div.container {
   z-index: 999999999;
 }
 
+#back-to-top {
+  text-decoration: none;
+  position: fixed;
+  left: 0;
+  font-size: 19px;
+  bottom: 0;
+  z-index: 999999999;
+  display: none;
+}
+
 #feedback-form textarea {
   margin-bottom: 20px;
 }
