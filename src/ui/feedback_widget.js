@@ -5,7 +5,10 @@ define(function(require, exports, module) {
 
   module.exports = flight.component(function analytics() {
     this.feedback = function() {
-      return this.$node.find('#feedback-text').val();
+      return {
+        feedback: this.$node.find('#feedback-text').val(),
+        email: this.$node.find('#feedback-email').val()
+      };
     };
 
     this.submitBtn = function() {
@@ -32,7 +35,7 @@ define(function(require, exports, module) {
       $.ajax({
         url: 'https://script.google.com/macros/s/AKfycbzziKocYO7ZmbLvRaSI_OEFSHTVwnCFrTfQT-OzoqAVQvpg1ZE/exec',
         type: 'POST',
-        data: {feedback: this.feedback()},
+        data: this.feedback(),
         success: this.success.bind(this),
         error: this.error.bind(this)
       });
