@@ -48,6 +48,11 @@ As a backup, feedback is tracked using the [ga-feedback approach](https://github
 
 Feedback is emailed to addresses defined in the script attached to the [feedback spreadsheet](https://docs.google.com/spreadsheets/d/1lP-OsypwXFkH-S3F3Re34fBPSYgpr1ZXY6bRD85w3V8/edit).
 
+To make changes to the script that handles feedback requests:
+
+* edit in the Appscript editor
+* `Publish` > `Deploy as webapp` > `Version: new`
+
 ## Add map coordinates for new facilities
 
 ![Geocode facilites](./get-help-lex-geocode.gif)

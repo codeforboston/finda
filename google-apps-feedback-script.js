@@ -35,7 +35,10 @@ function handleResponse(e) {
   lock.waitLock(30000);  // wait 30 seconds before conceding defeat.
 
   try {
-    MailApp.sendEmail("person@domain.org", "[GetHelpLex feedback]", JSON.stringify(e.parameters));
+    var msg = e.parameters.feedback;
+    if (e.parameters.email) { msg += ', email: ' + e.parameters.email; }
+
+    MailApp.sendEmail("foo@bar.com", "[GetHelpLex feedback]", msg);
 
     // next set where we write the data - you could write to multiple/alternate destinations
     var doc = SpreadsheetApp.openById(SCRIPT_PROP.getProperty("key"));
