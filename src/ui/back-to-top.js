@@ -8,7 +8,7 @@ define(function(require, exports, module) {
       $('body,html').animate({
         scrollTop: 0
       }, 1000);
-		return false;
+		  return false;
     };
 
     this.after('initialize', function() {
