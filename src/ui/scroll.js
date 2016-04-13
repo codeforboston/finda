@@ -7,9 +7,9 @@ define(function(require, exports, module) {
 
     this.onScroll = function() {
       if (this.$node.scrollTop() >= 500) {
-        $('#back-to-top').fadeIn(200);
+        $('#back-to-top').fadeIn(500);
       } else {
-        $('#back-to-top').fadeOut(200);
+        $('#back-to-top').fadeOut(500);
       }
     };
 

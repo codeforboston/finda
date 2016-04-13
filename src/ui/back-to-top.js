@@ -7,7 +7,8 @@ define(function(require, exports, module) {
     this.onClick = function() {
       $('body,html').animate({
         scrollTop: 0
-      }, 500);
+      }, 1000);
+		return false;
     };
 
     this.after('initialize', function() {

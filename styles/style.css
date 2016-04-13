@@ -366,10 +366,15 @@ body > div.container {
   text-decoration: none;
   position: fixed;
   left: 0;
-  font-size: 19px;
   bottom: 0;
-  z-index: 999999999;
   display: none;
+  background: rgba(37, 170, 225, 0.8);
+  color: #fff;
+  padding: 4px 7px;
+  font-size: 1.3em;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  z-index: 999999999;
 }
 
 #feedback-form textarea {
