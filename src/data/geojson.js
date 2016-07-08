@@ -58,6 +58,7 @@ define(function(require, exports, module) {
         residential_offered: "facility_type",
         outpatient_intensive: "out_patient",
         outpatient_services: "out_patient",
+        outpatient_mat: "out_patient",
         outpatient_twelvestep: "out_patient",
         residential_detox_offered: "residential",
         gender_male: "gender",
