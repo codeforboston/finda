@@ -392,3 +392,19 @@ body > div.container {
   margin-right: auto;
   margin-left: auto;
 }
+
+@media print {
+  body.modal-open {
+    visibility: hidden;
+  }
+
+  body.modal-open .modal .modal-header,
+  body.modal-open .modal .modal-body {
+    visibility: visible;
+  }
+
+  body.modal-open .modal .modal-header::before {
+    content: "Get Help Lex - gethelplex.org";
+    font-weight: 900;
+  }
+}
