@@ -407,4 +407,26 @@ body > div.container {
     content: "Get Help Lex - gethelplex.org";
     font-weight: 900;
   }
+  
+  body > div.container {
+    top: 0;
+  }
+  
+  #list {
+    width: 100%;
+    border: 0;
+  }
+  
+  #list.control > ul > li {
+    border: 0;
+    padding: 0; 
+  }
+  
+  #list ul li.item > div > div + div, #list ul li.item > div > div + div + div {
+    border: 0;
+  }
+  
+  #map, #finda-tabs, #back-to-top, #gaf-button {
+    display: none;
+  }
 }
