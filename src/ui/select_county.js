@@ -26,7 +26,6 @@ define(function(require, exports, module) {
       if (county) {
         selected.push(county);
       }
-      console.log(selected);
       $(document).trigger('uiFilterFacet', {
         facet: "county",
         selected: selected
@@ -35,10 +34,7 @@ define(function(require, exports, module) {
 
     this.after('initialize', function() {
       this.on(document, 'data', this.loadData);
-      this.on(document, 'onCountySelected', this.onCountySelected);
       this.on('change', this.onCountySelected);
-      // this.on(document, 'dataFiltered', this.filterData);
-      // this.on(document, 'deselectFeature', this.deselectFeature);
     });
   });
 });
