@@ -26,7 +26,8 @@ define(function(require, exports, module) {
         "organization_name": csvRow.organization_name,
         "phone_numbers": csvRow.phone_numbers,
         "address": csvRow.address + " " + csvRow.city + ", Kentucky",
-        "city": csvRow.city
+        "city": csvRow.city,
+        "county": csvRow.county 
       };
 
       _.each(facetValues, function(facet, facetValue) {
@@ -73,7 +74,8 @@ define(function(require, exports, module) {
         insurance_private: "insurance",
         insurance_payment_assistance: "insurance",
         insurance_no_fee: "insurance",
-        insurance_self_pay: "insurance"
+        insurance_self_pay: "insurance",
+        county: "county"
       };
       csv = _.filter(csv, function(row) {
         return row.organization_name !== "";

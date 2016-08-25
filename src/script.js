@@ -49,6 +49,7 @@ define(function(require) {
   require('ui/filtering').attachTo('#message');
   require('ui/feedback_widget').attachTo('#feedback-modal');
   require('ui/back-to-top').attachTo('#back-to-top');
+  require('ui/select_county').attachTo('#select_county');
   require('ui/scroll').attachTo(document);
   require('ui/project').attachTo(document);
   require('data/facet').attachTo(document);
