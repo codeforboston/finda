@@ -51,7 +51,8 @@
         "community",
         "youth_category",
         "service_class_level_2",
-        "additional_notes"]
+        "additional_notes",
+        "county"]
     }
   },
   "facets": {
@@ -85,6 +86,10 @@
     "insurance": {
       "title": "Payment accepted",
       "survey_title": "I am interested in services that accept these payments:",
+      "type": "single"
+    },
+    "county": {
+      "title": "County",
       "type": "single"
     }
   },

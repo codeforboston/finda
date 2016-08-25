@@ -36,7 +36,7 @@ define(function(require, exports, module) {
 
     this.configureMap = function(ev, config) {
       this.trigger('mapStarted', {});
-      // if list or facets are emabled, give the map less space
+      // if list or facets are enabled, give the map less space
       var addition = 0;
       if (config.facets) {
         addition += 300;

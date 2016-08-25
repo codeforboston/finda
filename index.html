@@ -22,7 +22,7 @@
     })(window,document,'script','dataLayer','GTM-M5B9K5');</script>
     <!-- End Google Tag Manager -->
 
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
          <!--Brand and Toggle get grouped for better mobile display-->
         <div class="navbar-header">
@@ -52,19 +52,28 @@
     </nav>
 
     <div class="container">
-      <nav id="finda-tabs">
-        <ul class="nav nav-tabs survey-tabs control-tabs">
-          <li role="presentation" class="active"><a data-toggle="tab" href="#facets" id="facet-click">Search Options</a></li>
-          <li role="presentation"><a data-toggle="tab" id="results-tab" href="#list">View Facilities</a></li>
-        </ul>
-      </nav>
-
-      <div class="tab-content">
-        <div id="facets" class="tab-pane control control-survey active"></div>
-        <div id="list" class="tab-pane control control-sidebar"></div>
+      <div class="left-column">
+        <nav id="finda-tabs">
+          <ul class="nav nav-tabs survey-tabs control-tabs">
+            <li role="presentation" class="active"><a data-toggle="tab" href="#facets" id="facet-click">Search Options</a></li>
+            <li role="presentation"><a data-toggle="tab" id="results-tab" href="#listTab">View Facilities</a></li>
+          </ul>
+        </nav>
+  
+        <div class="tab-content">
+          <div id="facets" class="tab-pane control control-survey active"></div>
+          <div id="listTab" class="tab-pane control control-sidebar">
+            <div class="list-filters">
+              <select id="select_county">
+                <option value="" selected>All Counties</option>
+              </select>
+            </div>
+            <div id="list"></div>
+          </div>
           <a href="#" id="back-to-top">Back to top</a>
+        </div>
       </div>
-      <div id="map" style="display:none"></div>
+      <div id="map" class="right-column" style="display:none"></div>
     </div>
 
 <!-- Assessment Modal -->

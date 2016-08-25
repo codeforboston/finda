@@ -53,7 +53,10 @@ define(function(require, exports, module) {
       } else {
         facetData = this.facetData;
       }
-
+      
+      // Remove search facets that are not part of the survey
+      delete facetData.county;
+      
       this.noSelectionsAvailable = false;
 
       // show first question if you're looking for a treatment facility
