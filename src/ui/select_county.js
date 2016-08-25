@@ -16,11 +16,11 @@ define(function(require, exports, module) {
       counties = _.sortBy(counties);
     
       counties.forEach(function(county) {
-        this.$node.append($("<option/>").html(county).attr('value', county))
+        this.$node.append($("<option/>").html(county).attr('value', county));
       }.bind(this));
     };
     
-    this.onCountySelected = function onCountySelected(e) {
+    this.onCountySelected = function onCountySelected() {
       var county = $(this.$node).val();
       var selected = [];
       if (county) {

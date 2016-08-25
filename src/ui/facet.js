@@ -55,7 +55,7 @@ define(function(require, exports, module) {
       }
       
       // Remove search facets that are not part of the survey
-      delete facetData.county
+      delete facetData.county;
       
       this.noSelectionsAvailable = false;
 

@@ -27,7 +27,7 @@ define(function(require, exports, module) {
         "phone_numbers": csvRow.phone_numbers,
         "address": csvRow.address + " " + csvRow.city + ", Kentucky",
         "city": csvRow.city,
-        "county": csvRow.county 
+        "county": csvRow.county
       };
 
       _.each(facetValues, function(facet, facetValue) {
