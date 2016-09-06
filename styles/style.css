@@ -410,9 +410,7 @@ body > div.container {
   }
   
   .right-column {
-    height: 200px;
-    border: 0;
-    border-top: 1px solid #aaa;
+    display: none;
   }
 }
 
