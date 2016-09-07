@@ -64,9 +64,12 @@
           <div id="facets" class="tab-pane control control-survey active"></div>
           <div id="listTab" class="tab-pane control control-sidebar">
             <div class="list-filters">
-              <select id="select_county">
+              <select id="select_county" class="form-control">
                 <option value="" selected>All Counties</option>
               </select>
+              <div class="btn btn-default btn-print" title="Print" onClick="window.print();">
+                🖶 Print
+              </div>
             </div>
             <div id="list"></div>
           </div>
