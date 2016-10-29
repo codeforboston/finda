@@ -9,7 +9,8 @@ require.config({
     'handlebars': '../lib/handlebars',
     'lodash': '../lib/lodash.min',
     'flight': '../lib/flight.min',
-    'fuse': '../lib/fuse.min'
+    'fuse': '../lib/fuse.min',
+    'arcgis': 'http://js.arcgis.com/3.14/'
   },
   shim: {
     'handlebars': {

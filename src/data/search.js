@@ -6,7 +6,7 @@ define(function(require) {
 
   return flight.component(function search() {
     this.defaultAttrs({
-      searchUrl: '//nominatim.openstreetmap.org/search'
+      searchUrl: 'http://gisimages.greensboro-nc.gov/prod/rest/services/Geocoding/AddressPoints/GeocodeServer/findAddressCandidates'
     });
     this.configureSearch = function(ev, config) {
       if (config.search && config.search.geosearch) {
@@ -20,16 +20,16 @@ define(function(require) {
       ev.preventDefault();
       var parameters = {
         // addressdetails: 1,
-        format: "json",
-        q: options.query,
-        bounded: 1
+        singlekey: options.query,
+        f: "pjson"        
+        //bounded: 1
       };
-      if (this.maxBounds) {
-        parameters.viewbox = [
-          this.maxBounds[1][1], this.maxBounds[1][0],
-          this.maxBounds[0][1], this.maxBounds[0][0]
-        ].join(',');
-      }
+      // if (this.maxBounds) {
+      //   parameters.viewbox = [
+      //     this.maxBounds[1][1], this.maxBounds[1][0],
+      //     this.maxBounds[0][1], this.maxBounds[0][0]
+      //   ].join(',');
+      // }
       $.getJSON(this.attr.searchUrl,
                 parameters,
                 this.searchResults.bind(this));
