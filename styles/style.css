@@ -58,7 +58,7 @@ body > div.container {
 }
 
 .navbar .navbar-header .navbar-toggle {
-  margin-top: -8px;
+  margin-top: 0px;
 }
 
 .navbar .navbar-brand {
