@@ -57,6 +57,7 @@ define(function(require, exports, module) {
       var facetValues = {
         outpatient_offered: "facility_type",
         residential_offered: "facility_type",
+        medical_detox_offered: "facility_type",
         outpatient_intensive: "out_patient",
         outpatient_services: "out_patient",
         outpatient_mat: "out_patient",
