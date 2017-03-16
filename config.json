@@ -35,7 +35,8 @@
     {"name": "gender", "title": "Genders Served" },
     {"name": "pregnancy_services", "title": "Services for Pregnant Women" },
     {"name": "age", "title": "Ages Served" },
-    {"name": "insurance", "title": "Payment accepted"}
+    {"name": "insurance", "title": "Payment accepted"},
+    {"name": "additional_notes", "title": "Additional Notes"}
   ],
   "list": [
     "organization_name",
