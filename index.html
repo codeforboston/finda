@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Generic 'find-a' app for geographic datasets">
     <meta name="author" content="Code for Boston">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/properties.css">
   </head>
@@ -23,8 +23,10 @@
            <span class="icon-bar"></span>
            <span class="icon-bar"></span>
          </button>
-         <img class="brand_image" data-project="logo" alt="Finda" src="img/logo.png" /> <!-- This is the logo of the deploying organization. Make sure to change the alt text to your company name! -->
-         <a class="navbar-brand" data-project="name" href="">Finda</a> <!-- This is the name of the map -->
+         <a href="http://codeforgreensboro.org" target="_blank">
+           <img class="brand_image" data-project="logo" alt="Finda" src="img/logo.png" /> <!-- This is the logo of the deploying organization. Make sure to change the alt text to your company name! -->
+         </a>
+         <a class="navbar-brand" data-project="name" href="">Greensboro Finda Facility</a> <!-- This is the name of the map -->
         </div>
 
         <!--Collected the nav links and content for toggling-->
@@ -34,9 +36,9 @@
           </ul>
           <form id="search" class="navbar-form dropdown" role="search">
             <div class="form-group">
-              <input type="text" class="address form-control" placeholder="Enter an address..." title="Data © OpenStreetMap contributors, ODbL 1.0. http://www.openstreetmap.org/copyright">
+              <input type="text" class="Address form-control" placeholder="Enter an Address..." title="Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright">
             </div>
-            <button type="submit" class="btn btn-default" title="Data © OpenStreetMap contributors, ODbL 1.0. http://www.openstreetmap.org/copyright">Locate</button>
+            <button type="submit" class="btn btn-default" title="Data © OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright">Locate</button>
             <div id="search-results" class="dropdown-menu">
               <div class="help"></div>
               <p class="suggested">Suggested results:</p>
@@ -65,14 +67,19 @@
           </div>
           <div class="modal-body">
             <div data-project="description">Finda is a generic "find-a" app for geographic datasets.</div>
-            <h5 data-project="contact">Please send feedback, ideas, and bug reports to our <a href="https://github.com/codeforboston/finda/issues" target="_blank">Github</a> page.</h5>
+            <h5 data-project="contact">Please send feedback, ideas, and bug reports to our <a href="https://github.com/codeforgso/finda/issues" target="_blank">Github</a> page.</h5>
             <hr>
-            <h4>About Code for Boston</h4>
-            <p>Code for Boston is a volunteer group of civic-minded developers, designers, urban planners, citizen activists, data geeks and more. Part of the <a href="http://brigade.codeforamerica.org">Code for America Brigade</a> program, we work with Boston-area city governments and local communities to build open-source civic apps, open public data sources, and generally help to leverage technology for use in the public sphere.</p>
-            <p>Feel free to stop by one of our <a href="http://www.meetup.com/Code-for-Boston" target="_blank">Weekly Hack Nights</a>, <a href="http://www.github.com/codeforboston" target="_blank">check us out on Github</a>, or simply <a href="mailto:boston-admin@codeforamerica.org"> drop us a line!</a></p>
+            <h4>About Code for Greensboro</h4>
+            <p>We're developers, designers, data nerds, politically-minded people with ideas for making things better, citizens, users of software—in other words, we are this community. We want to use these talents to make Greensboro's government work with the web in new and better ways.</p>
+            <p>Feel free to stop by one of our <a href="https://www.bit.ly/cfgrsvp" target="_blank">Bi-weekly Hack Nights</a>, <a href="https://www.github.com/codeforgso" target="_blank">check us out on Github</a>, or simply <a href="mailto:hello@codeforgreensboro.org"> drop us a line!</a></p>
+            <hr>
+            <h4>Credit Where Due</h4>
+            <p>Finda was originally built by <a href="https://github.com/codeforboston">Code for Boston</a>. We stand on the shoulders of giants!</p>
           </div>
           <div class="modal-footer">
-            <script type='text/javascript'>(function(){document.write("<img src='http://bostonbuilt.org/icon.php?q=built_in_boston_color_fancy.png&u=" + window.location.host + "' />");})();</script>
+            <a href="http://www.gsobuilt.co" target="_blank">
+              <img src="img/gsobuilt.jpg">
+            </a>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>

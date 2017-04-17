@@ -13,7 +13,7 @@ define(function(require, exports, module) {
       suggestedSelector: ".suggested",
       resultContainerSelector: "ul",
       resultSelector: "li",
-      resultTemplate: '<li><strong>{{ organization_name }}</strong> ({{ address }})</li>'
+      resultTemplate: '<li><strong>{{ AutoLabel }}</strong> ({{ Address }})</li>'
     });
 
     this.showHelp = function(ev, options) {
@@ -59,6 +59,19 @@ define(function(require, exports, module) {
       this.trigger(document, 'selectFeature', result);
     };
 
+    this.defaultResult = function(ev) {
+      ev.preventDefault();
+      var $target = $(this.attr.resultSelector, ev.target).first(),
+          display = $target.text(),
+          result = $target.data('result');
+
+      this.trigger('uiHideSearchResults');
+      this.trigger(this.attr.searchSelector,
+                   'uiShowingSearchResult',
+                   {display: display});
+      this.trigger(document, 'selectFeature', result);
+    };
+
     this.showSearchResults = function(ev) {
       ev.preventDefault();
       this.$node.show();
@@ -77,6 +90,7 @@ define(function(require, exports, module) {
       this.on('click', {
         resultSelector: this.selectedResult
       });
+      // this.on(this.attr.searchSelector, 'submit', this.defaultResult);
     });
   });
 });

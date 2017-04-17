@@ -21,7 +21,7 @@ body > div.container {
 
 .navbar {
   background: #e5e5e5; /*This should be the brand primary color*/
-  border-bottom: 2px solid #69579c; /*This should be the brand accent color*/
+  border-bottom: 2px solid #d04027; /*This should be the brand accent color*/
 }
 
 .navbar .navbar-header {
@@ -45,13 +45,13 @@ body > div.container {
   vertical-align: middle;
   font-weight: 300;
   font-size: 27px;
-  color: #69579c;
+  color: #d04027;
 }
 
 .navbar-form .btn {
   border:none;
   outline:none;
-  background-color: #69579c; /*This should be the brand accent color*/
+  background-color: #d04027; /*This should be the brand accent color*/
   color: #fff;
   font-weight: 400;
   vertical-align: middle;
@@ -60,17 +60,17 @@ body > div.container {
   box-shadow: none;
   outline:none;
   border:none;
-  background-color: #4F4175; /*This should be a 25% darken of the brand accent color*/
+  background-color: #b53524; /*This should be a 25% darken of the brand accent color*/
 }
 .navbar-form .btn:active{
   box-shadow: none;
   outline:none;
   border:none;
-  background-color: #342B4E; /*This should be a 50% darken of the brand accent color*/
+  background-color: #992c1d; /*This should be a 50% darken of the brand accent color*/
 }
 
 #search-results {
-  left: 142px;
+  left: 15px;
 }
 
 #search-results .help {
@@ -138,6 +138,9 @@ body > div.container {
   #search {
     /*text-align: center;*/
     float: none !important;
+    position: absolute;
+    display: inline;
+    width: 40%;
   }
 
   #search .form-group {
@@ -145,7 +148,7 @@ body > div.container {
   }
 
   #search input {
-    width: 30%;
+    width: 70%;
   }
   #search input:focus{
     box-shadow: inset 0px 1px 2px rgba(0,0,0,.15);
@@ -206,6 +209,9 @@ body > div.container {
   cursor: pointer;
   border-left: 5px solid #fcfcfc;
   list-style: none;
+}
+#list li.selected {
+  background: #d7d7d7;
 }
 
 #about .modal-footer img {

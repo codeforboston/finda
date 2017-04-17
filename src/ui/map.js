@@ -27,6 +27,10 @@ define(function(require, exports, module) {
         iconUrl: path + '/marker-icon-gray.png',
         shadowUrl: path + '/marker-shadow.png'
       });
+      this.redIcon = L.icon({
+        iconUrl: path + '/marker-icon-red.png',
+        shadowUrl: path + '/marker-shadow.png'
+      });
 
       this.defaultIcon = L.icon({
         iconUrl: path + '/marker-icon.png',
@@ -139,6 +143,14 @@ define(function(require, exports, module) {
               this.trigger('mapFinished', {});
             }
           }
+          //Added to zoom to fetures that are filtered.
+          if (object.addLayers.length > 0 || object.removeLayers.length > 0) {
+            if (this.previouslyClicked) {
+              this.trigger('hide');
+            }
+            this.trigger('panToFeatures', object);
+          }
+          /*******************************************/
         }.bind(this));
     };
 
@@ -162,7 +174,7 @@ define(function(require, exports, module) {
       if (feature) {
         this.currentFeature = feature;
         var layer = this.layers[feature.id];
-        layer.setIcon(this.grayIcon);
+        layer.setIcon(this.redIcon);
         this.previouslyClicked = layer;
 
         // re-bind popup to feature with specified preview attribute
@@ -213,8 +225,25 @@ define(function(require, exports, module) {
     };
 
     this.panTo = function(ev, latlng) {
-      this.map.panTo(latlng);
+      //this.map.panTo(latlng);
+      //Added pan and zoom to the selected feature
+      this.map.setView(latlng, 18, { animate : true, duration : 1 });
+      /*******************************************/
     };
+
+    //Added method to pan abnd zoom to features when data is filtered
+    this.panToFeatures = function(ev, features) {
+      var latLongs = [];
+      console.log(features.keepLayers);
+      $.each(features.keepLayers, function(index, value){
+        var latLong = [];
+        latLong.push(value._latlng.lat);
+        latLong.push(value._latlng.lng);
+        latLongs.push(latLong);
+      });
+      this.map.fitBounds(latLongs, { paddingTopLeft : [0, 50] });
+    };
+    /***************************************************************/
 
     this.onSearchResult = function(ev, result) {
       if (!this.searchMarker) {
@@ -281,6 +310,9 @@ define(function(require, exports, module) {
       this.on(document, 'hoverFeature', this.hoverFeature);
       this.on(document, 'clearHoverFeature', this.clearHoverFeature);
       this.on(document, 'dataSearchResult', this.onSearchResult);
+      //Added for new method
+      this.on('panToFeatures', this.panToFeatures);
+      /********************/
       this.on('panTo', this.panTo);
     });
 

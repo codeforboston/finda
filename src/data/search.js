@@ -19,14 +19,15 @@ define(function(require) {
     this.onSearch = function(ev, options) {
       ev.preventDefault();
       var parameters = {
+        // addressdetails: 1,
         format: "json",
-        addressdetails: 1,
-        q: options.query
+        q: options.query,
+        bounded: 1
       };
       if (this.maxBounds) {
         parameters.viewbox = [
-          this.maxBounds[0][0], this.maxBounds[0][1],
-          this.maxBounds[1][0], this.maxBounds[1][1]
+          this.maxBounds[1][1], this.maxBounds[1][0],
+          this.maxBounds[0][1], this.maxBounds[0][0]
         ].join(',');
       }
       $.getJSON(this.attr.searchUrl,
@@ -37,10 +38,7 @@ define(function(require) {
     this.searchResults = function(results) {
       if (results.length) {
         var location = results[0],
-            displayName = _.compact([location.address.road,
-                                     location.address.city,
-                                     location.address.state
-                                    ]).join(', ');
+            displayName = location.display_name;
         this.trigger('dataSearchResult', {
           name: displayName,
           lat: location.lat,

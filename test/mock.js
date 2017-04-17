@@ -14,24 +14,19 @@ define({
         [44.5, -65.0]
       ]
     },
-    "properties":[
-        "organization_name",
-        "address",
-        {"name": "address", "title": "directions", "directions": true },
-        {"name": "web_url", "title": "website", "url": true },
-        {"name": "contact_names", "title": "Contact Information" },
-        "contact_emails",
-        "phone_numbers",
-
-        {"name": "services_offered", "title": "Services" },
-        {"name": "youth_category", "title": "Type of Organization" },
-        {"name": "target_populations", "title": "Populations Served" },
-
-        {"name": "additional_notes", "title": "Information"}
+    "properties": [
+      "AutoLabel",
+      "Address",
+      {"name": "Address", "title": "directions", "directions": true },
+      {"name": "WebSite", "title": "WebSite", "url": true },
+      {"name": "contact_names", "title": "Contact Information" },
+      {"name": "SiteHours", "title": "Hours" },
+      {"name": "PhoneNumber", "title": "Phone " },
+      {"name": "AssetClass", "title": "Facility Type" }
     ],
     "list": [
-      "organization_name",
-      "address"
+      "AutoLable",
+      "Address"
     ],
     "search": {
         "geosearch": true
@@ -58,15 +53,15 @@ define({
           ]
         },
         "properties": {
-          "address": "2 Conz Street\nMaplewood Shops #34\nFranklin, MA 01060",
-          "organization_name": "Generation Q South: Community Action Youth Programs",
+          "Address": "2 Conz Street\nMaplewood Shops #34\nFranklin, MA 01060",
+          "AutoLable": "Generation Q South: Community Action Youth Programs",
           "community": "Northampton",
           "services_offered": [
             "support group",
             "social group"
           ],
           "web_url": "http://www.communityaction.us/our-groups-programs.html",
-          "phone_numbers": [
+          "PhoneNumber": [
             "413-774-7028"
           ],
           "contact_names": [
@@ -97,15 +92,15 @@ define({
           ]
         },
         "properties": {
-          "address": "154 Federal Street\nFranklin, MA 01301",
-          "organization_name": "Generation Q North: Community Action Youth Programs",
+          "Address": "154 Federal Street\nFranklin, MA 01301",
+          "AutoLable": "Generation Q North: Community Action Youth Programs",
           "community": "Greenfield",
           "services_offered": [
             "support group",
             "social group"
           ],
           "web_url": "http://www.communityaction.us/our-groups-programs.html",
-          "phone_numbers": [
+          "PhoneNumber": [
             "413-774-7028"
           ],
           "contact_names": [
@@ -134,15 +129,15 @@ define({
           ]
         },
         "properties": {
-          "address": "53 Elm Street\nFranklin, MA 01370",
-          "organization_name": "PFLAG Franklin-Hampshire",
+          "Address": "53 Elm Street\nFranklin, MA 01370",
+          "AutoLable": "PFLAG Franklin-Hampshire",
           "community": "Shellbourne Falls",
           "services_offered": [
             "support group",
             "public education"
           ],
           "web_url": "http://community.pflag.org/page.aspx?pid=803",
-          "phone_numbers": [
+          "PhoneNumber": [
             "(413)-625-6636"
           ],
           "contact_names": [
@@ -178,7 +173,7 @@ define({
     "type":"city",
     "importance":1.0299782170989,
     "icon":"http:\/\/nominatim.openstreetmap.org\/images\/mapicons\/poi_place_city.p.20.png",
-    "address":{
+    "Address":{
       "city":"Boston",
       "county":"Suffolk County",
       "state":"Massachusetts",
