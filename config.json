@@ -37,7 +37,8 @@
     {"name": "gender", "title": "Genders Served" },
     {"name": "pregnancy_services", "title": "Services for Pregnant Women" },
     {"name": "age", "title": "Ages Served" },
-    {"name": "insurance", "title": "Payment accepted"}
+    {"name": "insurance", "title": "Payment Accepted"},
+    {"name": "additional_notes", "title": "Additional Notes"}
   ],
   "list": [
     "organization_name",
@@ -86,7 +87,7 @@
       "type": "single"
     },
     "insurance": {
-      "title": "Payment accepted",
+      "title": "Payment Accepted",
       "survey_title": "I am interested in services that accept these payments:",
       "type": "single"
     },
