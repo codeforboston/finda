@@ -28,6 +28,7 @@ define(function(require, exports, module) {
         "address": csvRow.address + " " + csvRow.city + ", Kentucky",
         "city": csvRow.city,
         "county": csvRow.county,
+        "web_url": csvRow.web_url,
         "additional_notes": csvRow.additional_notes
       };
 
