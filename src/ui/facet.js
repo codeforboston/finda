@@ -168,17 +168,34 @@ define(function(require, exports, module) {
         this.facetHistory = [];
       }
       var clickedEl = $(ev.target);
+      var facility_type = $(ev.target).data('facility-type');
+      var jump_to_results = $(ev.target).data('jump-to-results');
       var offset = parseInt(clickedEl.data('nextFacetOffset'), 10);
       if (clickedEl.is('.previous')) {
         var facet = _.keys(this.facetData)[offset];
         $(document).trigger('uiClearFacets', {facet: facet});
         this.setFacetOffset(this.facetHistory.pop());
       } else {
+        if (facility_type) {
+          $(document).trigger('uiClearFacets', {facet: 'facility_type'});
+          $(document).trigger('uiClearFacets', {facet: 'out_patient'});
+          $(document).trigger('uiClearFacets', {facet: 'gender'});
+          $(document).trigger('uiClearFacets', {facet: 'pregnancy'});
+          $(document).trigger('uiClearFacets', {facet: 'age'});
+          $(document).trigger('uiClearFacets', {facet: 'insurance'});
+          $(document).trigger('uiFilterFacet', {
+            facet: 'facility_type',
+            selected: [facility_type]
+          });
+        }
         var lastItem = this.facetHistory[this.facetHistory.length - 1];
         if (lastItem !== this.facetOffset) {
           this.facetHistory.push(this.facetOffset);
         }
         this.setFacetOffset(offset);
+        if (jump_to_results) {
+          $(document).trigger('uiShowResults', {});
+        }
       }
     };
 
