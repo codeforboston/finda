@@ -187,6 +187,12 @@ define(function(require, exports, module) {
             facet: 'facility_type',
             selected: [facility_type]
           });
+          if (facility_type == 'outpatient_offered') {
+            // outpatient offered settings appear to be injected based on selecting things in the first panel
+            // so we'll give it 1/10 of a second to do what it needs do and then trigger another jump
+            var that=this;
+            window.setTimeout((function(){that.setFacetOffsetWithObject(that)}),100);
+          }
         }
         var lastItem = this.facetHistory[this.facetHistory.length - 1];
         if (lastItem !== this.facetOffset) {
@@ -203,6 +209,8 @@ define(function(require, exports, module) {
       this.facetOffset = offset;
       this.displayFacets();
     };
+
+    this.setFacetOffsetWithObject = function(obj,offset) { obj.setFacetOffset(1); }
 
     this.clearFacets = function(ev) {
       ev.preventDefault();
